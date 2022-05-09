@@ -9,22 +9,13 @@
  <%= f.radio_button :is_user, true, :class => "js" %>
  <%= f.label :is_user, "店舗スタッフ", :value => "false" %>
  <%= f.radio_button :is_user, false, :checked => true, :class => "js" %>
-
-
-<div>
- <%= render "public/registrations/clerk", f: f %>
-</div>
-
-
+ <div>
+  <%= render "public/registrations/new", f: f %>
+ </div>
 <% end %>
-
-<div>
- <!--%= render "public/registrations/customer", user: @user %>-->
-</div>
-
-
-
 <%= render "public/shared/links" %>
+
+
 
 
 
@@ -35,13 +26,13 @@ $('.js').click(function() {
 
  if (flg === 'true') {
   $('#only_clerk').hide();
+  $('#only_customer').show();
  } else {
   $('#only_clerk').show();
+  $('#only_customer').hide();
  }
 })
 
 
-
 </script>
-
 

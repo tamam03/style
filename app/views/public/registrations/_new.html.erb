@@ -1,6 +1,4 @@
 
-
-
   <div class="field">
    <%= f.label :氏名 %><br />
    <%= f.text_field :name %>
@@ -11,14 +9,16 @@
    <%= f.text_field :name_kana %>
   </div>
   
-  <div class="field">
-   <%= f.label :ニックネーム（表示用）%><br />
-   <%= f.text_field :nick_name %>
+  <div id="only_customer">
+    <div class="field">
+     <%= f.label :ニックネーム（表示用）%><br />
+     <%= f.text_field :nick_name %>
+    </div>
   </div>
-
+  
   <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+     <%= f.label :メールアドレス %><br />
+     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
@@ -34,18 +34,18 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-<div id="only_clerk">
+  <div id="only_clerk">
 
-  <div class="field">
+    <div class="field">
     <%= f.label :所属ブランド %>
     <%= f.collection_select :brand_id, Brand.all, :id, :brand_name, prompt: "ブランドを選択してください" %>
-  </div>
+    </div>
 
-  <div class="field">
+    <div class="field">
     <%= f.label :在籍店舗 %>
     <%= f.collection_select :store_id, Store.all, :id, :store_name, prompt: "店舗を選択してください" %>
+    </div>
   </div>
-</div>
 
 
   <div class="actions">
