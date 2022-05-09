@@ -8,7 +8,10 @@ class Public::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :nick_name, :brand_id, :store_id ])
+    
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :nick_name, :brand_id, :brand_name, :store_id, :store_name ])
+    
+
   end
 
   def after_sign_up_path_for(resource)
