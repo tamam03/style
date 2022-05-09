@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
 
-
-  
 # ユーザー用
 # URL /users/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {
@@ -21,18 +19,19 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
 root 'homes#top'
 
 
-
 #管理者
 namespace :admin do
   resources :users, only: [:index, :show, :edit]
   resources :brands, only: [:index, :create]
+  resources :stores, only: [:index, :create]
 
   end
 
+#ユーザー（顧客・店舗スタッフ）
+
  namespace :public do
-    get 'items/index'
-    get 'items/show'
-    get 'items/edit'
+   resources :items, only: [:index, :show, :edit]
+
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

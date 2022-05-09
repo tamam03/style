@@ -8,7 +8,7 @@ class Admin::BrandsController < ApplicationController
 
   def create
      @brand = Brand.new(brand_params)
-     @brand.save
+     @brand.save!
      redirect_to  request.referer
 
   end

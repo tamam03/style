@@ -1,0 +1,19 @@
+<h1>店舗一覧</h1>
+
+<%= form_with model: @store, url: admin_stores_path, method: :post do |f| %>
+
+  <%= f.text_field :store_name, placeholder: "店舗名" %>
+
+  <%= f.submit "登録" %>
+<% end %>
+
+
+
+<p>店舗リスト</p>
+
+<% @stores.each do |store| %>
+   <%= store.store_name %><br>
+<% end %>
+
+
+

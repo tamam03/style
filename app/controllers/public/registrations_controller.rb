@@ -8,14 +8,15 @@ class Public::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :nick_name, :brand_id, :brand_name, :store_id, :store_name ])
-    
+
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :nick_name, :brand_id, :store_id, :is_user])
+
+    @user = User.new
 
   end
 
   def after_sign_up_path_for(resource)
-    edit_user_registration_path
+      edit_user_registration_path
   end
 
   def after_sign_out_path_for(resource)

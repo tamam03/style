@@ -1,18 +1,18 @@
- <%= form_with model: @user, url: user_registration_path do |f| %>
-   <%= render "public/shared/error_messages", resource: resource %>
+
+
 
   <div class="field">
    <%= f.label :氏名 %><br />
    <%= f.text_field :name %>
   </div>
-  
+
   <div class="field">
    <%= f.label :フリガナ %><br />
    <%= f.text_field :name_kana %>
   </div>
   
   <div class="field">
-   <%= f.label :ニックネーム（表示用%><br />
+   <%= f.label :ニックネーム（表示用）%><br />
    <%= f.text_field :nick_name %>
   </div>
 
@@ -34,7 +34,20 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+<div id="only_clerk">
+
+  <div class="field">
+    <%= f.label :所属ブランド %>
+    <%= f.collection_select :brand_id, Brand.all, :id, :brand_name, prompt: "ブランドを選択してください" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :在籍店舗 %>
+    <%= f.collection_select :store_id, Store.all, :id, :store_name, prompt: "店舗を選択してください" %>
+  </div>
+</div>
+
+
   <div class="actions">
     <%= f.submit "新規登録" %>
   </div>
-  <% end %>

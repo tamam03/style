@@ -1,45 +1,47 @@
 <h2>新規会員登録</h2>
 
-  <%= form_with model: @user, url: user_registration_path do |f| %>
-   <%= render "public/shared/error_messages", resource: resource %>
 
-  <div class="field">
-   <%= f.label :氏名 %><br />
-   <%= f.text_field :name %>
-  </div>
-  
-  <div class="field">
-   <%= f.label :フリガナ %><br />
-   <%= f.text_field :name_kana %>
-  </div>
-  
-  <div class="field">
-   <%= f.label :ニックネーム（表示用%><br />
-   <%= f.text_field :nick_name %>
-  </div>
 
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
+ <%= render "public/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+ <%= f.label :is_user, "ユーザー", :value => "true" %>
+ <%= f.radio_button :is_user, true, :class => "js" %>
+ <%= f.label :is_user, "店舗スタッフ", :value => "false" %>
+ <%= f.radio_button :is_user, false, :checked => true, :class => "js" %>
 
-  <div class="field">
-    <%= f.label :確認パスワード %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-  <% end %>
-  
-  
+<div>
+ <%= render "public/registrations/clerk", f: f %>
+</div>
+
+
+<% end %>
+
+<div>
+ <!--%= render "public/registrations/customer", user: @user %>-->
+</div>
+
+
+
 <%= render "public/shared/links" %>
+
+
+
+<script>
+
+$('.js').click(function() {
+ const flg = $('input:radio[name="user[is_user]"]:checked').val();
+
+ if (flg === 'true') {
+  $('#only_clerk').hide();
+ } else {
+  $('#only_clerk').show();
+ }
+})
+
+
+
+</script>
+
+
