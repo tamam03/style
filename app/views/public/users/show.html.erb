@@ -1,0 +1,25 @@
+<h1>マイページ</h1>
+
+<% if @user.is_user == true %>
+
+<p><%= @user.name %></p>
+
+<p><%= @user.name_kana %></p>
+
+<p><%= @user.nick_name %></p>
+
+<p><%= @user.email %></p>
+
+<% elsif @user.is_user == false %>
+
+<p><%= @user.name %></p>
+
+<p><%= @user.name_kana %></p>
+
+<p><%= @user.brand.brand_name %></p>
+
+<p><%= @user.store.store_name %></p>
+
+<p><%= @user.email %></p>
+
+<% end %>

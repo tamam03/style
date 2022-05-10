@@ -10,9 +10,8 @@ class Admin::BrandsController < ApplicationController
      @brand = Brand.new(brand_params)
      @brand.save!
      redirect_to  request.referer
-
   end
-
+  
 
    private
 

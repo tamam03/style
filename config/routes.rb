@@ -22,15 +22,16 @@ root 'homes#top'
 #管理者
 namespace :admin do
   resources :users, only: [:index, :show, :edit]
-  resources :brands, only: [:index, :create]
+  resources :brands, only: [:index, :create, :destroy]
   resources :stores, only: [:index, :create]
 
   end
 
 #ユーザー（顧客・店舗スタッフ）
-
  namespace :public do
+   resources :users, only: [:show]
    resources :items, only: [:index, :show, :edit]
+
 
   end
 
