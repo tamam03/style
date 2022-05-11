@@ -16,10 +16,16 @@
 
 <p><%= @user.name_kana %></p>
 
+<p><%= @user.email %></p>
+
 <p><%= @user.brand.brand_name %></p>
 
 <p><%= @user.store.store_name %></p>
 
-<p><%= @user.email %></p>
+
 
 <% end %>
+
+
+<!--変更-->
+<%= link_to "投稿一覧", public_items_path %>
