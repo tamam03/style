@@ -30,7 +30,7 @@ namespace :admin do
 #ユーザー（顧客・店舗スタッフ）
  namespace :public do
    resources :users, only: [:show]
-   resources :items, only: [:index, :show, :create, :edit]
+   resources :items, only: [:index, :show, :new, :create, :edit]
 
 
   end
