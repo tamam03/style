@@ -30,8 +30,12 @@ namespace :admin do
 #ユーザー（顧客・店舗スタッフ）
  namespace :public do
    resources :users, only: [:show]
-   resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy]
    get 'items/privacy' => 'items#privacy'
+   get 'items/clerk' => 'items#clerk'
+   resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+     resource :favorites, only: [:create, :destroy]
+   end
+
 
 
   end

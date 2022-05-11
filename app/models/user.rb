@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :items, dependent: :destroy
   belongs_to :brand, optional: true
+  has_many :favorites, dependent: :destroy
 
   #変更予定
   belongs_to :store , optional: true

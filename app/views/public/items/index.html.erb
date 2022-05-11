@@ -5,14 +5,19 @@
 
 <% @items.each do |item| %>
 
-<%= item.user.nick_name %>
+  <%= item.user.nick_name %>
 
-<%= item.text %>
+  <%= item.text %>
 
-<%= item.brand.brand_name %>
+  <%= item.brand.brand_name %>
 
-<%= button_to "削除", public_item_path(item), method: :delete %>
-<%= link_to "詳細", public_item_path(item) %>
+  <%= render "public/favorites/btn", item: item %>
+
+  <% if item.user == current_user %>
+     <%= button_to "削除", public_item_path(item), method: :delete %>
+     <%= link_to "詳細", public_item_path(item) %>
+  <% else %>
+  <% end %>
 <% end %>
 
 
@@ -22,6 +27,12 @@
 
 <% if user_signed_in? %>
  <%= link_to "非公開一覧", public_items_privacy_path %>
+<% else %>
+<% end %>
+
+<% if current_user || @user == false %>
+ <%= link_to "店舗スタッフ公開一覧", public_items_clerk_path %>
+<% else %>
 <% end %>
 
 

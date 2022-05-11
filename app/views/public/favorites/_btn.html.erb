@@ -1,0 +1,9 @@
+<% if item.favorited_by?(current_user) %>
+    <%= link_to public_item_favorites_path(item), method: :delete do %>
+    ♥<%= item.favorites.count %>いいね
+    <% end %>
+    <% else %>
+    <%= link_to public_item_favorites_path(item), method: :post do %>
+    ♡<%= item.favorites.count %>いいね
+    <% end %>
+<% end %>

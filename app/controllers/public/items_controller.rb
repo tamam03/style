@@ -1,20 +1,21 @@
 class Public::ItemsController < ApplicationController
+# before_action :ensure_user, only: [:privacy, :clerk, :edit, :update, :destroy ]
 
   def index
     @items = Item.all
+    @user = User.select("is_user")
 
   end
 
   # 非公開投稿一覧
   def privacy
-
     @close_items = current_user.items.where(status: "close")
-    @items = @close_items.all
-
+    # @items = @close_items.all
   end
 
   # 店舗スタッフのみ公開一覧
   def clerk
+    @clerk_items = current_user.items.where(status: "only_clerk")
   end
 
   def show
@@ -52,8 +53,18 @@ class Public::ItemsController < ApplicationController
 
   private
 
+  # def ensure_user
+    # @items = current_user.items
+    # @item = @items.find_by(id: params[:id])
+    # redirect_to public_items_path unless @item
+  # end
+
+
   def item_params
     params.require(:item).permit(:text, :brand_id, :status)
   end
 
 end
+
+
+
