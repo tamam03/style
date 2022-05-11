@@ -8,12 +8,18 @@
    <%= f.label :ブランド %>
    <%= f.select :brand_id, options_from_collection_for_select(Brand.all, :id, :brand_name), { prompt: '選択してください' } %>
 
-   <%= f.label :非公開 %>
-   <%= f.radio_button :status, :非公開, checked: "checked" %>
-   <%= f.label :公開 %>
-   <%= f.radio_button :status, :公開 %>
-   <%= f.label :店舗スタッフのみ公開 %>
-   <%= f.radio_button :status, :店舗スタッフのみ公開 %>
+
+   <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] },{prompt: '選択してください'} %>
+
+
+   <!--作れたらラジオボタンで-->
+   <%#= f.select :status, ApplicantStatus.statuses.keys, {prompt: '選択してください'}
+   <%#= f.label :非公開 %>
+   <%#= f.radio_button :status, :非公開, checked: "checked" %>
+   <%#= f.label :公開 %>
+   <%#= f.radio_button :status, :公開 %>
+   <%#= f.label :店舗スタッフのみ公開 %>
+   <%#= f.radio_button :status, :店舗スタッフのみ公開 %>
 
    <%= f.submit "投稿" %>
 <% end %>

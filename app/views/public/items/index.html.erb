@@ -1,3 +1,21 @@
 <h1>投稿一覧</h1>
+<!--後ほど画像のみ-->
 
 <%= link_to "新規投稿", new_public_item_path %>
+
+<% @items.each do |item| %>
+
+<%= item.user.nick_name %>
+
+<%= item.text %>
+
+<%= item.brand.brand_name %>
+
+<%= button_to "削除", public_item_path(item), method: :delete %>
+<%= link_to "詳細", public_item_path(item) %>
+<% end %>
+
+
+
+
+

@@ -1,0 +1,12 @@
+<!--投稿のステータスが自分の投稿かつ非公開-->
+<h1>非公開投稿一覧</h1>
+
+<% @close_items.each do |item| %>
+
+ <%= item.text %>
+
+ <%= item.brand.brand_name %>
+
+<%= button_to "削除", public_item_path(item), method: :delete %>
+<%= link_to "詳細", public_item_path(item) %>
+<% end %>

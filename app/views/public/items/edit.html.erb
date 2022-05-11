@@ -1,2 +1,17 @@
-<h1>Public::Items#edit</h1>
-<p>Find me in app/views/public/items/edit.html.erb</p>
+<h1>投稿編集</h1>
+
+<%= form_with model: @item, url: public_item_path(@item), method: :patch do |f| %>
+
+
+<%= f.label :説明文 %>
+<%= f.text_field :text %>
+
+<%= f.label :ブランド %>
+<%= f.select :brand_id, options_from_collection_for_select(Brand.all, :id, :brand_name) %>
+
+<%= f.label :ステータス %>
+<%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] } %>
+
+<%= f.submit "変更する" %>
+
+<% end %>

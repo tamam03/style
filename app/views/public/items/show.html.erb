@@ -1,2 +1,18 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<h1>投稿詳細</h1>
+
+
+<p>説明文</p>
+
+<%= @item.text %>
+
+<p>ブランド</p>
+
+<%= @item.brand.brand_name %>
+
+<p>ステータス</p>
+<%= @item.status_i18n %>
+
+
+<%= link_to "編集", edit_public_item_path(@item) %>
+
+<%= link_to "投稿一覧", public_items_path %>
