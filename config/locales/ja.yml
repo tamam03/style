@@ -1,0 +1,9 @@
+ja:
+  enums:
+      item:
+        status:
+          close: "非公開"
+          release: "公開"
+          only_clerk: "店舗スタッフのみ公開"
+
+
