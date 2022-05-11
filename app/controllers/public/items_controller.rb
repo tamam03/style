@@ -2,15 +2,17 @@ class Public::ItemsController < ApplicationController
 
   def index
     @items = Item.all
-   
+
   end
-  
+
   # 非公開投稿一覧
   def privacy
-    @items = Item.all
-    @clse_items = @items.where(status:0)
+
+    @close_items = current_user.items.where(status: "close")
+    @items = @close_items.all
+
   end
-  
+
   # 店舗スタッフのみ公開一覧
   def clerk
   end
@@ -34,7 +36,7 @@ class Public::ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
   end
-  
+
   def destroy
     @Item = Item.find(params[:id])
     @Item.destroy

@@ -31,6 +31,7 @@ namespace :admin do
  namespace :public do
    resources :users, only: [:show]
    resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+   get 'items/privacy' => 'items#privacy'
 
 
   end
