@@ -20,6 +20,7 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -30,7 +31,7 @@ class Public::ItemsController < ApplicationController
     # binding.pry
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    @item.save
+    @item.save!
     redirect_to public_items_path
   end
 
