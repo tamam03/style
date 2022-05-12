@@ -1,7 +1,7 @@
 <!--コメント投稿-->
-<%= form_with model:[item, comment], url: public_item_comments_path(item_id: item.id), method: :post do |f| %>
+<%= form_with model: [@item, @comment], url: public_item_comments_path(@item), method: :post do |f| %>
 
-  <%= f.label :コメント %>
+  <%= f.label :text, "コメント" %>
   <%= f.text_area :text, placeholder: "コメントをここに" %>
   <%#= f.hidden_field :item_id, value: item.id %>
   <%= f.submit "送信" %>

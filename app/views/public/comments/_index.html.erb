@@ -1,8 +1,13 @@
 <!--コメント一覧-->
 
-<% item.comments.each do |comment| %>
+<% @comments.each do |comment| %>
 
-  <%= comment.text %>
+  <p><%= comment.text %></p>
+
+  <%# if comment.user == current_user %>
+    <p><%#= link_to "削除",  public_item_comment_path(comment.item_id, comment.id), method: :delete %></p>
+  <%# end %>
+
 
 <% end %>
 

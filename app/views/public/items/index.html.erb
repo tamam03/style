@@ -1,7 +1,7 @@
 <h1>投稿一覧</h1>
 <!--後ほど画像のみ-->
 
-<%= link_to "新規投稿", new_public_item_path %>
+<div><%= link_to "新規投稿", new_public_item_path %></div>
 
 <% @items.each do |item| %>
 
@@ -11,11 +11,21 @@
 
   <%= item.brand.brand_name %>
 
-  <%= render "public/favorites/btn", item: item %>
+
+
+  <!--いいね非同期-->
+  <% unless item.user == current_user %>
+   <div id = "favorite_btns_<%= item.id %>">
+   <p><%= render "public/favorites/btn", item: item %></p>
+   </div>
+  <% else %>
+  <% end %>
+
+
 
   <% if item.user == current_user %>
-     <%= button_to "削除", public_item_path(item), method: :delete %>
-     <%= link_to "詳細", public_item_path(item) %>
+     <p><%= button_to "削除", public_item_path(item), method: :delete %></p>
+     <p><%= link_to "詳細", public_item_path(item) %></p>
   <% else %>
   <% end %>
 <% end %>
@@ -30,6 +40,7 @@
 <% else %>
 <% end %>
 
+<!--後ほど確認（書いていることsigned_inと同じ？）-->
 <% if current_user || @user == false %>
  <%= link_to "店舗スタッフ公開一覧", public_items_clerk_path %>
 <% else %>
