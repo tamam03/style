@@ -1,4 +1,7 @@
 <h1>投稿詳細</h1>
+<%= link_to "編集", edit_public_item_path(@item) %>
+
+<%= link_to "投稿一覧", public_items_path %>
 
 
 <p>説明文</p>
@@ -13,6 +16,7 @@
 <%= @item.status_i18n %>
 
 
-<%= link_to "編集", edit_public_item_path(@item) %>
+<p><%= render "public/comments/form", item: @item, commen</p>
 
-<%= link_to "投稿一覧", public_items_path %>
+
+

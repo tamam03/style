@@ -33,6 +33,7 @@ namespace :admin do
    get 'items/privacy' => 'items#privacy'
    get 'items/clerk' => 'items#clerk'
    resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+     resources :comments, only: [:create, :destroy]
      resource :favorites, only: [:create, :destroy]
    end
 

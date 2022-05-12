@@ -3,7 +3,7 @@
 <%= form_with model: @item, url: public_items_path, method: :post do |f| %>
 
    <%= f.label :説明 %>
-   <%= f.text_field :text %>
+   <%= f.text_area :text, placeholder: "説明をここに" %>
 
    <%= f.label :ブランド %>
    <%= f.select :brand_id, options_from_collection_for_select(Brand.all, :id, :brand_name), { prompt: '選択してください' } %>
