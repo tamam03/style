@@ -16,7 +16,13 @@ class Public::ItemsController < ApplicationController
 
   # 店舗スタッフのみ公開一覧
   def clerk
-    @clerk_items = current_user.items.where(status: "only_clerk")
+    # @clerk_all_items = Item.all.where(status: "only_clerk")
+    
+    # @clerk_items = current_user.items.where(status: "only_clerk")
+    @clerk_items = Item.all.where(status: "only_clerk")
+    
+    # binding.irb
+
   end
 
   def show

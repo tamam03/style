@@ -1,12 +1,32 @@
 <h1>店舗スタッフ公開一覧</h1>
+<!--ログインがfalseのとき全て　trueのときじぶんの投稿のみ-->
+
+<% if current_user.is_user == false %>
+
+  <% @clerk_all_items.each do |clerk| %>
+
+  <%= clerk.text %>
+  <%= clerk.brand.brand_name %>
+
+ <% else %>
+
+  <%# current_user.@clerk_all_items.each do |clerk| %>
+
+  <%#= clerk.text %>
+  <%#= clerk.brand.brand_name %>
+
+  <% end %>
+
+ <% end %>
 
 
-<% @clerk_items.each do |item| %>
+ <%# @clerk_items.each do |item| %>
 
- <%= item.text %>
+  <%#= item.text %>
+  <%#= item.brand.brand_name %>
 
- <%= item.brand.brand_name %>
+  <%#= button_to "削除", public_item_path(item), method: :delete %>
+  <%#= link_to "詳細", public_item_path(item) %>
 
-<%= button_to "削除", public_item_path(item), method: :delete %>
-<%= link_to "詳細", public_item_path(item) %>
-<% end %>
+
+<%# end %>

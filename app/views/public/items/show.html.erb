@@ -17,9 +17,9 @@
 <%= @item.status_i18n %><br>
 
 
-<p><%= render "public/comments/form", comment: @comment %></p>
+<p><%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %></p>
 
-<p><%= render "public/comments/index", comments: @comments, item: @item %></p>
+<p><%= render partial: "public/comments/index", locals: {comments: @comments} %></p>
 
 
 
