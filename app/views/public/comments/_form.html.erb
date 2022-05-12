@@ -3,6 +3,10 @@
 
   <%= f.label :コメント %>
   <%= f.text_area :text, placeholder: "コメントをここに" %>
+  <%#= f.hidden_field :item_id, value: item.id %>
   <%= f.submit "送信" %>
 
 <% end %>
+
+
+<!--item id取得をしてログインユーザーのidで投稿-->

@@ -12,6 +12,7 @@ class Public::ItemsController < ApplicationController
     @close_items = current_user.items.where(status: "close")
     # @items = @close_items.all
   end
+  
 
   # 店舗スタッフのみ公開一覧
   def clerk
@@ -21,6 +22,8 @@ class Public::ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @comment = Comment.new
+    # @comments = @item.comments
+    
   end
 
   def new

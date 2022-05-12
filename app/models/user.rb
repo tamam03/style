@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
   belongs_to :brand, optional: true
   has_many :favorites, dependent: :destroy
-  has_many :comments, dependent: :destroy
-  
+  has_many :comments
+
 
   #変更予定
   belongs_to :store , optional: true
