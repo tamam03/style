@@ -29,9 +29,15 @@ namespace :admin do
 
 #ユーザー（顧客・店舗スタッフ）
  namespace :public do
-   resources :users, only: [:show]
+   resources :users, only: [:show] do
+     resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' =>  'relationships#followers', as: 'followers'
+    end
+
    get 'items/privacy' => 'items#privacy'
    get 'items/clerk' => 'items#clerk'
+   
    resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
      resources :comments, only: [:create, :destroy]
      resource :favorites, only: [:create, :destroy]
