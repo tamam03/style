@@ -1,0 +1,33 @@
+<h1>プロフィール編集</h1>
+
+<%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
+
+ <div class="field">
+   <%= f.label :プロフィール画像 %>
+   <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %>
+ </div>
+
+ <div class="field">
+   <%= f.label :氏名 %>
+   <%= f.text_field :name %>
+ </div>
+
+ <div class="field">
+   <%= f.label :フリガナ %>
+   <%= f.text_field :name_kana %>
+ </div>
+
+ <div class="field">
+   <%= f.label :ニックネーム（表示用） %>
+   <%= f.text_field :nick_name %>
+ </div>
+
+ <div class="field">
+   <%= f.label :メールアドレス %>
+   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+ </div>
+
+ <%= f.submit "変更を保存" %>
+<% end %>
+
+

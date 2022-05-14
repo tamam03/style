@@ -61,3 +61,5 @@ gem 'devise'
 gem "enum_help"
 
 gem 'pry-byebug', group: :development
+
+gem 'image_processing', '~> 1.2'

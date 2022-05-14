@@ -2,6 +2,8 @@
 
 <% if @user.is_user == true %>
 
+<p><%= image_tag @user.get_profile_image(100, 100) %></p>
+
 <p><%= @user.name %></p>
 
 <p><%= @user.name_kana %></p>

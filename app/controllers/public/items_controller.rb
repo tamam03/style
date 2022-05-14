@@ -17,10 +17,10 @@ class Public::ItemsController < ApplicationController
   # 店舗スタッフのみ公開一覧
   def clerk
     # @clerk_all_items = Item.all.where(status: "only_clerk")
-    
+
     # @clerk_items = current_user.items.where(status: "only_clerk")
     @clerk_items = Item.all.where(status: "only_clerk")
-    
+
     # binding.irb
 
   end
@@ -70,7 +70,7 @@ class Public::ItemsController < ApplicationController
 
 
   def item_params
-    params.require(:item).permit(:text, :brand_id, :status)
+    params.require(:item).permit(:text, :brand_id, :status, :item_image)
   end
 
 end
