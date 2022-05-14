@@ -1,2 +1,3 @@
 <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 <li><%= link_to "投稿一覧", public_items_path %></li>
+<li><%= link_to "マイページ", public_user_path(current_user) %></li>

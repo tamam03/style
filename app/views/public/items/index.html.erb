@@ -5,13 +5,11 @@
 
 <% @items.each do |item| %>
 
-  <%= item.user.nick_name %>
+  <%= link_to item.user.nick_name, public_user_path(item.user.id)  %>
 
   <%= item.text %>
 
   <%= item.brand.brand_name %>
-
-
 
 
   <!--いいね非同期-->
