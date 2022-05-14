@@ -1,2 +1,15 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<h1>顧客詳細</h1>
+
+<p><%= image_tag @user.get_profile_image(100, 100) %></p>
+
+<p><%= @user.name %></p>
+
+<p><%= @user.name_kana %></p>
+
+<p><%= @user.nick_name %></p>
+
+<p><%= @user.email %></p>
+
+
+ <%= link_to "編集", edit_admin_user_path(@user) %>
+ <%= link_to "削除", admin_user_path(@user), method: :delete %>

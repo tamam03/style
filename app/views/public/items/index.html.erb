@@ -5,9 +5,9 @@
 
 <% @items.each do |item| %>
 
-  <%= link_to item.user.nick_name, public_user_path(item.user.id)  %>
+  <%= image_tag item.get_item_image(100, 100) %>
 
-  <%= item.text %>
+  <%= link_to item.user.nick_name, public_user_path(item.user.id)  %>
 
   <%= item.brand.brand_name %>
 

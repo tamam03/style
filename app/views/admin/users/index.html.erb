@@ -1,10 +1,7 @@
-<h1>管理一覧</h1>
+<h1>顧客一覧</h1>
 
-<h3>顧客管理</h3>
-<!--%= link_to "クリック",-->
-
-<h3>ブランド管理</h3>
-<%= link_to "クリック", admin_brands_path %>
-
-<h3>店舗管理</h3>
-<%= link_to "クリック", admin_stores_path %>
+<% @users.each do |user| %>
+   <%= user.name %>
+   <%= user.email %>
+   <%= link_to "詳細", admin_user_path(user.id) %>
+<% end %>

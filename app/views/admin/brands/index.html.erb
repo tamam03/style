@@ -1,7 +1,7 @@
 <h1>ブランド一覧</h1>
 
 <%= form_with model: @brand, url: admin_brands_path, method: :post do |f| %>
-  
+
 
   <%= f.text_field :brand_name, placeholder: "ブランド名" %>
 
@@ -10,7 +10,7 @@
 
 
 
-<p>ブランドリスト</p>
+<h4>ブランドリスト</h4>
 <% @brands.each do |brand| %>
    <%= brand.brand_name %><br>
 <% end %>

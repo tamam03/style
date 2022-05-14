@@ -21,11 +21,11 @@ root 'homes#top'
 
 #管理者
 namespace :admin do
-  resources :users, only: [:index, :show, :edit]
+  get 'homes/top' => 'homes#top'
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :brands, only: [:index, :create, :destroy]
   resources :stores, only: [:index, :create]
-
-  end
+end
 
 #ユーザー（顧客・店舗スタッフ）
  namespace :public do
@@ -41,10 +41,7 @@ namespace :admin do
    resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
      resources :comments, only: [:create, :destroy]
      resource :favorites, only: [:create, :destroy]
-   end
-
-
-
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -2,7 +2,7 @@
 
 <%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
 
- <div class="field">
+ <div class="image">
    <%= f.label :プロフィール画像 %>
    <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %>
  </div>

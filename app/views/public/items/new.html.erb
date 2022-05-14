@@ -2,15 +2,24 @@
 
 <%= form_with model: @item, url: public_items_path, method: :post do |f| %>
 
+   <div class="images">
+   <%= f.label :投稿画像 %>
+   <%= f.file_field :item_image, placeholder: "画像", accept: 'image/*' %>
+   </div>
+
+   <div class="field">
    <%= f.label :説明 %>
    <%= f.text_area :text, placeholder: "説明をここに" %>
+   </div>
 
+   <div class="select">
    <%= f.label :ブランド %>
    <%= f.select :brand_id, options_from_collection_for_select(Brand.all, :id, :brand_name), { prompt: '選択してください' } %>
+   </div>
 
-
+   <div class="select">
    <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] },{prompt: '選択してください'} %>
-
+   </div>
 
    <!--作れたらラジオボタンで-->
    <%#= f.select :status, ApplicantStatus.statuses.keys, {prompt: '選択してください'}
