@@ -29,7 +29,7 @@ namespace :admin do
 
 #ユーザー（顧客・店舗スタッフ）
  namespace :public do
-   resources :users, only: [:show] do
+   resources :users, only: [:show, :edit] do
      resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' =>  'relationships#followers', as: 'followers'

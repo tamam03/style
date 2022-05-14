@@ -9,6 +9,7 @@
 <p><%= @user.nick_name %></p>
 
 
+
 <% elsif @user.is_user == false %>
 
 <p><%= @user.name %></p>
@@ -21,8 +22,12 @@
 
 <p><%= @user.store.store_name %></p>
 
+<% end %>
 
-
+<% unless current_user.id == @user.id %>
+ <%= render 'public/relationships/btn', user: @user %>
+<% else %>
+ <%= link_to "編集", edit_public_user_path(@user) %>
 <% end %>
 
 
