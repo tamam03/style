@@ -1,0 +1,41 @@
+<h1>チャットルーム</h1>
+
+ <table class="sentence table">
+    <thead>
+     <tr>
+       <th><%= current_user.name %></th>
+       <th><%= @user.name %></th>
+     </tr>
+    </thead>
+   <!--チャット履歴-->
+   <% @chats.each do |chat| %>
+   <% if chat.user_id == current_user.id %>
+    <tbody>
+      <tr>
+        <th>
+          <p style="text-align: left;"><%= chat.sentence %></p>
+        </th>
+        <th></th>
+      </tr>
+    <% else %>
+      <tr>
+        <th></th>
+        <th>
+          <p style="text-align: right;"><%= chat.sentence %></p>
+        </th>
+      </tr>
+    </tbody>
+    <% end %>
+    <% end %>
+ </table>
+
+<!--チャット送信-->
+<%= form_with model: @chat, url: public_chats_path do |f| %>
+   <%= f.text_field :sentence %>
+   <%= f.hidden_field :room_id %>
+   <%= f.submit "送信" %>
+<% end %>
+<div class="error-alert"></div>
+
+
+

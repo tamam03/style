@@ -2,7 +2,7 @@
 
 <% if @user.is_user == true %>
 
-<p><%= image_tag @user.get_profile_image(100, 100) %></p>
+<p><%= image_tag @user.get_profile_image(100, 100), class: "rounded-circle" %></p>
 
 <p><%= @user.name %></p>
 
@@ -30,6 +30,12 @@
  <%= render 'public/relationships/btn', user: @user %>
 <% else %>
  <%= link_to "編集", edit_public_user_path(@user) %>
+<% end %>
+
+
+<!--フォロー同士で表示に変更-->
+<% if current_user.id != @user.id %>
+  <%= link_to "#{@user.name}さんとチャットする", public_chat_path(@user.id) %>
 <% end %>
 
 

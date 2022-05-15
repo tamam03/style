@@ -1,12 +1,19 @@
-<h1>style</h1>
-
-
-<h4>ログイン</h4>
-<%= link_to "クリック", new_user_session_path %><br>
-
-
-<h4>新規登録はこちら</h4>
-<%= link_to "新規登録",  new_user_registration_path %><br>
-
-<h6>管理者ページ</h6>
-<%= link_to "こちら",  new_admin_session_path %><br>
+<div class="container">
+  <div class="p-5 mx-auto">
+    <div class="row">
+      <!--後ほどロゴ挿入-->
+      <h1>style</h1>
+    </div>
+    <div class="row">
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-secondary " %>
+    </div>
+    <div class="row">
+      <h4>新規登録はこちら</h4>
+      <%= link_to "新規登録",  new_user_registration_path %>
+    </div>
+    <div class="row">
+      <h6>管理者ページ</h6>
+      <%= link_to "こちら",  new_admin_session_path %>
+    </div>
+  </div>
+</div>

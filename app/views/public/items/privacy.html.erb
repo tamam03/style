@@ -3,6 +3,8 @@
 
 <% @close_items.each do |item| %>
 
+ <%= image_tag item.get_item_image(200, 200) %>
+
  <%= item.text %>
 
  <%= item.brand.brand_name %>

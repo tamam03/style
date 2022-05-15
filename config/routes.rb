@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  namespace :public do
+    get 'rooms/index'
+  end
 # ユーザー用
 # URL /users/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {
@@ -22,13 +25,24 @@ root 'homes#top'
 #管理者
 namespace :admin do
   get 'homes/top' => 'homes#top'
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  # get 'users/search' => 'users#search'
+  resources :users, only: [:index, :show, :edit, :update, :destroy] do
+    collection do
+      get 'search'
+    end
+  end
   resources :brands, only: [:index, :create, :destroy]
   resources :stores, only: [:index, :create]
 end
 
 #ユーザー（顧客・店舗スタッフ）
  namespace :public do
+   resources :rooms, only: [:index, :show, :new, :create] do
+     resources :chats, only: [:create]
+  end
+end
+ namespace :public do
+
    resources :users, only: [:show, :edit, :update] do
      resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
@@ -43,6 +57,8 @@ end
      resource :favorites, only: [:create, :destroy]
     end
   end
+
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

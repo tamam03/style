@@ -1,4 +1,7 @@
 class Admin::UsersController < ApplicationController
+  before_action :set_q, only: [:index, :search]
+  # :set_user, only: [:index, :show, :edit, :update, :destroy]
+
   def index
     @users = User.all
   end
@@ -28,10 +31,21 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path
   end
 
+  def search
+   @results = @q.result
+  end
+
+
 
    private
+
+  def set_q
+    @q = User.ransack(params[:q])
+  end
 
   def user_params
     params.require(:user).permit(:email, :name, :name_kana, :nick_name, :brand_id, :store_id, :is_user, :profile_image)
   end
+
+
 end

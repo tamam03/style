@@ -18,6 +18,9 @@
     <% else current_user == true && current_admin == nill %>
       <%= render 'layouts/user_header' %>
     <% end %>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
