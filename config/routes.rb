@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
 
-  namespace :public do
-    get 'rooms/index'
-  end
 # ユーザー用
 # URL /users/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {
@@ -37,10 +34,8 @@ end
 
 #ユーザー（顧客・店舗スタッフ）
  namespace :public do
-   resources :rooms, only: [:index, :show, :new, :create] do
-     resources :chats, only: [:create]
+     resources :chats, only: [:show, :create]
   end
-end
  namespace :public do
 
    resources :users, only: [:show, :edit, :update] do

@@ -1,41 +1,21 @@
-<h1>チャットルーム</h1>
+<h1 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h1>
 
- <table class="sentence table">
-    <thead>
-     <tr>
-       <th><%= current_user.name %></th>
-       <th><%= @user.name %></th>
-     </tr>
-    </thead>
-   <!--チャット履歴-->
-   <% @chats.each do |chat| %>
-   <% if chat.user_id == current_user.id %>
-    <tbody>
-      <tr>
-        <th>
-          <p style="text-align: left;"><%= chat.sentence %></p>
-        </th>
-        <th></th>
-      </tr>
+<div class="sentence" style="width: 400px;">
+  <% @chats.each do |chat| %>
+    <% if chat.user_id == current_user.id %>
+      <p style="text-align: right;"><%= chat.sentence %></p>
     <% else %>
-      <tr>
-        <th></th>
-        <th>
-          <p style="text-align: right;"><%= chat.sentence %></p>
-        </th>
-      </tr>
-    </tbody>
+      <p style="text-align: left;"><%= chat.sentence %></p>
     <% end %>
-    <% end %>
- </table>
+  <% end %>
+</div>
 
-<!--チャット送信-->
-<%= form_with model: @chat, url: public_chats_path do |f| %>
-   <%= f.text_field :sentence %>
-   <%= f.hidden_field :room_id %>
-   <%= f.submit "送信" %>
+<div class="errors">
+  <%#= render "layouts/errors", obj: @chat %>
+</div>
+
+<%= form_with model: @chat, url: public_chats_path, data: {remote: true} do |f| %>
+  <%= f.text_field :sentence %>
+  <%= f.hidden_field :room_id %>
+  <%= f.submit "送信" %>
 <% end %>
-<div class="error-alert"></div>
-
-
-
