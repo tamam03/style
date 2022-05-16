@@ -8,4 +8,5 @@ class HomesController < ApplicationController
       # redirect_to  public_user_path(current_user)
     end
   end
+
 end

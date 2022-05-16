@@ -18,6 +18,9 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
 #共通トップページ
 root 'homes#top'
 
+# ゲストログイン用
+post '/public/guest', to: 'public_guest_sessions#create'
+
 
 #管理者
 namespace :admin do

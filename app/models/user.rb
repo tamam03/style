@@ -11,7 +11,7 @@ class User < ApplicationRecord
   belongs_to :brand, optional: true
   has_many :favorites, dependent: :destroy
   has_many :comments
-  
+
   # チャット機能
   has_many :user_rooms, dependent: :destroy
   has_many :rooms, through: :user_rooms
@@ -58,6 +58,7 @@ class User < ApplicationRecord
   end
 
 end
+
 
 
 # optional: true なくても保存できるように
