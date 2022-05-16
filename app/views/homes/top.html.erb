@@ -1,19 +1,28 @@
-<div class="container">
-  <div class="p-5 mx-auto">
-    <div class="row">
-      <!--後ほどロゴ挿入-->
-      <h1>style</h1>
-    </div>
-    <div class="row">
-      <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-secondary " %>
-    </div>
-    <div class="row">
-      <h4>新規登録はこちら</h4>
-      <%= link_to "新規登録",  new_user_registration_path %>
-    </div>
-    <div class="row">
-      <h6>管理者ページ</h6>
-      <%= link_to "こちら",  new_admin_session_path %>
-    </div>
-  </div>
+<div class="select account">
+   <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="row p-5 mx-auto">
+         <!--後ほどロゴ挿入-->
+         <h1>style</h1>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="row p-5">
+         <h6>アカウントをお持ちのお客様</h6>
+         <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-secondary " %>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="row p-2">
+          <h6>新規登録はこちらから</h6>
+          <%= link_to "新規登録",  new_user_registration_path %>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="row p-2">
+          <h6>管理者ページ</h6>
+          <%= link_to "こちら",  new_admin_session_path %>
+        </div>
+      </div>
+   </div>
 </div>
