@@ -13,7 +13,10 @@
  *= require_tree .
  *= require_self
  */
-
+body{
+ font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+ color: #555555
+}
 
 footer{
   background-color: #e4e3e8;
@@ -38,3 +41,14 @@ footer{
   color         : #000000;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
 }
+
+/*ヘッダー*/
+
+header{
+  #555555
+}
+
+.container-fluid{
+  background-color: #C0C0C0
+}
+

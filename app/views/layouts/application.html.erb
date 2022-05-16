@@ -12,17 +12,20 @@
   </head>
 
   <body>
-    <% if current_user == nil && current_admin == nil %>
-      <%= render 'layouts/guest_header' %>
-    <% elsif current_user == nil && current_admin.present? %>
-      <%= render 'layouts/admin_header' %>
-    <% else current_user == true && current_admin == nill %>
-      <%= render 'layouts/user_header' %>
-    <% end %>
+    <header>
+          <% if current_user == nil && current_admin == nil %>
+            <%= render 'layouts/guest_header' %>
+          <% elsif current_user == nil && current_admin.present? %>
+            <%= render 'layouts/admin_header' %>
+          <% else current_user == true && current_admin == nill %>
+            <%= render 'layouts/user_header' %>
+          <% end %>
+    </header>
+
     <main>
       <%= yield %>
     </main>
-    
+
     <%= render 'layouts/footer' %>
   </body>
 </html>
