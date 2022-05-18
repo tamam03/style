@@ -14,7 +14,7 @@
   <%= item.brand.brand_name %>
 
 
-  <!--いいね非同期-->
+  <!--いいね-->
   <% unless item.user == current_user %>
    <div id = "favorite_btns_<%= item.id %>">
    <p><%= render "public/favorites/btn", item: item %></p>
@@ -42,6 +42,8 @@
 <% end %>
 
 
+
+<%= paginate @items %>
 
 <!--後ほど確認（書いていることsigned_inと同じ？）-->
 <%# if current_user || @user == false %>

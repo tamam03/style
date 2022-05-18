@@ -5,10 +5,10 @@ class Public::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.item_id = params[:item_id]
     @comment.user_id = current_user.id
-    # @comment.item_id = @item.id
   # binding.pry
-    @comment.save!
-    redirect_to request.referer
+    @comment.save
+    render :create
+    # redirect_to request.referer
 
   end
 

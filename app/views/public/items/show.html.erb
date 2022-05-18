@@ -20,8 +20,9 @@
 
 <%= @item.status_i18n %><br>
 
-
-<p><%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %></p>
+<div id="comment_forms">
+   <p><%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %></p>
+</div>
 
 <p><%= render partial: "public/comments/index", locals: {comments: @comments} %></p>
 

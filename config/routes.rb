@@ -19,7 +19,7 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
 root 'homes#top'
 
 # ゲストログイン用
-post '/public/guest', to: 'public_guest_sessions#create'
+post '/public/guests', to: 'public/guest_sessions#create'
 
 
 #管理者

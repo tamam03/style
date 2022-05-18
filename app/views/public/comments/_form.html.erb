@@ -1,5 +1,5 @@
 <!--コメント投稿-->
-<%= form_with model: comment, url: public_item_comments_path(item), method: :post do |f| %>
+<%= form_with model: comment, url: public_item_comments_path(item), method: :post, local: false do |f| %>
 
   <%= f.label :text, "コメント" %>
   <%= f.text_area :text, placeholder: "コメントをここに" %>

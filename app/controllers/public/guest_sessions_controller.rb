@@ -1,16 +1,18 @@
 class Public::GuestSessionsController < ApplicationController
-  skip_before_action :login_required
+  # skip_before_action :login_required
 
   def create
-    find_or_create_by!(email: 'guest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
-      user.password_confirmation = user.password
-      user.is_user = 'true'
-      user.name = 'ゲスト'
-      user.name_kana = 'ゲスト'
-      user.nick_name = 'ゲスト'
+    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+    user.password = SecureRandom.urlsafe_base64
+    # user.confirmable at = Time.now
+    user.password_confirmation = user.password
+    user.is_user = 'true'
+    user.name = 'ゲスト'
+    user.name_kana = 'ゲスト'
+    user.nick_name = 'ゲスト'
     end
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    sign_in user
+    redirect_to  public_items_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
 end
