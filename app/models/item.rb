@@ -29,5 +29,5 @@ class Item < ApplicationRecord
 
 
 
-  d
+
 end
