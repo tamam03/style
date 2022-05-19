@@ -1,10 +1,10 @@
 class Public::CommentsController < ApplicationController
 
   def create
-    # @item = Item.find(params[:item_id])
+    @item = Item.find(params[:item_id])
     @comment = Comment.new(comment_params)
-    @comment.item_id = params[:item_id]
     @comment.user_id = current_user.id
+    @comment.item_id = @item.id
     # binding.pry
     if @comment.save
       flash.now[:notice] = "コメントの投稿に成功しました。"
@@ -12,14 +12,16 @@ class Public::CommentsController < ApplicationController
     else
       flash.now[:alert] ="コメントの投稿に失敗しました。"
       render :index
-      
+
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
+    @item = @comment.item
     @comment.destroy
     flash.now[:notice] = "コメントを削除しました。"
+    # binding.pry
     render :index
   end
 

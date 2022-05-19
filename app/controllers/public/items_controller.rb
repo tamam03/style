@@ -25,6 +25,7 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    # binding.pry
     @comment = Comment.new
     @comments = @item.comments
     @comments = @item.comments.order(created_at: :desc)

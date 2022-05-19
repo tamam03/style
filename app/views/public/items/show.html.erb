@@ -30,11 +30,14 @@
 
 
 <div id="comments_area">
-  <p><%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %></p>
+   <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
+</div>
+
+<div id="comments_form">
+   <%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %>
 </div>
 
 
-   <p><%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %></p>
 
 
 
