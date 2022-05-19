@@ -1,14 +1,31 @@
-<!--コメント一覧-->
+<h7>コメント <%= item.comments.count %>件</h7>
+<%#= render 'layouts/flash_messages' %>
 
-<% comments.each do |comment| %>
-
-  <p><%= comment.text %></p>
-
-  <%# if comment.user == current_user %>
-    <p><%#= link_to "削除",  public_item_comment_path(comment.item_id, comment.id), method: :delete %></p>
-  <%# end %>
-
-
+<!--2件取得-->
+<% comments.first(2).each do |comment| %>
+   <% unless comment.id.nil? %>
+      <%= comment.text %>
+      <% if comment.user == current_user %>
+        <%= link_to "削除", public_item_comment_path(comment.item_id, comment.id), method: :delete, remote: true %>
+      <% end %>
+   <% end %>
 <% end %>
 
- <%# if comment.user == current.user %>
+
+<button type="comment morebutton" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      | もっと見る....
+</button>
+
+
+<!--3件以上-->
+<div class="collapse" id="collapseExample">
+  <% comments.offset(2).each do |comment| %>
+    <% unless comment.id.nil? %>
+      <%= comment.text %>
+      <% if comment.user == current_user %>
+        <%= link_to "削除", public_item_comment_path(comment.item_id, comment.id), method: :delete, remote: true %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+

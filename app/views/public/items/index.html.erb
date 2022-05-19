@@ -1,50 +1,36 @@
 <h1>投稿一覧</h1>
+  <%= render 'public/items/sidebar' %>
 
+<div class="container">
 
-<div><%= link_to "新規投稿", new_public_item_path %></div>
+  <div class="row mx-auto">
+   <% @items.each do |item| %>
+   <div class="col-3"><%= image_tag item.get_item_image(200, 200) %></div>
+   <%#= image_tag item.user.get_profile_image(80, 80), class: "rounded-circle" %>
 
-<% @items.each do |item| %>
+   <%#= link_to item.user.nick_name, public_user_path(item.user.id)  %>
 
-  <%= image_tag item.get_item_image(200, 200) %>
-
-  <%= image_tag item.user.get_profile_image(50, 50), class: "rounded-circle" %>
-
-  <%= link_to item.user.nick_name, public_user_path(item.user.id)  %>
-
-  <%= item.brand.brand_name %>
-
-
+    <%#= item.brand.brand_name %>
   <!--いいね-->
   <% unless item.user == current_user %>
    <div id = "favorite_btns_<%= item.id %>">
-   <p><%= render "public/favorites/btn", item: item %></p>
-   </div>
+   <%#= render "public/favorites/btn", item: item %>
+
   <% else %>
   <% end %>
 
   <% if item.user == current_user %>
-     <p><%= button_to "削除", public_item_path(item), method: :delete %></p>
+     <%#= button_to "削除", public_item_path(item), method: :delete %>
   <% else %>
   <% end %>
-  <p><%= link_to "詳細", public_item_path(item) %></p>
-<% end %>
+  <%= link_to "詳細", public_item_path(item) %>
+  <% end %>
+
+ </div>
 
 
-
-<% if user_signed_in? %>
- <%= link_to "非公開一覧", public_items_privacy_path %>
-<% else %>
-<% end %>
-
-<% if current_user.is_user == false %>
- <%= link_to "店舗スタッフ限定公開", public_items_clerk_path %>
-<% else %>
-<% end %>
-
-
-
-<%= paginate @items %>
-
+  <%= paginate @items %>
+</div>
 <!--後ほど確認（書いていることsigned_inと同じ？）-->
 <%# if current_user || @user == false %>
 

@@ -1,7 +1,12 @@
-<h1>投稿詳細</h1>
-<%= link_to "編集", edit_public_item_path(@item) %>
+<div class="item show">
+   <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="row p-5 mx-auto">
+          <h1>投稿詳細</h1>
+        </div>
+      </div>
 
-<%= link_to "投稿一覧", public_items_path %>
+
 
 
 
@@ -20,11 +25,20 @@
 
 <%= @item.status_i18n %><br>
 
-<div id="comment_forms">
-   <p><%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %></p>
+
+<%= link_to "編集", edit_public_item_path(@item) %>
+
+
+<div id="comments_area">
+  <p><%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %></p>
 </div>
 
-<p><%= render partial: "public/comments/index", locals: {comments: @comments} %></p>
+
+   <p><%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %></p>
 
 
 
+
+
+ </div>
+</div>

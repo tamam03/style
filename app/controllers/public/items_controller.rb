@@ -21,14 +21,13 @@ class Public::ItemsController < ApplicationController
     # @clerk_items = current_user.items.where(status: "only_clerk")
     @clerk_items = Item.all.where(status: "only_clerk")
 
-    # binding.irb
-
   end
 
   def show
     @item = Item.find(params[:id])
     @comment = Comment.new
     @comments = @item.comments
+    @comments = @item.comments.order(created_at: :desc)
   end
 
   def new

@@ -2,7 +2,9 @@
 
 <% if @user.is_user == true %>
 
-<p><%= image_tag @user.get_profile_image(100, 100), class: "rounded-circle" %></p>
+
+ <p><%= image_tag @user.get_profile_image(200, 200), class: "profile" %></p>
+
 
 <p><%= @user.name %></p>
 

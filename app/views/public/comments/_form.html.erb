@@ -1,10 +1,9 @@
 <!--コメント投稿-->
-<%= form_with model: comment, url: public_item_comments_path(item), method: :post, local: false do |f| %>
+<%= form_with model: [item,comment], url: public_item_comments_path(item), method: :post, local: false do |f| %>
 
-  <%= f.label :text, "コメント" %>
-  <%= f.text_area :text, placeholder: "コメントをここに" %>
+  <%= f.text_area :text, placeholder: "コメントをここに", class: "input-mysize" %>
   <%#= f.hidden_field :item_id, value: item.id %>
-  <%= f.submit "送信" %>
+  <%= f.submit "送信", class: "btn btn-outline-dark comment-submit float-right" %>
 
 <% end %>
 
