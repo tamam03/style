@@ -42,11 +42,13 @@ end
  namespace :public do
 
    resources :users, only: [:show, :edit, :update] do
+     get :favorites, on: :collection
      resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' =>  'relationships#followers', as: 'followers'
     end
 
+   get 'items/my_item' => 'items#my_item'
    get 'items/privacy' => 'items#privacy'
    get 'items/clerk' => 'items#clerk'
 

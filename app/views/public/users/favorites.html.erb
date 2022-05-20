@@ -1,13 +1,12 @@
-<h1>店舗スタッフ公開一覧</h1>
+<h1>お気に入り一覧</h1>
 
-  <% @clerk_all_items.each do |item| %>
+<%  if @favorite_list.present? %>
+
+ <% @favorite_list.each do |item| %>
 
   <%= image_tag item.get_item_image(200, 200) %>
   <%= item.text %>
   <%= item.brand.brand_name %>
-
-  <% end %>
-
   <%= link_to "詳細", public_item_path(item) %>
-
-
+ <% end %>
+<% end %>

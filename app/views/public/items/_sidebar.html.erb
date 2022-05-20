@@ -4,7 +4,8 @@
 <div class="collapse" id="collapseExample">
        <%= link_to "新規投稿", new_public_item_path %>
        <%= link_to "非公開一覧", public_items_privacy_path %>
-       <%#= sidebar_link_item('不適切ワード一覧', admin_inappropriate_words_path %>
+       <%= link_to "お気に入り一覧", favorites_public_users_path %>
+       <%= link_to "自分の投稿一覧", public_items_my_item_path %>
        <% if current_user.is_user == false %>
          <%= link_to "店舗スタッフ限定公開", public_items_clerk_path %>
        <% else %>

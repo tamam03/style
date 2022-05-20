@@ -16,6 +16,9 @@
 
 <% elsif @user.is_user == false %>
 
+<p><%= image_tag @user.get_profile_image(200, 200), class: "profile" %></p>
+
+
 <p><%= @user.name %></p>
 
 <p><%= @user.name_kana %></p>
@@ -32,6 +35,7 @@
  <%= render 'public/relationships/btn', user: @user %>
 <% else %>
  <%= link_to "編集", edit_public_user_path(@user) %>
+ <%= link_to "自分の投稿一覧", public_items_my_item_path %>
 <% end %>
 
 

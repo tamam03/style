@@ -3,29 +3,26 @@ class Public::ItemsController < ApplicationController
 
   def index
     @items = Item.all.page(params[:page]).per(12)
+    @items.where!(status: "release")
     @user = User.select("is_user")
-
   end
 
-  # 非公開投稿一覧
+  def my_item
+    @my_items = Item.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+  end
+
+  # 非公開投稿
   def privacy
     @close_items = current_user.items.where(status: "close")
-    # @items = @close_items.all
   end
-
 
   # 店舗スタッフのみ公開一覧
   def clerk
-    # @clerk_all_items = Item.all.where(status: "only_clerk")
-
-    # @clerk_items = current_user.items.where(status: "only_clerk")
     @clerk_items = Item.all.where(status: "only_clerk")
-
   end
 
   def show
     @item = Item.find(params[:id])
-    # binding.pry
     @comment = Comment.new
     @comments = @item.comments
     @comments = @item.comments.order(created_at: :desc)

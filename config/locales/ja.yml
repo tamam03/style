@@ -1,10 +1,4 @@
-ja:
-  enums:
-      item:
-        status:
-          close: "非公開"
-          release: "公開"
-          only_clerk: "店舗スタッフのみ公開"
+
 ja:
   views:
     pagination:
@@ -13,3 +7,9 @@ ja:
       previous: <i class="fas fa-angle-left"></i>
       next:  <i class="fas fa-angle-right"></i>
       truncate: "..."
+  enums:
+    item:
+      status:
+        close: "非公開"
+        release: "公開"
+        only_clerk: "店舗スタッフのみ公開"
