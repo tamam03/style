@@ -2,7 +2,7 @@ class Public::ItemsController < ApplicationController
 # before_action :ensure_user, only: [:privacy, :clerk, :edit, :update, :destroy ]
 
   def index
-    @items = Item.all.page(params[:page]).per(3)
+    @items = Item.all.page(params[:page]).per(12)
     @user = User.select("is_user")
 
   end
