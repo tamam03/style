@@ -1,0 +1,13 @@
+<%= @user.name %>さんの投稿一覧
+
+<% @items.each do |item| %>
+
+ <%= image_tag item.get_item_image(200, 200) %>
+
+ <%= item.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+
+ <%= item.user.name %>
+
+ <%= link_to "詳細", admin_item_path(item) %>
+
+<% end %>

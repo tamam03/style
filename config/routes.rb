@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
 # ユーザー用
 # URL /users/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {
@@ -10,7 +9,6 @@ devise_for :users,skip: [:passwords], controllers: {
 
 # 管理者用
 # URL /admin/sign_in ...
-#管理者用
 devise_for :admin,skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
@@ -25,38 +23,41 @@ post '/public/guests', to: 'public/guest_sessions#create'
 #管理者
 namespace :admin do
   get 'homes/top' => 'homes#top'
-  # get 'users/search' => 'users#search'
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
     collection do
       get 'search'
     end
   end
+  resources :items, only: [:index, :show] do
+    member do
+     get :user_index
+    end
+    resources :comments, only:[:destroy]
+  end
   resources :brands, only: [:index, :create, :destroy]
   resources :stores, only: [:index, :create]
 end
 
+
 #ユーザー（顧客・店舗スタッフ）
  namespace :public do
-     resources :chats, only: [:show, :create]
+  resources :users, only: [:show, :edit, :update] do
+    get :favorites, on: :collection
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' =>  'relationships#followers', as: 'followers'
   end
- namespace :public do
 
-   resources :users, only: [:show, :edit, :update] do
-     get :favorites, on: :collection
-     resource :relationships, only: [:create, :destroy]
-      get 'followings' => 'relationships#followings', as: 'followings'
-      get 'followers' =>  'relationships#followers', as: 'followers'
-    end
+  get 'items/my_item' => 'items#my_item'
+  get 'items/privacy' => 'items#privacy'
+  get 'items/clerk' => 'items#clerk'
 
-   get 'items/my_item' => 'items#my_item'
-   get 'items/privacy' => 'items#privacy'
-   get 'items/clerk' => 'items#clerk'
-
-   resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-     resources :comments, only: [:create, :destroy]
-     resource :favorites, only: [:create, :destroy]
-    end
+  resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
+  resources :chats, only: [:show, :create]
+end
 
 
 
