@@ -5,13 +5,13 @@
 <%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
  <%= render "public/shared/error_messages", resource: resource %>
 
- <%= f.label :is_user, "ユーザー", :value => "true" %>
- <%= f.radio_button :is_user, true, :class => "js" %>
- <%= f.label :is_user, "店舗スタッフ", :value => "false" %>
- <%= f.radio_button :is_user, false, :checked => true, :class => "js" %>
- <div>
-  <%= render "public/registrations/new", f: f %>
- </div>
+<%= f.label :is_user, "ユーザー", :value => "true" %>
+<%= f.radio_button :is_user, true, :checked => true, :class => "radio-button" %>
+<%= f.label :is_user, "店舗スタッフ", :value => "false" %>
+<%= f.radio_button :is_user, false, :class => "radio-button" %>
+
+<%= render "public/registrations/new", f: f %>
+
 <% end %>
 <%= render "public/shared/links" %>
 
@@ -21,18 +21,42 @@
 
 <script>
 
-$('.js').click(function() {
- const flg = $('input:radio[name="user[is_user]"]:checked').val();
+$(function() {
+ switchForm()
+})
 
- if (flg === 'true') {
+$('.radio-button').click(function() {
+ switchForm()
+})
+
+
+function switchForm(){
+ const isUser = $('input:radio[name="user[is_user]"]:checked').val() === 'true';
+ if (isUser) {
   $('#only_clerk').hide();
   $('#only_customer').show();
  } else {
   $('#only_clerk').show();
   $('#only_customer').hide();
  }
-})
-
+}
 
 </script>
 
+
+
+<!--boolean -->
+
+<!--""'' string-->
+
+<!--integer 1,2整数-->
+
+<!--if('true'){-->
+
+<!--}-->
+
+<!--ruby nil faise 以外はtrue-->
+<!--javascript false扱い複数-->
+
+<!--console.log(isUser)-->
+<!--boolean-->
