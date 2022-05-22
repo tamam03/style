@@ -2,34 +2,29 @@
 <html>
   <head>
     <title>Style</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/1.4.4/css/bootstrap.min.css">-->
+     <meta name="viewport" content="width=device-width,initial-scale=1">
+     <%= csrf_meta_tags %>
+     <%= csp_meta_tag %>
 　　<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/1.4.4/js/bootstrap.min.js"></script>-->
     <script src="https://kit.fontawesome.com/5f2329857c.js" crossorigin="anonymous"></script>
-
   </head>
-
   <body>
-    <header>
-          <% if current_user == nil && current_admin == nil %>
-            <%= render 'layouts/guest_header' %>
-          <% elsif current_user == nil && current_admin.present? %>
-            <%= render 'layouts/admin_header' %>
-          <% else current_user == true && current_admin == nill %>
-            <%= render 'layouts/user_header' %>
-          <% end %>
+    <header class="sticky-top">
+      <% if current_user == nil && current_admin == nil %>
+        <%= render 'layouts/guest_header' %>
+      <% elsif current_user == nil && current_admin.present? %>
+        <%= render 'layouts/admin_header' %>
+      <% else current_user == true && current_admin == nill %>
+        <%= render 'layouts/user_header' %>
+      <% end %>
     </header>
-
     <main>
       <%= yield %>
     </main>
-
-    <%= render 'layouts/footer' %>
+    <footer class="fixed-bottom">
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>

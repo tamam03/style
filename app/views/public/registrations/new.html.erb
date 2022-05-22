@@ -1,62 +1,48 @@
-<h2>新規会員登録</h2>
 
+ <div class="container">
+  <div class="d-flex justify-content-center">
+   <div class="row">
+    <div class="title col-12 p-3">
+     <h2>新規会員登録</h2>
+    </div>
+      <%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
+    <div class="error-messages col-12">
+     <%= render "public/shared/error_messages", resource: resource %>
+    </div>
+    <div class="switch-form col-12 p-2">
+     <%= f.label :is_user, "ユーザー", :value => "true" %>
+     <%= f.radio_button :is_user, true, :checked => true, :class => "radio-button" %>
+     <%= f.label :is_user, "店舗スタッフ", :value => "false" %>
+     <%= f.radio_button :is_user, false, :class => "radio-button" %>
+    </div>
+    <div class="registration-form col-12">
+     <%= render "public/registrations/new", f: f %>
+    </div>
+     <% end %>
+    <div class="link col-12 mt-3">
+     <%= render "public/shared/links" %>
+    </div>
+   </div>
+  </div>
+ </div>
 
+<!--ラジオボタンでフォーム切り替え-->
+ <script>
+  function switchForm(){
+   const isUser = $('input:radio[name="user[is_user]"]:checked').val() === 'true';
+    if (isUser) {
+     $('#only_clerk').hide();
+     $('#only_customer').show();
+    } else {
+     $('#only_clerk').show();
+     $('#only_customer').hide();
+    }
+  }
+  $(function() {
+   switchForm()
+  })
+  $('.radio-button').click(function() {
+   switchForm()
+  })
+ </script>
 
-<%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
- <%= render "public/shared/error_messages", resource: resource %>
-
-<%= f.label :is_user, "ユーザー", :value => "true" %>
-<%= f.radio_button :is_user, true, :checked => true, :class => "radio-button" %>
-<%= f.label :is_user, "店舗スタッフ", :value => "false" %>
-<%= f.radio_button :is_user, false, :class => "radio-button" %>
-
-<%= render "public/registrations/new", f: f %>
-
-<% end %>
-<%= render "public/shared/links" %>
-
-
-
-
-
-<script>
-
-$(function() {
- switchForm()
-})
-
-$('.radio-button').click(function() {
- switchForm()
-})
-
-
-function switchForm(){
- const isUser = $('input:radio[name="user[is_user]"]:checked').val() === 'true';
- if (isUser) {
-  $('#only_clerk').hide();
-  $('#only_customer').show();
- } else {
-  $('#only_clerk').show();
-  $('#only_customer').hide();
- }
-}
-
-</script>
-
-
-
-<!--boolean -->
-
-<!--""'' string-->
-
-<!--integer 1,2整数-->
-
-<!--if('true'){-->
-
-<!--}-->
-
-<!--ruby nil faise 以外はtrue-->
-<!--javascript false扱い複数-->
-
-<!--console.log(isUser)-->
-<!--boolean-->

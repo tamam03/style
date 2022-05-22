@@ -13,41 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
 body{
  font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
  color: #555555
 }
 
-footer{
-  background-color: #e4e3e8;
-   margin: 2rem auto 0;
-}
-
-.btn-login {
-  display       : inline-block;
-  font-size     : 10pt;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 4px 100px;   /* 余白       */
-  background    : #000000;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : .3s;         /* なめらか変化 */
-  box-shadow    : 16px 16px 42px #666666;  /* 影の設定 */
-  border        : 2px solid #000000;    /* 枠の指定 */
-}
-.btn-login:hover {
-  box-shadow    : none;        /* カーソル時の影消去 */
-  color         : #000000;     /* 背景色     */
-  background    : #ffffff;     /* 文字色     */
-}
-
 /*ヘッダー*/
-
 header{
   color: #555555
 }
-
 .container-fluid{
   background-color: #C0C0C0
 }
@@ -57,43 +32,36 @@ header{
   border: none;     /*枠線をなくす*/
   color: #696969;   /*文字の色を変える*/
 }
-
 /* 表示しているページ番号のデザイン */
 .pagination>.active>a {
   background: #93c9ff;     /*背景の色を変える*/
   border-radius: 15px;     /*角を丸くする*/
 }
-
-/*ホバー時のデザイン*/
 .pagination>li>a:hover {
   border-radius: 15px;    /*角を丸くする*/
 }
 
-
+/*プロフィール画像*/
 .profile{
   border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
   width: 200px;  /* 縦横を同じ値にする */
   height: 200px;  /* 縦横を同じ値にする */
 }
-
 .rounded-circle{
    width: 80px;  /* 縦横を同じ値にする */
   height: 80px;  /* 縦横を同じ値にする */
 }
 
+/*投稿*/
 .card-body{
    flex-basis: 100%;
    padding: 5px;
 }
-
-
 .image-wrap{
     position: relative;
     overflow: hidden;
     padding-top: 90%;
 }
-
-
 .image-wrap img {
    position: absolute;
     top: 50%;

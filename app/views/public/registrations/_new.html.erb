@@ -1,92 +1,71 @@
  <!--ユーザー新規登録-->
- 
  <div id="only_customer">
   <div class="field">
    <%= f.label :氏名 %><br />
    <%= f.text_field :name %>
   </div>
-
   <div class="field">
    <%= f.label :フリガナ %><br />
    <%= f.text_field :name_kana %>
   </div>
-  
- 
-    <div class="field">
-     <%= f.label :ニックネーム（表示用）%><br />
-     <%= f.text_field :nick_name %>
-    </div>
-  
-  
   <div class="field">
-     <%= f.label :メールアドレス %><br />
-     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+   <%= f.label :ニックネーム（表示用）%><br />
+   <%= f.text_field :nick_name %>
   </div>
-
   <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
+   <%= f.label :メールアドレス %><br />
+   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  <div class="field">
+   <%= f.label :パスワード %>
+   <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+   <% end %><br />
+   <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
-
   <div class="field">
-    <%= f.label :確認パスワード %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+   <%= f.label :確認パスワード %><br />
+   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "新規登録" %>
+  <div class="actions mt-3">
+   <%= f.submit "新規登録" %>
   </div>
-  
-  </div>
-  
-  
-  <!--店舗スタッフ新規登録-->
-  
-  <div id="only_clerk">
-  
-   <div class="field">
-   <%= f.label :氏名 %><br />
-   <%= f.text_field :name %>
  </div>
 
+  <!--店舗スタッフ新規登録-->
+ <div id="only_clerk">
+  <div class="field">
+   <%= f.label :氏名 %><br />
+   <%= f.text_field :name %>
+  </div>
   <div class="field">
    <%= f.label :フリガナ %><br />
    <%= f.text_field :name_kana %>
   </div>
-  
   <div class="field">
-     <%= f.label :メールアドレス %><br />
-     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+   <%= f.label :メールアドレス %><br />
+   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-  
-   <div class="field">
-     <%= f.label :所属ブランド %>
-     <%= f.collection_select :brand_id, Brand.all, :id, :brand_name, prompt: "ブランドを選択してください" %>
-   </div>
-
-    <div class="field">
-     <%= f.label :在籍店舗 %>
-     <%= f.collection_select :store_id, Store.all, :id, :store_name, prompt: "店舗を選択してください" %>
-    </div>
-  
   <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
+   <%= f.label :所属ブランド %>
+   <%= f.collection_select :brand_id, Brand.all, :id, :brand_name, prompt: "ブランドを選択してください" %>
+  </div>
+  <div class="field">
+   <%= f.label :在籍店舗 %>
+   <%= f.collection_select :store_id, Store.all, :id, :store_name, prompt: "店舗を選択してください" %>
+  </div>
+  <div class="field">
+   <%= f.label :パスワード %>
+   <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+   <% end %><br />
+   <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
-
   <div class="field">
-    <%= f.label :確認パスワード %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+   <%= f.label :確認パスワード %><br />
+   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "新規登録" %>
+  <div class="actions mt-3">
+   <%= f.submit "新規登録" %>
   </div>
-
  </div>
