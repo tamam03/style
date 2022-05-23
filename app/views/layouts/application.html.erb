@@ -12,12 +12,12 @@
   </head>
   <body>
     <header class="sticky-top">
-      <% if current_user == nil && current_admin == nil %>
-        <%= render 'layouts/guest_header' %>
-      <% elsif current_user == nil && current_admin.present? %>
+      <% if admin_signed_in? %>
         <%= render 'layouts/admin_header' %>
-      <% else current_user == true && current_admin == nill %>
+      <% elsif user_signed_in? %>
         <%= render 'layouts/user_header' %>
+      <% else %>
+        <%= render 'layouts/guest_header' %>
       <% end %>
     </header>
     <main>

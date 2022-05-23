@@ -16,7 +16,8 @@
 
 body{
  font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
- color: #555555
+ color: #555555;
+
 }
 
 main{
@@ -25,6 +26,7 @@ main{
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    min-height: 1080px;
 }
 
 /*ヘッダー*/
