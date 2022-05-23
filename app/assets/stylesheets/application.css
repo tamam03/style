@@ -19,6 +19,14 @@ body{
  color: #555555
 }
 
+main{
+    background-image: url(golden-white-marble-textured-design-resource.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
 /*ヘッダー*/
 header{
   color: #555555
