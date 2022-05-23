@@ -31,11 +31,11 @@
   function switchForm(){
    const isUser = $('input:radio[name="user[is_user]"]:checked').val() === 'true';
     if (isUser) {
-     $('#only_clerk').hide();
-     $('#only_customer').show();
+     $('#only-clerk').hide();
+     $('#only-customer').show();
     } else {
-     $('#only_clerk').show();
-     $('#only_customer').hide();
+     $('#only-clerk').show();
+     $('#only-customer').hide();
     }
   }
   $(function() {

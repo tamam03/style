@@ -10,7 +10,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   def configure_permitted_parameters
 
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :nick_name, :brand_id, :store_id, :is_user])
-
+    # binding.pry
     @user = User.new
 
   end
@@ -23,7 +23,6 @@ class Public::RegistrationsController < Devise::RegistrationsController
       # pubulic_user_path(@user)
     # else
     # end
-    #サインイン後の遷移になる？ current_user使えないかも？→ページを挟んで待ち構える！
      root_path
   end
 

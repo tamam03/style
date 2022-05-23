@@ -22,7 +22,7 @@ class Public::UsersController < ApplicationController
   def favorites
     favorites = Favorite.where(user_id: current_user.id).pluck(:item_id)
     @favorite_lists = Item.find(favorites)
-  
+
   end
 
   private
