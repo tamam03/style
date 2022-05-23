@@ -1,34 +1,47 @@
-<h1>新規投稿</h1>
-
-<%= form_with model: @item, url: public_items_path, method: :post do |f| %>
-
-   <div class="images">
-   <%= f.label :投稿画像 %>
-   <%= f.file_field :item_image, placeholder: "画像", accept: 'image/*' %>
+<div class="container">
+  <div class="d-flex justify-content-center">
+   <div class="row">
+    <%= form_with model: @item, url: public_items_path, method: :post do |f| %>
+     <table>
+      <tbody>
+         <div class="col-12">
+            <tr>
+               <div class="images">
+                  <th><%= f.label :投稿画像 %></th>
+                  <td><%= f.file_field :item_image, placeholder: "画像", accept: 'image/*' %></td>
+               </div>
+            </tr>
+         </div>
+         <div class="col-12">
+            <tr>
+               <div class="field">
+                  <th><%= f.label :説明 %></th>
+                  <td><%= f.text_area :text, placeholder: "説明をここに" %></td>
+               </div>
+            </tr>
+         </div>
+         <div class="col-12">
+            <tr>
+               <div class="select">
+                  <th><%= f.label :ブランド %></th>
+                  <td><%= f.select :brand_id, options_from_collection_for_select(Brand.all, :id, :brand_name), { prompt: '選択してください' } %></td>
+               </div>
+            </tr>
+         </div>
+         <div class="col-12">
+            <tr>
+               <div class="select">
+                  <th></th>
+                  <td><%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] },{prompt: '選択してください'} %></td>
+               </div>
+            </tr>
+         </div>
+      </tbody>
+     </table>
+   <div class="row">
+     <%= f.submit "投稿" %>
+     <% end %>
    </div>
-
-   <div class="field">
-   <%= f.label :説明 %>
-   <%= f.text_area :text, placeholder: "説明をここに" %>
-   </div>
-
-   <div class="select">
-   <%= f.label :ブランド %>
-   <%= f.select :brand_id, options_from_collection_for_select(Brand.all, :id, :brand_name), { prompt: '選択してください' } %>
-   </div>
-
-   <div class="select">
-   <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] },{prompt: '選択してください'} %>
-   </div>
-
-   <!--作れたらラジオボタンで-->
-   <%#= f.select :status, ApplicantStatus.statuses.keys, {prompt: '選択してください'}
-   <%#= f.label :非公開 %>
-   <%#= f.radio_button :status, :非公開, checked: "checked" %>
-   <%#= f.label :公開 %>
-   <%#= f.radio_button :status, :公開 %>
-   <%#= f.label :店舗スタッフのみ公開 %>
-   <%#= f.radio_button :status, :店舗スタッフのみ公開 %>
-
-   <%= f.submit "投稿" %>
-<% end %>
+  </div>
+ </div>
+</div>

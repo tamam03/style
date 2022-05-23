@@ -1,12 +1,29 @@
-<h1>お気に入り一覧</h1>
-
-<%  if @favorite_list.present? %>
-
- <% @favorite_list.each do |item| %>
-
-  <%= image_tag item.get_item_image(200, 200) %>
-  <%= item.text %>
-  <%= item.brand.brand_name %>
-  <%= link_to "詳細", public_item_path(item) %>
- <% end %>
-<% end %>
+<div class="container">
+  <h1>お気に入り一覧</h1>
+  <div class="row">
+   <%  if @favorite_lists.present? %>
+    <% @favorite_lists.each do |item| %>
+     <div class="col-3">
+      <div class="card">
+       <div class="card-body">
+        <div class="image-wrap">
+         <%= image_tag item.get_item_image(200, 200) %>
+        </div>
+       </div>
+       <div class="card-body">
+        <%= item.text %>
+       </div>
+       <div class="card-body">
+        <%= item.brand.brand_name %>
+       </div>
+       <div class="card-body">
+        <%= link_to "詳細", public_item_path(item) %>
+       </div>
+      </div>
+     </div>
+    <% end %>
+   <% else %>
+    <p>お気に入りが存在しません</p>
+   <% end %>
+  </div>
+ </div>

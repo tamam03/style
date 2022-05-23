@@ -1,13 +1,30 @@
-<h1>店舗スタッフ公開一覧</h1>
+<div class="container">
+   <h1>店舗スタッフ公開一覧</h1>
+    <div class="row">
+     <% @clerk_all_items.each do |item| %>
+      <div class="col-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="image-wrap">
+             <%= image_tag item.get_item_image(200, 200) %>
+            </div>
+          </div>
+          <div class="card-body">
+           <%= item.text %>
+          </div>
+          <div class="card-body">
+           <%= item.brand.brand_name %>
+          </div>
+          <div class="card-body">
+           <%= link_to "詳細", public_item_path(item) %>
+          </div>
+        </div>
+      </div>
+     <% end %>
+    </div>
+    <%= paginate @clerk_items %>
+  </div>
 
-  <% @clerk_all_items.each do |item| %>
 
-  <%= image_tag item.get_item_image(200, 200) %>
-  <%= item.text %>
-  <%= item.brand.brand_name %>
-
-  <% end %>
-
-  <%= link_to "詳細", public_item_path(item) %>
 
 

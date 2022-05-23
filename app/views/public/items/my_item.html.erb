@@ -1,11 +1,28 @@
-<% @my_items.each do |item| %>
-
- <%= image_tag item.get_item_image(200, 200) %>
-
- <%= item.text %>
-
- <%= item.brand.brand_name %>
-
-<%= button_to "削除", public_item_path(item), method: :delete %>
-<%= link_to "詳細", public_item_path(item) %>
-<% end %>
+<div class="container">
+  <div class="row">
+   <% @my_items.each do |item| %>
+   <div class="col-3">
+    <div class="card">
+     <div class="card-body">
+      <div class="image-wrap">
+       <%= image_tag item.get_item_image(200, 200) %>
+      </div>
+     </div>
+     <div class="card-body">
+      <%= item.text %>
+     </div>
+     <div class="card-body">
+      <%= item.brand.brand_name %>
+     </div>
+     <div class="card-body">
+      <%= button_to "削除", public_item_path(item), method: :delete %>
+     </div>
+     <div class="card-body">
+      <%= link_to "詳細", public_item_path(item) %>
+     </div>
+    </div>
+   </div>
+   <% end %>
+  </div>
+  <%= paginate @my_items %>
+</div>
