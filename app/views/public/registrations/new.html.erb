@@ -46,3 +46,15 @@
   })
  </script>
 
+ <script>
+  $(document).on 'change', '#user_brand_id', ->
+  $.ajax(
+    type: 'GET'
+    url: '/profiles/get_stores'
+    data: {
+      brand_id: $(this).val()
+    }
+  ).done (data) ->
+    $('.store-field').html(data)
+ </script>
+

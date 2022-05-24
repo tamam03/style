@@ -16,16 +16,15 @@
   </div>
 
   <div id="only-clerk">
-   <div class="field">
+   <div class="brand-field">
     <%= f.label :所属ブランド %>
     <%= f.collection_select :brand_id, Brand.all, :id, :brand_name, prompt: "ブランドを選択してください" %>
    </div>
-   <div class="field">
+   <div class="store-field">
     <%= f.label :在籍店舗 %>
-    <%= f.collection_select :store_id, Store.all, :id, :store_name, prompt: "店舗を選択してください" %>
-   </div>
+    <%= f.collection_select :store_id, brand.stores, :id, :store_name, prompt: "店舗を選択してください" %>
   </div>
-
+ </div>
   <div class="field">
    <%= f.label :メールアドレス %><br />
    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -44,6 +43,9 @@
   <div class="actions mt-3">
    <%= f.submit "新規登録" %>
   </div>
+
+
+
 
 
 

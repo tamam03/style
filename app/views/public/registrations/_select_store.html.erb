@@ -1,0 +1,2 @@
+<%= f.label :user, :store_id %><br>
+<%= f.collection_select :user, store_id, Brand.where(brand_id: brand_id) :id, :store_name, prompt: "店舗を選択してください" %>
