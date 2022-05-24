@@ -12,7 +12,6 @@ class Public::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :nick_name, :brand_id, :store_id, :is_user])
     # binding.pry
     @user = User.new
-
   end
 
   def after_sign_up_path_for(resource)

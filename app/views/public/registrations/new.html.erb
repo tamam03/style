@@ -16,7 +16,7 @@
      <%= f.radio_button :is_user, false, :class => "radio-button" %>
     </div>
     <div class="registration-form col-12">
-     <%= render "public/registrations/new", f: f %>
+     <%= render "public/registrations/new", f: f, user: @user %>
     </div>
      <% end %>
     <div class="link col-12 mt-3">
@@ -46,3 +46,21 @@
   })
  </script>
 
+<script>
+$('#user_brand_id').change(function() {
+ $.ajax('/users/get_store',
+   {
+    type: 'get',
+    data: { brand_id: $('#user_brand_id').val() },
+    dataType: 'json'
+   }
+  )
+  .done(function(data) {
+   $('#user_store_id > option').remove();
+   data.forEach(function(store) {
+    var option = $('<option>').val(store.id).text(store.store_name);
+    $('#user_store_id').append(option);
+   });
+  })
+})
+</script>

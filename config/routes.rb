@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 # ユーザー用
 # URL /users/sign_in ...
+get "/users/get_store" => "public/registration_jsons#get_store"
 devise_for :users,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -57,6 +58,9 @@ end
     resource :favorites, only: [:create, :destroy]
   end
   resources :chats, only: [:show, :create]
+   resources :brands, only:[] do
+    resources :stores, only:[:index]
+  end
 end
 
 

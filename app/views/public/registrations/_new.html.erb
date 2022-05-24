@@ -15,15 +15,16 @@
    </div>
   </div>
 
-  <div id="only-clerk">
-   <div class="field">
-    <%= f.label :所属ブランド %>
-    <%= f.collection_select :brand_id, Brand.all, :id, :brand_name, prompt: "ブランドを選択してください" %>
+   <div id="only-clerk">
+    <% brand_options = Brand.order(:id).map { |c| [c.brand_name, c.id, data: { children_path: public_brand_stores_path(c) }] } %>
+    <div class="field">
+    <%= f.select :brand_id, brand_options, { include_blank: true }, class: 'select-parent' %>
    </div>
-   <div class="field">
-    <%= f.label :在籍店舗 %>
-    <%= f.collection_select :store_id, Store.all, :id, :store_name, prompt: "店舗を選択してください" %>
-   </div>
+    <%# stores = user.brand.try(:stores) || [] %>
+    <%# store_options = stores.map { |c| [c.store_name, c.id ] } %>
+     <div class="field">
+     <%= f.select :store_id, [], {}, class: 'select-children' %>
+     </div>
   </div>
 
   <div class="field">
