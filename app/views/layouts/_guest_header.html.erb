@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">style</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link text-light" %>
+          </li>
+          <li>
+            <%= link_to public_items_path, class: "nav-item nav-link text-light" do %>
+              投稿一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to public_user_path(current_user), class: "nav-item nav-link text-light" do %>
+              マイページ
+            <% end %>
+          </li>
+        </ul>
+       </div>
+    </div>
+  </nav>

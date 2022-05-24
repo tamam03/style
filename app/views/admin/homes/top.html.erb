@@ -1,10 +1,38 @@
-<h1>管理一覧</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-center">
+               <h1>管理一覧</h1>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="d-flex justify-content-center">
+                <%= link_to admin_users_path, class: 'admin-top-btn btn btn-outline-secondary center-block' do %>
+                  顧客管理
+                <% end %>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="d-flex justify-content-center">
+                <%= link_to admin_brands_path, class: 'admin-top-btn btn btn-outline-secondary center-block' do %>
+                  ブランド管理
+                <% end %>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="d-flex justify-content-center">
+                <%= link_to admin_stores_path, class: 'admin-top-btn btn btn-outline-secondary center-block' do %>
+                 店舗管理
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
 
-<h3>顧客管理</h3>
-<%= link_to "クリック", admin_users_path %>
-
-<h3>ブランド管理</h3>
-<%= link_to "クリック", admin_brands_path %>
-
-<h3>店舗管理</h3>
-<%= link_to "クリック", admin_stores_path %>
+<style>
+    a.admin-top-btn{
+        width: 300px;
+        padding: 20px;
+        margin: 30px;
+    }
+</style>
