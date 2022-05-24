@@ -58,9 +58,8 @@ end
     resource :favorites, only: [:create, :destroy]
   end
   resources :chats, only: [:show, :create]
-   resources :brands, only:[] do
-    resources :stores, only:[:index]
-  end
+  # resources :brands, only:[] do
+    # resources :stores, only:[:index]
 end
 
 
