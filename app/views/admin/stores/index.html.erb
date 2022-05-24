@@ -2,7 +2,9 @@
 
 <%= form_with model: @store, url: admin_stores_path, method: :post do |f| %>
 
-  <%= f.text_field :store_name, placeholder: "店舗名" %>
+  <%= f.collection_select :brand_id, Brand.all, :id, :brand_name, prompt: "ブランドを選択" %>
+
+  <%= f.text_field :store_name, placeholder: "店舗名を入力" %>
 
   <%= f.submit "登録" %>
 <% end %>
@@ -12,6 +14,7 @@
 <h4>店舗リスト</h4>
 
 <% @stores.each do |store| %>
+   <%= store.brand.brand_name %>
    <%= store.store_name %><br>
 <% end %>
 
