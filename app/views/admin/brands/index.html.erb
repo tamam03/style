@@ -1,18 +1,17 @@
 <h1>ブランド一覧</h1>
 
 <%= form_with model: @brand, url: admin_brands_path, method: :post do |f| %>
-
-
-  <%= f.text_field :brand_name, placeholder: "ブランド名" %>
-
+  <%= f.text_field :brand_name, placeholder: "ブランド名を入力" %>
   <%= f.submit "登録" %>
 <% end %>
-
 
 
 <h4>ブランドリスト</h4>
 <% @brands.each do |brand| %>
    <%= brand.brand_name %><br>
+   <% brand.stores.each do |store| %>
+   <%= store.store_name %>
+   <% end %>
 <% end %>
 
 

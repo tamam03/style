@@ -13,3 +13,7 @@ ja:
         close: "非公開"
         release: "公開"
         only_clerk: "店舗スタッフのみ公開"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
