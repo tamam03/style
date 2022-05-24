@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :items, dependent: :destroy
   belongs_to :brand, optional: true
+  belongs_to :store , optional: true
   has_many :favorites, dependent: :destroy
   has_many :comments
 
@@ -18,8 +19,7 @@ class User < ApplicationRecord
   has_many :chats, dependent: :destroy
 
 
-  #変更予定
-  belongs_to :store , optional: true
+  
 
 
   # フォローする→relationships

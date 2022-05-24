@@ -57,6 +57,9 @@ end
     resource :favorites, only: [:create, :destroy]
   end
   resources :chats, only: [:show, :create]
+  resources :brands, only:[:index] do
+    resources :stores, only:[:index]
+  end
 end
 
 
