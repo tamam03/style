@@ -12,6 +12,6 @@
 
 
  <%= link_to "編集", edit_admin_user_path(@user) %>
- <%= link_to "削除", admin_user_path(@user), method: :delete %>
+ <%= link_to "削除", admin_user_path(@user), method: :delete, data: {confirm: "削除しますか？"} %>
 
  <%= link_to "投稿を見る", user_index_admin_item_path %>

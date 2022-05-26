@@ -6,12 +6,30 @@
 <% end %>
 
 
-
-<% @users.each do |user| %>
-   <%= user.name %>
-   <%= user.email %>
-   <%= link_to "詳細", admin_user_path(user.id) %>
-<% end %>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">氏名</th>
+            <th scope="col">メールアドレス</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <% @users.each do |user| %>
+        <tbody>
+            <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td>
+                    <% if user.email == 'guest@example.com' %>
+                        <p></p>
+                    <% else %>
+                        <%= link_to "詳細", admin_user_path(user.id) %>
+                    <% end %>
+                </td>
+            </tr>
+        </tbody>
+    <% end %>
+</table>
 
 
 
