@@ -9,6 +9,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th scope="col"></th>
             <th scope="col">氏名</th>
             <th scope="col">メールアドレス</th>
             <th scope="col"></th>
@@ -17,6 +18,11 @@
     <% @users.each do |user| %>
         <tbody>
             <tr>
+                <% if user.is_user == true %>
+                <td>ユーザー</td>
+                <% elsif user.is_user == false %>
+                <td><%= user.brand.brand_name %>スタッフ</td>
+                <% end %>
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
                 <td>

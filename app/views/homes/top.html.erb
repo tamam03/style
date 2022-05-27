@@ -1,32 +1,24 @@
   <div class="container">
-    <div class="d-flex justify-content-center">
-      <div class="row p-5 mx-auto">
-         <%= image_tag 'DB6E1894-D210-4D87-BEC9-90A9ECFF895C.jpg', class: 'logo' %>
+    <div class="row d-flex justify-content-center p-5 mx-auto">
+      <%= image_tag 'DB6E1894-D210-4D87-BEC9-90A9ECFF895C.jpg', class: 'logo' %>
+    </div>
+    <div class="row p-3">
+      <div class="col-12 d-flex justify-content-center">
+        <h6>アカウントをお持ちのお客様</h6>
+      </div>
+      <div class="col-12 col-12 d-flex justify-content-center">
+        <%= link_to "Log in", new_user_session_path, class: "home-btn btn btn-outline-secondary center-block" %>
       </div>
     </div>
-    <div class="d-flex justify-content-center">
-      <div class="row p-3">
-        <div class="col-12">
-          <h6>アカウントをお持ちのお客様</h6>
-        </div>
-        <div class="col-12">
-          <%= link_to "Log in", new_user_session_path, class: "home-btn btn btn-outline-secondary center-block" %>
-        </div>
+    <div class="row p-3">
+      <div class="col-12  d-flex justify-content-center">
+        <h6>新規登録はこちらから</h6>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <%= link_to "Sign up", new_user_registration_path, class: "home-btn btn btn-outline-secondary center-block" %>
       </div>
     </div>
-    <div class="d-flex justify-content-center">
-      <div class="row p-3">
-        <div class="col-12">
-          <h6>新規登録はこちらから</h6>
-        </div>
-        <div class="col-12">
-          <%= link_to "Sign up", new_user_registration_path, class: "home-btn btn btn-outline-secondary center-block" %>
-        </div>
-      </div>
-    </div>
-    <div class="d-flex justify-content-center">
-      <div class="row p-2">
-        <h6><%= link_to 'guest', public_guests_path, method: :post, class: "home-btn btn btn-outline-secondary center-block" %></h6>
-      </div>
+    <div class="row d-flex justify-content-center pt-5">
+      <h6><%= link_to 'guest', public_guests_path, method: :post, class: "home-btn btn btn-outline-secondary center-block" %></h6>
     </div>
   </div>

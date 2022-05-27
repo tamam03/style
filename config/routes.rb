@@ -35,7 +35,7 @@ namespace :admin do
     end
     resources :comments, only:[:destroy]
   end
-  resources :brands, only: [:index, :create, :destroy]
+  resources :brands, only: [:index, :show, :create, :destroy]
   resources :stores, only: [:index, :create]
 end
 

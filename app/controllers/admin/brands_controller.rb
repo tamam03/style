@@ -5,6 +5,10 @@ class Admin::BrandsController < ApplicationController
     @brands = Brand.all
     @brand = Brand.new
   end
+  
+  def show
+    @brand = Brand.find(params[:id])
+  end
 
   def create
      @brand = Brand.new(brand_params)

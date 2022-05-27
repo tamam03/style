@@ -1,47 +1,39 @@
-<div class="item show">
-   <div class="container">
-      <div class="d-flex justify-content-center">
-        <div class="row p-5 mx-auto">
-          <h1>投稿詳細</h1>
+<div class="container">
+    <div class="row d-flex justify-content-center p-5 mx-auto">
+        <h1>投稿詳細</h1>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="image-wrap">
+                        <%= image_tag @item.get_item_image(300, 300) %>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <%= @item.text %>
+                </div>
+                <div class="card-body">
+                    ブランド：<%= @item.brand.brand_name %>
+                </div>
+                <div class="card-body">
+                    ステータス：<%= @item.status_i18n %>
+                </div>
+            </div>
         </div>
-      </div>
-
-
-
-
-
-<%= image_tag @item.get_item_image(100, 100) %>
-
-
-<p>説明文</p>
-
-<%= @item.text %><br>
-
-<p>ブランド</p>
-
-<%= @item.brand.brand_name %><br>
-
-<p>ステータス</p>
-
-<%= @item.status_i18n %><br>
-
-
-<%= link_to "編集", edit_public_item_path(@item) %>
-
-
-<div id="comments_area">
-   <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
-</div>
-
-<div id="comments_form">
-   <%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %>
-</div>
-
-
-
-
-
-
-
- </div>
+    </div>
+    <div class="row d-flex justify-content-center p-4">
+        <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-outline-secondary center-block" %>
+    </div>
+        <div id="comments_area">
+            <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
+        </div>
+         <% if @item.user.is_user == false %>
+    <div class="row d-flex justify-content-center">
+        <div id="comments_form">
+            <%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %>
+        </div>
+    </div>
+    <% else %>
+    <% end %>
 </div>

@@ -1,0 +1,17 @@
+ <% if @brand.stores.present? %>
+ <% @brand.stores.first(2).each do |store| %>
+   <%= store.store_name %>
+   <% end %>
+   <% end %>
+
+   <% if @brand.stores.count >= 3 %>
+   <button type="stores morebutton" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      | もっと見る....
+   </button>
+   <div class="collapse" id="collapseExample">
+    <% @brand.stores.offset(2).each do |store| %>
+    <%= store.store_name %>
+   <% end %>
+   </div>
+   <% else %>
+   <% end %>
