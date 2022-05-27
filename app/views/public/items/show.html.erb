@@ -19,21 +19,22 @@
                 <div class="card-body">
                     ステータス：<%= @item.status_i18n %>
                 </div>
+                <div class="card-body">
+                    <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-outline-secondary center-block" %>
+                </div>
             </div>
         </div>
     </div>
-    <div class="row d-flex justify-content-center p-4">
-        <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-outline-secondary center-block" %>
-    </div>
-        <div id="comments_area">
-            <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
-        </div>
-         <% if @item.user.is_user == false %>
-    <div class="row d-flex justify-content-center">
+     <% if current_user.is_user == false %>
+         <div class="row d-flex justify-content-center">
         <div id="comments_form">
             <%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %>
         </div>
     </div>
     <% else %>
     <% end %>
+        <div id="comments_area">
+            <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
+        </div>
+
 </div>

@@ -15,6 +15,11 @@
      <div class="card-body">
       <%= link_to item.user.nick_name, public_user_path(item.user.id) %>
      </div>
+      <% if item.user.is_user == false %>
+     <div class="card-body">
+      <%= link_to item.user.name, public_user_path(item.user.id) %>
+     </div>
+     <% end %>
      <div class="card-body">
       <%= item.brand.brand_name %>
      </div>

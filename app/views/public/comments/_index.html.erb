@@ -1,37 +1,60 @@
+
 <div class="row d-flex justify-content-center">
     <h5>Comment</h5><%= item.comments.count %>件
 </div>
 <div class="row d-flex justify-content-center">
+  <% if item.comments.count >= 3 %>
+    <div class="col-5">
+      <button type="comment morebutton" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <i class="fas fa-chevron-circle-down"></i>もっと見る....
+      </button>
+    </div>
+  <% end %>
+</div>
+<div class="row d-flex justify-content-center">
 <%#= render 'layouts/flash_messages' %>
-<% comments.first(2).each do |comment| %>
+  <% comments.first(2).each do |comment| %>
     <% unless comment.id.nil? %>
-      <%= image_tag comment.user.get_profile_image(80, 80), class: "rounded-circle" %>
-      <%= comment.user.name %>
-      <%= comment.text %>
-      <% if comment.user == current_user %>
-        <%= link_to "削除", public_item_comment_path(comment.item_id, comment.id), method: :delete, remote: true %>
-      <% end %>
-   <% end %>
-<% end %>
-</div>
-<% if item.comments.count >= 3 %>
-<div class="row d-flex justify-content-center">
-<button type="comment morebutton" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      | もっと見る....
-</button>
-</div>
-<div class="row d-flex justify-content-center">
-<!--3件以上-->
-<div class="collapse" id="collapseExample">
-  <% comments.offset(2).each do |comment| %>
-    <% unless comment.id.nil? %>
-      <%= comment.text %>
-      <% if comment.user == current_user %>
-        <%= link_to "削除", public_item_comment_path(comment.item_id, comment.id), method: :delete, remote: true %>
-      <% end %>
+      <div class="col-5">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-title">
+              <%= image_tag comment.user.get_profile_image(50, 50), class: "rounded-circle" %>
+              <%= comment.user.name %>
+            </p>
+            <p class="card-text">
+              <%= comment.text %>
+              <% if comment.user == current_user %>
+                <%= link_to "削除", public_item_comment_path(comment.item_id, comment.id), method: :delete, remote: true %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
     <% end %>
   <% end %>
 </div>
-<% end %>
-</div>
+<div class="collapse" id="collapseExample">
+  <div class="row">
+　　<% comments.offset(3).each do |comment| %>
+　　　<% unless comment.id.nil? %>
+　　　 <div class="col-4">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-title">
+              <%= image_tag comment.user.get_profile_image(50, 50), class: "rounded-circle" %>
+              <%= comment.user.name %>
+            </p>
+            <p class="card-text">
+              <%= comment.text %>
+              <% if comment.user == current_user %>
+                <%= link_to "削除", public_item_comment_path(comment.item_id, comment.id), method: :delete, remote: true %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
 </div>
