@@ -7,15 +7,15 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link text-light" %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link text-black" %>
           </li>
           <li>
-            <%= link_to public_items_path, class: "nav-item nav-link text-light" do %>
+            <%= link_to public_items_path, class: "nav-item nav-link text-black" do %>
               投稿一覧
             <% end %>
           </li>
           <li>
-            <%= link_to public_user_path(current_user), class: "nav-item nav-link text-light" do %>
+            <%= link_to public_user_path(current_user), class: "nav-item nav-link text-black" do %>
               マイページ
             <% end %>
           </li>

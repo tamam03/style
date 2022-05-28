@@ -1,7 +1,7 @@
  <!--ユーザー新規登録-->
   <div class="field">
    <%= f.label :氏名 %><br />
-   <%= f.text_field :name %>
+   <%= f.text_field :name, placeholder: "漢字フルネーム" %>
   </div>
   <div class="field">
    <%= f.label :フリガナ %><br />
@@ -18,11 +18,13 @@
    <div id="only-clerk">
     <% brand_options = Brand.order(:id).map { |c| [c.brand_name, c.id, data: { children_path: public_brand_stores_path(c) }] } %>
     <div class="field">
+    <%= f.label :所属ブランド %>
     <%= f.select :brand_id, brand_options, { include_blank: true }, class: 'select-parent' %>
    </div>
     <%# stores = user.brand.try(:stores) || [] %>
     <%# store_options = stores.map { |c| [c.store_name, c.id ] } %>
      <div class="field">
+     <%= f.label :配属店舗 %>
      <%= f.select :store_id, [], {}, class: 'select-children' %>
      </div>
   </div>

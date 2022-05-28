@@ -16,7 +16,7 @@
 
 body{
  font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
- color: #555555;
+ /*color: #555555;*/
 
 }
 
@@ -29,13 +29,23 @@ main{
     min-height: 1080px;
 }
 
+.navbar{
+    opacity:0.5;
+}
+
+.navbar-brand{
+    font-family: 'Georgia',sans-serif;
+    font-size: 40px;
+    font-weight:800;
+
+}
 /*ヘッダー*/
-header{
-  color: #555555
-}
-.container-fluid{
-  background-color: #C0C0C0
-}
+/*header{*/
+  /*color: #555555*/
+/*}*/
+/*.container-fluid{*/
+  /*background-color: #C0C0C0*/
+/*}*/
 
 /*ページネーション自体のデザイン*/
 .pagination>li>a {
