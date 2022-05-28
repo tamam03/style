@@ -2,63 +2,49 @@
 <div class="container">
   <div class="row">
    <% @items.each do |item| %>
-   <div class="col-3">
-    <div class="card">
-     <div class="card-body">
-      <div class="image-wrap">
-       <%= image_tag item.get_item_image(200, 200) %>
+    <div class="col-3 pt-2">
+     <div class="card">
+      <div class="card-body">
+       <div class="image-wrap">
+        <%= link_to public_item_path(item) do %>
+         <%= image_tag item.get_item_image(200, 200) %>
+        <% end %>
+       </div>
+       <div class="card-profile">
+        <%= image_tag item.user.get_profile_image(80, 80), class: "rounded-circle" %>
+        <%= link_to item.user.nick_name, public_user_path(item.user.id) %>
+        <% if item.user.is_user == false %>
+         <%= link_to item.user.name, public_user_path(item.user.id) %>
+        <% end %>
+       </div>
+       <div class="card-brand">
+        <%= item.brand.brand_name %>
+       </div>
+       <div class="card-favorite">
+        <% unless item.user == current_user %>
+         <div id = "favorite_btns_<%= item.id %>">
+          <%= render "public/favorites/btn", item: item %>
+         </div>
+        <% else %>
+        <% end %>
+       </div>
+       <div class="card-btn text-right p-3">
+        <% if item.user == current_user %>
+         <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"}, class: "card-delete-btn" do %>
+          <i class="far fa-trash-alt"></i>
+         <% end %>
+        <% else %>
+        <% end %>
+       </div>
       </div>
      </div>
-     <div class="card-body">
-      <%= image_tag item.user.get_profile_image(80, 80), class: "rounded-circle" %>
-     </div>
-     <div class="card-body">
-      <%= link_to item.user.nick_name, public_user_path(item.user.id) %>
-     </div>
-      <% if item.user.is_user == false %>
-     <div class="card-body">
-      <%= link_to item.user.name, public_user_path(item.user.id) %>
-     </div>
-     <% end %>
-     <div class="card-body">
-      <%= item.brand.brand_name %>
-     </div>
-     <!--いいね-->
-     <div class="card-body">
-      <% unless item.user == current_user %>
-        <div id = "favorite_btns_<%= item.id %>">
-         <%= render "public/favorites/btn", item: item %>
-        </div>
-      <% else %>
-      <% end %>
-     </div>
-     <div class="card-body">
-      <% if item.user == current_user %>
-       <%= button_to "削除", public_item_path(item), method: :delete, data: {confirm: "削除しますか？"} %>
-      <% else %>
-      <% end %>
-     </div>
-     <div class="card-body">
-      <%= link_to "詳細", public_item_path(item) %>
-     </div>
     </div>
-   </div>
    <% end %>
   </div>
-  <%= paginate @items %>
+  <div class="row p-3 d-flex justify-content-center">
+   <%= paginate @items %>
+  </div>
  </div>
-
-
-<style>
- /*.items {*/
-    /*min-height: 100vh;*/
-    /*position: relative;*/
-    /*padding-bottom: 120px;*/
-    /*box-sizing: border-box;*/
-}
-</style>
-
-
 
 
 

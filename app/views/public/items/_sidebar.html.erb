@@ -1,27 +1,30 @@
-
-<button type="comment morebutton" class="btn btn-outline-secondary w-100 m-3" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-   <i class="fas fa-angle-double-down"></i>
-</button>
-
-<div class="collapse" id="collapseExample">
-       <%= link_to new_public_item_path, class: 'btn btn-outline-primary' do %>
-         新規投稿
-       <% end %>
-       <%= link_to public_items_privacy_path, class: 'btn btn-outline-primary' do %>
-         非公開
-       <% end %>
-       <%= link_to favorites_public_users_path, class: 'btn btn-outline-primary' do %>
-         お気に入り
-       <% end %>
-       <%= link_to public_items_my_item_path, class: 'btn btn-outline-primary' do %>
-         投稿履歴
-       <% end %>
-
-       <% if current_user.is_user == false %>
-            <%= link_to public_items_clerk_path, class: 'btn btn-outline-primary' do %>
-             限定公開
+<div class="container">
+    <div class="row">
+        <button type="comment morebutton" class="btn btn-outline-secondary w-100 m-3" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            menu <i class="fas fa-angle-double-down"></i>
+        </button>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="collapse" id="collapseExample">
+            <%= link_to new_public_item_path, class: 'btn btn-outline-dark' do %>
+                新規投稿
             <% end %>
-       <% else %>
-       <% end %>
+            <%= link_to public_items_privacy_path, class: 'btn btn-outline-dark' do %>
+                非公開
+            <% end %>
+            <%= link_to favorites_public_users_path, class: 'btn btn-outline-dark' do %>
+                お気に入り
+            <% end %>
+            <%= link_to public_items_my_item_path, class: 'btn btn-outline-dark' do %>
+                投稿履歴
+            <% end %>
+            <% if current_user.is_user == false %>
+                <%= link_to public_items_clerk_path, class: 'btn btn-outline-dark' do %>
+                    限定公開
+                <% end %>
+            <% else %>
+            <% end %>
+        </div>
+    </div>
 </div>
 

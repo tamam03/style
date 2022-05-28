@@ -1,21 +1,19 @@
 <div class="public-sign-in">
   <div class="container">
-    <div class="d-flex justify-content-center">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="p-5 mx-auto">
-        <div class="row">
+    <div class="row d-flex justify-content-center p-5">
+      <div class="session-form">
+      <%= form_with model: @user, url: session_path(resource_name) do |f| %>
+        <div class="col-12 p-2">
           <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "\uf0e0 Email", class: 'fa' %>
           </div>
         </div>
-        <div class="row">
+        <div class="col-12 p-2">
           <div class="field">
-            <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "current-password" %>
+            <%= f.password_field :password, autocomplete: "current-password",  placeholder: "password" %>
           </div>
         </div>
-        <div class="row">
+        <div class="col-12 p-2">
           <% if devise_mapping.rememberable? %>
           <div class="field">
             <%= f.check_box :remember_me %>
@@ -23,13 +21,13 @@
           </div>
             <% end %>
         </div>
-        <div class="row">
+        <div class="col-12 p-2">
           <div class="actions">
              <%= f.submit "ログイン", class: "btn-login" %>
           </div>
              <% end %>
         </div>
-        <div class="row">
+        <div class="row p-2">
            <%= render "public/shared/links" %>
         </div>
       </div>
@@ -55,5 +53,19 @@
    box-shadow    : none;        /* カーソル時の影消去 */
    color         : #000000;     /* 背景色     */
    background    : #ffffff;     /* 文字色     */
+  }
+
+  .session-form{
+  background: #EEEEEE;
+  padding: 100px;
+  margin: 50px;
+  border:  3px solid;
+  border-radius: 8px;
+  border-color: #999966;
+  }
+
+  input.fa{
+    height: 30px;
+    width: 250px;
   }
 </style>

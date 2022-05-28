@@ -1,29 +1,34 @@
 <div class="container">
-   <h1>店舗スタッフ公開一覧</h1>
-    <div class="row">
-     <% @clerk_all_items.each do |item| %>
-      <div class="col-3">
-        <div class="card">
-          <div class="card-body">
-            <div class="image-wrap">
-             <%= image_tag item.get_item_image(200, 200) %>
-            </div>
-          </div>
-          <div class="card-body">
-           <%= item.text %>
-          </div>
-          <div class="card-body">
-           <%= item.brand.brand_name %>
-          </div>
-          <div class="card-body">
-           <%= link_to "詳細", public_item_path(item) %>
-          </div>
+  <h1>店舗スタッフ公開一覧</h1>
+   <div class="row">
+    <% @clerk_all_items.each do |item| %>
+     <div class="col-3 pt-2">
+      <div class="card">
+       <div class="card-body">
+        <div class="image-wrap">
+         <%= link_to public_item_path(item) do %>
+          <%= image_tag item.get_item_image(200, 200) %>
+         <% end %>
         </div>
+        <div class="card-profile">
+         <%= image_tag item.user.get_profile_image(80, 80), class: "rounded-circle" %>
+         <%= link_to item.user.nick_name, public_user_path(item.user.id) %>
+        </div>
+        <div class="card-brand">
+         <%= item.brand.brand_name %>
+        </div>
+        <div class="card-favorite">
+         <div id = "favorite_btns_<%= item.id %>">
+          <%= render "public/favorites/btn", item: item %>
+         </div>
+        </div>
+       </div>
       </div>
-     <% end %>
-    </div>
-    <%= paginate @clerk_items %>
-  </div>
+     </div>
+    <% end %>
+   </div>
+  <%= paginate @clerk_items %>
+ </div>
 
 
 

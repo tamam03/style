@@ -2,26 +2,26 @@ class Public::ItemsController < ApplicationController
 # before_action :ensure_user, only: [:privacy, :clerk, :edit, :update, :destroy ]
 
   def index
-    @items = Item.all.page(params[:page]).per(12)
+    @items = Item.all.page(params[:page]).per(8)
     @items.where!(status: "release")
     @user = User.select("is_user")
   end
   # ログインユーザー投稿一覧
   def my_item
     @my_items = Item.where(user_id: current_user.id).includes(:user).order("created_at DESC")
-    @my_items = @my_items.all.page(params[:page]).per(12)
+    @my_items = @my_items.all.page(params[:page]).per(8)
   end
 
   # ログインユーザー非公開投稿一覧
   def privacy
     @close_items = current_user.items.where(status: "close")
-    @close_items = @close_items.all.page(params[:page]).per(12)
+    @close_items = @close_items.all.page(params[:page]).per(8)
   end
 
   # 店舗スタッフのみ公開一覧
   def clerk
     @clerk_items = Item.all.where(status: "only_clerk")
-    @clerk_items = @clerk_items.all.page(params[:page]).per(12)
+    @clerk_items = @clerk_items.all.page(params[:page]).per(8)
   end
 
   def show

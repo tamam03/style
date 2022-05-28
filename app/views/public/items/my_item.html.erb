@@ -1,28 +1,35 @@
 <div class="container">
+ <% if @my_items.present? %>
   <div class="row">
    <% @my_items.each do |item| %>
-   <div class="col-3">
-    <div class="card">
-     <div class="card-body">
-      <div class="image-wrap">
-       <%= image_tag item.get_item_image(200, 200) %>
+    <div class="col-3 pt-2">
+     <div class="card">
+      <div class="card-body">
+       <div class="image-wrap">
+        <%= link_to public_item_path(item) do %>
+         <%= image_tag item.get_item_image(200, 200) %>
+        <% end %>
+       </div>
+       <div class="card-create">
+        <%= item.created_at.strftime("%Y-%m-%d") %>
+       </div>
+       <div class="card-brand">
+        <%= item.brand.brand_name %>
+       </div>
+       <div class="card-btn text-right p-3">
+        <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"}, class: "card-delete-btn" do %>
+         <i class="far fa-trash-alt"></i>
+        <% end %>
+    　  </div>
       </div>
      </div>
-     <div class="card-body">
-      <%= item.text %>
-     </div>
-     <div class="card-body">
-      <%= item.brand.brand_name %>
-     </div>
-     <div class="card-body">
-      <%= button_to "削除", public_item_path(item), method: :delete %>
-     </div>
-     <div class="card-body">
-      <%= link_to "詳細", public_item_path(item) %>
-     </div>
     </div>
-   </div>
    <% end %>
   </div>
+  <% else %>
+   <p class ="d-flex justify-content-center p-5">投稿が存在しません</p>
+  <% end %>
+  <div class="row p-3 d-flex justify-content-center">
   <%= paginate @my_items %>
+  </div>
 </div>

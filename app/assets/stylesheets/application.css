@@ -16,8 +16,6 @@
 
 body{
  font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
- /*color: #555555;*/
-
 }
 
 main{
@@ -37,38 +35,39 @@ main{
     font-family: 'Georgia',sans-serif;
     font-size: 40px;
     font-weight:800;
-
 }
-/*ヘッダー*/
-/*header{*/
-  /*color: #555555*/
-/*}*/
-/*.container-fluid{*/
-  /*background-color: #C0C0C0*/
-/*}*/
 
-/*ページネーション自体のデザイン*/
+a:hover { color: #9999CC; }
+a:link { color: #808080; }
+a:visited { color: #808080; }
+
+/*ページネーション*/
 .pagination>li>a {
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+  border: none;
+  color: #696969;
 }
-/* 表示しているページ番号のデザイン */
+
 .pagination>.active>a {
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
+  background: #CC99CC;
+  border-radius: 15px;
 }
 .pagination>li>a:hover {
-  border-radius: 15px;    /*角を丸くする*/
+  border-radius: 15px;
 }
+.page-item.active .page-link {
+    background-color: #CC99CC;
+    border-color: #CC99CC;
+}
+
 
 /*プロフィール画像*/
 .profile{
-  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-  width: 200px;  /* 縦横を同じ値にする */
-  height: 200px;  /* 縦横を同じ値にする */
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
 }
 .rounded-circle{
-   width: 80px;  /* 縦横を同じ値にする */
+   width: 80px;
   height: 80px;  /* 縦横を同じ値にする */
 }
 
@@ -92,3 +91,8 @@ main{
     object-fit: cover;
 }
 
+select{
+    height: 40px;
+ }
+
+ 

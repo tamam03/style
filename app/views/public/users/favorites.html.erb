@@ -1,29 +1,22 @@
 <div class="container">
-  <h1>お気に入り一覧</h1>
-  <div class="row">
-   <%  if @favorite_lists.present? %>
+  <h1 class="d-flex justify-content-center p-3">お気に入り一覧</h1>
+  <%  if @favorite_lists.present? %>
+   <div class="row">
     <% @favorite_lists.each do |item| %>
      <div class="col-3">
       <div class="card">
        <div class="card-body">
         <div class="image-wrap">
-         <%= image_tag item.get_item_image(200, 200) %>
+         <%= link_to public_item_path(item) do %>
+          <%= image_tag item.get_item_image(200, 200) %>
+         <% end %>
         </div>
-       </div>
-       <div class="card-body">
-        <%= item.text %>
-       </div>
-       <div class="card-body">
-        <%= item.brand.brand_name %>
-       </div>
-       <div class="card-body">
-        <%= link_to "詳細", public_item_path(item) %>
        </div>
       </div>
      </div>
     <% end %>
    <% else %>
-    <p>お気に入りが存在しません</p>
+     <p class ="row d-flex justify-content-center p-5">お気に入りが存在しません</p>
    <% end %>
   </div>
  </div>
