@@ -1,6 +1,8 @@
+<%= @brand.brand_name %>の店舗一覧
  <% if @brand.stores.present? %>
  <% @brand.stores.first(2).each do |store| %>
    <%= store.store_name %>
+   <%= link_to "削除", admin_store_path(store), method: :delete %>
    <% end %>
    <% end %>
 
@@ -11,6 +13,7 @@
    <div class="collapse" id="collapseExample">
     <% @brand.stores.offset(2).each do |store| %>
     <%= store.store_name %>
+    <%= link_to "削除", admin_store_path(store), method: :delete %>
    <% end %>
    </div>
    <% else %>

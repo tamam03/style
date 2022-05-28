@@ -3,6 +3,7 @@
     <div class="row d-flex justify-content-center p-5">
       <div class="session-form">
       <%= form_with model: @user, url: session_path(resource_name) do |f| %>
+      <%= render 'public/shared/error_messages', resource: @user %>
         <div class="col-12 p-2">
           <div class="field">
             <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "\uf0e0 Email", class: 'fa' %>
@@ -36,6 +37,10 @@
 </div>
 
 <style>
+ main{
+     background-image: none;
+   }
+
   .btn-login {
    display       : inline-block;
    font-size     : 10pt;        /* 文字サイズ */

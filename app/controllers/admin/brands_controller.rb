@@ -16,6 +16,12 @@ class Admin::BrandsController < ApplicationController
      redirect_to  request.referer
   end
   
+  def destroy
+    @brand = Brand.find(params[:id])
+    @brand.destroy
+    redirect_to  request.referer
+  end
+  
 
    private
 

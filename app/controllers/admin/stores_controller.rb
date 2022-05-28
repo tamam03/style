@@ -9,8 +9,13 @@ class Admin::StoresController < ApplicationController
     # binding.pry
      @store = Store.new(store_params)
      @store.save!
-     redirect_to  request.referer
-
+     redirect_to admin_brand_path(@store.brand.id)
+  end
+  
+  def destroy
+    @store = Store.find(params[:id])
+    @store.destroy
+    redirect_to  request.referer
   end
 
 

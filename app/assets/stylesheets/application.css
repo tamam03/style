@@ -27,6 +27,38 @@ main{
     min-height: 1080px;
 }
 
+ .homes-main{
+    background-image: url(23820280_m.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 1080px;
+  }
+
+  .public-sign-in{
+  background-image: url(23246870_s.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 1080px;
+}
+
+.public-registration{
+  background-image: url(23246875_s.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 1080px;
+}
+
+.user-page{
+ background-image: url(23246691_s.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 1080px;
+}
+
 .navbar{
     opacity:0.5;
 }
@@ -95,4 +127,3 @@ select{
     height: 40px;
  }
 
- 

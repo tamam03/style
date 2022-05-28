@@ -1,56 +1,61 @@
+<div class="user-page">
 <div class="container">
-  <div class="d-flex justify-content-center">
-  <div class="row">
-    <%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
- <table>
-  <tbody>
-    <div class="col-12">
-    <tr>
-     <div class="image">
-     <th><%= f.label :プロフィール画像 %></th>
-     <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %></td>
-     </div>
-    </tr>
-    </div>
-    <div class="col-12">
-    <tr>
-     <div class="field">
-     <th><%= f.label :氏名 %></th>
-     <td> <%= f.text_field :name %></td>
-     </div>
-    </tr>
-    </div>
-    <div class="col-12">
-    <tr>
-     <div class="field">
-     <th> <%= f.label :フリガナ %></th>
-     <td> <%= f.text_field :name_kana %></td>
-     </div>
-    </tr>
-    </div>
-    <div class="col-12">
-    <tr>
-      <div class="field">
-     <th><%= f.label :ニックネーム（表示用） %></th>
-     <td><%= f.text_field :nick_name %></td>
-     </div>
-    </tr>
-    </div>
-    <div class="col-12">
-    <tr>
-     <div class="field">
-     <th> <%= f.label :メールアドレス %></th>
-     <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-     </div>
-    </tr>
-   </div>
- </tbody>
-</table>
-<div class="row">
- <%= f.submit "変更を保存" %>
+  <div class="row d-flex justify-content-center p-5">
+   <%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
+    <table>
+     <tbody>
+      <div class="col-12 p-3">
+       <tr>
+        <div class="image">
+         <th><%= f.label :プロフィール画像 %></th>
+         <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %></td>
+        </div>
+       </tr>
+      </div>
+      <div class="col-12 p-3">
+       <tr>
+        <div class="field">
+         <th><%= f.label :氏名 %></th>
+         <td> <%= f.text_field :name %></td>
+        </div>
+       </tr>
+      </div>
+      <div class="col-12">
+       <tr>
+        <div class="field">
+         <th> <%= f.label :フリガナ %></th>
+         <td> <%= f.text_field :name_kana %></td>
+        </div>
+       </tr>
+      </div>
+      <div class="col-12">
+       <tr>
+        <div class="field">
+         <th><%= f.label :ニックネーム（表示用） %></th>
+         <td><%= f.text_field :nick_name %></td>
+        </div>
+       </tr>
+      </div>
+      <div class="col-12">
+       <tr>
+        <div class="field">
+         <th> <%= f.label :メールアドレス %></th>
+         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+        </div>
+       </tr>
+      </div>
+     </tbody>
+    </table>
+    <div class="row d-flex justify-content-center p-3">
+     <%= f.submit "変更を保存", class: "btn btn-outline-secondary center-block" %>
    <% end %>
+    </div>
+   </div>
+</div>
 </div>
 
-</div>
-</div>
-</div>
+<style>
+ main{
+     background-image: none;
+   }
+</style>
