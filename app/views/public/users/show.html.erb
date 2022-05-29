@@ -53,13 +53,17 @@
      </div>
     </div>
    <% end %>
-   <% if current_user.id != @user.id %>
    <div class="row">
+     <% if current_user.following?(@user) && @user.following?(current_user) %>
     <div class="col-12">
      <%= link_to "#{@user.name}さんとチャットする", public_chat_path(@user.id) %>
     </div>
+     <% else %>
+    <div class="col-12">
+     相互フォローでチャットが可能になります
+     </div>
+     <% end %>
    </div>
-   <% end %>
   </div>
  </div>
 </div>

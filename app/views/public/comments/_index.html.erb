@@ -18,7 +18,7 @@
           <div class="card-body">
             <div class="card-title">
               <%= image_tag comment.user.get_profile_image(50, 50), class: "rounded-circle" %>
-              <%= comment.user.name %>
+              <%= link_to comment.user.name, public_user_path(comment.user.id) %>
             </div>
             <div class="card-text">
               <%= comment.text %>
@@ -43,7 +43,7 @@
             <div class="card-body">
               <div class="card-title">
                 <%= image_tag comment.user.get_profile_image(50, 50), class: "rounded-circle" %>
-                <%= comment.user.name %>
+                <%= link_to comment.user.name, public_user_path(comment.user.id) %>
               </div>
               <div class="card-text">
                 <%= comment.text %>
