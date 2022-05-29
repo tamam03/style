@@ -19,7 +19,7 @@ body{
 }
 
 main{
-    background-image: image-url("golden-white-marble-textured-design-resource.jpg");
+    background-image: url(golden-white-marble-textured-design-resource.jpg);
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
@@ -28,7 +28,7 @@ main{
 }
 
  .homes-main{
-    background-image: image-url("23820280_m.jpg");
+    background-image: url(23820280_m.jpg);
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
@@ -36,7 +36,7 @@ main{
   }
 
   .public-sign-in{
-  background-image: image-url("23246870_s.jpg");
+  background-image: url(23246870_s.jpg);
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
@@ -44,7 +44,7 @@ main{
 }
 
 .public-registration{
-  background-image: image-url("23246875_s.jpg");
+  background-image: url(23246875_s.jpg);
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
@@ -52,7 +52,7 @@ main{
 }
 
 .user-page{
- background-image: image-url("23246691_s.jpg");
+ background-image: url(23246691_s.jpg);
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
@@ -60,7 +60,7 @@ main{
 }
 
 .admin{
-  background-image: image-url("23246694_s.jpg");
+  background-image: url(23246694_s.jpg);
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
