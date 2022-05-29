@@ -60,4 +60,4 @@ https://docs.google.com/spreadsheets/d/1BOEAqO1aVAn_PEqCA7H-E-pxT6pxGxgU/edit?us
 
 
 ## 使用素材
-使用検討中です
+① https://www.photo-ac.com/　②https://girlydrop.com/
