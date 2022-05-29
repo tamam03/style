@@ -2,10 +2,10 @@
 <html>
   <head>
     <title>Style</title>
-     <meta name="viewport" content="width=device-width,initial-scale=1">
-     <%= csrf_meta_tags %>
-     <%= csp_meta_tag %>
-　　<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/5f2329857c.js" crossorigin="anonymous"></script>
@@ -21,8 +21,10 @@
       <% end %>
     </header>
     <main>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      <% end %>
       <%= yield %>
     </main>
     <footer class="fixed-bottom">

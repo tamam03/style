@@ -5,9 +5,10 @@ class Admin::BrandsController < ApplicationController
     @brands = Brand.all
     @brand = Brand.new
   end
-  
+
   def show
     @brand = Brand.find(params[:id])
+    @stores = @brand.stores.page(params[:page]).per(8)
   end
 
   def create
@@ -15,13 +16,13 @@ class Admin::BrandsController < ApplicationController
      @brand.save!
      redirect_to  request.referer
   end
-  
+
   def destroy
     @brand = Brand.find(params[:id])
     @brand.destroy
     redirect_to  request.referer
   end
-  
+
 
    private
 

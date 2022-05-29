@@ -1,6 +1,6 @@
 <div class="container">
    <div class="row d-flex justify-content-center p-5">
-      <form class="item-form">
+      <div class="item-form">
          <%= form_with model: @item, url: public_items_path, method: :post do |f| %>
             <div class="col-12">
                <div class="images p-3">
@@ -19,14 +19,14 @@
             </div>
             <div class="col-12">
                <div class="select p-3">
-                 <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] },{prompt: 'ステータスを選択してください'} %>
+                 <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] }, {prompt: 'ステータスを選択してください'} %>
                </div>
             </div>
             <div class="row d-flex justify-content-center p-3">
                <%= f.submit "投稿", class: "btn-submit" %>
             </div>
          <% end %>
-      </form>
+      </div>
    </div>
  </div>
 

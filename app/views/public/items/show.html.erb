@@ -1,40 +1,48 @@
 <div class="container">
-    <div class="row d-flex justify-content-center p-5 mx-auto">
-        <h1>投稿詳細</h1>
-    </div>
-    <div class="row d-flex justify-content-center">
+    <div class="item-show row d-flex justify-content-center pt-3">
         <div class="col-4">
             <div class="card">
                 <div class="card-body">
                     <div class="image-wrap">
                         <%= image_tag @item.get_item_image(300, 300) %>
                     </div>
-                </div>
-                <div class="card-body">
-                    <%= @item.text %>
-                </div>
-                <div class="card-body">
-                    ブランド：<%= @item.brand.brand_name %>
-                </div>
-                <div class="card-body">
-                    ステータス：<%= @item.status_i18n %>
-                </div>
-                <div class="card-body">
-                    <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-outline-secondary center-block" %>
+                    <div class="card-text">
+                       <%= @item.text %>
+                    </div>
+                    <div class="card-brand">
+                       ブランド：<%= @item.brand.brand_name %>
+                    </div>
+                    <div class="card-status">
+                       ステータス：<%= @item.status_i18n %>
+                    </div>
+                    <div class="card-btn text-right p-3">
+                        <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-outline-secondary center-block" %>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-     <% if current_user.is_user == false %>
-         <div class="row d-flex justify-content-center">
+    <% if current_user.is_user == false %>
         <div id="comments_form">
             <%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %>
         </div>
-    </div>
     <% else %>
     <% end %>
-        <div id="comments_area">
-            <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
-        </div>
-
 </div>
+<div class="container">
+    <div id="comments_area">
+        <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
+    </div>
+ </div>
+
+ 
+ <style>
+     .item-show{
+     background-color: #EEEEEE;
+     padding: 30px;
+     border:  3px solid;
+     border-radius: 8px;
+     border-color: #999966;
+     box-shadow    : 16px 16px 42px #666666;
+     }
+ </style>

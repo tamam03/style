@@ -1,8 +1,7 @@
-
 <div class="row d-flex justify-content-center">
-    <h5>Comment</h5><%= item.comments.count %>件
+  <h5>Comment</h5>  <%= item.comments.count %>件
 </div>
-<div class="row d-flex justify-content-center">
+<div class="row d-flex justify-content-center p-2">
   <% if item.comments.count >= 3 %>
     <div class="col-5">
       <button type="comment morebutton" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -12,22 +11,23 @@
   <% end %>
 </div>
 <div class="row d-flex justify-content-center">
-<%#= render 'layouts/flash_messages' %>
   <% comments.first(2).each do |comment| %>
     <% unless comment.id.nil? %>
-      <div class="col-5">
+      <div class="col-6 p-1">
         <div class="card">
           <div class="card-body">
-            <p class="card-title">
+            <div class="card-title">
               <%= image_tag comment.user.get_profile_image(50, 50), class: "rounded-circle" %>
               <%= comment.user.name %>
-            </p>
-            <p class="card-text">
+            </div>
+            <div class="card-text">
               <%= comment.text %>
               <% if comment.user == current_user %>
-                <%= link_to "削除", public_item_comment_path(comment.item_id, comment.id), method: :delete, remote: true %>
+                <%= link_to public_item_comment_path(comment.item_id, comment.id), method: :delete, remote: true do %>
+                 <i class="far fa-trash-alt"></i>
+                <% end %>
               <% end %>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -35,26 +35,28 @@
   <% end %>
 </div>
 <div class="collapse" id="collapseExample">
-  <div class="row">
-　　<% comments.offset(3).each do |comment| %>
-　　　<% unless comment.id.nil? %>
-　　　 <div class="col-4">
-        <div class="card">
-          <div class="card-body">
-            <p class="card-title">
-              <%= image_tag comment.user.get_profile_image(50, 50), class: "rounded-circle" %>
-              <%= comment.user.name %>
-            </p>
-            <p class="card-text">
-              <%= comment.text %>
-              <% if comment.user == current_user %>
-                <%= link_to "削除", public_item_comment_path(comment.item_id, comment.id), method: :delete, remote: true %>
-              <% end %>
-            </p>
+  <div class="row d-flex justify-content-center">
+    <% comments.offset(2).each do |comment| %>
+      <% unless comment.id.nil? %>
+        <div class="col-6 p-1">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">
+                <%= image_tag comment.user.get_profile_image(50, 50), class: "rounded-circle" %>
+                <%= comment.user.name %>
+              </div>
+              <div class="card-text">
+                <%= comment.text %>
+                <% if comment.user == current_user %>
+                  <%= link_to public_item_comment_path(comment.item_id, comment.id), method: :delete, remote: true do %>
+                   <i class="far fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>

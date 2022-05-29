@@ -1,2 +1,2 @@
-$("#comments_area").html("<%= j(render 'index', { comment: @comment, comments: @comment.item.comments, item: @item }) %>");
-$("text_area").val('');
+$("#comments_area").html("<%= j(render 'index', { comments: @comments, item: @item }) %>");
+$("#comment_text").val('');

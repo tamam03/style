@@ -24,7 +24,7 @@ main{
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    min-height: 1080px;
+    min-height: 1600px;
 }
 
  .homes-main{
@@ -32,7 +32,7 @@ main{
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
-    min-height: 1080px;
+    min-height: 1600px;
   }
 
   .public-sign-in{
@@ -40,7 +40,7 @@ main{
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 1080px;
+  min-height: 1600px;
 }
 
 .public-registration{
@@ -48,7 +48,7 @@ main{
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 1080px;
+  min-height: 1600px;
 }
 
 .user-page{
@@ -56,17 +56,26 @@ main{
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 1080px;
+  min-height: 1600px;
+}
+
+.admin{
+  background-image: url(23246694_s.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 1600px;
+
 }
 
 .navbar{
-    opacity:0.5;
+  opacity:0.5;
 }
-
 .navbar-brand{
     font-family: 'Georgia',sans-serif;
-    font-size: 40px;
+    font-size: 50px;
     font-weight:800;
+    padding-left: 80px
 }
 
 a:hover { color: #9999CC; }
@@ -127,3 +136,6 @@ select{
     height: 40px;
  }
 
+.container {
+    /*max-height: calc(100vh - 70px);*/
+}

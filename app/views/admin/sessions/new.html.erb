@@ -1,26 +1,72 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class= "admin">
+  <div class="container">
+    <div class="row d-flex justify-content-center p-5">
+      <div class="session-form">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="col-12 p-2">
+            <div class="field">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "\uf0e0 Email", class: 'fa' %>
+            </div>
+          </div>
+          <div class="col-12 p-2">
+            <div class="field">
+              <%= f.password_field :password, autocomplete: "current-password", placeholder: "password" %>
+            </div>
+          </div>
+          <div class="col-12 p-2">
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-12 p-2">
+            <div class="actions">
+              <%= f.submit "Log in", class: "btn-login" %>
+            </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</div>
 
-<%= render "admin/shared/links" %>
+<style>
+  main{
+     background-image: none;
+   }
+
+   .btn-login {
+   display       : inline-block;
+   font-size     : 10pt;        /* 文字サイズ */
+   text-align    : center;      /* 文字位置   */
+   cursor        : pointer;     /* カーソル   */
+   padding       : 4px 100px;   /* 余白       */
+   background    : #000000;     /* 背景色     */
+   color         : #ffffff;     /* 文字色     */
+   line-height   : 1em;         /* 1行の高さ  */
+   transition    : .3s;         /* なめらか変化 */
+   box-shadow    : 16px 16px 42px #666666;  /* 影の設定 */
+   border        : 2px solid #000000;    /* 枠の指定 */
+  }
+
+  .btn-login:hover {
+   box-shadow    : none;        /* カーソル時の影消去 */
+   color         : #000000;     /* 背景色     */
+   background    : #ffffff;     /* 文字色     */
+  }
+
+  .session-form{
+  background: #EEEEEE;
+  padding: 100px;
+  margin: 50px;
+  border:  3px solid;
+  border-radius: 8px;
+  border-color: #999966;
+  }
+
+  input.fa{
+    height: 30px;
+    width: 250px;
+  }
+</style>

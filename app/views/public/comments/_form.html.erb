@@ -1,11 +1,10 @@
-<!--コメント投稿-->
+<div class="row d-flex justify-content-center p-3">
 <%= form_with model: [item, comment], url: public_item_comments_path(item), method: :post, local: false do |f| %>
-
-  <%= f.text_area :text, placeholder: "コメントをここに", class: "input-mysize" %>
-  <%#= f.hidden_field :item_id, value: item.id %>
+ <div class="col-12">
+  <%= f.text_area :text, class: 'input-comment' ,size: "40x10", placeholder: "コメントをここに" %>
+  </div>
+   <div class="col-12">
   <%= f.submit "送信", class: "btn btn-outline-dark comment-submit float-right" %>
-
+  </div>
 <% end %>
 
-
-<!--item id取得をしてログインユーザーのidで投稿-->

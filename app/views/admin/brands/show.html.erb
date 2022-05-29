@@ -1,20 +1,24 @@
-<%= @brand.brand_name %>の店舗一覧
- <% if @brand.stores.present? %>
- <% @brand.stores.first(2).each do |store| %>
-   <%= store.store_name %>
-   <%= link_to "削除", admin_store_path(store), method: :delete %>
-   <% end %>
-   <% end %>
-
-   <% if @brand.stores.count >= 3 %>
-   <button type="stores morebutton" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      | もっと見る....
-   </button>
-   <div class="collapse" id="collapseExample">
-    <% @brand.stores.offset(2).each do |store| %>
+<div class="container">
+  <h1><%= @brand.brand_name %>の店舗一覧</h1>
+  <% if @stores.present? %>
+  <div class="row">
+   <% @stores.each do |store| %>
+   <div class="store col-2">
     <%= store.store_name %>
     <%= link_to "削除", admin_store_path(store), method: :delete %>
+    </div>
    <% end %>
    </div>
-   <% else %>
-   <% end %>
+   <%= paginate @stores %>
+  <% end %>
+</div>
+
+
+<style>
+ .store{
+  border:  3px solid;
+  background    : #EEEEEE;
+  border-color: #999966;
+  border-radius: 8px;
+ }
+</style>
