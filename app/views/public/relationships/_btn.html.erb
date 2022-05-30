@@ -1,7 +1,24 @@
-<!--フォローボタン-->
+
 
   <% if current_user.following?(user) %>
-   <%= link_to "フォローを外す", public_user_relationships_path(user.id), method: :delete %>
+   <%= button_to "フォロー中", public_user_relationships_path(user.id), method: :delete, class: "btn-follow" %>
   <% else %>
-   <%= link_to "フォローする", public_user_relationships_path(user.id), method: :post %>
+   <%= button_to "フォロー", public_user_relationships_path(user.id), method: :post, class: "btn-follow" %>
   <% end %>
+
+<style>
+ .btn-follow{
+   color: #666666;
+   border-radius: 7px;
+   display: inline-block;
+   height: 50px;
+   width: 190px;
+   line-height: 50px;
+   background: #9999CC;
+ }
+
+ .btn-follow span{
+  display:inline-block;
+  transition: .5s;
+ }
+</style>
