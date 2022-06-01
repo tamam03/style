@@ -27,6 +27,21 @@ main{
     min-height: 1600px;
 }
 
+footer{
+   background-color: #e4e3e8;
+   height: 70px;
+  }
+  .footer-text{
+    left: 0;
+    bottom: 0;
+    
+  }
+
+  .footer-line{
+    border-top: 9px dotted #A9A9A9;
+ }
+
+
  .homes-main{
     background-image: url(23820280_m.jpg);
     background-position: center center;
