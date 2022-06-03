@@ -1,5 +1,6 @@
 <div class="container">
   <h1><%= @brand.brand_name %>の店舗一覧</h1>
+  <h4><%= link_to "店舗追加", admin_stores_path %></h4>
   <% if @stores.present? %>
   <div class="row">
    <% @stores.each do |store| %>

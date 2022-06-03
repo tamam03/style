@@ -1,5 +1,12 @@
 class Public::ItemsController < ApplicationController
 # before_action :ensure_user, only: [:privacy, :clerk, :edit, :update, :destroy ]
+before_action :search_items
+
+  def search
+    @results = @d.result
+    @brands = Brand.all
+    # @d = @item_search.result(distinct: true)
+  end
 
   def index
     @items = Item.where(status: "release").page(params[:page]).per(8)
@@ -58,10 +65,12 @@ class Public::ItemsController < ApplicationController
 
   private
 
-
-
   def item_params
     params.require(:item).permit(:text, :brand_id, :status, :item_image)
+  end
+
+  def search_items
+    @d = Item.ransack(params[:q])
   end
 
 end

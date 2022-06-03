@@ -54,6 +54,9 @@ end
   get 'items/clerk' => 'items#clerk'
 
   resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    collection do
+      get 'search'
+    end
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
