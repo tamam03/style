@@ -5,7 +5,6 @@ before_action :search_items
   def search
     @results = @d.result
     @brands = Brand.all
-    # @d = @item_search.result(distinct: true)
   end
 
   def index
@@ -70,7 +69,15 @@ before_action :search_items
   end
 
   def search_items
+    # binding.pry
+    # return unless params[:q]
+    # query = { brand_id_eq: params[:q][:id_eq]}
+    # query.delete(:id_eq)
     @d = Item.ransack(params[:q])
+
+    # {"id_eq"=>"3"} { **params[:q]
+    # query新たなハッシュ
+    # ＊＊ハッシュ分解{}に
   end
 
 end
