@@ -68,6 +68,7 @@ gem 'ransack'
 gem 'kaminari'
 
 gem 'dotenv-rails'
-# group :production do
-# gem 'mysql2'
-# end
+
+group :production do
+gem 'mysql2'
+end
