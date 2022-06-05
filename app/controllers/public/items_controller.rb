@@ -3,6 +3,7 @@ class Public::ItemsController < ApplicationController
 before_action :search_items
 
   def search
+    # binding.pry
     @results = @d.result
     @brands = Brand.all
   end
@@ -41,7 +42,9 @@ before_action :search_items
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    @item.save!
+    tag_list = params[:item][:tag_name].split(" ")
+    @item.save
+    @item.save_tag(tag_list)
     redirect_to public_items_path
   end
 
@@ -69,15 +72,7 @@ before_action :search_items
   end
 
   def search_items
-    # binding.pry
-    # return unless params[:q]
-    # query = { brand_id_eq: params[:q][:id_eq]}
-    # query.delete(:id_eq)
     @d = Item.ransack(params[:q])
-
-    # {"id_eq"=>"3"} { **params[:q]
-    # query新たなハッシュ
-    # ＊＊ハッシュ分解{}に
   end
 
 end

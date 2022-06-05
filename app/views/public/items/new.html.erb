@@ -18,6 +18,11 @@
                </div>
             </div>
             <div class="col-12">
+               <div class="make_tag p-3">
+                  <%= f.text_field :tag_name %>
+               </div>
+            </div>
+            <div class="col-12">
                <div class="select p-3">
                  <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] }, {prompt: 'ステータスを選択してください'} %>
                </div>
