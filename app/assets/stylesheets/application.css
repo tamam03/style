@@ -34,13 +34,11 @@ footer{
   .footer-text{
     left: 0;
     bottom: 0;
-
   }
 
   .footer-line{
     border-top: 9px dotted #A9A9A9;
  }
-
 
  .homes-main{
     background-image: url(23820280_m.jpg);
@@ -85,10 +83,11 @@ footer{
 
 .navbar{
   opacity:0.5;
+  height: 70px;
 }
 .navbar-brand{
     font-family: 'Georgia',sans-serif;
-    font-size: 50px;
+    font-size: 60px;
     font-weight:800;
     padding-left: 80px
 }

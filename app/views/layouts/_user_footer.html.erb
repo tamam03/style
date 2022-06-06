@@ -1,16 +1,25 @@
 <div class="footer-line"></div>
 <div class="container p-4">
   <ol class="footer-menu row d-flex justify-content-center">
-    <li><%= link_to public_user_path(current_user) do %>
-          <i class="fas fa-user fa-2x"></i>
-        <% end %>
-    </li>
     <li><%= link_to search_public_items_path do %>
-          <i class="fas fa-search fa-2x"></i>
+         <div class="serch-box">
+           <i class="fas fa-search fa-2x"></i>
+           <div>検索</div>
+         </div>
         <% end %>
     </li>
     <li><%= link_to favorites_public_users_path do %>
+        <div class="favorite-box">
           <i class="fas fa-heart fa-2x"></i>
+          <div>お気に入り</div>
+        </div>
+        <% end %>
+    </li>
+    <li><%= link_to public_user_path(current_user) do %>
+        <div class="favorite-box">
+          <i class="fas fa-user fa-2x"></i>
+          <div>マイページ</div>
+        </div>
         <% end %>
     </li>
   </ol>
@@ -27,6 +36,25 @@
  i {
   width: 70px;
  }
+
+ i.fa-user:hover{
+	color: #993366;
+	font-weight: bold;
+}
+
+i.fa-heart:hover{
+	color: #993366;
+	font-weight: bold;
+}
+
+i.fa-search:hover{
+	color: #993366;
+	font-weight: bold;
+}
+
+
+
+
 
 
 </style>
