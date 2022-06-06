@@ -1,25 +1,62 @@
 <div class="container">
-  <h1>お問い合わせフォーム</h1>
-    <div class="row">
+  <div class="row d-flex justify-content-center">
+    <h1 class="title pt-4">CONTACT</h1>
+  </div>
+    <div class="row contact-form d-flex justify-content-center">
       <%= form_with model: @contact, url: public_contacts_path, method: :post do |f| %>
        <div class="form-wrap">
          <div class="form-header">
-          <div>お問い合わせ</div>
+          <h4 class="top-text d-flex justify-content-center">お問い合わせ</h4>
+          <h6 class="bottom-text">サイトに関するご質問などは下記よりお問い合わせください</h6>
+          <h9 class="bottom-text d-flex justify-content-center">ご登録のアドレスにてご対応をさせていただきます</h9>
          </div>
-         <div class="contact-form">
-           <div class="contact-name">
+           <div class="contact-name d-flex justify-content-center p-3">
              <%= f.text_field :name, placeholder: "お名前" %>
            </div>
-           <div class="contact-text">
-             <%= f.text_area :content, placeholder: "お問い合わせ内容を入力してください" %>
+           <div class="contact-text d-flex justify-content-center pt-1">
+             <%= f.text_area :content, placeholder: "お問い合わせ内容を入力してください", class: "input-form"  %>
            </div>
-           <div class="form-submit">
-             <%= f.submit "送信" %>
+           <div class="form-submit d-flex justify-content-center p-2">
+             <%= f.submit "送信", class: "btn-contact-form" %>
            </div>
          </div>
         </div>
-        <% end %>
-       </div>
+      </div>
+      <% end %>
     </div>
 </div>
 
+<style>
+  .contact-form{
+     background-color: #EEEEEE;
+     padding: 40px;
+     border:  3px solid;
+     border-radius: 8px;
+     border-color: #999966;
+     box-shadow    : 16px 16px 42px #666666;
+ }
+
+ h1.title{
+   font-family: "Georgia";
+ }
+
+ .input-form{
+   border-radius: 0.67em;
+   width: 500px;
+   height: 300px;
+ }
+
+.btn-contact-form{
+  width: 100px;
+  background: #666666;
+  color: #EEEEEE;
+  border-radius: 15px;
+  box-shadow    : 10px 10px 30px #666666;
+}
+
+.btn-contact-form:hover{
+    background: #333333;
+    box-shadow    : none;
+ }
+
+</style>
