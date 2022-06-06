@@ -12,6 +12,9 @@
                     <div class="card-brand">
                        ブランド：<%= @item.brand.brand_name %>
                     </div>
+                    <div class="card-tag">
+                        <div>タグ</div>
+                    </div>
                     <% if @item.user_id == current_user.id %>
                        <div class="card-status">
                           ステータス：<%= @item.status_i18n %>

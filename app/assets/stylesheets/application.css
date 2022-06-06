@@ -40,6 +40,12 @@ footer{
     border-top: 9px dotted #A9A9A9;
  }
 
+ .flash {
+  background-color: #808080;
+  color: #FFFFFF;
+  text-align: center;
+}
+
  .homes-main{
     background-image: url(23820280_m.jpg);
     background-position: center center;
