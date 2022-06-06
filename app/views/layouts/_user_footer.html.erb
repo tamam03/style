@@ -1,31 +1,38 @@
 <div class="footer-line"></div>
 <div class="container p-4">
-  <ol class="footer-menu row d-flex justify-content-center">
+  <ol class="footer-menu row d-flex justify-content-center pr-2 pl-2">
     <li><%= link_to search_public_items_path do %>
          <div class="serch-box">
-           <i class="fas fa-search fa-2x"></i>
+           <i class="fas fa-search fa-2x mr-3"></i>
            <div>検索</div>
          </div>
         <% end %>
     </li>
+    <li><%= link_to new_public_item_path do %>
+          <div class="new-item-box">
+            <i class="fas fa-folder-plus fa-2x mr-4 ml-3"></i>
+            <div>新規投稿</div>
+          </div>
+        <% end %>
+    </li>
     <li><%= link_to favorites_public_users_path do %>
         <div class="favorite-box">
-          <i class="fas fa-heart fa-2x"></i>
+          <i class="fas fa-heart fa-2x mr-4 ml-3"></i>
           <div>お気に入り</div>
         </div>
         <% end %>
     </li>
     <li><%= link_to public_user_path(current_user) do %>
-        <div class="favorite-box">
-          <i class="fas fa-user fa-2x"></i>
+        <div class="mypage-box">
+          <i class="fas fa-user fa-2x ml-3"></i>
           <div>マイページ</div>
         </div>
         <% end %>
     </li>
+    <li>
+      <div class="footer-text pl-2">© Style  Copyrights,Higashino</div>
+    </li>
   </ol>
-  <div class="footer-text-right row d-flex justify-content-center">
-    © Style  Copyrights, Higashino
-  </div>
 </div>
 
 <style>
@@ -52,9 +59,16 @@ i.fa-search:hover{
 	font-weight: bold;
 }
 
+i.fa-folder-plus:hover{
+  color: #993366;
+	font-weight: bold;
+}
 
-
-
+.footer-text{
+    /*left: 0;*/
+    /*bottom: 0;*/
+    font-size: 11px;
+  }
 
 
 </style>
