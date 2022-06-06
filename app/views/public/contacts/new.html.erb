@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>お問い合わせフォーム</h1>
+    <div class="row">
+      <%= form_with model: @contact, url: public_contacts_path, method: :post do |f| %>
+       <div class="form-wrap">
+         <div class="form-header">
+          <div>お問い合わせ</div>
+         </div>
+         <div class="contact-form">
+           <div class="contact-name">
+             <%= f.text_field :name, placeholder: "お名前" %>
+           </div>
+           <div class="contact-text">
+             <%= f.text_area :content, placeholder: "お問い合わせ内容を入力してください" %>
+           </div>
+           <div class="form-submit">
+             <%= f.submit "送信" %>
+           </div>
+         </div>
+        </div>
+        <% end %>
+       </div>
+    </div>
+</div>
+
