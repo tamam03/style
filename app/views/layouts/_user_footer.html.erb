@@ -1,7 +1,32 @@
 <div class="footer-line"></div>
 <div class="container p-4">
-  <div class="footer-text-right row">
+  <ol class="footer-menu row d-flex justify-content-center">
+    <li><%= link_to public_user_path(current_user) do %>
+          <i class="fas fa-user fa-2x"></i>
+        <% end %>
+    </li>
+    <li><%= link_to search_public_items_path do %>
+          <i class="fas fa-search fa-2x"></i>
+        <% end %>
+    </li>
+    <li><%= link_to favorites_public_users_path do %>
+          <i class="fas fa-heart fa-2x"></i>
+        <% end %>
+    </li>
+  </ol>
+  <div class="footer-text-right row d-flex justify-content-center">
     © Style  Copyrights, Higashino
   </div>
 </div>
 
+<style>
+  ol {
+  list-style-type: none;
+}
+
+ i {
+  width: 70px;
+ }
+
+
+</style>

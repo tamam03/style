@@ -29,9 +29,9 @@
     </main>
     <footer class="fixed-bottom">
       <% if user_signed_in? %>
-        <%= render 'layouts/footer' %>
-      <% else %>
         <%= render 'layouts/user_footer' %>
+      <% else %>
+        <%= render 'layouts/footer' %>
       <% end %>
     </footer>
   </body>

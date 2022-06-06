@@ -1,5 +1,4 @@
 <%= render 'public/items/sidebar' %>
-<%= link_to "検索", search_public_items_path %>
 <div class="container">
   <div class="row">
    <% @items.each do |item| %>
@@ -32,7 +31,7 @@
        <div class="card-btn text-right p-3">
         <% if item.user == current_user %>
          <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"}, class: "card-delete-btn" do %>
-          <i class="far fa-trash-alt"></i>
+          <i class="far fa-trash-alt fa-lg"></i>
          <% end %>
         <% else %>
         <% end %>
