@@ -96,24 +96,6 @@ a:hover { color: #9999CC; }
 a:link { color: #808080; }
 a:visited { color: #808080; }
 
-/*ページネーション*/
-.pagination>li>a {
-  border: none;
-  color: #696969;
-}
-
-.pagination>.active>a {
-  background: #CC99CC;
-  border-radius: 15px;
-}
-.pagination>li>a:hover {
-  border-radius: 15px;
-}
-.page-item.active .page-link {
-    background-color: #CC99CC;
-    border-color: #CC99CC;
-}
-
 
 /*プロフィール画像*/
 .profile{

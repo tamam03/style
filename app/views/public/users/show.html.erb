@@ -11,13 +11,13 @@
      <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
     </div>
     <div class="col-12 d-flex justify-content-center p-2">
-     <%= @user.name %>
+     ユーザー名：<%= @user.name %>
     </div>
     <div class="col-12 d-flex justify-content-center p-2">
      <%= @user.name_kana %>
     </div>
     <div class="col-12 d-flex justify-content-center p-2">
-     <%= @user.nick_name %>
+     ニックネーム：<%= @user.nick_name %>
     </div>
    </div>
    <% elsif @user.is_user == false %>
@@ -26,46 +26,57 @@
      <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
     </div>
     <div class="col-12 d-flex justify-content-center p-2">
-     <%= @user.name %>
+     ユーザー：<%= @user.name %>
     </div>
     <div class="col-12 d-flex justify-content-center p-2">
      <%= @user.name_kana %>
     </div>
     <div class="col-12 d-flex justify-content-center p-2">
-     <%= @user.brand.brand_name %>
+     所属ブランド：<%= @user.brand.brand_name %>
     </div>
     <div class="col-12 d-flex justify-content-center p-2">
-     <%= @user.store.store_name %>
+     配属店：<%= @user.store.store_name %>
     </div>
    </div>
    <% end %>
    <% unless current_user.id == @user.id %>
-   <div class="row">
+    <div class="row">
      <%= render 'public/relationships/btn', user: @user %>
     </div>
    <% else %>
      <div class="col-12 p-2">
-     <%= link_to "投稿履歴", public_items_my_item_path, class: "btn btn-outline-secondary center-block" %>
+      <div> <%= "#{@user.name}" %>さんの投稿数</div>
+     　<%= link_to public_items_my_item_path, class: "btn btn-outline-secondary center-block" do %>
+       　<%= @user.items.count %>件
+     　<% end %>
      </div>
-    </div>
    <% end %>
-   <% unless current_user.email == 'guest@example.com' %>
+   <% unless current_user.email == 'guest@example.com' || current_user.id != @user.id %>
     <div class="row">
      <div class="col-12 p-2">
      <%= link_to "編集", edit_public_user_path(@user), class: "btn btn-outline-secondary center-block" %>
      </div>
     </div>
+   <% else %>
    <% end %>
    <div class="row">
-     <% if current_user.following?(@user) && @user.following?(current_user) %>
-    <div class="col-12">
-     <%= link_to "#{@user.name}さんとチャットする", public_chat_path(@user.id) %>
-    </div>
-     <% else %>
-    <div class="col-12">
-     相互フォローでチャットが可能になります
-     </div>
-     <% end %>
+    <% unless current_user.id == @user.id %>
+      <% if current_user.following?(@user) && @user.following?(current_user) %>
+       <div class="col-12">
+        <%= link_to "#{@user.name}さんとチャットする", public_chat_path(@user.id) %>
+       </div>
+      <% else %>
+       <div class="col-12">
+        相互フォローでチャットが可能になります
+       </div>
+      <% end %>
+    <% else %>
+      <div class="col-12">
+       <div>フォロー数</div><%= @user.followings.count %>
+       <div>フォロワー数</div><%= @user.followers.count %>
+      </div>
+    <% end %>
+   </div>
    </div>
   </div>
  </div>

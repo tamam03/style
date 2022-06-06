@@ -2,6 +2,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @item = @user.items
   end
 
   def edit
@@ -17,12 +18,9 @@ class Public::UsersController < ApplicationController
     end
   end
 
-
-
   def favorites
     favorites = Favorite.where(user_id: current_user.id).pluck(:item_id)
     @favorite_lists = Item.find(favorites)
-
   end
 
   private

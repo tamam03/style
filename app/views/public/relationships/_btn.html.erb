@@ -1,13 +1,13 @@
 
 
   <% if current_user.following?(user) %>
-   <%= button_to "フォロー中", public_user_relationships_path(user.id), method: :delete, class: "btn-follow" %>
+   <%= button_to "フォロー中", public_user_relationships_path(user.id), method: :delete, class: "btn-followed" %>
   <% else %>
-   <%= button_to "フォロー", public_user_relationships_path(user.id), method: :post, class: "btn-follow" %>
+   <%= button_to "フォロー", public_user_relationships_path(user.id), method: :post, class: "btn-following" %>
   <% end %>
 
 <style>
- .btn-follow{
+ .btn-following{
    color: #666666;
    border-radius: 7px;
    display: inline-block;
@@ -17,7 +17,22 @@
    background: #CCCC99;
  }
 
- .btn-follow span{
+ .btn-following span{
+  display:inline-block;
+  transition: .5s;
+ }
+
+ .btn-followed{
+   color: #666666;
+   border-radius: 7px;
+   display: inline-block;
+   height: 50px;
+   width: 190px;
+   line-height: 50px;
+   background: #999966;
+ }
+
+ .btn-followed span{
   display:inline-block;
   transition: .5s;
  }
