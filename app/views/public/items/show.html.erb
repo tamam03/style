@@ -32,7 +32,10 @@
         <div id="comments_form">
             <%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %>
         </div>
-    <% else %>
+    <% else current_user.is_user == true %>
+        <div class="user_comment_return">
+            <%= render partial: "public/commnets/return" %>
+        </div>
     <% end %>
 </div>
 <div class="container">
