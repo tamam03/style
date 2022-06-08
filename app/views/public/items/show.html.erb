@@ -32,18 +32,21 @@
         <div id="comments_form">
             <%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %>
         </div>
+        <div class="container">
+            <div id="comments_area">
+             <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
+            </div>
+        </div>
     <% else current_user.is_user == true %>
         <div class="user_comment_return">
-            <%= render partial: "public/commnets/return" %>
+           <div class="row d-flex justify-content-center">
+               <div class="col-12 d-flex justify-content-center p-5">
+                   コメント機能は店舗ユーザーのみ可能です
+               </div>
+           </div>
         </div>
     <% end %>
 </div>
-<div class="container">
-    <div id="comments_area">
-        <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
-    </div>
- </div>
-
 
  <style>
      .item-show{
