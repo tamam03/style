@@ -1,3 +1,29 @@
-<div class="title">
-  <h2><%= ("#{@another_entry.user.name}さんとのメッセージ") %></h2>
-</div> 
+<div class= "container">
+  <div class="row">
+    <div class="title">
+      <h2><%= ("#{@another_entry.user.name}さんとのメッセージ") %></h2>
+    </div>
+  </div>
+  <div class="row">
+    <% @messages.each do |message| %>
+      <% if message.user_id == current_user.id %>
+        <div class="my-message">
+          <p><% message.centence %></p>
+        </div>
+      <% else %>
+        <div class="another-message">
+          <p><% messaage.sentence %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="message-form">
+      <%= form_with model: @message, url: public_messages_path, method: :post do |f| %>
+       <%= f.text_field :sentence %>
+       <%= f.hidden_field :room_id, value: @room.id %>
+       <%= f.submit "送信" %>
+      <% end %>
+    </div>
+  </div>
+</div>

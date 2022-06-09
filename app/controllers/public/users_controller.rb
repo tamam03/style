@@ -4,8 +4,6 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     @item = @user.items
     
-    
-    
     @current_entry = Entry.where(user_id: current_user.id)
     @another_entry = Entry.where(user_id: @user.id)
     # ログインユーザーとメッセージ相手のユーザーをEntryから検索，取得
@@ -27,8 +25,7 @@ class Public::UsersController < ApplicationController
           end
         end
       end
-      unless @is_room
-                                                                          # (？)
+      unless @is_room                                                          # (？)
         @room = Room.new
         @entry = Entry.new
       end

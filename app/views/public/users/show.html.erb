@@ -71,16 +71,15 @@
           <% if @is_room == true %>
            <!--定義した@is_roomがtrueだった時-->
             <div class="col-12">
-              <%= link_to "#{@user.name}さんへメッセージを送る", public_room_path(@room.id) %>
+              <%= link_to "#{@user.name}さんへメッセージを送る", public_room_path(@room_id) %>
             </div>
           <% else %>
             <!--@is_roomがfalseの時-->
             <div class="col-12">
               <%= form_with model: @room, url: public_rooms_path, method: :post do |f| %>
-                  <!--Roomつくる過程で・・・-->
                 <%= fields_for @entry do |e| %>
                   <!--Entryつくる-->
-                  <% e.hidden_field :user_id, value: @user.id %>
+                  <%= e.hidden_field :user_id, value: @user.id %>
                   <!--ログインユーザーと@userのEntryをつくる-->
                 <% end %>
                 <%= f.submit "メッセージを送る" %>

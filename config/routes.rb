@@ -60,11 +60,13 @@ end
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
+  
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :index, :show]
+  
   resources :brands, only:[] do
     resources :stores, only:[:index]
-end
+  end
   resources :contacts, only: [:create, :new, :check]
 end
 
