@@ -1,0 +1,17 @@
+<% @another_entries.each do |entry| %>
+ <%= link_to room_path(entry.room) do %>
+  <div class="card">
+    <div class="card-body">
+      <div class="message-image-icon">
+       <%= link_to public_user_path(entry.user) do %>
+       <%= image_tag entry.user.get_item_image(200, 200) %>
+      </div>
+      <div class="message-user">
+        <%= entry.user.name %>
+      </div>
+      <div class="message-text">
+        <%= Message.find_by(id: entry.room.message_ids.last)&.body
+      </div>
+      </div>
+    </div>
+  </div>

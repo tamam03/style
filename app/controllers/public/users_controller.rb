@@ -3,7 +3,40 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @item = @user.items
+    
+    
+    
+    @current_entry = Entry.where(user_id: current_user.id)
+    @another_entry = Entry.where(user_id: @user.id)
+    # ログインユーザーとメッセージ相手のユーザーをEntryから検索，取得
+    
+    unless @user.id == current_user.id
+      # showのuserがログインユーザーじゃないとき
+      @current_entry.each do |current|
+        @another_entry.each do |another|
+          # 取得したユーザー情報にひもづくEntyをeachでまわす
+          # ログインユーザーのEntryと@userのEntryを１つづつとりだし
+          # ログインユーザーのEntryはcurrent
+          # @userのEntryはanother
+          if current.room_id == another.room_id
+            # Entryのなかのroom_idが合致した場合
+            @is_room = true
+                                                                        # (？)
+            @room_id = current.room_id
+            # ログインユーザーのEntryのroom_id = @room_id
+          end
+        end
+      end
+      unless @is_room
+                                                                          # (？)
+        @room = Room.new
+        @entry = Entry.new
+      end
+    end
   end
+
+
+
 
   def edit
     @user = User.find(params[:id])

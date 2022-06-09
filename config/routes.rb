@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'contacts/new'
-    get 'contacts/create'
-  end
 # ユーザー用
 # URL /users/sign_in ...
 get "/users/get_store" => "public/registration_jsons#get_store"
@@ -64,7 +60,8 @@ end
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
-  resources :chats, only: [:show, :create]
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :index, :show]
   resources :brands, only:[] do
     resources :stores, only:[:index]
 end

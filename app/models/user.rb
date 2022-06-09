@@ -13,9 +13,9 @@ class User < ApplicationRecord
   has_many :comments
 
   # チャット機能
-  has_many :user_rooms, dependent: :destroy
-  has_many :rooms, through: :user_rooms
-  has_many :chats, dependent: :destroy
+  has_many :entries, dependent: :destroy
+  # has_many :rooms, through: :user_rooms
+  has_many :messages, dependent: :destroy
 
 
   #変更予定

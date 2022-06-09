@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_083947) do
+ActiveRecord::Schema.define(version: 2022_06_09_015522) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -58,14 +58,6 @@ ActiveRecord::Schema.define(version: 2022_06_06_083947) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "chats", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "sentence", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "room_id", null: false
-  end
-
   create_table "comments", force: :cascade do |t|
     t.string "text", null: false
     t.integer "user_id", null: false
@@ -77,6 +69,13 @@ ActiveRecord::Schema.define(version: 2022_06_06_083947) do
   create_table "contacts", force: :cascade do |t|
     t.string "name", null: false
     t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -101,6 +100,14 @@ ActiveRecord::Schema.define(version: 2022_06_06_083947) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "sentence", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "room_id", null: false
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -129,13 +136,6 @@ ActiveRecord::Schema.define(version: 2022_06_06_083947) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_tag_maps_on_item_id"
     t.index ["item_tag_id"], name: "index_tag_maps_on_item_tag_id"
-  end
-
-  create_table "user_rooms", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "room_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
