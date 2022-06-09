@@ -8,7 +8,7 @@
     <% @messages.each do |message| %>
       <% if message.user_id == current_user.id %>
         <div class="my-message">
-          <p><% message.centence %></p>
+          <p><% message.sentence %></p>
         </div>
       <% else %>
         <div class="another-message">
