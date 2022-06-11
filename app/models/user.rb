@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
 
 
-  #変更予定
+
   belongs_to :store , optional: true
 
 

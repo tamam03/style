@@ -8,11 +8,14 @@
     <% @messages.each do |message| %>
       <% if message.user_id == current_user.id %>
         <div class="my-message">
-          <p><% message.sentence %></p>
+          <p><%= message.sentence %></p>
+          <% if message.message_image.attached? %>
+            <p><%= image_tag message.get_message_image(100, 100) %></p>
+          <% end %>
         </div>
       <% else %>
         <div class="another-message">
-          <p><% messaage.sentence %></p>
+          <p><%= messaage.sentence %></p>
         </div>
       <% end %>
     <% end %>
@@ -21,6 +24,7 @@
     <div class="message-form">
       <%= form_with model: @message, url: public_messages_path, method: :post do |f| %>
        <%= f.text_field :sentence %>
+       <%= f.file_field :message_image, placeholder: "投稿画像", accept: 'image/*' %>
        <%= f.hidden_field :room_id, value: @room.id %>
        <%= f.submit "送信" %>
       <% end %>

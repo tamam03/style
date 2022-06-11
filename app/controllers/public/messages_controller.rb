@@ -5,7 +5,7 @@ class Public::MessagesController < ApplicationController
     message.user_id = current_user.id
     if message.save
       # binding.pry
-      redirect_to public_room_path(message.room)
+      redirect_to public_room_path(message.room_id)
     else
     end
   end
@@ -14,7 +14,7 @@ class Public::MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:sentence, :room_id)
+    params.require(:message).permit(:sentence, :room_id, :message_image)
   end
 
 end

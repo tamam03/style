@@ -17,9 +17,6 @@
          <%= link_to item.user.name, public_user_path(item.user.id) %>
         <% end %>
        </div>
-       <div class="card-brand">
-        <%= item.brand.brand_name %>
-       </div>
        <div class="card-favorite">
         <% unless item.user == current_user %>
          <div id = "favorite_btns_<%= item.id %>">
