@@ -4,24 +4,24 @@
    <h1 class="mypage-title">
     User page
    </h1>
-  </div>
-   <% if @user.is_user == true %>
-   <div class="row">
-    <div class="col-12 d-flex justify-content-center p-2">
-     <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
-    </div>
-    <div class="col-12 d-flex justify-content-center p-2">
-     ユーザー名：<%= @user.name %>
-    </div>
-    <div class="col-12 d-flex justify-content-center p-2">
-     <%= @user.name_kana %>
-    </div>
-    <div class="col-12 d-flex justify-content-center p-2">
-     ニックネーム：<%= @user.nick_name %>
-    </div>
    </div>
-   <% elsif @user.is_user == false %>
-   <div class="row">
+    <% if @user.is_user == true %>
+     <div class="row">
+      <div class="col-12 d-flex justify-content-center p-2">
+       <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
+      </div>
+      <div class="col-12 d-flex justify-content-center p-2">
+       ユーザー名：<%= @user.name %>
+      </div>
+      <div class="col-12 d-flex justify-content-center p-2">
+       <%= @user.name_kana %>
+      </div>
+      <div class="col-12 d-flex justify-content-center p-2">
+       ニックネーム：<%= @user.nick_name %>
+      </div>
+     </div>
+    <% elsif @user.is_user == false %>
+     <div class="row">
     <div class="col-12 d-flex justify-content-center p-2">
      <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
     </div>
@@ -59,22 +59,14 @@
     </div>
    <% else %>
    <% end %>
-
-
-
-
    <div class="row">
      <% unless @user.id == current_user.id %>
-     　<!--@userがログインユーザーではない-->
        <% if current_user.following?(@user) && @user.following?(current_user) %>
-        <!--フォローフォロワーの関係-->
           <% if @is_room == true %>
-           <!--定義した@is_roomがtrueだった時-->
             <div class="col-12">
               <%= link_to "#{@user.name}さんへメッセージを送る", public_room_path(@room_id) %>
             </div>
           <% else %>
-            <!--@is_roomがfalseの時-->
             <div class="col-12">
               <%= form_with model: @room, url: public_rooms_path, method: :post do |f| %>
                 <%= fields_for @entry do |e| %>
@@ -87,19 +79,14 @@
             </div>
           <% end %>
        <% else %>
-       <!--そもそも相互フォローじゃない時-->
          相互フォローでメッセージが可能になります
        <% end %>
-       <!--ログインユーザーのページの時（自分のuser/show)-->
        <div class="col-12">
          <div>フォロー数</div><%= @user.followings.count %>
          <div>フォロワー数</div><%= @user.followers.count %>
        </div>
      <% end %>
    </div>
-
-
-
    </div>
   </div>
  </div>
