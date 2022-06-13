@@ -107,34 +107,38 @@ a:visited { color: #808080; }
 }
 .rounded-circle{
    width: 80px;
-  height: 80px;  /* 縦横を同じ値にする */
+  height: 80px;
 }
 
 /*投稿*/
-.card-body{
-   flex-basis: 100%;
-   padding: 5px;
-   cursor: pointer;
-}
-.image-wrap{
-    position: relative;
-    overflow: hidden;
-    padding-top: 90%;
-    border: 1px solid #ddd;
-}
 
 .card{
+    width: 100%;
+    height: 100%;
     transition-duration: 0.5s;
 }
 
+.card-body{
+  padding: 0;
+  flex-basis: 400%;
+  cursor: pointer;
+}
+
+.image-wrap{
+  position: relative;
+  overflow: hidden;
+  padding-top: 100%;
+  border: 1px solid #ddd;
+}
+
 .image-wrap img {
-   position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card:hover{

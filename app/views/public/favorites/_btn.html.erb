@@ -1,9 +1,28 @@
 <% if item.favorited_by?(current_user) %>
     <%= link_to public_item_favorites_path(item), method: :delete, remote: true do %>
-    <i class="fas fa-heart"></i><%= item.favorites.count %>
+    <i class="fas fa-heart like"></i>
     <% end %>
 <% else %>
     <%= link_to public_item_favorites_path(item), method: :post, remote: true do %>
-     <i class="far fa-heart"></i><%= item.favorites.count %>
+     <i class="far fa-heart unlike"></i>
     <% end %>
 <% end %>
+
+<style>
+.like{
+ width: 25px;
+ height: 30px;
+ font-size: 25px;
+ color: #e54747;
+ margin-left: 20px;
+}
+
+.unlike{
+ width: 25px;
+ height: 30px;
+ font-size: 25px;
+ color: #808080;
+ margin-left: 20px;
+}
+
+</style>

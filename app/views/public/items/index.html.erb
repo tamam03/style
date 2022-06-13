@@ -7,14 +7,7 @@
       <div class="card-body">
        <div class="image-wrap">
         <%= link_to public_item_path(item) do %>
-         <%= image_tag item.get_item_image(200, 200) %>
-        <% end %>
-       </div>
-       <div class="card-profile">
-        <%= image_tag item.user.get_profile_image(80, 80), class: "rounded-circle" %>
-        <%= link_to item.user.nick_name, public_user_path(item.user.id) %>
-        <% if item.user.is_user == false %>
-         <%= link_to item.user.name, public_user_path(item.user.id) %>
+         <%= image_tag item.get_item_image(400, 400) %>
         <% end %>
        </div>
        <div class="card-favorite">
@@ -25,7 +18,7 @@
         <% else %>
         <% end %>
        </div>
-       <div class="card-btn text-right p-3">
+       <div class="card-btn text-right">
         <% if item.user == current_user %>
          <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"}, class: "card-delete-btn" do %>
           <i class="far fa-trash-alt fa-lg"></i>
