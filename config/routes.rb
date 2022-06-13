@@ -14,8 +14,9 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
 
-#共通トップページ
+#共通ページ
 root 'homes#top'
+get 'homes/about' => 'homes#about'
 
 # ゲストログイン用
 post '/public/guests', to: 'public/guest_sessions#create'
@@ -60,10 +61,10 @@ end
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
-  
+
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :index, :show]
-  
+
   resources :brands, only:[] do
     resources :stores, only:[:index]
   end
