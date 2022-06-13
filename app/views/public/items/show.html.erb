@@ -1,43 +1,40 @@
 <div class="container">
     <div class="item-show row d-flex justify-content-center pt-3">
-        <div class="item-profile col-12 d-flex justify-content-center pt-3">
-           <%= image_tag @item.user.get_profile_image(80, 80), class: "rounded-circle" %>
-           <% if @item.user.is_user == true %>
+      <div class="item-image col-12 d-flex justify-content-center pt-3">
+        <%= image_tag @item.get_item_image(500, 500) %>
+      </div>
+        <div class="profile-image col-12">
+          <div id="image">
+            <%= image_tag @item.user.get_profile_image(80, 80), class: "rounded-circle" %>
+          </div>
+          <div id="name">
+            <% if @item.user.is_user == true %>
               <p><%= link_to @item.user.nick_name, public_user_path(@item.user.id) %></p>
-           <% else %>
+            <% else %>
               <p><%= link_to @item.user.name, public_user_path(@item.user.id) %></p>
-           <% end %>
+            <% end %>
+          </div>
         </div>
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="image-wrap">
-                        <%= image_tag @item.get_item_image(300, 300) %>
-                    </div>
-                    <div class="card-text">
-                       <%= @item.text %>
-                    </div>
-                    <div class="card-brand">
-                       ブランド：<%= @item.brand.brand_name %>
-                    </div>
-                    <div class="card-tag">
-                        <div>タグ</div>
-                    </div>
-                    <% if @item.user_id == current_user.id %>
-                       <div class="card-status">
-                          ステータス：<%= @item.status_i18n %>
-                        </div>
-                        <div class="card-favorite">
-                          いいね<%= @item.favorites.count %>件
-                        </div>
-                        <div class="card-btn text-right p-3">
-                           <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-outline-secondary center-block" %>
-                        </div>
-                    <% else %>
-                    <% end  %>
-                </div>
-            </div>
+        <div class="item-text col-12 d-flex justify-content-center">
+          <%= @item.text %>
         </div>
+        <div class="brand">
+          ブランド：<%= @item.brand.brand_name %>
+        </div>
+        <div class="tag">
+          <div>タグ</div>
+        </div>
+        <% if @item.user_id == current_user.id %>
+          <div class="status">
+            ステータス：<%= @item.status_i18n %>
+          </div>
+          <div class="favorite">
+            いいね<%= @item.favorites.count %>件
+          </div>
+          <div class="edit-btn text-right p-3">
+            <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-outline-secondary center-block" %>
+          </div>
+        <% end  %>
     </div>
     <% if current_user.is_user == false %>
         <div id="comments_form">
@@ -68,4 +65,18 @@
      border-color: #999966;
      box-shadow    : 16px 16px 42px #666666;
      }
+
+    .item-text{
+    background: none;
+	  border: 3px solid #736d71;	/* 線の太さ・種類・色 */
+	  margin: 10px; /* 外側の余白 */
+	  padding: 20px; /* 内側の余白 */
+	  position: relative;
+    }
+
+    .profile-image{
+    position: relative;
+    left: 150px;
+    }
+
  </style>
