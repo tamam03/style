@@ -3,7 +3,6 @@ class Public::ItemsController < ApplicationController
 before_action :search_items
 
   def search
-    # binding.pry
     @results = @d.result
     @brands = Brand.all
   end
@@ -13,17 +12,17 @@ before_action :search_items
     @user = User.select("is_user")
   end
 
-  # ログインユーザー投稿一覧
+  # ログインユーザー投稿履歴一覧
   def my_item
     @my_items = Item.where(user_id: current_user.id).includes(:user).order("created_at DESC").page(params[:page]).per(8)
   end
 
-  # ログインユーザー非公開投稿一覧
+  # ログインユーザー非公開設定投稿一覧
   def privacy
     @close_items = current_user.items.where(status: "close").page(params[:page]).per(8)
   end
 
-  # 店舗スタッフのみ公開一覧
+  # 店舗スタッフのみ設定公開一覧
   def clerk
     @clerk_items = Item.all.where(status: "only_clerk").page(params[:page]).per(8)
   end
@@ -32,7 +31,6 @@ before_action :search_items
     @item = Item.find(params[:id])
     @comment = Comment.new
     @comments = @item.comments.order(created_at: :desc)
-    # binding.pry
   end
 
   def new

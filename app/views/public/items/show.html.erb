@@ -22,7 +22,9 @@
           ブランド：<%= @item.brand.brand_name %>
         </div>
         <div class="tag">
-          <div>タグ</div>
+          <% @item.item_tags.each do |tag| %>
+            #<%= tag.tag_name %>
+          <% end %>
         </div>
         <% if @item.user_id == current_user.id %>
           <div class="status">
