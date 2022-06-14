@@ -3,7 +3,7 @@ class Public::ItemsController < ApplicationController
 before_action :search_items
 
   def search
-    @results = @d.result
+    @results = @d.result.where(status: "release").page(params[:page]).per(16)
     @brands = Brand.all
   end
 
