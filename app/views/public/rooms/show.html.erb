@@ -4,7 +4,7 @@
       <h2><%= ("#{@another_entry.user.name}さんとのメッセージ") %></h2>
     </div>
   </div>
-  <div class="row">
+  <div id="message">
     <% @messages.each do |message| %>
       <% if message.user_id == current_user.id %>
         <div class="my-message">
@@ -14,8 +14,18 @@
           <% end %>
         </div>
       <% else %>
-        <div class="another-message">
-          <p><%= messaage.sentence %></p>
+        <div class="another">
+          <div id="user-icon">
+            <%= image_tag message.user.get_profile_image(80, 80), class: "rounded-circle" %>
+          </div>
+          <div class="another-mesage">
+            <div class="message">
+              <p><%= message.sentence %></p>
+                 <% if message.message_image.attached? %>
+                    <p><%= image_tag message.get_message_image(100, 100) %></p>
+                 <% end %>
+            </div>
+          </div>
         </div>
       <% end %>
     <% end %>
@@ -31,3 +41,56 @@
     </div>
   </div>
 </div>
+
+
+
+<style>
+#message{
+  padding: 20px 10px;
+  max-width: 450px;
+  margin: 15px auto;
+  text-align: right;
+  font-size: 14px;
+  background: #7da4cd;
+}
+
+.my-message {
+  margin: 10px 0;
+}
+
+.my-message p{
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 15px;
+}
+
+.my-message p:after{
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #30e852;
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+
+.another{
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.another.user-icon{
+  float: left;
+  margin-right: -50px;
+  width: 40px;
+}
+
+
+</style>

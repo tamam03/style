@@ -1,34 +1,18 @@
 <%= render 'public/items/sidebar' %>
 <div class="container">
-  <div class="row">
+  <div class="row test-cards">
    <% @items.each do |item| %>
-    <div class="col-3 pt-2">
-     <div class="card">
-      <div class="card-body">
-       <div class="image-wrap">
-        <%= link_to public_item_path(item) do %>
-         <%= image_tag item.get_item_image(400, 400) %>
-        <% end %>
+     <div class="test-card">
+      <%= link_to public_item_path(item) do %>
+        <%= image_tag item.get_item_image(400, 400) %>
+      <% end %>
+
+      <% unless item.user == current_user %>
+       <div id="favorite_btns_<%= item.id %>" class="favorite_mark">
+        <%= render "public/favorites/btn", item: item %>
        </div>
-       <div class="card-btn">
-        <% unless item.user == current_user %>
-         <div id = "favorite_btns_<%= item.id %>">
-          <%= render "public/favorites/btn", item: item %>
-         </div>
-        <% else %>
-        <% end %>
-       </div>
-       <div class="card-btn text-right">
-        <% if item.user == current_user %>
-         <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"}, class: "card-delete-btn" do %>
-          <i class="far fa-trash-alt fa-lg"></i>
-         <% end %>
-        <% else %>
-        <% end %>
-       </div>
-      </div>
+      <% end %>
      </div>
-    </div>
    <% end %>
   </div>
   <div class="row p-3 d-flex justify-content-center">
@@ -62,6 +46,34 @@
  position: absolute;
  top: 90%;
  left: 70%;
+}
+
+.test-cards {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 24px;
+}
+
+.test-card img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+
+.test-card {
+  position: relative;
+  width: calc((100% - 24px * 2) / 3);
+  max-width: calc(100% - 24px * 2) / 3;
+  -moz-box-shadow: 15px 20px 31px -26px rgba(0, 0, 0, 0.8);
+-webkit-box-shadow: 15px 20px 31px -26px rgba(0, 0, 0, 0.8);
+-ms-box-shadow: 15px 20px 31px -26px rgba(0, 0, 0, 0.8);
+box-shadow: 15px 20px 31px -26px rgba(0, 0, 0, 0.8);
+}
+
+.favorite_mark {
+ position: absolute;
+ right: 8px;
+ bottom: 8px;
 }
 
 </style>

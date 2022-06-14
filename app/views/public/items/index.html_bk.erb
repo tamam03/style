@@ -1,0 +1,70 @@
+<%= render 'public/items/sidebar' %>
+<div class="container">
+  <div class="row">
+   <% @items.each do |item| %>
+    <div class="col-3 pt-2" style="padding-bottom: 70px">
+     <!--<div class="card">-->
+      <!--<div class="card-body">-->
+       <div class="image-wrap" style="padding-bottom: 100px">
+        <%= link_to public_item_path(item) do %>
+         <%= image_tag item.get_item_image(400, 400) %>
+        <% end %>
+       </div>
+       
+       
+       <div class="card-btn">
+        <% unless item.user == current_user %>
+         <div id = "favorite_btns_<%= item.id %>">
+          <%= render "public/favorites/btn", item: item %>
+         </div>
+        <% else %>
+        <% end %>
+       </div>
+       <div class="card-btn text-right">
+        <% if item.user == current_user %>
+         <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"}, class: "card-delete-btn" do %>
+          <i class="far fa-trash-alt fa-lg"></i>
+         <% end %>
+        <% else %>
+        <% end %>
+       </div>
+      </div>
+     </div>
+    </div>
+   <% end %>
+  </div>
+  <div class="row p-3 d-flex justify-content-center">
+   <%= paginate @items %>
+  </div>
+ </div>
+
+<style>
+ .pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background: #CC99CC;
+  border-radius: 15px;
+}
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
+.page-item.active .page-link {
+    background-color: #CC99CC;
+    border-color: #CC99CC;
+}
+
+.img{
+ position: relative;
+}
+
+.card-btn{
+ position: absolute;
+ top: 90%;
+ left: 70%;
+}
+
+
+</style>
