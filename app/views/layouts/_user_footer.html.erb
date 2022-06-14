@@ -15,18 +15,18 @@
           </div>
         <% end %>
     </li>
-    <li><%= link_to favorites_public_users_path do %>
-        <div class="favorite-box">
-          <i class="fas fa-heart fa-2x mr-4 ml-3"></i>
-          <div>お気に入り</div>
+    <li><%= link_to public_user_path(current_user) do %>
+        <div class="mypage-box">
+          <i class="fas fa-user fa-2x ml-3 mr-4"></i>
+          <div>マイページ</div>
         </div>
         <% end %>
     </li>
-    <li><%= link_to public_user_path(current_user) do %>
-        <div class="mypage-box">
-          <i class="fas fa-user fa-2x ml-3"></i>
-          <div>マイページ</div>
-        </div>
+    <li><%= link_to destroy_user_session_path, method: :delete do %>
+          <div class="signout-box">
+            <i class="fas fa-sign-out-alt fa-2x ml-3"></i>
+            <div>ログアウト</div>
+          </div>
         <% end %>
     </li>
     <li>

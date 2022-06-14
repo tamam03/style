@@ -10,7 +10,7 @@
          <%= image_tag item.get_item_image(400, 400) %>
         <% end %>
        </div>
-       <div class="card-favorite">
+       <div class="card-btn">
         <% unless item.user == current_user %>
          <div id = "favorite_btns_<%= item.id %>">
           <%= render "public/favorites/btn", item: item %>
@@ -53,4 +53,15 @@
     background-color: #CC99CC;
     border-color: #CC99CC;
 }
+
+.img{
+ position: relative;
+}
+
+.card-btn{
+ position: absolute;
+ top: 90%;
+ left: 80%;
+}
+
 </style>
