@@ -3,31 +3,25 @@
   <h1>店舗スタッフ公開一覧</h1>
    <div class="row">
     <% @clerk_items.each do |item| %>
-     <div class="col-3 pt-2">
-      <div class="card">
-       <div class="card-body">
-        <div class="image-wrap">
-         <%= link_to public_item_path(item) do %>
-          <%= image_tag item.get_item_image(200, 200) %>
-         <% end %>
-        </div>
-        <div class="card-profile">
-         <%= image_tag item.user.get_profile_image(80, 80), class: "rounded-circle" %>
-         <%= link_to item.user.nick_name, public_user_path(item.user.id) %>
-        </div>
-        <div class="card-brand">
-         <%= item.brand.brand_name %>
-        </div>
-        <div class="card-favorite">
-         <div id = "favorite_btns_<%= item.id %>">
+     <div class="item-card">
+        <%= link_to public_item_path(item) do %>
+         <%= image_tag item.get_item_image(400, 400) %>
+        <% end %>
+        <% unless item.user == current_user %>
+         <div id = "favorite_btns_<%= item.id %>" class="btn_mark">
           <%= render "public/favorites/btn", item: item %>
          </div>
-        </div>
-       </div>
+        <% end %>
+        <% if item.user == current_user %>
+         <div class="btn_mark">
+          <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"} do %>
+           <i class="far fa-trash-alt fa-lg"></i>
+          <% end %>
+         </div>
+        <% end %>
       </div>
-     </div>
-    <% end %>
-   </div>
+     <% end %>
+    </div>
   <%= paginate @clerk_items %>
  </div>
 
@@ -47,6 +41,16 @@
 .page-item.active .page-link {
     background-color: #CC99CC;
     border-color: #CC99CC;
+}
+
+ .img{
+ position: relative;
+}
+
+.btn_mark {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
 }
 </style>
 
