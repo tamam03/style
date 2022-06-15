@@ -71,7 +71,7 @@ footer{
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 1600px;
+  min-height: 2000px;
 }
 
 .admin{
@@ -110,7 +110,6 @@ a:visited { color: #808080; }
   height: 80px;
 }
 
-
 /*投稿*/
 
 .item-card {
@@ -137,6 +136,45 @@ a:visited { color: #808080; }
 }
 
 .item-card:hover{
+  box-shadow: 10px 10px 10px
+  rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
+}
+
+.card{
+    width: 100%;
+    height: 110%;
+    transition-duration: 0.5s;
+}
+
+.card-body{
+  padding: 0;width: 90%;
+  height: auto;
+  border-radius: 50%;
+  flex-basis: 400%;
+  cursor: pointer;
+}
+
+.image-wrap{
+  position: relative;
+  overflow: hidden;
+  padding-top: 100%;
+  border: 1px solid #ddd;
+  height: 100%;
+}
+
+.image-wrap img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card:hover{
   box-shadow: 10px 10px 10px
   rgba(0,0,0,0.5);
   transform: translateY(-10px);
