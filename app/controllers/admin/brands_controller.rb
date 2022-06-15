@@ -1,6 +1,4 @@
 class Admin::BrandsController < ApplicationController
-
-
   def index
     @brands = Brand.all
     @brand = Brand.new
@@ -12,23 +10,20 @@ class Admin::BrandsController < ApplicationController
   end
 
   def create
-     @brand = Brand.new(brand_params)
-     @brand.save!
-     redirect_to  request.referer
+    @brand = Brand.new(brand_params)
+    @brand.save!
+    redirect_to request.referer
   end
 
   def destroy
     @brand = Brand.find(params[:id])
     @brand.destroy
-    redirect_to  request.referer
+    redirect_to request.referer
   end
 
-
-   private
-
+  private
 
   def brand_params
     params.require(:brand).permit(:brand_id, :brand_name)
   end
-
 end

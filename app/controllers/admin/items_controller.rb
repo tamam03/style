@@ -1,18 +1,16 @@
 class Admin::ItemsController < ApplicationController
-
   def index
     @items = Item.all.page(params[:page]).per(8)
   end
 
   def show
-   @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def user_index
     @user = User.find(params[:id])
     @items = @user.items
   end
-
 
   private
 

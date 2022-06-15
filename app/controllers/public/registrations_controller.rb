@@ -8,25 +8,24 @@ class Public::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :nick_name, :brand_id, :store_id, :is_user])
     # binding.pry
     @user = User.new
   end
 
   def after_sign_up_path_for(resource)
-  # @user = User.new
+    # @user = User.new
     # if @user = User.where(is_user: true)
-      # find_by(user: params[:is_user]) == true
-      # public_items_path
-      # pubulic_user_path(@user)
+    # find_by(user: params[:is_user]) == true
+    # public_items_path
+    # pubulic_user_path(@user)
     # else
     # end
-     root_path
+    root_path
   end
 
   def after_sign_out_path_for(resource)
-      root_path
+    root_path
   end
   # GET /resource/sign_up
   # def new

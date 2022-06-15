@@ -1,6 +1,6 @@
 class Public::ItemsController < ApplicationController
-# before_action :ensure_user, only: [:privacy, :clerk, :edit, :update, :destroy ]
-before_action :search_items
+  # before_action :ensure_user, only: [:privacy, :clerk, :edit, :update, :destroy ]
+  before_action :search_items
 
   def search
     @results = @d.result.where(status: "release").page(params[:page]).per(9)
@@ -51,9 +51,9 @@ before_action :search_items
   end
 
   def destroy
-    @Item = Item.find(params[:id])
-    @Item.destroy
-    redirect_to  request.referer
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to public_items_path, notice: '投稿を削除しました'
   end
 
   def update
@@ -61,7 +61,6 @@ before_action :search_items
     item.update(item_params)
     redirect_to public_item_path(item.id)
   end
-
 
   private
 
@@ -72,8 +71,4 @@ before_action :search_items
   def search_items
     @d = Item.ransack(params[:q])
   end
-
 end
-
-
-

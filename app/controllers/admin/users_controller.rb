@@ -16,11 +16,11 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-     if @user.update(user_params)
+    if @user.update(user_params)
       redirect_to admin_user_path(@user), notice: "保存しました"
-     else
+    else
       render "edit"
-     end
+    end
   end
 
   def destroy
@@ -32,12 +32,10 @@ class Admin::UsersController < ApplicationController
   end
 
   def search
-   @results = @q.result
+    @results = @q.result
   end
 
-
-
-   private
+  private
 
   def set_q
     @q = User.ransack(params[:q])
@@ -46,6 +44,4 @@ class Admin::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :name, :name_kana, :nick_name, :brand_id, :store_id, :is_user, :profile_image)
   end
-
-
 end

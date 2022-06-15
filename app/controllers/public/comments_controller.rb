@@ -1,5 +1,4 @@
 class Public::CommentsController < ApplicationController
-
   def create
     @item = Item.find(params[:item_id])
     @comment = Comment.new(comment_params)
@@ -21,7 +20,6 @@ class Public::CommentsController < ApplicationController
     @comments = @item.comments.order(created_at: :desc)
     render :index
   end
-
 
   private
 

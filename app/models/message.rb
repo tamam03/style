@@ -1,5 +1,4 @@
 class Message < ApplicationRecord
-  
   belongs_to :user
   belongs_to :room
 
@@ -7,9 +6,7 @@ class Message < ApplicationRecord
 
   validates :sentence, presence: true
 
-
   def get_message_image(width, height)
-     message_image.variant(resize_to_limit: [width, height]).processed
+    message_image.variant(resize_to_limit: [width, height]).processed
   end
-  
 end
