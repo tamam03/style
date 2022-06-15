@@ -1,17 +1,34 @@
-<% @another_entries.each do |entry| %>
- <%= link_to public_room_path(entry.room) do %>
-  <div class="card">
-    <div class="card-body">
-      <div class="message-image-icon">
-       <%= link_to public_user_path(entry.user) do %>
-       <%= image_tag entry.user.get_item_image(200, 200) %>
+<div class="container">
+  <div class="row">
+    <% current_user.rooms.each do |room| %>
+      <div class="col-4 p-2">
+        <%= link_to public_room_path(room) do %>
+          <div class="card">
+            <div class="card-body">
+              <div class="message-image-icon">
+                <%= image_tag room.partner(current_user).get_profile_image(200, 200) %>
+              </div>
+              <div class="message-user">
+                <%= room.partner(current_user).name %>
+              </div>
+              <div class="message-text">
+                <% if room.messages.last != nil %>
+                  <%= room.messages.last.sentence %>
+                <% else %>
+                  メッセージはまだありません。
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
-      <div class="message-user">
-        <%= entry.user.name %>
-      </div>
-      <div class="message-text">
-        <%= Message.find_by(id: entry.room.message_ids.last)&.body %>
-      </div>
-      </div>
-    </div>
+    <% end %>
   </div>
+</div>
+
+<style>
+  main{
+  background-image: none;
+  background-color: #d4dcd3;
+  }
+</style>

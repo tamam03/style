@@ -17,6 +17,7 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
 #共通ページ
 root 'homes#top'
 get 'homes/about' => 'homes#about'
+get 'homes/question' => 'homes#question'
 
 # ゲストログイン用
 post '/public/guests', to: 'public/guest_sessions#create'

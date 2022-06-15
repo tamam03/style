@@ -5,7 +5,4 @@ class HomesController < ApplicationController
     end
   end
   
-  def about
-  end
-
 end

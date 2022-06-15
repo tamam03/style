@@ -18,20 +18,20 @@
         <div class="item-text col-12 d-flex justify-content-center">
           <%= @item.text %>
         </div>
-        <div class="brand">
+        <div class="brand p-3">
           ブランド：<%= @item.brand.brand_name %>
         </div>
-        <div class="tag">
+        <div class="tag p-3">
           <% @item.item_tags.each do |tag| %>
-            #<%= tag.tag_name %>
+            <div>#<%= tag.tag_name %></div>
           <% end %>
         </div>
         <% if @item.user_id == current_user.id %>
-          <div class="status">
-            ステータス：<%= @item.status_i18n %>
+          <div class="status p-3">
+            <div>ステータス：<%= @item.status_i18n %></div>
           </div>
-          <div class="favorite">
-            いいね<%= @item.favorites.count %>件
+          <div class="favorite p-3">
+            <div>いいね<%= @item.favorites.count %>件</div>
           </div>
           <div class="edit-btn text-right p-3">
             <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-outline-secondary center-block" %>
@@ -70,9 +70,9 @@
 
     .item-text{
     background: none;
-	  border: 3px solid #736d71;	/* 線の太さ・種類・色 */
-	  margin: 10px; /* 外側の余白 */
-	  padding: 20px; /* 内側の余白 */
+	  border: 3px solid #736d71;
+	  margin: 10px;
+	  padding: 20px;
 	  position: relative;
     }
 

@@ -1,6 +1,6 @@
 <div class= "container">
   <div class="row">
-    <div class="title">
+    <div class="title pt-3">
       <h2><%= ("#{@another_entry.user.name}さんとのメッセージ") %></h2>
     </div>
   </div>
@@ -15,11 +15,11 @@
         </div>
       <% else %>
         <div class="another">
-          <div id="user-icon">
+          <div class="user-icon">
             <%= image_tag message.user.get_profile_image(80, 80), class: "rounded-circle" %>
           </div>
-          <div class="another-mesage">
-            <div class="message">
+          <div class="another-messages">
+            <div class="another-message">
               <p><%= message.sentence %></p>
                  <% if message.message_image.attached? %>
                     <p><%= image_tag message.get_message_image(100, 100) %></p>
@@ -33,7 +33,7 @@
   <div class="row">
     <div class="message-form">
       <%= form_with model: @message, url: public_messages_path, method: :post do |f| %>
-       <%= f.text_field :sentence %>
+       <%= f.text_field :sentence, placeholder: "メッセージを入力" %>
        <%= f.file_field :message_image, placeholder: "投稿画像", accept: 'image/*' %>
        <%= f.hidden_field :room_id, value: @room.id %>
        <%= f.submit "送信" %>
@@ -45,17 +45,77 @@
 
 
 <style>
+
+main{
+  background-image: none;
+  background-color: #d4dcd3;
+  }
+
 #message{
   padding: 20px 10px;
-  max-width: 450px;
+  max-width: 800px;
   margin: 15px auto;
-  text-align: right;
   font-size: 14px;
   background: #7da4cd;
 }
 
+.another{
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.another.user-icon{
+  float: left;
+  margin-right: -50px;
+  width: 40px;
+}
+
+.another.user-icon img{
+  width: 90%;
+  height: auto;
+}
+
+.another.another-message{
+  width: 100%;
+  text-align: left;
+}
+
+.another-message{
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 50px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #edf1ee;
+}
+
+.another-message:after{
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #edf1ee;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.another-message p{
+  margin: 0;
+  padding: 0;
+}
+
+.message-form{
+  text-align:center;
+  margin-bottom:200px;
+}
+
 .my-message {
   margin: 10px 0;
+  text-align: right;
 }
 
 .my-message p{
@@ -79,18 +139,5 @@
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
 }
-
-.another{
-  width: 100%;
-  margin: 10px 0;
-  overflow: hidden;
-}
-
-.another.user-icon{
-  float: left;
-  margin-right: -50px;
-  width: 40px;
-}
-
 
 </style>

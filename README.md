@@ -33,18 +33,8 @@
 
 ## 設計書
 
-#### ワイヤーフレーム
-- 顧客
-https://drive.google.com/file/d/1nbUphZd8OZuO_DgVt1Ea3pnVvkBww0Hl/view?usp=sharing
-- 店舗スタッフ
-https://drive.google.com/file/d/1BBwSEN4FeetsgxzRSht5h5LV0zxQ0CBN/view?usp=sharing
-- 管理者
-https://drive.google.com/file/d/1lCfDrTh4tqzdj23yjPY5lb_yX8RRvXbK/view?usp=sharing
-
 #### UI FLOW
-- 顧客
-https://drive.google.com/file/d/1vG2GGQHwSEtRYOfu5oWlVHgRxhdaDgwR/view?usp=sharing
-- 店舗スタッフ
+- ユーザー
 https://drive.google.com/file/d/1vG2GGQHwSEtRYOfu5oWlVHgRxhdaDgwR/view?usp=sharing
 - 管理者
 https://drive.google.com/file/d/1-kHVY8zQdJ_Bw583T5bgAI5WhZOeLNzc/view?usp=sharing
@@ -60,4 +50,5 @@ https://docs.google.com/spreadsheets/d/1BOEAqO1aVAn_PEqCA7H-E-pxT6pxGxgU/edit?us
 
 
 ## 使用素材
-① https://www.photo-ac.com/　②https://girlydrop.com/
+- https://www.photo-ac.com/
+- https://girlydrop.com/

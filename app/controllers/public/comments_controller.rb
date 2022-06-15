@@ -5,16 +5,12 @@ class Public::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.item_id = @item.id
-    # binding.pry
     if @comment.save
       @comments = @item.comments.order(created_at: :desc)
-      flash.now[:notice] = "コメントの投稿に成功しました。"
       render :index
     else
       @comments = @item.comments.order(created_at: :desc)
-      flash.now[:alert] ="コメントの投稿に失敗しました。"
       render :index
-
     end
   end
 
@@ -23,8 +19,6 @@ class Public::CommentsController < ApplicationController
     @item = @comment.item
     @comment.destroy
     @comments = @item.comments.order(created_at: :desc)
-    flash.now[:notice] = "コメントを削除しました。"
-    # binding.pry
     render :index
   end
 

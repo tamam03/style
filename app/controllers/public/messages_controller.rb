@@ -4,7 +4,6 @@ class Public::MessagesController < ApplicationController
     message = Message.new(message_params)
     message.user_id = current_user.id
     if message.save
-      # binding.pry
       redirect_to public_room_path(message.room_id)
     else
     end

@@ -10,11 +10,10 @@ class Item < ApplicationRecord
 
   belongs_to :user
   belongs_to :brand
+  
   has_many :tag_maps, dependent: :destroy
   has_many :item_tags, through: :tag_maps
-
   has_many :comments, dependent: :destroy
-
   has_many :favorites, dependent: :destroy
 
   def favorited_by?(user)

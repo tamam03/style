@@ -1,0 +1,86 @@
+<div class="container">
+   <div class="row d-flex justify-content-center p-5">
+     <h1 class"title">サイト使用方法</h1>
+   </div>
+    <div class="row d-flex justify-content-center p-2">
+      <div class="title-box">
+        <p>step.1 新規投稿をしてみましょう</p>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center p-2">
+      <div class="step1">
+        <div class="col-6">
+          <div class="question1">
+            <p><%= image_tag 'question1.jpg', class: 'image-question1' %></p>
+            <h5 class="question-text p-2">ヘッダーメニューより選べます</h5>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="question2">
+            <p><%= image_tag 'question2.jpg', class: 'image-question2' %></p>
+            <h5>ブランドをプルバーより選び、複数タグを登録する場合はスペースを空けて入力してください</h5>
+            <h5>公開ステータスで投稿の閲覧に制限をつけます</h5>
+            <h5>非公開の場合「自分自身のみ閲覧」</h5>
+            <h5>店舗スタッフのみ公開「一般ユーザーには公開されず店舗スタッフのみ閲覧可能となります</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center p-2">
+      <div class="title-box">
+        <p>step.2 メニューバーを使ってみましょう</p>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center p-2">
+      <div class="step2">
+        <p><%= image_tag 'question3.jpg', class: 'image-question3' %></p>
+        <h5>メニューバーから投稿の制限ごとに確認ができます</h5>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center p-2">
+      <div class="title-box">
+        <p>step.3 コメント・いいね・トーク</p>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center p-2">
+      <h5>店舗スタッフのみが投稿詳細ページからコメントが可能です</h5>
+      <h5>気になる投稿には♡いいねを押してみましょう</h5>
+      <h5>相互フォローでトークができるようになります</h5>
+    </div>
+  </div>
+
+
+
+
+<style>
+  main{
+    background-image: none;
+    background-color: #eeeaec;
+  }
+
+  h1{
+    font-family: 'Georgia',sans-serif;
+    border-bottom: double 6px #b79fcb;
+  }
+
+  .title-box{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+  }
+
+  img.image-question1{
+     width: 400px;
+     height: 100px;
+  }
+  img.image-question2{
+    width: 400px;
+    height: 400px;
+  }
+  img.image-question3{
+    width: 400px;
+    height: 200px;
+  }
+</style>
