@@ -3,28 +3,28 @@ class Public::ItemsController < ApplicationController
 before_action :search_items
 
   def search
-    @results = @d.result.where(status: "release").page(params[:page]).per(16)
+    @results = @d.result.where(status: "release").page(params[:page]).per(9)
     @brands = Brand.all
   end
 
   def index
-    @items = Item.where(status: "release").page(params[:page]).per(8)
+    @items = Item.where(status: "release").page(params[:page]).per(9)
     @user = User.select("is_user")
   end
 
   # ログインユーザー投稿履歴一覧
   def my_item
-    @my_items = Item.where(user_id: current_user.id).includes(:user).order("created_at DESC").page(params[:page]).per(8)
+    @my_items = Item.where(user_id: current_user.id).includes(:user).order("created_at DESC").page(params[:page]).per(9)
   end
 
   # ログインユーザー非公開設定投稿一覧
   def privacy
-    @close_items = current_user.items.where(status: "close").page(params[:page]).per(8)
+    @close_items = current_user.items.where(status: "close").page(params[:page]).per(9)
   end
 
   # 店舗スタッフのみ設定公開一覧
   def clerk
-    @clerk_items = Item.all.where(status: "only_clerk").page(params[:page]).per(8)
+    @clerk_items = Item.all.where(status: "only_clerk").page(params[:page]).per(9)
   end
 
   def show
