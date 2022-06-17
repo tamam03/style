@@ -1,7 +1,7 @@
 <%= render 'public/items/sidebar' %>
 <div class="container">
  <% if @my_items.present? %>
-  <div class="row">
+  <div class="row item-cards">
    <% @my_items.each do |item| %>
     <div class="col-3 pt-2">
      <div class="card">

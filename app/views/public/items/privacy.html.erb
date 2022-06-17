@@ -1,7 +1,7 @@
 <%= render 'public/items/sidebar' %>
 <div class="container">
   <% if @close_items.present? %>
-   <div class="row">
+   <div class="row item-cards">
     <% @close_items.each do |item| %>
     <div class="item-card">
         <%= link_to public_item_path(item) do %>
