@@ -17,7 +17,7 @@
        <div class="card-brand">
         <%= item.brand.brand_name %>
        </div>
-       <div class="card-btn text-right p-3">
+       <div class="btn_mark">
         <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"}, class: "card-delete-btn" do %>
          <i class="far fa-trash-alt"></i>
         <% end %>
@@ -52,4 +52,15 @@
     background-color: #CC99CC;
     border-color: #CC99CC;
 }
+
+.img{
+  position: relative;
+}
+
+.btn_mark {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
 </style>
