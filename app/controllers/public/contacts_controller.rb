@@ -7,7 +7,7 @@ class Public::ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact, current_user).deliver
-      redirect_to root_path
+      redirect_to public_items_path
     else
       render :new
     end
