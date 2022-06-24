@@ -5,9 +5,8 @@ class Admin::StoresController < ApplicationController
   end
 
   def create
-    # binding.pry
     @store = Store.new(store_params)
-    @store.save!
+    @store.save
     redirect_to admin_brand_path(@store.brand.id)
   end
 
