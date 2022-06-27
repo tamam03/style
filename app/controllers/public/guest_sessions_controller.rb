@@ -1,5 +1,4 @@
 class Public::GuestSessionsController < ApplicationController
-  # skip_before_action :login_required
 
   def create
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|
