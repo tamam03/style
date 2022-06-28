@@ -1,5 +1,4 @@
 class Public::ItemsController < ApplicationController
-  # before_action :ensure_user, only: [:privacy, :clerk, :edit, :update, :destroy ]
   before_action :search_items
 
   def search
@@ -48,18 +47,29 @@ class Public::ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    unless @item.user == current_user
+      redirect_to root_path, notice: 'アカウントログインが必要です'
+    end
   end
 
   def destroy
     @item = Item.find(params[:id])
-    @item.destroy
-    redirect_to public_items_path, notice: '投稿を削除しました'
+    if @item.user != current_user
+      redirect_to root_path, notice: 'アカウントログインが必要です'
+    else
+      @item.destroy
+      redirect_to public_items_path, notice: '投稿を削除しました'
+    end
   end
 
   def update
     item = Item.find(params[:id])
-    item.update(item_params)
-    redirect_to public_item_path(item.id)
+    if item.user != current_user
+      redirect_to root_path, notice: 'アカウントログインが必要です'
+    else
+      item.update(item_params)
+      redirect_to public_item_path(item.id)
+    end
   end
 
   private
