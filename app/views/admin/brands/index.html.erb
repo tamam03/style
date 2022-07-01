@@ -1,29 +1,30 @@
 <div class="container d-flex justify-content-center">
   <div class="row">
-      <div class="col-12 d-flex justify-content-center p-4">
-         <h1>ブランド一覧</h1>
-        </div>
-  <div class="col-12 d-flex justify-content-center pb-5">
-   <%= form_with model: @brand, url: admin_brands_path, method: :post do |f| %>
-  <%= f.text_field :brand_name, placeholder: "ブランド名を入力" %>
-  <%= f.submit "追加" %>
-<% end %>
+    <div class="col-12 d-flex justify-content-center p-4">
+      <h1>ブランド一覧</h1>
+    </div>
+    <div class="col-12 d-flex justify-content-center pb-5">
+      <%= form_with model: @brand, url: admin_brands_path, method: :post do |f| %>
+        <%= f.text_field :brand_name, placeholder: "ブランド名を入力" %>
+        <%= f.submit "追加" %>
+      <% end %>
+    </div>
+    <div class="col-8 pt-5">
+      <h4>ブランドリスト</h4>
+        <ol class="list-group list-group-numbered">
+          <% @brands.each do |brand| %>
+            <li class="list-group-item">
+              <%= brand.brand_name %>
+            </li>
+            <li class="list-group-item">
+              <%= link_to "詳細", admin_brand_path(brand) %>
+              <%= link_to "削除", admin_brand_path(brand), method: :delete %>
+            </li>
+          <% end %>
+        </ol>
+    </div>
+  </div>
 </div>
-<div class="col-8 pt-5">
 
-<h4>ブランドリスト</h4>
-<ol class="list-group list-group-numbered">
-<% @brands.each do |brand| %>
-<li class="list-group-item">
-   <%= brand.brand_name %>
-</li>
-<li class="list-group-item">
-<%= link_to "詳細", admin_brand_path(brand) %>
-<%= link_to "削除", admin_brand_path(brand), method: :delete %>
-</li>
-<% end %>
-</ol>
-</div>
-</div>
 
 

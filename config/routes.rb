@@ -62,7 +62,6 @@ Rails.application.routes.draw do
 
     resources :messages, only: [:create]
     resources :rooms, only: [:create, :index, :show]
-
     resources :brands, only: [] do
       resources :stores, only: [:index]
     end
