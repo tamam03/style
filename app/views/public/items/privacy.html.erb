@@ -1,33 +1,27 @@
 <%= render 'public/items/sidebar' %>
 <div class="container">
   <% if @close_items.present? %>
-   <div class="row item-cards">
-    <% @close_items.each do |item| %>
-    <div class="item-card">
-        <%= link_to public_item_path(item) do %>
-         <%= image_tag item.get_item_image(400, 400) %>
-        <% end %>
-        <div class="btn_mark p-3">
-         <%= item.created_at.strftime("%Y-%m-%d") %>
-        </div>
-        <% unless item.user == current_user %>
-         <div id = "favorite_btns_<%= item.id %>" class="btn_mark">
-          <%= render "public/favorites/btn", item: item %>
-         </div>
-        <% end %>
-        <% if item.user == current_user %>
-         <div class="btn_mark">
-          <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"} do %>
-           <i class="far fa-trash-alt fa-lg"></i>
+    <div class="row item-cards">
+      <% @close_items.each do |item| %>
+        <div class="item-card">
+          <%= link_to public_item_path(item) do %>
+            <%= image_tag item.get_item_image(400, 400) %>
           <% end %>
-         </div>
-        <% end %>
-      </div>
-     <% end %>
+          <div class="above_image p-4">
+            <%= item.created_at.strftime("%Y-%m-%d") %>
+          </div>
+          <div class="above_image">
+            <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"} do %>
+              <i class="far fa-trash-alt fa-lg"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   <% else %>
-   <p class ="d-flex justify-content-center p-5">投稿が存在しません</p>
+    <p class ="d-flex justify-content-center p-5">投稿が存在しません</p>
   <% end %>
+
   <%= paginate @close_items %>
  </div>
 
@@ -53,7 +47,7 @@
  position: relative;
 }
 
-.btn_mark {
+.above_image {
   position: absolute;
   right: 8px;
   bottom: 8px;

@@ -2,12 +2,12 @@ class Public::ItemsController < ApplicationController
   before_action :search_items
 
   def search
-    @results = @d.result.where(status: "release").page(params[:page]).per(9)
+    @results = @d.result.where(status: "release").order("created_at DESC").page(params[:page]).per(9)
     @brands = Brand.all
   end
 
   def index
-    @items = Item.where(status: "release").page(params[:page]).per(9)
+    @items = Item.where(status: "release").order("created_at DESC").page(params[:page]).per(9)
     @user = User.select("is_user")
   end
 
@@ -18,12 +18,12 @@ class Public::ItemsController < ApplicationController
 
   # ログインユーザー非公開設定投稿一覧
   def privacy
-    @close_items = current_user.items.where(status: "close").page(params[:page]).per(9)
+    @close_items = current_user.items.where(status: "close").order("created_at DESC").page(params[:page]).per(9)
   end
 
   # 店舗スタッフのみ設定公開一覧
   def clerk
-    @clerk_items = Item.all.where(status: "only_clerk").page(params[:page]).per(9)
+    @clerk_items = Item.all.where(status: "only_clerk").order("created_at DESC").page(params[:page]).per(9)
   end
 
   def show

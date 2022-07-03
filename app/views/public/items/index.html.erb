@@ -1,30 +1,30 @@
 <%= render 'public/items/sidebar' %>
 <div class="container">
   <div class="row item-cards">
-   <% @items.each do |item| %>
-    <div class="item-card">
+    <% @items.each do |item| %>
+      <div class="item-card">
         <%= link_to public_item_path(item) do %>
-         <%= image_tag item.get_item_image(400, 400) %>
-        <% end %>
-        <% unless item.user == current_user %>
-         <div id = "favorite_btns_<%= item.id %>" class="btn_mark">
-          <%= render "public/favorites/btn", item: item %>
-         </div>
+          <%= image_tag item.get_item_image(400, 400) %>
         <% end %>
         <% if item.user == current_user %>
-         <div class="btn_mark">
-          <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"} do %>
-           <i class="far fa-trash-alt fa-lg"></i>
-          <% end %>
-         </div>
+          <div class="btn_mark">
+            <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"} do %>
+              <i class="far fa-trash-alt fa-lg"></i>
+            <% end %>
+          </div>
+        <% else %>
+          <div id = "favorite_btns_<%= item.id %>" class="btn_mark">
+            <%= render "public/favorites/btn", item: item %>
+          </div>
         <% end %>
       </div>
-     <% end %>
-    </div>
-   <div class="row p-3 d-flex justify-content-center">
+    <% end %>
+  </div>
+  <div class="row p-3 d-flex justify-content-center">
     <%= paginate @items %>
-   </div>
- </div>
+  </div>
+</div>
+
 
 <style>
 
