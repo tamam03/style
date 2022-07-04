@@ -10,10 +10,10 @@
               <% end %>
           </div>
           <div class="card-create">
-              <%= item.created_at.strftime("%Y-%m-%d") %>
+              投稿作成日：<%= item.created_at.strftime("%Y-%m-%d") %>
           </div>
           <div class="card-brand">
-              <%= item.brand.brand_name %>
+              ブランド：<%= item.brand.brand_name %>
           </div>
           <div class="btn_mark">
               <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"}, class: "card-delete-btn" do %>

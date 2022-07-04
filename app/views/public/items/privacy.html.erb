@@ -4,13 +4,18 @@
     <div class="row item-cards">
       <% @close_items.each do |item| %>
         <div class="item-card">
-          <%= link_to public_item_path(item) do %>
-            <%= image_tag item.get_item_image(400, 400) %>
-          <% end %>
-          <div class="above_image p-4">
-            <%= item.created_at.strftime("%Y-%m-%d") %>
+          <div class="image-wrap">
+            <%= link_to public_item_path(item) do %>
+              <%= image_tag item.get_item_image(400, 400) %>
+            <% end %>
           </div>
-          <div class="above_image">
+          <div class="card-create">
+            投稿作成日：<%= item.created_at.strftime("%Y-%m-%d") %>
+          </div>
+          <div class="card-brand">
+            ブランド：<%= item.brand.brand_name %>
+          </div>
+          <div class="btn_mark">
             <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"} do %>
               <i class="far fa-trash-alt fa-lg"></i>
             <% end %>
@@ -22,8 +27,10 @@
     <p class ="d-flex justify-content-center p-5">投稿が存在しません</p>
   <% end %>
 
-  <%= paginate @close_items %>
- </div>
+  <div class="row p-3 d-flex justify-content-center">
+    <%= paginate @close_items %>
+  </div>
+</div>
 
  <style>
  .pagination>li>a {
@@ -43,13 +50,14 @@
     border-color: #CC99CC;
 }
 
- .img{
- position: relative;
+.img{
+  position: relative;
 }
 
-.above_image {
+.btn_mark {
   position: absolute;
   right: 8px;
   bottom: 8px;
 }
+
 </style>
