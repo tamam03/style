@@ -1,16 +1,14 @@
 class Public::CommentsController < ApplicationController
+  
   def create
     @item = Item.find(params[:item_id])
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.item_id = @item.id
-    if @comment.save
-      @comments = @item.comments.order(created_at: :desc)
-      render :index
-    else
-      @comments = @item.comments.order(created_at: :desc)
-      render :index
-    end
+    @comment.save!
+    @item.create_notification_comment!(current_user, @item.id)
+    @comments = @item.comments.order(created_at: :desc)
+    render :index
   end
 
   def destroy
