@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   # ユーザー用
   # URL /users/sign_in ...
   get "/users/get_store" => "public/registration_jsons#get_store"
@@ -66,6 +67,7 @@ Rails.application.routes.draw do
       resources :stores, only: [:index]
     end
     resources :contacts, only: [:create, :new, :check]
+    resources :notifications, only: [:index]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

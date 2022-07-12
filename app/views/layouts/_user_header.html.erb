@@ -12,6 +12,9 @@
             <%= link_to "投稿一覧", public_items_path, class: "nav-item nav-link text-black" %>
           </li>
           <li>
+            <%= link_to "通知", public_notifications_path, class: "nav-item nav-link text-black" %>
+          </li>
+          <li>
             <%= link_to "お問い合わせ", new_public_contact_path(user_id: current_user.id), class: "nav-item nav-link text-black" %>
           </li>
         </ul>
