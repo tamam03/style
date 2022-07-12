@@ -10,6 +10,11 @@
       <% when 'favorite' then %>
         <%= link_to 'あなたの投稿', public_item_path(notification.item.id) %>
         <%= "にいいねしました" %>
+      <% when 'comment' then %>
+        <% if notification.item.user_id == notification.visited.id %>
+          <%= link_to 'あなたの投稿', public_item_path(notification.item.id) %>
+          <%= "にコメントしました" %>
+        <% end %>
     <% end %>
   </span>
 </div>
