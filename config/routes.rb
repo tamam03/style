@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   # ユーザー用
   # URL /users/sign_in ...
   get "/users/get_store" => "public/registration_jsons#get_store"

@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-    <% if Room.find_by(user_id: current_user.id).present? %>
       <% current_user.rooms.each do |room| %>
         <div class="col-4 p-2">
           <%= link_to public_room_path(room) do %>
@@ -24,9 +23,6 @@
           <% end %>
         </div>
       <% end %>
-    <% else %>
-      <p class="text p-5">トーク履歴がありません</p>
-    <% end %>
   </div>
 </div>
 

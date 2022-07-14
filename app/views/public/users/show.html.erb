@@ -59,8 +59,8 @@
      </div>
     <% end %>
     <div class="row">
-     <% unless @user.id == current_user.id %>
-       <% if current_user.following?(@user) && @user.following?(current_user) %>
+      <% unless @user.id == current_user.id %>
+        <% if current_user.following?(@user) && @user.following?(current_user) %>
           <% if @is_room == true %>
             <div class="col-12">
               <%= link_to "#{@user.name}さんへメッセージを送る", public_room_path(@room_id) %>
@@ -75,12 +75,16 @@
               <% end %>
             </div>
           <% end %>
-       <% else %>
-         相互フォローでメッセージが可能になります
-       <% end %>
-    <% else %>
-     <%= link_to "トーク一覧", public_rooms_path %>
-    <% end %>
+        <% else %>
+          相互フォローでメッセージが可能になります
+        <% end %>
+      <% else %>
+        <% if current_user.rooms.present? %>
+          <%= link_to "トーク一覧", public_rooms_path %>
+        <% else %>
+          トークルームが存在しません
+        <% end %>
+      <% end %>
     <div class="col-12">
      <div>フォロー数</div><%= @user.followings.count %>
      <div>フォロワー数</div><%= @user.followers.count %>

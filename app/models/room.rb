@@ -3,6 +3,6 @@ class Room < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   def partner(user)
-    entries.where.not(user: user).first.user
+    entries.where.not(user: user_id).first.user
   end
 end
