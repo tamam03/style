@@ -4,46 +4,44 @@
   </div>
     <div class="row contact-form d-flex justify-content-center">
       <%= form_with model: @contact, url: public_contacts_path, method: :post do |f| %>
-       <div class="form-wrap">
-         <div class="form-header">
-          <h4 class="top-text d-flex justify-content-center">お問い合わせ</h4>
-          <h6 class="bottom-text">サイトに関するご質問などは下記よりお問い合わせください</h6>
-          <h9 class="bottom-text d-flex justify-content-center">ご登録のアドレスにてご対応をさせていただきます</h9>
-         </div>
-           <div class="contact-name d-flex justify-content-center p-3">
-             <%= f.text_field :name, placeholder: "お名前" %>
-           </div>
-           <div class="contact-text d-flex justify-content-center pt-1">
-             <%= f.text_area :content, placeholder: "お問い合わせ内容を入力してください", class: "input-form"  %>
-           </div>
-           <div class="form-submit d-flex justify-content-center p-2">
-             <%= f.submit "送信", class: "btn-contact-form" %>
-           </div>
-         </div>
+        <div class="form-wrap">
+          <div class="form-header">
+            <h4 class="top-text d-flex justify-content-center">お問い合わせ</h4>
+            <h6 class="bottom-text">サイトに関するご質問などは下記よりお問い合わせください</h6>
+            <h9 class="bottom-text d-flex justify-content-center">ご登録のアドレスにてご対応をさせていただきます</h9>
+          </div>
+          <div class="contact-name d-flex justify-content-center p-3">
+            <%= f.text_field :name, placeholder: "お名前" %>
+          </div>
+          <div class="contact-text d-flex justify-content-center pt-1">
+            <%= f.text_area :content, placeholder: "お問い合わせ内容を入力してください", class: "input-form"  %>
+          </div>
+          <div class="form-submit d-flex justify-content-center p-2">
+            <%= f.submit "送信", class: "btn-contact-form" %>
+          </div>
         </div>
-      </div>
       <% end %>
     </div>
-</div>
+  </div>
 
 <style>
   .contact-form{
-     background-color: #EEEEEE;
-     padding: 40px;
-     border:  3px solid;
-     border-radius: 8px;
-     border-color: #999966;
-     box-shadow    : 16px 16px 42px #666666;
+    background-color: #EEEEEE;
+    padding: 40px;
+    border:  3px solid;
+    border-radius: 8px;
+    border-color: #999966;
+    box-shadow: 16px 16px 42px #666666;
  }
 
  h1.title{
-   font-family: "Georgia";
+  font-family: "Georgia";
  }
 
  .input-form{
-   border-radius: 0.67em;
-   width: 500px;
-   height: 300px;
+  border-radius: 0.67em;
+  width: 500px;
+  height: 300px;
  }
 
 .btn-contact-form{
@@ -51,12 +49,12 @@
   background: #666666;
   color: #EEEEEE;
   border-radius: 15px;
-  box-shadow    : 10px 10px 30px #666666;
+  box-shadow: 10px 10px 30px #666666;
 }
 
 .btn-contact-form:hover{
-    background: #333333;
-    box-shadow    : none;
+  background: #333333;
+  box-shadow: none;
  }
 
 </style>
