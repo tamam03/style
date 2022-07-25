@@ -10,7 +10,11 @@
         <ul class="navbar-nav ml-auto">
           <li>
             <%= link_to public_notifications_path, class: "nav-item nav-link text-black" do %>
-              <i class="fas fa-bell fa-lg"></i>
+              <% if unchecked_notifications.any? %>
+                <i class="fas fa-bell fa-lg true"></i>
+              <% else %>
+                <i class="fas fa-bell fa-lg"></i>
+              <% end %>
             <% end %>
           </li>
             <%#= link_to "お問い合わせ", new_public_contact_path(user_id: current_user.id), class: "nav-item nav-link text-black" %>
@@ -19,3 +23,8 @@
     </div>
   </nav>
 
+<style>
+.true {
+  color: #efa04c;
+}
+</style>
