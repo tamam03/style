@@ -36,6 +36,8 @@ footer{
     border-top: 9px dotted #A9A9A9;
  }
 
+
+
  .flash {
   background-color: #808080;
   color: #FFFFFF;
@@ -80,18 +82,16 @@ footer{
   background-size: cover;
   background-attachment: fixed;
   min-height: 2000px;
-
 }
 
 .navbar{
-  opacity:0.5;
-  height: 70px;
+  height: 50px;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
 }
 .navbar-brand{
-    font-family: 'Georgia',sans-serif;
-    font-size: 60px;
-    font-weight:800;
-    padding-left: 80px
+  font-family: 'Georgia',sans-serif;
+  font-weight: 800;
+  padding-left: 80px
 }
 
 a:hover { color: #9999CC; }
