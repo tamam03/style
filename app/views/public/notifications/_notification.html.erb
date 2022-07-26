@@ -1,11 +1,9 @@
 <div>
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
-
-<div class="col">
+<div class="col-12">
   <span>
     <%= visitor.name %>さんが
-
     <% case notification.action %>
       <% when 'favorite' then %>
         <%= link_to 'あなたの投稿', public_item_path(notification.item.id) %>

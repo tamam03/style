@@ -7,11 +7,9 @@
     <% if notifications.exists? %>
       <%= render notifications %>
     <% else %>
-      <p>|</p>
       <p>通知はありません</p>
     <% end %>
   </div>
-
   <div class="row">
     <%= paginate @notifications %>
   </div>

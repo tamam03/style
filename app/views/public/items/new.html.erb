@@ -1,38 +1,38 @@
 <div class="container">
-   <div class="row d-flex justify-content-center p-5">
-      <div class="item-form">
-         <%= form_with model: @item, url: public_items_path, method: :post do |f| %>
-            <div class="col-12">
-               <div class="images p-3">
-                  <%= f.file_field :item_image, placeholder: "投稿画像", accept: 'image/*' %>
-               </div>
-            </div>
-            <div class="col-12">
-               <div class="field p-3">
-                  <%= f.text_area :text, class: 'form-control',size: "20x10", placeholder: "説明を入力してください" %>
-               </div>
-            </div>
-            <div class="col-12">
-               <div class="brand-select p-3">
-                  <%= f.select :brand_id, options_from_collection_for_select(Brand.all, :id, :brand_name), { prompt: 'ブランドを選択してください' } %>
-               </div>
-            </div>
-            <div class="col-12">
-               <div class="make_tag p-3">
-                  <%= f.text_field :tag_name %>
-               </div>
-            </div>
-            <div class="col-12">
-               <div class="select p-3">
-                 <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] }, {prompt: 'ステータスを選択してください'} %>
-               </div>
-            </div>
-            <div class="row d-flex justify-content-center p-3">
-               <%= f.submit "投稿", class: "btn-submit" %>
-            </div>
-         <% end %>
-      </div>
-   </div>
+  <div class="row d-flex justify-content-center p-5">
+    <div class="item-form">
+      <%= form_with model: @item, url: public_items_path, method: :post do |f| %>
+        <div class="col-12">
+          <div class="images p-3">
+            <%= f.file_field :item_image, placeholder: "投稿画像", accept: 'image/*' %>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="field p-3">
+            <%= f.text_area :text, class: 'form-control',size: "20x10", placeholder: "説明を入力してください" %>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="brand-select p-3">
+            <%= f.select :brand_id, options_from_collection_for_select(Brand.all, :id, :brand_name), { prompt: 'ブランドを選択してください' } %>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="make_tag p-3">
+            <%= f.text_field :tag_name %>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="select p-3">
+            <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] }, {prompt: 'ステータスを選択してください'} %>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center p-3">
+          <%= f.submit "投稿", class: "btn-submit" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
  </div>
 
 
@@ -40,27 +40,24 @@
 
 <style>
  .item-form{
-     background-color: #EEEEEE;
-     padding: 40px;
-     border:  3px solid;
-     border-radius: 8px;
-     border-color: #999966;
-     box-shadow    : 16px 16px 42px #666666;
+    background-color: #EEEEEE;
+    padding: 40px;
+    border:  3px solid;
+    border-radius: 8px;
+    border-color: #999966;
+    box-shadow    : 16px 16px 42px #666666;
  }
 
  .btn-submit{
-     background: #666666;
-     color: #EEEEEE;
-     width: 100px;
-     border-radius: 15px;
-     box-shadow    : 10px 10px 30px #666666;
+    background: #666666;
+    color: #EEEEEE;
+    width: 100px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 30px #666666;
  }
 
  .btn-submit:hover{
     background: #333333;
-    box-shadow    : none;
+    box-shadow: none;
  }
-
-
-
 </style>
