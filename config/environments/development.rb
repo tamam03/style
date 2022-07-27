@@ -75,7 +75,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   # config.hosts << "3c6df3ceb8a046bbbd6195949f2e93f4.vfs.cloud9.ap-northeast-1.amazonaws.com"
   config.hosts << "8c4b43439b004acc894fa17f3b5efe32.vfs.cloud9.ap-northeast-1.amazonaws.com"
-  
+
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -87,4 +87,6 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto:  true
   }
+
+  config.hosts.clear
 end
