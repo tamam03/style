@@ -1,17 +1,16 @@
- <!--ユーザー新規登録-->
-  <div class="field">
-   <%= f.label :氏名 %><br />
-   <%= f.text_field :name, placeholder: "漢字フルネーム" %>
-  </div>
-  <div class="field">
-   <%= f.label :フリガナ %><br />
-   <%= f.text_field :name_kana %>
-  </div>
+<div class="field">
+  <%= f.label :お名前 %><br />
+  <%= f.text_field :name, placeholder: "フルネーム" %>
+</div>
+<div class="field">
+  <%= f.label :フリガナ %><br />
+  <%= f.text_field :name_kana, placeholder: "全角カナ" %>
+</div>
 
   <div id="only-customer">
    <div class="field">
     <%= f.label :ニックネーム（表示用）%><br />
-    <%= f.text_field :nick_name %>
+    <%= f.text_field :nick_name, placeholder: "３文字以上・８文字以内" %>
    </div>
   </div>
 
@@ -21,8 +20,6 @@
     <%= f.label :所属ブランド %>
     <%= f.select :brand_id, brand_options, { include_blank: true }, class: 'select-parent' %>
    </div>
-    <%# stores = user.brand.try(:stores) || [] %>
-    <%# store_options = stores.map { |c| [c.store_name, c.id ] } %>
      <div class="field">
      <%= f.label :配属店舗 %>
      <%= f.select :store_id, [], {}, class: 'select-children' %>

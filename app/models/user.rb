@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :rooms, through: :entries
 
   belongs_to :store, optional: true
-  
+
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
@@ -23,6 +23,10 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
+
+  validates :name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+  validates :name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/ }
+  validates :nick_name, length: { minimum: 2, maximum: 8 }
 
   def follow(user_id)
     relationships.create(followed_id: user_id)
@@ -43,5 +47,5 @@ class User < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
 end

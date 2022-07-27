@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  
+
   enum status: {
     close: 0,
     release: 1,
@@ -17,6 +17,8 @@ class Item < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
+  validates :brand_id, presence: true
+  validates :text, length: { maximum: 200 }
 
 
   def create_notification_favorite!(current_user)
@@ -90,5 +92,5 @@ class Item < ApplicationRecord
       item_tags << new_item_tag
     end
   end
-  
+
 end

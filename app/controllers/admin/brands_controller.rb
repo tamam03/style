@@ -11,14 +11,17 @@ class Admin::BrandsController < ApplicationController
 
   def create
     @brand = Brand.new(brand_params)
-    @brand.save
-    redirect_to request.referer
+    if @brand.save
+      redirect_to admin_brands_path
+    else
+      redirect_to admin_brands_path, notice: 'ブランド名を入力してください'
+    end
   end
 
   def destroy
     @brand = Brand.find(params[:id])
     @brand.destroy
-    redirect_to request.referer
+    redirect_to admin_brands_path, notice: 'ブランドを削除'
   end
 
   private
