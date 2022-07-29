@@ -2,15 +2,15 @@
   <h1><%= @brand.brand_name %>の店舗一覧</h1>
   <h4><%= link_to "店舗追加", admin_stores_path %></h4>
   <% if @stores.present? %>
-  <div class="row">
-   <% @stores.each do |store| %>
-   <div class="store col-2">
-    <%= store.store_name %>
-    <%= link_to "削除", admin_store_path(store), method: :delete %>
+    <div class="row">
+      <% @stores.each do |store| %>
+        <div class="store col-2">
+          <%= store.store_name %>
+          <%= link_to "削除", admin_store_path(store), method: :delete %>
+        </div>
+      <% end %>
     </div>
-   <% end %>
-   </div>
-   <%= paginate @stores %>
+    <%= paginate @stores %>
   <% end %>
 </div>
 
