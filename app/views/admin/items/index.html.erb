@@ -1,31 +1,30 @@
 <div class="container">
   <div class="row item-cards">
-   <% @items.each do |item| %>
-    <div class="col-3 pt-2">
-     <div class="card">
-      <div class="card-body">
-       <div class="image-wrap">
-        <%= link_to admin_item_path(item) do %>
-         <%= image_tag item.get_item_image(200, 200) %>
-        <% end %>
-       </div>
-       <div class="card-day">
-        <%= item.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-       </div>
-       <div class="card-profile">
-        <%= item.user.name %>
-       </div>
-       <div class="card-brand">
-        <%= item.brand.brand_name %>
-       </div>
-       <div class="card-favorite">
-        いいね<div id= "favorite_btns_<%= item.id %>">件
-       </div>
+    <% @items.each do |item| %>
+      <div class="col-3 pt-2">
+        <div class="card">
+          <div class="card-body">
+            <div class="image-wrap">
+              <%= link_to admin_item_path(item) do %>
+                <%= image_tag item.get_item_image(200, 200) %>
+              <% end %>
+            </div>
+            <div class="card-day">
+              <%= item.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+            </div>
+            <div class="card-profile">
+              <%= item.user.name %>
+            </div>
+            <div class="card-brand">
+              <%= item.brand.brand_name %>
+            </div>
+            <div class="card-favorite">
+              いいね<div id= "favorite_btns_<%= item.id %>">件
+            </div>
+          </div>
+        </div>
       </div>
-     </div>
-     </div>
-    </div>
-   <% end %>
+    <% end %>
   </div>
   <div class="row p-3 d-flex justify-content-center">
    <%= paginate @items %>
