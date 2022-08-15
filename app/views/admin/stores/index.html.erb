@@ -1,13 +1,12 @@
-
 <div class="container">
   <h1 class="row d-flex justify-content-center p-4">店舗追加</h1>
   <div class="store-form row d-flex justify-content-center pt-5">
- <%= form_with model: @store, url: admin_stores_path, method: :post do |f| %>
-  <%= f.collection_select :brand_id, Brand.all, :id, :brand_name, prompt: "ブランドを選択" %>
-  <%= f.text_field :store_name, placeholder: "店舗名を入力" %>
-  <%= f.submit "登録" %>
-<% end %>
-</div>
+    <%= form_with model: @store, url: admin_stores_path, method: :post do |f| %>
+      <%= f.collection_select :brand_id, Brand.all, :id, :brand_name, prompt: "ブランドを選択" %>
+      <%= f.text_field :store_name, placeholder: "店舗名を入力" %>
+      <%= f.submit "登録" %>
+    <% end %>
+  </div>
 </div>
 
 <style>
