@@ -1,50 +1,51 @@
 <div class="container">
   <div class="row d-flex justify-content-center p-4">
-   <h1>投稿詳細</h1>
+    <h1>投稿詳細</h1>
   </div>
   <div class="row d-flex justify-content-center">
-   <div class="col-4">
-    <div class="card">
-     <div class="card-body">
-      <div class="image-wrap">
-       <%= image_tag @item.get_item_image(200, 200) %>
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="image-wrap">
+            <%= image_tag @item.get_item_image(200, 200) %>
+          </div>
+        </div>
+        <div class="card-body">
+          <%= @item.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
+        <div class="card-body">
+          <%= @item.text %>
+        </div>
+        <div class="card-body">
+          ブランド：<%= @item.brand.brand_name %>
+        </div>
+        <div class="card-body">
+          ステータス：<%= @item.status_i18n %>
+        </div>
       </div>
-     </div>
-     <div class="card-body">
-      <%= @item.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-     </div>
-     <div class="card-body">
-      <%= @item.text %>
-     </div>
-     <div class="card-body">
-      ブランド：<%= @item.brand.brand_name %>
-     </div>
-     <div class="card-body">
-      ステータス：<%= @item.status_i18n %>
-     </div>
     </div>
-   </div>
-   </div>
-   <div class="row">
-   コメント<%= @item.comments.count %>件
-   <table class="table">
-    <thead>
-     <tr>
-      <th scope="col">ユーザー</th>
-      <th scope="col">コメント</th>
-      <th></th>
-     </tr>
-    </thead>
-     <% if @item.comments.present? %>
-        <% @item.comments.each do |comment| %>
-    <tbody>
-        <tr>
-         <td><%= comment.user.name %></td>
-         <td> <%= comment.text %></td>
-         <td> <%= link_to "削除", admin_item_comment_path(item_id: @item, comment_id: comment), method: :delete, data: {confirm: "削除しますか？"}, class: "home-btn btn btn-outline-secondary center-block" %></td>
-        </tr>
-    </tbody>
-    <% end %>
-    <% end %>
   </div>
+  <div class="row">
+    コメント<%= @item.comments.count %>件
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ユーザー</th>
+            <th scope="col">コメント</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% if @item.comments.present? %>
+          <% @item.comments.each do |comment| %>
+            <tbody>
+              <tr>
+                <td><%= comment.user.name %></td>
+                <td> <%= comment.text %></td>
+                <td> <%= link_to "削除", admin_item_comment_path(item_id: @item, comment_id: comment), method: :delete, data: {confirm: "削除しますか？"}, class: "home-btn btn btn-outline-secondary center-block" %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
  </div>
