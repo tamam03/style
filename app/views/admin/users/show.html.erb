@@ -1,26 +1,26 @@
 <div class="container d-flex justify-content-center">
   <div class="row">
-   <div class="col-12 p-4">
-    <h1>顧客詳細</h1>
-   </div>
-   <div class="col-12">
-    <% if @user.is_user == true %>
-    <p><%= image_tag @user.get_profile_image(200, 200) %></p>
-    <p><%= @user.name %></p>
-    <p><%= @user.name_kana %></p>
-    <p><%= @user.nick_name %></p>
-    <p><%= @user.email %></p>
-    <% elsif @user.is_user == false %>
-    <p><%= image_tag @user.get_profile_image(200, 200) %></p>
-    <p><%= @user.name %></p>
-    <p><%= @user.name_kana %></p>
-    <p><%= @user.brand.brand_name %></p>
-    <p><%= @user.store.store_name %></p>
-    <p><%= @user.email %></p>
-    <% end %>
-    <%= link_to "編集", edit_admin_user_path(@user), class: "home-btn btn btn-outline-secondary center-block" %>
-    <%= link_to "削除", admin_user_path(@user), method: :delete, data: {confirm: "削除しますか？"}, class: "home-btn btn btn-outline-secondary center-block" %>
-    <%= link_to "投稿を見る", user_index_admin_item_path, class: "home-btn btn btn-outline-secondary center-block" %>
-   </div>
+    <div class="col-12 p-4">
+      <h1>顧客詳細</h1>
+    </div>
+    <div class="col-12">
+      <% if @user.is_user == true %>
+        <p><%= image_tag @user.get_profile_image(200, 200) %></p>
+        <p><%= @user.name %></p>
+        <p><%= @user.name_kana %></p>
+        <p><%= @user.nick_name %></p>
+        <p><%= @user.email %></p>
+      <% elsif @user.is_user == false %>
+        <p><%= image_tag @user.get_profile_image(200, 200) %></p>
+        <p><%= @user.name %></p>
+        <p><%= @user.name_kana %></p>
+        <p><%= @user.brand.brand_name %></p>
+        <p><%= @user.store.store_name %></p>
+        <p><%= @user.email %></p>
+      <% end %>
+      <%= link_to "編集", edit_admin_user_path(@user), class: "home-btn btn btn-outline-secondary center-block" %>
+      <%= link_to "削除", admin_user_path(@user), method: :delete, data: {confirm: "削除しますか？"}, class: "home-btn btn btn-outline-secondary center-block" %>
+      <%= link_to "投稿を見る", user_index_admin_item_path, class: "home-btn btn btn-outline-secondary center-block" %>
+    </div>
   </div>
  </div>
