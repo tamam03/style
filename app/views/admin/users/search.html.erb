@@ -1,9 +1,8 @@
 <h1>該当ユーザー</h1>
-
-<% @results.each do |user| %>
-     <%= user.id %>
-     <%= user.name %>
-     <%= user.email %>
-     <%= link_to "詳細", admin_user_path(user.id) %>
-<% end %>
+  <% @results.each do |user| %>
+    <%= user.id %>
+    <%= user.name %>
+    <%= user.email %>
+    <%= link_to "詳細", admin_user_path(user.id) %>
+  <% end %>
 
