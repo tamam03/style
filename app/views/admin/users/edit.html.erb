@@ -1,52 +1,52 @@
 <div class="container d-flex justify-content-center">
   <div class="row">
-   <div class="col-12 p-4">
-    <h1>顧客情報編集</h1>
-   </div>
-   <%= form_with model: @user, url: admin_user_path(@user), method: :patch do |f| %>
-   <div class="col-12">
-    <% if @user.is_user == true %>
-     <div class="image">
-      <%= f.label :プロフィール画像 %>
-      <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %>
-     </div>
-     <div class="field">
-      <%= f.label :氏名 %>
-      <%= f.text_field :name %>
-     </div>
-     <div class="field">
-      <%= f.label :フリガナ %>
-      <%= f.text_field :name_kana %>
-     </div>
-     <div class="field">
-      <%= f.label :ニックネーム（表示用） %>
-      <%= f.text_field :nick_name %>
-     </div>
-     <div class="field">
-      <%= f.label :メールアドレス %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-     </div>
-     <%= f.submit "変更を保存" %>
-    <% elsif @user.is_user == false %>
-     <div class="image">
-      <%= f.label :プロフィール画像 %>
-      <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %>
-     </div>
-     <div class="field">
-      <%= f.label :氏名 %>
-      <%= f.text_field :name %>
-     </div>
-     <div class="field">
-      <%= f.label :フリガナ %>
-      <%= f.text_field :name_kana %>
-     </div>
-     <div class="field">
-      <%= f.label :メールアドレス %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-     </div>
-     <%= f.submit "変更を保存" %>
+    <div class="col-12 p-4">
+      <h1>顧客情報編集</h1>
+    </div>
+    <%= form_with model: @user, url: admin_user_path(@user), method: :patch do |f| %>
+      <div class="col-12">
+        <% if @user.is_user == true %>
+          <div class="image">
+            <%= f.label :プロフィール画像 %>
+            <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %>
+          </div>
+          <div class="field">
+            <%= f.label :氏名 %>
+            <%= f.text_field :name %>
+          </div>
+          <div class="field">
+            <%= f.label :フリガナ %>
+            <%= f.text_field :name_kana %>
+          </div>
+          <div class="field">
+            <%= f.label :ニックネーム（表示用） %>
+            <%= f.text_field :nick_name %>
+          </div>
+          <div class="field">
+            <%= f.label :メールアドレス %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+        <%= f.submit "変更を保存" %>
+        <% elsif @user.is_user == false %>
+          <div class="image">
+            <%= f.label :プロフィール画像 %>
+            <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %>
+          </div>
+          <div class="field">
+            <%= f.label :氏名 %>
+            <%= f.text_field :name %>
+          </div>
+          <div class="field">
+            <%= f.label :フリガナ %>
+            <%= f.text_field :name_kana %>
+          </div>
+          <div class="field">
+            <%= f.label :メールアドレス %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+        <%= f.submit "変更を保存" %>
+        <% end %>
+      </div>
     <% end %>
-   </div>
-   <% end %>
-</div>
+  </div>
 </div>
