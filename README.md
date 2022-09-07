@@ -33,14 +33,8 @@
 
 ## 設計書
 
-#### UI FLOW
-- ユーザー
-https://drive.google.com/file/d/1vG2GGQHwSEtRYOfu5oWlVHgRxhdaDgwR/view?usp=sharing
-- 管理者
-https://drive.google.com/file/d/1-kHVY8zQdJ_Bw583T5bgAI5WhZOeLNzc/view?usp=sharing
-
 #### ER図
-https://drive.google.com/file/d/1e7Je_H8y1SEIVI7a5msjJO5Cz94l-Rfm/view?usp=sharing
+(images/ER.jpg "")
 
 #### テーブル定義書
 https://docs.google.com/spreadsheets/d/1SLgUG2Qjj9a4haRkZWDqu1Ysv6hKxETckaRkIZ2Cgj0/edit?usp=sharing
