@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
 
+#公開ステータス
   enum status: {
     close: 0,
     release: 1,
@@ -21,6 +22,7 @@ class Item < ApplicationRecord
   validates :text, length: { maximum: 200 }
 
 
+#いいね通知
   def create_notification_favorite!(current_user)
     temp = Notification.where([
       "visitor_id = ? and visited_id = ? and item_id = ? and action = ? ",
@@ -38,7 +40,8 @@ class Item < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-
+  
+#コメント通知
   def create_notification_comment!(current_user, comment_id)
     temp_ids = Comment.select(:user_id).where(item_id: id).where.not(user_id: current_user.id).distinct
     temp_ids.each do |temp_id|
@@ -60,14 +63,12 @@ class Item < ApplicationRecord
     notification.save if notification.valid?
   end
 
-
-
+#いいね機能
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
 
-
-
+#投稿画像
   def get_item_image(width, height)
     unless item_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -76,8 +77,7 @@ class Item < ApplicationRecord
     item_image.variant(resize_to_limit: [width, height]).processed
   end
 
-
-
+#タグ機能
   def save_tag(sent_tags)
     current_tags = item_tags.pluck(:tag_name) unless item_tags.nil?
     old_tags = current_tags - sent_tags

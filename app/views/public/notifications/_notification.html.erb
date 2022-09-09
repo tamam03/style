@@ -5,6 +5,8 @@
   <span>
     <%= visitor.name %>さんが
     <% case notification.action %>
+      <% when 'follow' then %>
+        <%= "あなたをフォローしました" %>
       <% when 'favorite' then %>
         <%= link_to 'あなたの投稿', public_item_path(notification.item.id) %>
         <%= "にいいねしました" %>

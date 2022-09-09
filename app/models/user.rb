@@ -27,6 +27,7 @@ class User < ApplicationRecord
   validates :nick_name, uniqueness: true, allow_blank: true, length: { minimum: 2, maximum: 8 }
 
 
+#フォロー機能
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
@@ -38,7 +39,21 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-
+  
+#フォロー通知機能
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
+  end
+  
+  
+#プロフィール画像
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
