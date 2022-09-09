@@ -1,16 +1,21 @@
 <div class="container">
-  <h1 class="title">
-    通知一覧
-  </h1>
+  <div class="row d-flex justify-content-center p-5">
+    <h1>通知一覧</h1>
+  </div>
   <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-  <div class="row">
     <% if notifications.exists? %>
       <%= render notifications %>
     <% else %>
       <p>通知はありません</p>
     <% end %>
-  </div>
   <div class="row">
     <%= paginate @notifications %>
   </div>
 </div>
+
+<style>
+ main{
+  background-image: none;
+  background-color: #888888;
+ }
+</style>
