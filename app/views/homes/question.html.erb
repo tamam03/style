@@ -4,37 +4,31 @@
    </div>
     <div class="row d-flex justify-content-center p-2">
       <div class="title-box">
-        <p>step.1 新規投稿をしてみましょう</p>
+        <p>step.1 投稿をしてみましょう</p>
       </div>
     </div>
     <div class="row d-flex justify-content-center p-2">
       <div class="step1">
         <div class="col-6">
-          <div class="question1">
-            <p><%= image_tag 'question1.jpg', class: 'image-question1' %></p>
-            <h5 class="question-text p-2">ヘッダーメニューより選べます</h5>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="question2">
-            <p><%= image_tag 'question2.jpg', class: 'image-question2' %></p>
-            <h5>ブランドをプルバーより選び、複数タグを登録する場合はスペースを空けて入力してください</h5>
-            <h5>公開ステータスで投稿の閲覧に制限をつけます</h5>
-            <h5>非公開の場合「自分自身のみ閲覧」</h5>
-            <h5>店舗スタッフのみ公開「一般ユーザーには公開されず店舗スタッフのみ閲覧可能となります</h5>
-          </div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/UhJHrLfE4Hk"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
         </div>
       </div>
     </div>
     <div class="row d-flex justify-content-center p-2">
       <div class="title-box">
-        <p>step.2 メニューバーを使ってみましょう</p>
+        <p>step.２ 投稿へいいねをしましょう</p>
       </div>
     </div>
     <div class="row d-flex justify-content-center p-2">
       <div class="step2">
-        <p><%= image_tag 'question3.jpg', class: 'image-question3' %></p>
-        <h5>メニューバーから投稿の制限ごとに確認ができます</h5>
+        <div class="col6">
+          
+        </div>
+        
       </div>
     </div>
     <div class="row d-flex justify-content-center p-2">
@@ -71,16 +65,26 @@
     border-bottom: solid 2px black;
   }
 
-  img.image-question1{
-     width: 400px;
-     height: 100px;
-  }
-  img.image-question2{
-    width: 400px;
-    height: 400px;
-  }
-  img.image-question3{
-    width: 400px;
-    height: 200px;
-  }
+  iframe {
+  width : 400px;
+  height : 200px;
+}
+
+.youtube {
+  cursor : pointer;
+}
+
+
 </style>
+
+<script>
+  function youtube_defer() {
+    var iframes = document.querySelectorAll('.youtube');
+    iframes.forEach(function(iframe){
+      if(iframe.getAttribute('data-src')) {
+        iframe.setAttribute('src',iframe.getAttribute('data-src'));
+      }
+    });
+  }
+  window.addEventListener('load', youtube_defer);
+</script>
