@@ -24,6 +24,9 @@ class Public::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user.is_user == true
+      @is_user == true
+    end
   end
 
   def update
