@@ -5,13 +5,6 @@
     <% end %>
     <ul>
       <li>
-        <%= link_to search_public_items_path, class: "nav-item nav-link text-black" do %>
-          <div class="serch-box">
-            <i class="fas fa-search fa-lg"></i>
-          </div>
-        <% end %>
-      </li>
-      <li>
         <%= link_to public_notifications_path, class: "nav-item nav-link text-black" do %>
           <% if unchecked_notifications.any? %>
             <i class="fas fa-bell fa-lg true"></i>
@@ -55,10 +48,6 @@ i{
 }
 
 i.fa-user:hover{
-	color: #993366;
-}
-
-i.fa-search:hover{
 	color: #993366;
 }
 
