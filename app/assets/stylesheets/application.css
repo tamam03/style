@@ -84,7 +84,6 @@ footer{
 }
 
 .navbar{
-  /*height: 50px;*/
   box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
 }
 .navbar-brand{
@@ -141,8 +140,6 @@ a:visited { color: #808080; }
   transform: translateY(-10px);
   transition-duration: 0.5s;
 }
-
-
 
 select{
     height: 40px;
