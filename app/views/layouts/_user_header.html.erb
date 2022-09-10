@@ -1,30 +1,69 @@
-  <nav class="navbar navbar-expand-lg navbar-light bg-light float-left w-100">
-    <div class="container-fluid">
-      <%= link_to public_items_path, class: "navbar-brand fa-2x" do %>
-       style
-      <% end %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <li>
-            <%= link_to public_notifications_path, class: "nav-item nav-link text-black" do %>
-              <% if unchecked_notifications.any? %>
-                <i class="fas fa-bell fa-lg true"></i>
-              <% else %>
-                <i class="fas fa-bell fa-lg"></i>
-              <% end %>
-            <% end %>
-          </li>
-            <%#= link_to "お問い合わせ", new_public_contact_path(user_id: current_user.id), class: "nav-item nav-link text-black" %>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to public_items_path, class: "navbar-brand fa-2x" do %>
+      style
+    <% end %>
+    <ul>
+      <li>
+        <%= link_to search_public_items_path, class: "nav-item nav-link text-black" do %>
+          <div class="serch-box">
+            <i class="fas fa-search fa-lg"></i>
+          </div>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to public_notifications_path, class: "nav-item nav-link text-black" do %>
+          <% if unchecked_notifications.any? %>
+            <i class="fas fa-bell fa-lg true"></i>
+          <% else %>
+            <i class="fas fa-bell fa-lg"></i>
+          <% end %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_public_item_path, class: "nav-item nav-link text-black" do %>
+          <div class="new-item-box">
+            <i class="fas fa-folder-plus fa-lg"></i>
+          </div>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to public_user_path(current_user), class: "nav-item nav-link text-black" do %>
+          <div class="mypage-box">
+            <i class="fas fa-user fa-lg"></i>
+          </div>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 
 <style>
+
+ul {
+  display: flex;
+  list-style: none;
+}
+
+i{
+  display: inline;
+}
+
 .true {
   color: #efa04c;
 }
+
+i.fa-user:hover{
+	color: #993366;
+}
+
+i.fa-search:hover{
+	color: #993366;
+}
+
+i.fa-folder-plus:hover{
+  color: #993366;
+}
+
 </style>

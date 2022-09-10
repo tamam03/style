@@ -1,74 +1,21 @@
 <div class="footer-line"></div>
-<div class="container p-4">
-  <ol class="footer-menu row d-flex justify-content-center pr-2 pl-2">
-    <li><%= link_to search_public_items_path do %>
-         <div class="serch-box">
-           <i class="fas fa-search fa-2x mr-3"></i>
-           <div>検索</div>
-         </div>
-        <% end %>
-    </li>
-    <li><%= link_to new_public_item_path do %>
-          <div class="new-item-box">
-            <i class="fas fa-folder-plus fa-2x mr-4 ml-3"></i>
-            <div>新規投稿</div>
-          </div>
-        <% end %>
-    </li>
-    <li><%= link_to public_user_path(current_user) do %>
-        <div class="mypage-box">
-          <i class="fas fa-user fa-2x ml-3 mr-4"></i>
-          <div>マイページ</div>
-        </div>
-        <% end %>
-    </li>
-    <li><%= link_to destroy_user_session_path, method: :delete do %>
-          <div class="signout-box">
-            <i class="fas fa-sign-out-alt fa-2x ml-3"></i>
-            <div>ログアウト</div>
-          </div>
-        <% end %>
-    </li>
-    <li>
+<div class="container d-flex justify-content-center p-4">
+  <div class="row">
+    <div class="col-12">
       <div class="footer-text pl-2">© Style  Copyrights,Higashino</div>
-    </li>
-  </ol>
+    </div>
+    <div class="col-6">
+      <%= link_to "contact", new_public_contact_path(user_id: current_user.id) %>
+    </div>
+    <div class="col-6">
+      <%= link_to "search", search_public_items_path %>
+    </div>
+  </div>
 </div>
 
 <style>
-  ol {
-  list-style-type: none;
-}
-
- i {
-  width: 70px;
- }
-
- i.fa-user:hover{
-	color: #993366;
-	font-weight: bold;
-}
-
-i.fa-heart:hover{
-	color: #993366;
-	font-weight: bold;
-}
-
-i.fa-search:hover{
-	color: #993366;
-	font-weight: bold;
-}
-
-i.fa-folder-plus:hover{
-  color: #993366;
-	font-weight: bold;
-}
-
 .footer-text{
-    /*left: 0;*/
-    /*bottom: 0;*/
     font-size: 11px;
   }
-
 
 </style>
