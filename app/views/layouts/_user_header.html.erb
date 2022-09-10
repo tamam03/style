@@ -27,6 +27,13 @@
           </div>
         <% end %>
       </li>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <div class="signout-box">
+            <i class="fas fa-sign-out-alt"></i>
+          </div>
+        <% end %>
+      </li>
     </ul>
   </div>
 </nav>
