@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="row pt-4">
+    <div class="col-12">
+      <h3 class="page_title">コーディネートを投稿</h3>
+    </div>
+    <p class="page_title_with">お気に入りのコーディネートや気になるアイテムを記録しよう</div>
+  </div>
   <div class="row d-flex justify-content-center p-5">
     <div class="item-form">
       <%= form_with model: @item, url: public_items_path, method: :post do |f| %>
@@ -39,9 +45,20 @@
 
 
 <style>
+  h3.page_title{
+    text-align: center;
+    position: relative;
+  }
+
+  p.page_title_with{
+    height: 50px;
+    /* 水平方向の中央揃え */
+    margin: 0 auto;
+  }
+
  .item-form{
     background-color: #EEEEEE;
-    padding: 40px;
+    padding: 60px;
     border:  3px solid;
     border-radius: 8px;
     border-color: #999966;
