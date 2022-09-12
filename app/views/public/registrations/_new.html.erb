@@ -1,16 +1,16 @@
 <div class="field">
-  <%= f.label :name %><br>
+  <%= f.label :name %>
   <%= f.text_field :name, placeholder: "フルネーム" %>
 </div>
 <div class="field">
-  <%= f.label :name_kana %><br>
+  <%= f.label :name_kana %>
   <%= f.text_field :name_kana, placeholder: "全角カナ" %>
 </div>
 
 <!--ラジオボタン切り替え-->
   <div id="only-customer">
    <div class="field">
-    <%= f.label :nick_name %><br>
+    <%= f.label :nick_name %>
     <%= f.text_field :nick_name, placeholder: "３文字以上・８文字以内" %>
    </div>
   </div>
@@ -29,23 +29,28 @@
 <!--ここまで-->
 
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
   <div class="field">
-    <%= f.label :password %><br>
-      <!--<%# if @minimum_password_length %>-->
-      <!--  <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
-      <!--<%# end %><br>-->
+    <%= f.label :password %>
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "６文字以上２０字以内" %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br>
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "６文字以上２０字以内" %>
   </div>
   <div class="actions mt-3">
-    <%= f.submit "新規登録" %>
+    <%= f.submit "Sign up", class: "btn btn-secondary" %>
   </div>
 
 
 
+<style>
+ .btn-secondary{
+    font-weight: 700;
+    background: #CCCC99;
+    border: 3px solid #FFFFFF;
+    color: #FFFFFF;
+ }
+</style>
