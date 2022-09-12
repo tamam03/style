@@ -24,7 +24,7 @@ main{
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    min-height: 2000px;
+    min-height: 1000px;
 }
 
 footer{
@@ -56,7 +56,7 @@ footer{
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 2000px;
+  min-height: 1000px;
 }
 
 .public-registration{
@@ -64,7 +64,7 @@ footer{
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 2000px;
+  min-height: 1000px;
 }
 
 .user-page{
@@ -72,7 +72,7 @@ footer{
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 2000px;
+  min-height: 1000px;
 }
 
 .admin{
