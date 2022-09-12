@@ -16,4 +16,18 @@ ja:
   activerecord:
     errors:
       messages:
-        record_invalid: "バリデーションに失敗しました: %{errors}"
+        record_invalid: "バリデーションに失敗しました: %{message}"
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        email: "メールアドレス"
+        name: "お名前"
+        name_kana: "フリガナ"
+        nick_name: "ニックネーム（表示用）"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        brand_id: "所属ブランド"
+        brand_name: "ブランド名"
+        store_id: "所属店舗"
+        store_name: "店舗名"

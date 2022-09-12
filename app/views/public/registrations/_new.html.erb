@@ -1,16 +1,16 @@
 <div class="field">
-  <%= f.label :お名前 %><br />
+  <%= f.label :name %><br>
   <%= f.text_field :name, placeholder: "フルネーム" %>
 </div>
 <div class="field">
-  <%= f.label :フリガナ %><br />
+  <%= f.label :name_kana %><br>
   <%= f.text_field :name_kana, placeholder: "全角カナ" %>
 </div>
 
 <!--ラジオボタン切り替え-->
   <div id="only-customer">
    <div class="field">
-    <%= f.label :ニックネーム（表示用）%><br />
+    <%= f.label :nick_name %><br>
     <%= f.text_field :nick_name, placeholder: "３文字以上・８文字以内" %>
    </div>
   </div>
@@ -18,30 +18,30 @@
   <div id="only-clerk">
     <% brand_options = Brand.order(:id).map { |c| [c.brand_name, c.id, data: { children_path: public_brand_stores_path(c) }] } %>
     <div class="field">
-      <%= f.label :所属ブランド %>
+      <%= f.label :brand_name %>
       <%= f.select :brand_id, brand_options, { include_blank: true }, class: 'select-parent' %>
     </div>
     <div class="field">
-      <%= f.label :配属店舗 %>
+      <%= f.label :store_name %>
       <%= f.select :store_id, [], {}, class: 'select-children' %>
     </div>
   </div>
 <!--ここまで-->
 
   <div class="field">
-    <%= f.label :メールアドレス %><br />
+    <%= f.label :email %><br>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
   <div class="field">
-    <%= f.label :パスワード %>
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.label :password %><br>
+      <!--<%# if @minimum_password_length %>-->
+      <!--  <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+      <!--<%# end %><br>-->
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "６文字以上２０字以内" %>
   </div>
   <div class="field">
-    <%= f.label :確認パスワード %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "６文字以上２０字以内" %>
   </div>
   <div class="actions mt-3">
     <%= f.submit "新規登録" %>
