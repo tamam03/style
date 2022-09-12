@@ -26,6 +26,19 @@ class User < ApplicationRecord
   validates :name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/ }
   validates :nick_name, uniqueness: true, allow_blank: true, length: { minimum: 2, maximum: 8 }
 
+  with_options presence: true, if: -> { require_validation? } do
+    validates :brand_id
+    validates :store_id
+  end
+
+  def require_validation?
+    if is_user == false
+      true
+    else
+      false
+    end
+  end
+
 
 #フォロー機能
   def follow(user_id)
@@ -39,7 +52,7 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-  
+
 #フォロー通知機能
   def create_notification_follow!(current_user)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
@@ -51,8 +64,8 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-  
-  
+
+
 #プロフィール画像
   def get_profile_image(width, height)
     unless profile_image.attached?
