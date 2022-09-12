@@ -30,7 +30,7 @@
 
   <div class="field">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "\uf0e0 Email", class: 'fa' %>
   </div>
   <div class="field">
     <%= f.label :password %>
@@ -48,9 +48,16 @@
 
 <style>
  .btn-secondary{
+    padding: 10px 80px;
     font-weight: 700;
     background: #CCCC99;
     border: 3px solid #FFFFFF;
     color: #FFFFFF;
  }
+
+  input.fa{
+    height: 30px;
+    width: 250px;
+  }
+
 </style>
