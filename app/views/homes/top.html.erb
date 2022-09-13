@@ -10,13 +10,24 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img class="d-block w-100" src='/assets/top_1.PNG' alt="First slide">
-            <p>ファッションをもっと楽しく。</p>
+            <ul>
+              <li class="first_letter">ファッションをもっと楽しく。</li>
+            </ul>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src='/assets/top_1.PNG' alt="Second slide">
+            <img class="d-block w-100" src='/assets/top_2.PNG' alt="Second slide">
+            <ul>
+              <li class="second_letter1">お気に入りのお洋服を記録に残したり</li>
+              <li class="second_letter2">好みのコーディネートを見つけましょう</li>
+            </ul>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src='/assets/top_1.PNG' alt="Third slide">
+            <img class="d-block w-100" src='/assets/top_3.PNG' alt="Third slide">
+            <ul>
+              <li class="third_letter1">店舗スタッフとコミュニケーションを通して</li>
+              <li class="third_letter2">新たな発見も。</li>
+              <li class="third_letter3">思うままにファッションを楽しみましょう</li>
+            </ul>
           </div>
         </div>
         <a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
@@ -72,13 +83,42 @@
    position: relative;
 }
 
-.carousel-item p{
+.carousel-item li{
   position: absolute;
-  color: black;
-  font-size: 2em;
-  top: 20%;
-  left: 50%;
 }
+
+.carousel-item .first_letter{
+  top: 20%;
+  left: 60%;
+  font-weight: bold;
+}
+
+.carousel-item .second_letter1{
+  top: 20%;
+  left: 60%;
+  font-weight: bold;
+}
+.carousel-item .second_letter2{
+  top: 40%;
+  left: 60%;
+  font-weight: bold;
+}
+.carousel-item .third_letter1{
+  top: 20%;
+  right: 60%;
+  font-weight: bold;
+}
+.carousel-item .third_letter2{
+  top: 40%;
+  right: 70%;
+  font-weight: bold;
+}
+.carousel-item .third_letter3{
+  top: 60%;
+  right: 60%;
+  font-weight: bold;
+}
+
 .carousel img{
    width:100%;
 }

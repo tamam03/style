@@ -96,7 +96,9 @@ a:hover { color: #9999CC; }
 a:link { color: #808080; }
 a:visited { color: #808080; }
 
-
+ul{
+    list-style: none;
+}
 /*プロフィール画像*/
 .profile{
   border-radius: 50%;
@@ -145,4 +147,3 @@ select{
     height: 40px;
  }
 
- 
