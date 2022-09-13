@@ -1,19 +1,21 @@
 <div class="container">
   <div class="row pt-4">
     <div class="col-12">
-      <h3 class="page_title">コーディネートを投稿</h3>
+      <h3 class="page_title">Coordinate</h3>
+      <p class="page_title_with">お気に入りのコーディネートや気になるアイテムを記録しよう</div>
     </div>
-    <p class="page_title_with">お気に入りのコーディネートや気になるアイテムを記録しよう</div>
   </div>
-  <div class="row d-flex justify-content-center p-5">
+  <div class="row">
     <div class="item-form">
       <%= form_with model: @item, url: public_items_path, method: :post do |f| %>
-        <div class="col-12">
-          <div class="images p-3">
+        <div class="col-12 p-3">
+          <p class="item-form-text">投稿する画像を選択してください</p>
+          <div class="field p-2">
             <%= f.file_field :item_image, placeholder: "投稿画像", accept: 'image/*' %>
           </div>
         </div>
         <div class="col-12">
+          <p class="item-text">メモやおすすめしたい内容、欲しいアドバイスについて入力しましょう</p>
           <div class="field p-3">
             <%= f.text_area :text, class: 'form-control',size: "20x10", placeholder: "説明を入力してください" %>
           </div>
@@ -24,16 +26,16 @@
           </div>
         </div>
         <div class="col-12">
-          <div class="make_tag p-3">
-            <%= f.text_field :tag_name %>
+          <div class="make_tag">
+            <%= f.text_field :tag_name, placeholder: "タグを入力してください" %>
           </div>
         </div>
         <div class="col-12">
-          <div class="select p-3">
+          <div class="select p-2">
             <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] }, {prompt: 'ステータスを選択してください'} %>
           </div>
         </div>
-        <div class="row d-flex justify-content-center p-3">
+        <div class="col-12">
           <%= f.submit "投稿", class: "btn-submit" %>
         </div>
       <% end %>
@@ -45,26 +47,36 @@
 
 
 <style>
+  .row{
+    justify-content: center;
+  }
+
   h3.page_title{
     text-align: center;
     position: relative;
+    font-family: cursive;
+    font-size: 3em;
   }
 
   p.page_title_with{
     height: 50px;
-    /* 水平方向の中央揃え */
     margin: 0 auto;
+    font-weight: 700;
+    text-align: center;
   }
 
  .item-form{
+    width: 50%;
     background-color: #EEEEEE;
-    padding: 60px;
+    padding: 40px;
     border:  3px solid;
     border-radius: 8px;
     border-color: #999966;
     box-shadow    : 16px 16px 42px #666666;
  }
-
+  p.item-form-text{
+    font-weight: 400;
+  }
  .btn-submit{
     background: #666666;
     color: #EEEEEE;
@@ -77,4 +89,6 @@
     background: #333333;
     box-shadow: none;
  }
+
+
 </style>
