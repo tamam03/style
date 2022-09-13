@@ -1,6 +1,6 @@
 <div class="homes-main">
   <div class="container">
-    <div class="row p-5 justify-content-center">
+    <div class="row p-5">
       <div id="carousel-1" class="carousel slide" data-ride="carousel" data-interval="4000">
         <ol class="carousel-indicators">
           <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
@@ -40,16 +40,16 @@
         </a>
       </div>
     </div>
-    <div class="row p-3 justify-content-center">
+    <div class="row p-3">
       <div class="col-3">
-        <%= link_to "Log in", new_user_session_path, class: "btn btn-secondary center-block" %>
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-secondary" %>
       </div>
       <div class="col-3">
-        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-secondary center-block" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-secondary" %>
       </div>
     </div>
-    <div class="row d-flex justify-content-center pt-5">
-      <h6><%= link_to 'guest', public_guests_path, method: :post, class: "guest-btn btn btn btn-secondary center-block" %></h6>
+    <div class="row pt-3">
+      <%= link_to 'guest', public_guests_path, method: :post, class: "guest btn btn-secondary" %>
     </div>
   </div>
 </div>
@@ -58,6 +58,10 @@
 <style>
   main{
     background-image: none;
+  }
+  
+  .row{
+    justify-content: center;
   }
 
   .btn-secondary{
@@ -70,7 +74,7 @@
     justify-content: center;
   }
 
-  .guest-btn{
+  .guest{
     padding: 10px 100px;
     font-weight: 700;
     background: #67b5b7;
@@ -85,44 +89,38 @@
 
 .carousel-item li{
   position: absolute;
+  font-weight: bold;
 }
 
 .carousel-item .first_letter{
   top: 20%;
   left: 60%;
-  font-weight: bold;
 }
 
 .carousel-item .second_letter1{
   top: 20%;
   left: 60%;
-  font-weight: bold;
 }
 .carousel-item .second_letter2{
   top: 40%;
   left: 60%;
-  font-weight: bold;
 }
+
 .carousel-item .third_letter1{
   top: 20%;
   right: 60%;
-  font-weight: bold;
 }
 .carousel-item .third_letter2{
   top: 40%;
   right: 70%;
-  font-weight: bold;
 }
 .carousel-item .third_letter3{
   top: 60%;
   right: 60%;
-  font-weight: bold;
 }
 
 .carousel img{
    width:100%;
 }
-
-
 
 </style>

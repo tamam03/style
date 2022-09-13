@@ -1,26 +1,27 @@
 <div class="public-registration">
- <div class="container">
-   <div class="row d-flex justify-content-center">
-    <div class="registration">
-     <%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
-       <%= render "public/shared/error_messages", resource: resource %>
-       <div class="switch-form col-12 p-2">
-        <%= f.label :is_user, "ユーザー", :value => "true" %>
-        <%= f.radio_button :is_user, true, :checked => true, :class => "radio-button" %>
-        <%= f.label :is_user, "店舗スタッフ", :value => "false" %>
-        <%= f.radio_button :is_user, false, :class => "radio-button" %>
-       </div>
-       <div class="registration-form col-12">
-        <%= render "public/registrations/new", f: f, user: @user %>
-       </div>
-     <% end %>
-     <div class="link col-12 mt-3">
-      <%= render "public/shared/links" %>
-     </div>
+  <div class="container">
+    <div class="row">
+      <div class="registration">
+        <%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
+          <%= render "public/shared/error_messages", resource: resource %>
+          <div class="switch-form col-12 p-2">
+            <%= f.label :is_user, "ユーザー", :value => "true" %>
+            <%= f.radio_button :is_user, true, :checked => true, :class => "radio-button" %>
+            <%= f.label :is_user, "店舗スタッフ", :value => "false" %>
+            <%= f.radio_button :is_user, false, :class => "radio-button" %>
+          </div>
+          <div class="registration-form col-12">
+            <%= render "public/registrations/new", f: f, user: @user %>
+          </div>
+        <% end %>
+        <div class="link col-12 mt-3">
+          <%= render "public/shared/links" %>
+        </div>
+      </div>
     </div>
-   </div>
   </div>
 </div>
+
 
 <!--ラジオボタンでフォーム切り替え-->
  <script>
@@ -64,15 +65,17 @@ $('#user_brand_id').change(function() {
 
 <style>
   main{
-     background-image: none;
-   }
-
-   .registration{
-  background: #EEEEEE;
-  padding: 80px 200px;
-  margin: 30px;
-  border:  3px solid;
-  border-radius: 8px;
-  border-color: #999966;
-   }
+    background-image: none;
+  }
+  .row{
+    justify-content: center;
+  }
+  .registration{
+    background: #EEEEEE;
+    padding: 80px 200px;
+    margin: 30px;
+    border:  3px solid;
+    border-radius: 8px;
+    border-color: #999966;
+  }
 </style>
