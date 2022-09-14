@@ -1,9 +1,10 @@
+<div class="item-show">
 <div class="container">
-    <div class="item-show row d-flex justify-content-center pt-3">
-      <div class="item-image col-12 d-flex justify-content-center pt-3">
+    <div class="row item-show-box pt-3">
+      <div class="col-12 item-image d-flex justify-content-center pt-3">
         <%= image_tag @item.get_item_image(500, 500) %>
       </div>
-        <div class="profile-image col-12">
+        <div class="col-12 profile-image">
           <div id="image">
             <%= image_tag @item.user.get_profile_image(80, 80), class: "rounded-circle" %>
           </div>
@@ -15,7 +16,7 @@
             <% end %>
           </div>
         </div>
-        <div class="item-text col-12 d-flex justify-content-center">
+        <div class="col-12 item-text d-flex justify-content-center">
           <%= @item.text %>
         </div>
         <div class="brand p-3">
@@ -66,16 +67,20 @@
       <% end %>
     <% end %>
 </div>
+</div>
 
  <style>
-     .item-show{
-     background-color: #EEEEEE;
-     padding: 30px;
-     border:  3px solid;
-     border-radius: 8px;
-     border-color: #999966;
-     box-shadow    : 16px 16px 42px #666666;
-     }
+  .row{
+    justify-content: center;
+  }
+  .item-show-box{
+    background-color: #EEEEEE;
+    padding: 30px;
+    border:  3px solid;
+    border-radius: 8px;
+    border-color: #999966;
+    box-shadow    : 16px 16px 42px #666666;
+  }
 
     .item-text{
     background: none;

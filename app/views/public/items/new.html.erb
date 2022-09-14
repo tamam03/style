@@ -26,17 +26,17 @@
           </div>
         </div>
         <div class="col-12">
-          <div class="make_tag">
+          <div class="make_tag p-3">
             <%= f.text_field :tag_name, placeholder: "タグを入力してください" %>
           </div>
         </div>
         <div class="col-12">
-          <div class="select p-2">
+          <div class="select p-3">
             <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] }, {prompt: 'ステータスを選択してください'} %>
           </div>
         </div>
-        <div class="col-12">
-          <%= f.submit "投稿", class: "btn-submit" %>
+        <div class="col-12 d-flex justify-content-center">
+          <%= f.submit "投稿", class: "btn btn-light" %>
         </div>
       <% end %>
     </div>
@@ -77,7 +77,7 @@
   p.item-form-text{
     font-weight: 400;
   }
- .btn-submit{
+ .btn.btn-light{
     background: #666666;
     color: #EEEEEE;
     width: 100px;
@@ -85,7 +85,7 @@
     box-shadow: 10px 10px 30px #666666;
  }
 
- .btn-submit:hover{
+ .btn.btn-light:hover{
     background: #333333;
     box-shadow: none;
  }

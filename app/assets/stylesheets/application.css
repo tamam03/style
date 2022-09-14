@@ -83,6 +83,10 @@ footer{
   min-height: 2000px;
 }
 
+.item-show{
+  min-height: 2000px;
+}
+
 .navbar{
   box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
 }
@@ -146,4 +150,3 @@ ul{
 select{
     height: 40px;
  }
-
