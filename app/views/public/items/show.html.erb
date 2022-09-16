@@ -1,7 +1,7 @@
 <div class="item-show">
-<div class="container">
-    <div class="row item-show-box pt-3">
-      <div class="col-12 item-image d-flex justify-content-center pt-3">
+  <div class="container">
+    <div class="row item-show-box">
+      <div class="col-12 item-image d-flex justify-content-center">
         <%= image_tag @item.get_item_image(500, 500) %>
       </div>
         <div class="col-12 profile-image">
@@ -57,12 +57,12 @@
             </div>
         </div>
       <% else %>
-        <div class="user_comment_return">
-           <div class="row d-flex justify-content-center">
-               <div class="col-12 d-flex justify-content-center p-5">
-                   コメント機能は店舗ユーザーのみ可能です
-               </div>
-           </div>
+        <div class="row">
+          <div class="user_comment_return">
+            <div class="col-12 d-flex justify-content-center p-5">
+              コメント機能は店舗ユーザーのみ可能です
+            </div>
+          </div>
         </div>
       <% end %>
     <% end %>
@@ -72,6 +72,10 @@
  <style>
   .row{
     justify-content: center;
+  }
+
+  .item-image{
+
   }
   .item-show-box{
     background-color: #EEEEEE;
