@@ -29,7 +29,7 @@ class Public::ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @comment = Comment.new
-    @comments = @item.comments.order(created_at: :desc)
+    @comments = @item.comments.order("created_at DESC")
   end
 
   def new
