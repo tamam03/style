@@ -1,35 +1,44 @@
 <div class="container">
-    <div class="row">
-      <div class="col-12 d-flex justify-content-center p-5">
-        <h1>管理一覧</h1>
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <%= link_to admin_users_path, class: 'admin-top-btn btn btn-outline-secondary center-block' do %>
-          顧客管理
-        <% end %>
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <%= link_to admin_items_path, class: 'admin-top-btn btn btn-outline-secondary center-block' do %>
-          投稿管理
-        <% end %>
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <%= link_to admin_brands_path, class: 'admin-top-btn btn btn-outline-secondary center-block' do %>
-          ブランド管理
-        <% end %>
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <%= link_to admin_stores_path, class: 'admin-top-btn btn btn-outline-secondary center-block' do %>
-          店舗管理
-        <% end %>
-      </div>
-    </div>
+  <ul class="admin-top">
+    <li>
+      <%= link_to admin_users_path, class: 'btn btn-light' do %>
+        顧客管理
+      <% end %>
+    </li>
+    <li>
+      <%= link_to admin_items_path, class: 'btn btn-light' do %>
+        投稿管理
+      <% end %>
+    </li>
+    <li>
+      <%= link_to admin_brands_path, class: 'btn btn-light' do %>
+        ブランド管理
+      <% end %>
+    </li>
+    <li>
+      <%= link_to admin_stores_path, class: 'btn btn-light' do %>
+        店舗管理
+      <% end %>
+    </li>
+  </ul>
 </div>
 
 <style>
-  a.admin-top-btn{
-    width: 300px;
+
+  .btn-light{
+    width: 500px;
+    height: 80px;
     padding: 20px;
     margin: 30px;
+    background-color: #FFFFCC;
+    border: 5px solid #999966;
   }
+
+  .admin-top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+  }
+
 </style>
