@@ -1,110 +1,139 @@
 <div class="user-page">
-  <div class="container">
-    <div class="row d-flex justify-content-center p-5">
-      <h1 class="mypage-title"> User page</h1>
+  <div class="container 1">
+    <h1 class="mypage-title">User page</h1>
+    <div class="profile-image">
+      <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
     </div>
-    <% if @user.is_user == true %>
-      <div class="row">
-        <div class="col-12 d-flex justify-content-center p-2">
-          <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
+  </div>
+  <div class="container 2">
+    <div class="my-item">
+      <% if @user.is_user == true %>
+        <div class="item">
+          ユーザー名：<%= @user.name %>（<%= @user.name_kana %>）
         </div>
-        <div class="col-12 d-flex justify-content-center p-2">
-          ユーザー名：<%= @user.name %>
-        </div>
-        <div class="col-12 d-flex justify-content-center p-2">
-          <%= @user.name_kana %>
-        </div>
-        <div class="col-12 d-flex justify-content-center p-2">
+        <div class="item">
           ニックネーム：<%= @user.nick_name %>
         </div>
-      </div>
-    <% elsif @user.is_user == false %>
-      <div class="row">
-        <div class="col-12 d-flex justify-content-center p-2">
-          <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
+      <% elsif @user.is_user == false %>
+        <div class="item">
+          ユーザー名：<%= @user.name %>（<%= @user.name_kana %>）
         </div>
-        <div class="col-12 d-flex justify-content-center p-2">
-          ユーザー：<%= @user.name %>
-        </div>
-        <div class="col-12 d-flex justify-content-center p-2">
-          <%= @user.name_kana %>
-        </div>
-        <div class="col-12 d-flex justify-content-center p-2">
+        <div class="item">
           所属ブランド：<%= @user.brand.brand_name %>
         </div>
-        <div class="col-12 d-flex justify-content-center p-2">
+        <div class="item">
           配属店：<%= @user.store.store_name %>
         </div>
-      </div>
-    <% end %>
-    <% unless current_user.id == @user.id %>
-      <div class="row">
-        <%= render 'public/relationships/btn', user: @user %>
-      </div>
-    <% else %>
-     <div class="col-12">
-        <div> <%= "#{@user.name}" %>さんの投稿数</div>
-     　    <%= link_to public_items_my_item_path, class: "btn btn-outline-secondary center-block" do %>
-       　    <%= @user.items.count %>件
-     　    <% end %>
+      <% end %>
+      <% unless current_user.email == 'guest@example.com' || current_user.id != @user.id %>
+        <div class="item">
+          <%= link_to "編集", edit_public_user_path(@user), class: "btn btn-outline-secondary" %>
         </div>
-    <% end %>
-    <% unless current_user.email == 'guest@example.com' || current_user.id != @user.id %>
-      <div class="row">
-        <div class="col-12 pt-2">
-          <div id="edit-btn">
-            <%= link_to "編集", edit_public_user_path(@user), class: "btn btn-outline-secondary center-block" %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <div class="row">
-      <% unless @user.id == current_user.id %>
-        <% if current_user.following?(@user) && @user.following?(current_user) %>
-          <% if @is_room == true %>
-            <div class="col-12">
-              <%= link_to "#{@user.name}さんへメッセージを送る", public_room_path(@room_id) %>
-            </div>
-          <% else %>
-            <div class="col-12">
-              <%= form_with model: @room, url: public_rooms_path, method: :post do |f| %>
-                <%= fields_for @entry do |e| %>
-                  <%= e.hidden_field :user_id, value: @user.id %>
-                <% end %>
-                <%= f.submit "メッセージを送る" %>
-              <% end %>
-            </div>
-          <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="container 3">
+    <div class="user-item">
+      <div class="btn">
+        <% if current_user.id == @user.id %>
+          <div>投稿数</div>
+            <%= link_to public_items_my_item_path, class: "btn btn-light" do %>
+              <%= @user.items.count %>件
+            <% end %>
         <% else %>
-          相互フォローでメッセージが可能になります
+          <%= render 'public/relationships/btn', user: @user %>
+        <% end %>
+      </div>
+      <div class="btn">
+        <div>フォロー数</div><%= @user.followings.count %>
+      </div>
+      <div class="btn">
+        <div>フォロワー数</div><%= @user.followers.count %>
+      </div>
+    </div>
+  </div>
+  <div class="container 4">
+    <% unless @user.id == current_user.id %>
+      <% if current_user.following?(@user) && @user.following?(current_user) %>
+        <% if @is_room == true %>
+          <%= link_to "#{@user.name}さんへメッセージを送る", public_room_path(@room_id), class: "btn btn-light" %>
+        <% else %>
+          <%= form_with model: @room, url: public_rooms_path, method: :post do |f| %>
+            <%= fields_for @entry do |e| %>
+              <%= e.hidden_field :user_id, value: @user.id %>
+            <% end %>
+          <%= f.submit "メッセージを送る" %>
+          <% end %>
         <% end %>
       <% else %>
-        <% if current_user.rooms.present? %>
-          <%= link_to "トーク一覧", public_rooms_path %>
-        <% else %>
-          トークルームが存在しません
-        <% end %>
+        相互フォローでメッセージが可能になります
       <% end %>
-    <div class="col-12">
-     <div>フォロー数</div><%= @user.followings.count %>
-     <div>フォロワー数</div><%= @user.followers.count %>
+    <% else %>
+      <% if current_user.rooms.present? %>
+        <div class="talk">
+          <%= link_to "トーク一覧", public_rooms_path, class: "btn btn-light"%>
+      <% else %>
+          トークルームが存在しません
+        </div>
+      <% end %>
+    <% end %>
     </div>
-   </div>
   </div>
  </div>
- </div>
-</div>
-
 
 <style>
 
  main{
   background-image: none;
+  min-height: 1000px;
  }
 
- h1.mypage-title{
-  font-family: "Comic Sans MS"
+  .container.1{
+    display: flex;
+    align-items: center;
  }
+
+  h1.mypage-title{
+  font-family: "Comic Sans MS";
+  text-align: center;
+  padding: 20px;
+ }
+
+ .profile-image{
+    text-align: center;
+    padding: 20px;
+ }
+
+ .container.2{
+    display: flex;
+ }
+
+ .item{
+    text-align: center;
+    flex: 1;
+    padding: 10px 10px;
+    font-weight: 700;
+ }
+
+ .btn-outline-secondary{
+   width: 50%;
+   border:  4px solid;
+ }
+
+.container.3{
+  display: flex;
+}
+
+.user-item{
+  text-align: center;
+  background-color: #EEEEEE;
+  border:  3px solid;
+  border-color: #999966;
+}
+
+.container.4{
+  display: flex;
+}
 
 </style>
 
