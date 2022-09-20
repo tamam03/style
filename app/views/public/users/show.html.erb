@@ -9,25 +9,25 @@
     <div class="my-item">
       <% if @user.is_user == true %>
         <div class="item">
-          ユーザー名：<%= @user.name %>（<%= @user.name_kana %>）
+          <%= @user.name %>（<%= @user.name_kana %>）
         </div>
         <div class="item">
-          ニックネーム：<%= @user.nick_name %>
+          <%= @user.nick_name %>
         </div>
       <% elsif @user.is_user == false %>
         <div class="item">
-          ユーザー名：<%= @user.name %>（<%= @user.name_kana %>）
+          <%= @user.name %>（<%= @user.name_kana %>）
         </div>
         <div class="item">
-          所属ブランド：<%= @user.brand.brand_name %>
+          <%= @user.brand.brand_name %>
         </div>
         <div class="item">
-          配属店：<%= @user.store.store_name %>
+          <%= @user.store.store_name %>
         </div>
       <% end %>
       <% unless current_user.email == 'guest@example.com' || current_user.id != @user.id %>
         <div class="item">
-          <%= link_to "編集", edit_public_user_path(@user), class: "btn btn-outline-secondary" %>
+          <%= link_to "Edit profile", edit_public_user_path(@user), class: "btn btn-outline-secondary" %>
         </div>
       <% end %>
     </div>
@@ -36,7 +36,7 @@
     <div class="user-item">
       <div class="btn">
         <% if current_user.id == @user.id %>
-          <div>投稿数</div>
+          <div>Item</div>
             <%= link_to public_items_my_item_path, class: "btn btn-light" do %>
               <%= @user.items.count %>件
             <% end %>
@@ -45,10 +45,10 @@
         <% end %>
       </div>
       <div class="btn">
-        <div>フォロー数</div><%= @user.followings.count %>
+        <div>following</div><%= @user.followings.count %>
       </div>
       <div class="btn">
-        <div>フォロワー数</div><%= @user.followers.count %>
+        <div>follower</div><%= @user.followers.count %>
       </div>
     </div>
   </div>
@@ -56,30 +56,32 @@
     <% unless @user.id == current_user.id %>
       <% if current_user.following?(@user) && @user.following?(current_user) %>
         <% if @is_room == true %>
-          <%= link_to "#{@user.name}さんへメッセージを送る", public_room_path(@room_id), class: "btn btn-light" %>
+          <%= link_to "#{@user.name}'room", public_room_path(@room_id), class: "btn btn-light" %>
         <% else %>
           <%= form_with model: @room, url: public_rooms_path, method: :post do |f| %>
             <%= fields_for @entry do |e| %>
               <%= e.hidden_field :user_id, value: @user.id %>
             <% end %>
-          <%= f.submit "メッセージを送る" %>
+          <%= f.submit "message" %>
           <% end %>
         <% end %>
       <% else %>
-        相互フォローでメッセージが可能になります
+        Cannot Talk
+        (相互followでtalkが可能になります)
       <% end %>
     <% else %>
       <% if current_user.rooms.present? %>
         <div class="talk">
-          <%= link_to "トーク一覧", public_rooms_path, class: "btn btn-light"%>
+          <%= link_to "Talk room", public_rooms_path, class: "btn btn-light"%>
       <% else %>
-          トークルームが存在しません
+          Talk room is not
         </div>
       <% end %>
     <% end %>
     </div>
   </div>
  </div>
+
 
 <style>
 

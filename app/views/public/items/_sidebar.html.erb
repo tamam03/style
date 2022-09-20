@@ -7,17 +7,17 @@
   <div class="row d-flex justify-content-center">
     <div class="collapse" id="collapseExample">
       <%= link_to public_items_privacy_path, class: 'btn btn-outline-dark' do %>
-        非公開一覧
+        privacy Item
       <% end %>
       <%= link_to public_items_my_item_path, class: 'btn btn-outline-dark' do %>
-        投稿履歴一覧
+        your Item
       <% end %>
       <%= link_to favorites_public_users_path, class: 'btn btn-outline-dark' do %>
-        お気に入り一覧
+        favorite Item
       <% end %>
       <% if current_user.is_user == false %>
         <%= link_to public_items_clerk_path, class: 'btn btn-outline-dark' do %>
-          スタッフ限定公開一覧
+          only clerk
         <% end %>
       <% else %>
       <% end %>
