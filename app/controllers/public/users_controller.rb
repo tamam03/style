@@ -1,5 +1,5 @@
 class Public::UsersController < ApplicationController
-  
+
   def show
     @user = User.find(params[:id])
     @item = @user.items
@@ -34,7 +34,7 @@ class Public::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to public_user_path(@user), notice: "保存しました"
     else
-      render "edit"
+      render "show"
     end
   end
 

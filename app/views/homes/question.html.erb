@@ -1,13 +1,8 @@
 <div class="container">
-   <div class="row p-5">
-     <h1 class"title">サイト使用方法</h1>
-   </div>
-    <div class="row d-flex p-2">
-      <div class="title-box">
-        <p>step.1 投稿をしてみましょう</p>
-      </div>
-    </div>
-    <div class="row d-flex p-2">
+  <div class="row p-5">
+    <h1 class"title">Guide</h1>
+  </div>
+  <div class="row d-flex p-2">
       <div class="step1">
         <div class="col-6">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/UhJHrLfE4Hk"
@@ -18,30 +13,96 @@
         </div>
       </div>
     </div>
-    <div class="row d-flex p-2">
-      <div class="title-box">
-        <p>step.２ いいね機能・フォロー機能・トーク機能</p>
-      </div>
-
-    <div class="row p-2">
-      <div class="title-box">
-        <p>step.3 コメント・いいね・トーク</p>
-      </div>
-    </div>
-    <div class="row p-2">
-      <h5>店舗スタッフのみが投稿詳細ページからコメントが可能です</h5>
-      <h5>気になる投稿には♡いいねを押してみましょう</h5>
-      <h5>相互フォローでトークができるようになります</h5>
+  <div class="row d-flex p-2">
+    <div class="title-box">
+      <p>step.1 ユーザー登録をしましょう</p>
     </div>
   </div>
-
-
-
+  <div class="question">
+    <div class="user-new1">
+      <%= image_tag 'style.jpg', class: 'image' %>
+    </div>
+    <div class="user-new2">
+      <%= image_tag 'style.jpg', class: 'image' %>
+    </div>
+  </div>
+  <div class="row d-flex p-2">
+    <div class="title-box">
+      <p>step.２ 投稿をしてみましょう</p>
+    </div>
+  </div>
+  <div class="question">
+    <div class="item-new1">
+      <%= image_tag 'style.jpg', class: 'image' %>
+    </div>
+    <div class="item-new2">
+      <%= image_tag 'style.jpg', class: 'image' %>
+    </div>
+  </div>
+  <div class="row p-2">
+    <div class="title-box">
+      <p>step.3 いいね・フォローをしてみましょう</p>
+    </div>
+  </div>
+  <div class="question">
+    <div class="item-add1">
+      <%= image_tag 'style.jpg', class: 'image' %>
+    </div>
+    <div class="item-add2">
+      <%= image_tag 'style.jpg', class: 'image' %>
+    </div>
+  </div>
+  <div class="row p-2">
+    <div class="title-box">
+      <p>step.4 コメント機能</p>
+    </div>
+  </div>
+  <div class="question">
+    <div class="comment1">
+      <%= image_tag 'style.jpg', class: 'image' %>
+    </div>
+    <div class="comment2">
+      <%= image_tag 'style.jpg', class: 'image' %>
+    </div>
+  </div>
+  <div class="row p-2">
+    <div class="title-box">
+      <p>step.5 トークをしてみましょう</p>
+    </div>
+  </div>
+  <div class="question">
+    <div class="talk1">
+      <%= image_tag 'style.jpg', class: 'image' %>
+    </div>
+    <div class="talk2">
+      <%= image_tag 'style.jpg', class: 'image' %>
+    </div>
+  </div>
+  <div class="row p-2">
+    <div class="title-box">
+      <p>step.6 お困りのとき</p>
+    </div>
+  </div>
+  <div class="question">
+    <div class="info1">
+      <%= image_tag 'style.jpg', class: 'image' %>
+    </div>
+    <div class="info2">
+      <%= image_tag 'style.jpg', class: 'image' %>
+    </div>
+  </div>
+  <div class="row d-flex p-2">
+    <div class="last-message">
+      <p>さまざまな楽しみかたでファッションを好きになってもらえると嬉しいです</p>
+    </div>
+  </div>
+</div>
 
 <style>
   main{
     background-image: none;
     background-color: #eeeaec;
+     min-height: 4000px;
   }
 
   .row{
@@ -70,7 +131,14 @@
   cursor : pointer;
 }
 
+.image{
+  width: 300px;
+  height: 300px;
+}
 
+.question{
+  display:flex;
+}
 </style>
 
 <script>
