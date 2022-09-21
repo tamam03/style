@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row p-3">
     <%= search_form_for @d, url: search_public_items_path, class:"search-form" do |f| %>
       <%= f.collection_select(:brand_id_eq, @brands, :id, :brand_name) %>
       <%= f.submit "検索" %>

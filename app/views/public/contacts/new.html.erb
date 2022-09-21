@@ -6,7 +6,6 @@
       <%= form_with model: @contact, url: public_contacts_path, method: :post do |f| %>
         <div class="form-wrap">
           <div class="form-header">
-            <h4 class="top-text d-flex justify-content-center">お問い合わせ</h4>
             <h6 class="bottom-text">サイトに関するご質問などは下記よりお問い合わせください</h6>
             <h9 class="bottom-text d-flex justify-content-center">ご登録のアドレスにてご対応をさせていただきます</h9>
           </div>
@@ -25,6 +24,12 @@
   </div>
 
 <style>
+
+  main{
+    background-image: none;
+    background-color: #f2ffe5;
+  }
+
   .contact-form{
     background-color: #EEEEEE;
     padding: 40px;

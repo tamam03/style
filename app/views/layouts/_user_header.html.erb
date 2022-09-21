@@ -4,6 +4,14 @@
       style
     <% end %>
     <ul>
+      <li><%= render 'public/items/sidebar' %></li>
+      <li>
+        <%= link_to new_public_item_path, class: "nav-item nav-link text-black" do %>
+          <div class="new-item-box">
+            <button type="button" class="btn btn-secondary">new</button>
+          </div>
+        <% end %>
+      </li>
       <li>
         <%= link_to public_notifications_path, class: "nav-item nav-link text-black" do %>
           <% if unchecked_notifications.any? %>
@@ -21,16 +29,9 @@
         <% end %>
       </li>
       <li>
-        <%= link_to new_public_item_path, class: "nav-item nav-link text-black" do %>
-          <div class="new-item-box">
-            <button type="button" class="btn btn-secondary">new</button>
-          </div>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to destroy_user_session_path, method: :delete do %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "nav-item nav-link text-black" do %>
           <div class="signout-box">
-            <i class="fas fa-sign-out-alt"></i>
+            <i class="fas fa-sign-out-alt fa-lg"></i>
           </div>
         <% end %>
       </li>
@@ -46,13 +47,19 @@ ul {
   list-style: none;
 }
 
+.nav-item {
+    background-color: #e0dddd;
+    margin: 5px;
+    border: 3px solid #afadad;
+  }
+
 i{
   display: inline;
   padding-top: 15px;
 }
 
 .btn btn-secondary{
-  
+
 }
 
 .true {
