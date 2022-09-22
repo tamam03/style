@@ -8,7 +8,7 @@
         <% if item.user == current_user %>
           <div class="btn_mark">
             <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"} do %>
-              <i class="far fa-trash-alt fa-lg"></i>
+              <i class="far fa-trash-alt"></i>
             <% end %>
           </div>
         <% else %>
@@ -30,7 +30,17 @@ main{
   min-height: 1500px;
 }
 
- .pagination>li>a {
+.row{
+  padding-top: 10px;
+}
+
+.btn_mark{
+  background-color: white;
+  border-radius: 30px;
+  border: 3px solid #736d71;
+}
+
+.pagination>li>a {
   border: none;
   color: #696969;
 }

@@ -15,43 +15,77 @@
  */
 
 body{
- font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
 main{
-    background-image: url(golden-white-marble-textured-design-resource.jpg);
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    min-height: 1000px;
+  background-image: url(golden-white-marble-textured-design-resource.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 1000px;
 }
 
 footer{
-   background-color: #e4e3e8;
-   height: 60px;
-  }
+  background-color: #e4e3e8;
+  height: 60px;
+}
 
-  .footer-line{
-    border-top: 9px dotted #A9A9A9;
- }
+.footer-line{
+  border-top: 9px dotted #A9A9A9;
+}
 
-
- .flash {
+.flash {
   background-color: #808080;
   color: #FFFFFF;
   text-align: center;
 }
 
- .homes-main{
-    background-image: url(23820280_m.jpg);
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 2000px;
-  }
+.navbar{
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
+}
+.navbar-brand{
+  font-family: 'Georgia',sans-serif;
+  font-weight: 800;
+  padding-left: 80px
+}
 
-  .public-sign-in{
+.nav-item{
+  background-color: #e0dddd;
+  border: 3px solid #afadad;
+}
+
+ul{
+  display: flex;
+  list-style: none;
+}
+
+i{
+  display: inline;
+  padding-top: 15px;
+  font-size: 1.3em;
+  color: #808080
+}
+
+i:hover {
+  color: #CC99B7;
+  cursor: pointer;
+}
+
+a{
+  color: #CC99B7;
+}
+
+.homes-main{
+  background-image: url(23820280_m.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 2000px;
+}
+
+.public-sign-in{
   background-image: url(23246870_s.jpg);
   background-position: center center;
   background-size: cover;
@@ -68,7 +102,7 @@ footer{
 }
 
 .user-page{
- background-image: url(23246691_s.jpg);
+  background-image: url(23246691_s.jpg);
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
@@ -87,22 +121,6 @@ footer{
   min-height: 2000px;
 }
 
-.navbar{
-  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
-}
-.navbar-brand{
-  font-family: 'Georgia',sans-serif;
-  font-weight: 800;
-  padding-left: 80px
-}
-
-a:hover { color: #9999CC; }
-a:link { color: #808080; }
-a:visited { color: #808080; }
-
-ul{
-    list-style: none;
-}
 /*プロフィール画像*/
 .profile{
   border-radius: 50%;
@@ -115,7 +133,6 @@ ul{
 }
 
 /*投稿*/
-
 .item-card {
   position: relative;
   background-color: #EEEEEE;
@@ -148,5 +165,5 @@ ul{
 }
 
 select{
-    height: 40px;
+  height: 40px;
  }

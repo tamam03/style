@@ -6,32 +6,32 @@
     <ul>
       <li><%= render 'public/items/sidebar' %></li>
       <li>
-        <%= link_to new_public_item_path, class: "nav-item nav-link text-black" do %>
+        <%= link_to new_public_item_path, class: "nav-item nav-link" do %>
           <div class="new-item-box">
             <button type="button" class="btn btn-secondary">new</button>
           </div>
         <% end %>
       </li>
       <li>
-        <%= link_to public_notifications_path, class: "nav-item nav-link text-black" do %>
+        <%= link_to public_notifications_path, class: "nav-item nav-link" do %>
           <% if unchecked_notifications.any? %>
-            <i class="fas fa-bell fa-lg true"></i>
+            <i class="fas fa-bell true"></i>
           <% else %>
-            <i class="fas fa-bell fa-lg"></i>
+            <i class="fas fa-bell"></i>
           <% end %>
         <% end %>
       </li>
       <li>
-        <%= link_to public_user_path(current_user), class: "nav-item nav-link text-black" do %>
+        <%= link_to public_user_path(current_user), class: "nav-item nav-link" do %>
           <div class="mypage-box">
-            <i class="fas fa-user fa-lg"></i>
+            <i class="fas fa-user"></i>
           </div>
         <% end %>
       </li>
       <li>
-        <%= link_to destroy_user_session_path, method: :delete, class: "nav-item nav-link text-black" do %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "nav-item nav-link" do %>
           <div class="signout-box">
-            <i class="fas fa-sign-out-alt fa-lg"></i>
+            <i class="fas fa-sign-out-alt"></i>
           </div>
         <% end %>
       </li>
@@ -42,36 +42,12 @@
 
 <style>
 
-ul {
-  display: flex;
-  list-style: none;
-}
-
 .nav-item {
-    background-color: #e0dddd;
-    margin: 5px;
-    border: 3px solid #afadad;
-  }
-
-i{
-  display: inline;
-  padding-top: 15px;
-}
-
-.btn btn-secondary{
-
+  margin: 5px;
 }
 
 .true {
   color: #efa04c;
-}
-
-i.fa-user:hover{
-	color: #993366;
-}
-
-i.fa-folder-plus:hover{
-  color: #993366;
 }
 
 </style>
