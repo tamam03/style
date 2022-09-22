@@ -1,34 +1,37 @@
 <div class="container">
-  <h1>店舗スタッフ公開一覧</h1>
-    <div class="row">
-      <% @clerk_items.each do |item| %>
-        <div class="item-card">
-          <%= link_to public_item_path(item) do %>
-            <%= image_tag item.get_item_image(400, 400) %>
-          <% end %>
-          <% unless item.user == current_user %>
-            <div id = "favorite_btns_<%= item.id %>" class="btn_mark">
-              <%= render "public/favorites/btn", item: item %>
-            </div>
-          <% end %>
-          <% if item.user == current_user %>
-            <div class="btn_mark">
+  <div class="row item-cards">
+    <% @clerk_items.each do |item| %>
+      <div class="item-card">
+        <%= link_to public_item_path(item) do %>
+          <%= image_tag item.get_item_image(400, 400) %>
+        <% end %>
+        <% unless item.user == current_user %>
+          <div id = "favorite_btns_<%= item.id %>" class="item-btn-mark">
+            <%= render "public/favorites/btn", item: item %>
+          </div>
+        <% end %>
+        <% if item.user == current_user %>
+          <div class="item-btn-mark">
+            <a class="item-btn-out">
               <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"} do %>
-                <i class="far fa-trash-alt fa-lg"></i>
+                <i class="far fa-trash-alt"></i>
               <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
   <%= paginate @clerk_items %>
- </div>
+</div>
 
 <style>
+
 main{
   min-height: 1500px;
 }
- .pagination>li>a {
+
+.pagination>li>a {
   border: none;
   color: #696969;
 }
@@ -37,22 +40,15 @@ main{
   background: #CC99CC;
   border-radius: 15px;
 }
+
 .pagination>li>a:hover {
   border-radius: 15px;
 }
+
 .page-item.active .page-link {
-    background-color: #CC99CC;
-    border-color: #CC99CC;
+  background-color: #CC99CC;
+  border-color: #CC99CC;
 }
 
- .img{
- position: relative;
-}
-
-.btn_mark {
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
-}
 </style>
 

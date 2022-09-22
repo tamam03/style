@@ -28,6 +28,9 @@
           <% end %>
         </div>
         <% if @item.user_id == current_user.id %>
+          <div class="day p-3">
+            <div>Create：<%= @item.created_at.strftime("%Y-%m-%d") %></div>
+          </div>
           <div class="status p-3">
             <div>ステータス：<%= @item.status_i18n %></div>
           </div>
@@ -71,6 +74,7 @@
 </div>
 
 <style>
+
 .row{
   justify-content: center;
 }

@@ -7,17 +7,16 @@
             <%= link_to public_item_path(item) do %>
               <%= image_tag item.get_item_image(400, 400) %>
             <% end %>
+            <div class="private-mark">Privacy</div>
+            <p><span class="under">Create：<%= item.created_at.strftime("%Y-%m-%d") %></span></p>
+            <p><span class="under">Brand：<%= item.brand.brand_name %></span></p>
           </div>
-          <div class="card-create">
-            投稿作成日：<%= item.created_at.strftime("%Y-%m-%d") %>
-          </div>
-          <div class="card-brand">
-            ブランド：<%= item.brand.brand_name %>
-          </div>
-          <div class="btn_mark">
-            <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"} do %>
-              <i class="far fa-trash-alt fa-lg"></i>
-            <% end %>
+          <div class="item-btn-mark">
+            <a class="item-btn-out">
+              <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"} do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </a>
           </div>
         </div>
       <% end %>
@@ -25,37 +24,54 @@
   <% else %>
     <p class ="d-flex justify-content-center p-5">投稿が存在しません</p>
   <% end %>
-
   <div class="row p-3 d-flex justify-content-center">
     <%= paginate @close_items %>
   </div>
 </div>
 
- <style>
- main{
+<style>
+
+main{
   min-height: 1500px;
 }
-   .pagination>li>a {
-      border: none;
-      color: #696969;
-    }
-    .pagination>.active>a {
-      background: #CC99CC;
-      border-radius: 15px;
-    }
-    .pagination>li>a:hover {
-      border-radius: 15px;
-    }
-    .page-item.active .page-link {
-      background-color: #CC99CC;
-      border-color: #CC99CC;
-    }
-    .img{
-      position: relative;
-    }
-    .btn_mark {
-      position: absolute;
-      right: 8px;
-      bottom: 8px;
-    }
+
+.item-card{
+  border: 3px solid #736d71;
+}
+
+.img-wrap{
+  display: flex;
+}
+
+p{
+  font-size: 1.2em;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.private-mark{
+  text-align: center;
+  font-size: 20px;
+  background-color: white;
+}
+
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background: #CC99CC;
+  border-radius: 15px;
+}
+
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
+
+.page-item.active .page-link {
+  background-color: #CC99CC;
+  border-color: #CC99CC;
+}
+
 </style>
