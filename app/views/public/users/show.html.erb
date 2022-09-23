@@ -4,10 +4,14 @@
   </div>
   <div class="container 2">
     <div class="my-item">
-      <% if @user.is_user == true %>
-        <div class="profile-image">
-          <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
+       <div class="profile-image">
+          <% if @user.profile_image.attached? %>
+            <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
+          <% else %>
+            <%= image_tag 'no_image.jpg' %>
+          <% end %>
         </div>
+      <% if @user.is_user == true %>
         <div class="item">
           <%= @user.name %>（<%= @user.name_kana %>）
         </div>
@@ -15,9 +19,6 @@
           <%= @user.nick_name %>
         </div>
       <% elsif @user.is_user == false %>
-        <div class="profile-image">
-          <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
-        </div>
         <div class="item">
           <%= @user.name %>（<%= @user.name_kana %>）
         </div>

@@ -65,26 +65,26 @@ Store.create!(
 )
 
 # ユーザー初期データ("true・ユーザ｜false・店舗スタッフ")
-User.create!(
-  [
-    {
-      email: "true@example.com",
-      password: "000000",
-      is_user: true,
-      name: "山田花子",
-      name_kana: "ヤマダハナコ",
-      nick_name: "テストはなこ"
-    },
-    {
-      email: "false@example.com",
-      password: "000000",
-      is_user: false,
-      name: "山田森子",
-      name_kana: "ヤマダモリコ",
-      brand_id: 1,
-      store_id: 1
-    }
-  ]
-)
+# User.create!(
+#   [
+#     {
+#       email: "true@example.com",
+#       password: "000000",
+#       is_user: true,
+#       name: "山田花子",
+#       name_kana: "ヤマダハナコ",
+#       nick_name: "テストはなこ"
+#     },
+#     {
+#       email: "false@example.com",
+#       password: "000000",
+#       is_user: false,
+#       name: "山田森子",
+#       name_kana: "ヤマダモリコ",
+#       brand_id: 1,
+#       store_id: 1
+#     }
+#   ]
+# )
 
 
