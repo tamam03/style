@@ -5,12 +5,8 @@
   <div class="container 2">
     <div class="my-item">
        <div class="profile-image">
-          <% if @user.profile_image.attached? %>
-            <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
-          <% else %>
-            <%= image_tag 'no_image.jpg' %>
-          <% end %>
-        </div>
+        <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
+      </div>
       <% if @user.is_user == true %>
         <div class="item">
           <%= @user.name %>（<%= @user.name_kana %>）
@@ -60,7 +56,7 @@
     <% unless @user.id == current_user.id %>
       <% if current_user.following?(@user) && @user.following?(current_user) %>
         <% if @is_room == true %>
-          <%= link_to "#{@user.name}'room", public_room_path(@room_id), class: "btn btn-light" %>
+          <%= link_to "#{@user.name}room", public_room_path(@room_id), class: "btn btn-light" %>
         <% else %>
           <%= form_with model: @room, url: public_rooms_path, method: :post do |f| %>
             <%= fields_for @entry do |e| %>

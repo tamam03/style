@@ -11,7 +11,7 @@ class User < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    profile_image.variant(resize_to_limit: [width, height])
+    profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
   belongs_to :brand, optional: true
@@ -33,7 +33,7 @@ class User < ApplicationRecord
   validates :name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
   validates :name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/ }
   validates :nick_name, uniqueness: true, allow_blank: true, length: { minimum: 2, maximum: 8 }
-  validates :password, presence: true, length: { minimum: 6, maximum: 20 }
+
 
   with_options presence: true, if: -> { require_validation? } do
     validates :brand_id
