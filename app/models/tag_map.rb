@@ -4,4 +4,6 @@ class TagMap < ApplicationRecord
 
   validates :item_id, presence: true
   validates :item_tag_id, presence: true
+
+  
 end

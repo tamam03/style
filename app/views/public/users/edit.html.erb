@@ -1,6 +1,6 @@
 <div class="user-page">
   <div class="container">
-    <div class="row d-flex justify-content-center p-5">
+    <div class="row p-5">
       <% if @user.is_user == true %>
         <%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
           <table>
@@ -47,8 +47,8 @@
               </div>
             </tbody>
           </table>
-          <div class="row d-flex justify-content-center p-3">
-            <%= f.submit "変更を保存", class: "btn btn-outline-secondary center-block" %>
+          <div class="row p-3">
+            <%= f.submit "Edit", class: "btn btn-secondary edit" %>
           </div>
         <% end %>
       <% else %>
@@ -89,8 +89,8 @@
               </div>
             </tbody>
           </table>
-          <div class="row d-flex justify-content-center p-3">
-            <%= f.submit "変更を保存", class: "btn btn-outline-secondary center-block" %>
+          <div class="row p-3">
+            <%= f.submit "Edit", class: "btn btn-secondary edit" %>
           </div>
         <% end %>
       <% end %>
@@ -99,7 +99,17 @@
 </div>
 
 <style>
- main{
-     background-image: none;
-   }
+main{
+  background-image: none;
+  color: #719bad;
+ }
+
+.row{
+  justify-content: center;
+}
+
+.btn-secondary.edit{
+  background: #88b5d3;
+  padding: 10px 70px;
+}
 </style>

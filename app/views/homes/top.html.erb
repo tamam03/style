@@ -49,42 +49,35 @@
       </div>
     </div>
     <div class="row pt-3">
-      <%= link_to 'guest', public_guests_path, method: :post, class: "guest btn btn-secondary" %>
+      <%= link_to 'guest', public_guests_path, method: :post, class: "btn btn-secondary guest" %>
     </div>
   </div>
 </div>
 
 
 <style>
-  main{
-    background-image: none;
-  }
-  
-  .row{
-    justify-content: center;
-  }
+main{
+  background-image: none;
+}
 
-  .btn-secondary{
-    padding: 10px 70px;
-    font-weight: 700;
-    background: #CCCC99;
-    border: 3px solid #FFFFFF;
-    color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-  }
+.row{
+  justify-content: center;
+}
 
-  .guest{
-    padding: 10px 100px;
-    font-weight: 700;
-    background: #67b5b7;
-    border: 3px solid #FFFFFF;
-  }
+.btn.btn-secondary{
+  padding: 10px 70px;
+  background: #CCCC99;
+}
+
+.btn-secondary.guest{
+  padding: 10px 100px;
+  background: #67b5b7;
+}
 
 .carousel{
-   width:100%;
-   margin:auto;
-   position: relative;
+  width:100%;
+  margin:auto;
+  position: relative;
 }
 
 .carousel-item li{
@@ -120,7 +113,7 @@
 }
 
 .carousel img{
-   width:100%;
+  width:100%;
 }
 
 </style>

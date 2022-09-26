@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="col-12 d-flex justify-content-center">
-          <%= f.submit "投稿", class: "btn btn-light" %>
+          <%= f.submit "Create", class: "btn btn btn-secondary create" %>
         </div>
       <% end %>
     </div>
@@ -48,53 +48,49 @@
 
 <style>
 
-  main{
-    background-image: none;
-    background-color: #ffefff;
-  }
+main{
+  background-image: none;
+  background-color: #debecc;
+}
 
-  .row{
-    justify-content: center;
-  }
+.row{
+  justify-content: center;
+}
 
-  h3.page_title{
-    text-align: center;
-    position: relative;
-    font-family: cursive;
-    font-size: 3em;
-  }
+h3.page_title{
+  text-align: center;
+  position: relative;
+  font-family: cursive;
+  font-size: 3em;
+  font-weight: 700;
+  color: #6e4a55;
+}
 
-  p.page_title_with{
-    height: 50px;
-    margin: 0 auto;
-    font-weight: 700;
-    text-align: center;
-  }
+p.page_title_with{
+  height: 50px;
+  margin: 0 auto;
+  font-weight: 700;
+  text-align: center;
+  color: #6e4a55;
+}
 
- .item-form{
-    width: 50%;
-    background-color: #EEEEEE;
-    padding: 40px;
-    border:  3px solid;
-    border-radius: 8px;
-    border-color: #999966;
-    box-shadow    : 16px 16px 42px #666666;
- }
-  p.item-form-text{
-    font-weight: 400;
-  }
- .btn.btn-light{
-    background: #666666;
-    color: #EEEEEE;
-    width: 100px;
-    border-radius: 15px;
-    box-shadow: 10px 10px 30px #666666;
- }
+.item-form{
+  width: 50%;
+  background-color: #EEEEEE;
+  padding: 40px;
+  border:  3px solid;
+  border-radius: 8px;
+  border-color: #999966;
+  box-shadow    : 16px 16px 42px #666666;
+}
 
- .btn.btn-light:hover{
-    background: #333333;
-    box-shadow: none;
- }
+p.item-form-text{
+  font-weight: 400;
+}
+
+.btn-secondary.create{
+  background: #b0778c;
+}
 
 
 </style>

@@ -77,8 +77,15 @@ class Item < ApplicationRecord
     item_image.variant(resize_to_limit: [width, height]).processed
   end
 
-#タグ機能
+
+  class Item < ItemTag
+    
+    ItemTag.new
+    
+  end
+# タグ機能
   def save_tag(sent_tags)
+    
     current_tags = item_tags.pluck(:tag_name) unless item_tags.nil?
     old_tags = current_tags - sent_tags
     new_tags = sent_tags - current_tags

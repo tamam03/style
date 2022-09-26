@@ -8,25 +8,25 @@
         <%= image_tag @user.get_profile_image(200, 200), class: "profile" %>
       </div>
       <% if @user.is_user == true %>
-        <div class="item">
+        <div class="profile-item">
           <%= @user.name %>（<%= @user.name_kana %>）
         </div>
-        <div class="item">
+        <div class="profile-item">
           <%= @user.nick_name %>
         </div>
       <% elsif @user.is_user == false %>
-        <div class="item">
+        <div class="profile-item">
           <%= @user.name %>（<%= @user.name_kana %>）
         </div>
-        <div class="item">
+        <div class="profile-item">
           <%= @user.brand.brand_name %>
         </div>
-        <div class="item">
+        <div class="profile-item">
           <%= @user.store.store_name %>
         </div>
       <% end %>
       <% unless current_user.email == 'guest@example.com' || current_user.id != @user.id %>
-        <div class="item">
+        <div class="profile-item">
           <%= link_to "Edit profile", edit_public_user_path(@user), class: "btn btn-outline-secondary" %>
         </div>
       <% end %>
@@ -90,10 +90,10 @@
   min-height: 1000px;
  }
 
-  .container.1{
-    display: flex;
-    align-items: center;
- }
+.container.1{
+  display: flex;
+  align-items: center;
+}
 
   h1.mypage-title{
   font-family: "Comic Sans MS";
@@ -101,26 +101,26 @@
   padding: 20px;
  }
 
- .profile-image{
-    text-align: center;
-    padding: 20px;
- }
+.profile-image{
+  text-align: center;
+  padding: 20px;
+}
 
- .container.2{
-    display: flex;
- }
+.container.2{
+  display: flex;
+}
 
- .item{
-    text-align: center;
-    flex: 1;
-    padding: 10px 10px;
-    font-weight: 700;
- }
+.profile-item{
+  text-align: center;
+  flex: 1;
+  padding: 10px 10px;
+  font-weight: 700;
+}
 
- .btn-outline-secondary{
-   width: 50%;
-   border:  4px solid;
- }
+.btn-outline-secondary{
+  width: 50%;
+  border:  4px solid;
+}
 
 .container.3{
   display: flex;
