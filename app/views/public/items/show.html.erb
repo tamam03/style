@@ -1,48 +1,54 @@
-<div class="item-show">
-  <div class="container">
-    <div class="row item-show-box">
-      <div class="col-12 item-image d-flex justify-content-center">
-        <%= image_tag @item.get_item_image(500, 500) %>
-      </div>
-        <div class="col-12 profile-image">
+<div class="container">
+  <div class="item-show-box">
+    <div class="item-image">
+      <%= image_tag @item.get_item_image(700, 700) %>
+    </div>
+    <div class="box">
+      <div class="row items">
+        <div class="item-box">
           <div id="image">
             <%= image_tag @item.user.get_profile_image(80, 80), class: "rounded-circle" %>
           </div>
           <div id="name">
             <% if @item.user.is_user == true %>
-              <p><%= link_to @item.user.nick_name, public_user_path(@item.user.id) %></p>
+              <%= link_to @item.user.nick_name, public_user_path(@item.user.id) %>
             <% else %>
-              <p><%= link_to @item.user.name, public_user_path(@item.user.id) %></p>
+              <%= @item.user.brand.brand_name %>
+              <%= @item.user.store.store_name %>
+              <strong><%= link_to @item.user.name, public_user_path(@item.user.id) %></strong>
             <% end %>
           </div>
         </div>
-        <div class="col-12 item-text d-flex justify-content-center">
+        <div class="border"></div>
+        <div class="item-box">
+          <%= @item.created_at.strftime("%Y-%m-%d") %><br>
           <%= @item.text %>
         </div>
-        <div class="brand p-3">
-          ブランド：<%= @item.brand.brand_name %>
+        <div class="border"></div>
+        <div class="brand-item-box">
+          <div class="brand-title">着用ブランド</div>
+          <div class="brand"><%= @item.brand.brand_name %></div>
         </div>
-        <div class="tag p-3">
+        <div class="item-box">
           <% @item.item_tags.each do |tag| %>
-            <div>#<%= tag.tag_name %></div>
+            <div class="tag"><%= tag.tag_name %></div>
           <% end %>
         </div>
-        <% if @item.user_id == current_user.id %>
-          <div class="day p-3">
-            <div>Create：<%= @item.created_at.strftime("%Y-%m-%d") %></div>
-          </div>
-          <div class="status p-3">
-            <div>ステータス：<%= @item.status_i18n %></div>
-          </div>
-          <div class="favorite p-3">
-            <div>いいね<%= @item.favorites.count %>件</div>
-          </div>
-          <div class="edit-btn text-right p-3">
-            <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-outline-secondary center-block" %>
-          </div>
-        <% end  %>
+      </div>
+      <div class="my-item">
+      <% if @item.user_id == current_user.id %>
+        <div class="border"></div>
+        <div>ステータス：<%= @item.status_i18n %></div>
+        <div>いいね<%= @item.favorites.count %>件</div>
+        <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-outline-secondary" %>
+      <% end  %>
+      </div>
     </div>
-    <% if current_user.is_user == false %>
+  </div>
+</div>
+<div class="border2"></div>
+<div class="container">
+  <% if current_user.is_user == false %>
         <div id="comments_form">
             <%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %>
         </div>
@@ -70,35 +76,76 @@
       <% end %>
     <% end %>
   </div>
-</div>
-</div>
+
+
+
+
+
 
 <style>
-
-.row{
-  justify-content: center;
+main{
+  background-image: none;
 }
 
 .item-show-box{
-  background-color: #EEEEEE;
-  padding: 30px;
-  border:  3px solid;
+  display: flex;
+  padding-top: 50px;
+}
+
+.item-box{
+  display: flex;
+  padding: 20px;
+}
+
+.brand-item-box{
+  display:flex;
+  flex-flow: column;
+}
+
+.item-image{
+  padding-bottom: 30px;
+}
+
+.items{
+  display:flex;
+  flex-flow: column;
+}
+
+.border{
+  border-top: 1px solid #aaa;
+}
+
+.border2{
+  border-top: 3px solid #aaa;
+}
+
+.box{
+  padding: 60px 100px;
+  margin: 20px;
+}
+
+.tag{
+  color: #aaaab0;
+  border: 1px solid #898989;
   border-radius: 8px;
-  border-color: #999966;
-  box-shadow    : 16px 16px 42px #666666;
+  padding: 5px 20px;
 }
 
-.item-text{
-  background: none;
-	border: 3px solid #736d71;
-	margin: 10px;
-	padding: 20px;
-	position: relative;
+#name{
+  display:flex;
+  flex-flow: column;
 }
 
-.profile-image{
-  position: relative;
-  left: 150px;
+.brand-title{
+  font-size: 20px;
 }
 
+.brand{
+  font-weight: 800;
+  text-align: center;
+}
+
+.my-box{
+  display:flex;
+}
 </style>

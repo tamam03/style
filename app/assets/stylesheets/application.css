@@ -19,7 +19,6 @@ body{
 }
 
 main{
-  background-image: url(golden-white-marble-textured-design-resource.jpg);
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
@@ -98,7 +97,7 @@ a{
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 1500px;
+  min-height: 1300px;
 }
 
 .user-page{
