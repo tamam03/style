@@ -5,6 +5,7 @@ class Public::MessagesController < ApplicationController
     if message.save
       redirect_to public_room_path(message.room_id)
     else
+      redirect_to public_room_path(message.room_id)
     end
   end
 

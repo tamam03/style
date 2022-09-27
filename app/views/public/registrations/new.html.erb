@@ -3,7 +3,7 @@
     <div class="row">
       <div class="registration">
         <%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
-          <%= render "public/shared/error_messages", resource: resource %>
+          <%= render "public/shared/error_messages", model: resource %>
           <div class="switch-form col-12 p-2">
             <%= f.label :is_user, "ユーザー", :value => "true" %>
             <%= f.radio_button :is_user, true, :checked => true, :class => "radio-button" %>

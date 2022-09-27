@@ -18,9 +18,8 @@ class Item < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
-  validates :brand_id, presence: true
+  validates :item_image, presence: true
   validates :text, length: { maximum: 200 }
-
 
 #いいね通知
   def create_notification_favorite!(current_user)
@@ -40,7 +39,7 @@ class Item < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-  
+
 #コメント通知
   def create_notification_comment!(current_user, comment_id)
     temp_ids = Comment.select(:user_id).where(item_id: id).where.not(user_id: current_user.id).distinct
@@ -78,14 +77,14 @@ class Item < ApplicationRecord
   end
 
 
-  class Item < ItemTag
-    
-    ItemTag.new
-    
-  end
+  # class Item < ItemTag
+
+  #   ItemTag.new
+
+  # end
 # タグ機能
   def save_tag(sent_tags)
-    
+
     current_tags = item_tags.pluck(:tag_name) unless item_tags.nil?
     old_tags = current_tags - sent_tags
     new_tags = sent_tags - current_tags

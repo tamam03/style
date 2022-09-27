@@ -4,7 +4,7 @@ class Message < ApplicationRecord
 
   has_one_attached :message_image
 
-  validates :sentence, presence: true, length: { maximum: 200 }
+  validates :sentence, presence: true, length: { maximum: 100 }
 
   def get_message_image(width, height)
     message_image.variant(resize_to_limit: [width, height]).processed

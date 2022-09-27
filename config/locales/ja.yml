@@ -15,8 +15,11 @@ ja:
         only_clerk: "店舗スタッフのみ公開"
   activerecord:
     errors:
-      messages:
-        record_invalid: "バリデーションに失敗しました: %{message}"
+      models:
+        item:
+          attributes:
+            brand:
+              required: "を選択してください"
     models:
       user: "ユーザー"
     attributes:
@@ -31,3 +34,16 @@ ja:
         brand_name: "ブランド名"
         store_id: "所属店舗"
         store_name: "店舗名"
+    models:
+      item: "投稿"
+    attributes:
+      item:
+        item_image: "投稿画像"
+        brand: "ブランド"
+        status: "公開ステータス"
+        text: "説明文"
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      blank: を入力してください
+      empty: を入力してください
