@@ -2,97 +2,59 @@
   <div class="container">
     <div class="row p-5">
       <% if @user.is_user == true %>
-        <%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
-          <table>
-            <tbody>
-              <div class="col-12 p-3">
-                <tr>
-                  <div class="image">
-                    <th><%= f.label :プロフィール画像 %></th>
-                    <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %></td>
-                  </div>
-                </tr>
-              </div>
-              <div class="col-12 p-3">
-                <tr>
-                  <div class="field">
-                    <th><%= f.label :氏名 %></th>
-                    <td> <%= f.text_field :name %></td>
-                  </div>
-                </tr>
-              </div>
-              <div class="col-12">
-                <tr>
-                  <div class="field">
-                    <th> <%= f.label :フリガナ %></th>
-                    <td> <%= f.text_field :name_kana %></td>
-                  </div>
-                </tr>
-              </div>
-              <div class="col-12">
-                <tr>
-                  <div class="field">
-                    <th><%= f.label :ニックネーム（表示用） %></th>
-                    <td><%= f.text_field :nick_name %></td>
-                  </div>
-                </tr>
-              </div>
-              <div class="col-12">
-                <tr>
-                  <div class="field">
-                    <th> <%= f.label :メールアドレス %></th>
-                    <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-                  </div>
-                </tr>
-              </div>
-            </tbody>
-          </table>
-          <div class="row p-3">
-            <%= f.submit "Edit", class: "btn btn-secondary edit" %>
-          </div>
-        <% end %>
+        <div class="form">
+          <%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
+            <%= render "public/shared/error_messages", object: f.object%>
+            <div class="image">
+              <%= f.label :profile_image %><br>
+              <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %>
+            </div>
+            <div class="field">
+              <%= f.label :name %><br>
+              <%= f.text_field :name %>
+            </div>
+            <div class="field">
+              <%= f.label :name_kana %><br>
+              <%= f.text_field :name_kana %>
+            </div>
+            <div class="field">
+              <%= f.label :nick_name %><br>
+              <%= f.text_field :nick_name %>
+            </div>
+            <div class="field">
+              <%= f.label :email %><br>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+            <div class="row p-3">
+              <%= f.submit "Edit", class: "btn btn-secondary edit" %>
+            </div>
+          <% end %>
+        </div>
       <% else %>
-        <%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
-          <table>
-            <tbody>
-              <div class="col-12 p-3">
-                <tr>
-                  <div class="image">
-                    <th><%= f.label :プロフィール画像 %></th>
-                    <td><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %></td>
-                  </div>
-                </tr>
-              </div>
-              <div class="col-12 p-3">
-                <tr>
-                  <div class="field">
-                    <th><%= f.label :氏名 %></th>
-                    <td> <%= f.text_field :name %></td>
-                  </div>
-                </tr>
-              </div>
-              <div class="col-12">
-                <tr>
-                  <div class="field">
-                    <th> <%= f.label :フリガナ %></th>
-                    <td> <%= f.text_field :name_kana %></td>
-                  </div>
-                </tr>
-              </div>
-              <div class="col-12">
-                <tr>
-                  <div class="field">
-                    <th> <%= f.label :メールアドレス %></th>
-                    <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-                  </div>
-                </tr>
-              </div>
-            </tbody>
-          </table>
-          <div class="row p-3">
-            <%= f.submit "Edit", class: "btn btn-secondary edit" %>
-          </div>
-        <% end %>
+        <div class="form">
+          <%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
+          <%= render "public/shared/error_messages", object: f.object%>
+            <div class="image">
+              <%= f.label :profile_image %><br>
+              <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %>
+            </div>
+            <div class="field">
+              <%= f.label :name %><br>
+              <%= f.text_field :name %>
+            </div>
+            <div class="field">
+              <%= f.label :name_kana %><br>
+              <%= f.text_field :name_kana %>
+            </div>
+            <div class="field">
+              <%= f.label :email %><br>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+            <div class="row p-3">
+              <%= f.submit "Edit", class: "btn btn-secondary edit" %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
@@ -111,5 +73,13 @@ main{
 .btn-secondary.edit{
   background: #88b5d3;
   padding: 10px 70px;
+}
+
+label{
+  font-weight: 700;
+}
+
+.field{
+  padding-top: 20px;
 }
 </style>

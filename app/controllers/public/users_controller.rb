@@ -33,7 +33,7 @@ class Public::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to public_user_path(@user), notice: "保存しました"
     else
-      render "show"
+      render :edit, status: :unprocessable_entity
     end
   end
 

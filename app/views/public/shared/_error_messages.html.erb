@@ -1,7 +1,31 @@
 <% if object.errors.any? %>
   <div class="error-alert">
+    <p>Attention</p>
+    <ol>
       <% object.errors.full_messages.each do |message| %>
-        <p class='error-message'><%= message %></p>
+        <li class='error-message'><%= message %></li>
       <% end %>
+    </ol>
   </div>
 <% end %>
+
+<style>
+li{
+  padding: 5px;
+  font-weight: 800;
+}
+
+.error-alert{
+  border: 3px solid #946c45;
+  background: #fafdff;
+  padding: 5px 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p{
+  font-size: 40px;
+  font-weight: 800;
+  color: #bb5535;
+}
+</style>

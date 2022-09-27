@@ -1,33 +1,25 @@
 <div class="public-sign-in">
   <div class="container">
     <div class="row p-5">
-      <div class="session-form">
+      <div class="form">
         <%= form_with model: @user, url: session_path(resource_name) do |f| %>
-          <%= render 'public/shared/error_messages', model: @user %>
-          <div class="col-12 p-2">
+          <%= render 'public/shared/error_messages', object: f.object %>
             <div class="field">
               <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "\uf0e0 Email", class: 'fa' %>
             </div>
-          </div>
-          <div class="col-12 p-2">
             <div class="field">
               <%= f.password_field :password, autocomplete: "current-password",  placeholder: "password" %>
             </div>
-          </div>
-          <div class="col-12 p-2">
             <% if devise_mapping.rememberable? %>
               <div class="field">
                 <%= f.check_box :remember_me %>
                 <%= f.label :remember_me %>
               </div>
             <% end %>
-          </div>
-          <div class="col-12 p-2">
-            <div class="actions">
+            <div class="col-12 p-2">
               <%= f.submit "Log in", class: "btn btn-secondary" %>
             </div>
-          </div>
-        <% end %>
+          <% end %>
         <div class="col-12 p-2">
           <%= render "public/shared/links" %>
         </div>
@@ -43,14 +35,6 @@
   .row{
     justify-content: center;
   }
-  .session-form{
-  background: #EEEEEE;
-  padding: 100px;
-  margin: 50px;
-  border:  3px solid;
-  border-radius: 8px;
-  border-color: #999966;
-  }
 
   input.fa{
     height: 30px;
@@ -64,4 +48,8 @@
     border: 3px solid #FFFFFF;
     color: #FFFFFF;
  }
+
+ .field{
+  padding-top: 20px;
+}
 </style>

@@ -98,7 +98,7 @@ a{
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 1000px;
+  min-height: 1500px;
 }
 
 .user-page{
@@ -199,4 +199,13 @@ select{
 .btn.btn-secondary:hover{
   background: #333333;
   box-shadow: none;
+ }
+
+ .form{
+  border: 3px solid #999966;
+  background: #EEEEEE;
+  padding: 60px 100px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 16px 16px 42px #666666
  }

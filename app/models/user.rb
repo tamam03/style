@@ -32,13 +32,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
   validates :name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/ }
-  validates :nick_name, uniqueness: true, allow_blank: true, length: { minimum: 2, maximum: 8 }
-
-
-  with_options presence: true, if: -> { require_validation? } do
-    validates :brand_id
-    validates :store_id
-  end
 
   def require_validation?
     if is_user == false
@@ -48,6 +41,14 @@ class User < ApplicationRecord
     end
   end
 
+  with_options presence: true, unless: -> { require_validation? } do
+    validates :nick_name, uniqueness: true, presence: true, length: { minimum: 2, maximum: 8 }
+  end
+
+  with_options presence: true, if: -> { require_validation? } do
+    validates :brand_id
+    validates :store_id
+  end
 
 #フォロー機能
   def follow(user_id)
@@ -73,6 +74,5 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-
 
 end

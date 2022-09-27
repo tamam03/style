@@ -1,9 +1,9 @@
 <div class="public-registration">
   <div class="container">
     <div class="row">
-      <div class="registration">
+      <div class="form">
         <%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
-          <%= render "public/shared/error_messages", model: resource %>
+          <%= render "public/shared/error_messages", object: f.object %>
           <div class="switch-form col-12 p-2">
             <%= f.label :is_user, "ユーザー", :value => "true" %>
             <%= f.radio_button :is_user, true, :checked => true, :class => "radio-button" %>
@@ -64,18 +64,26 @@ $('#user_brand_id').change(function() {
 </script>
 
 <style>
-  main{
-    background-image: none;
-  }
-  .row{
-    justify-content: center;
-  }
-  .registration{
-    background: #EEEEEE;
-    padding: 80px 200px;
-    margin: 30px;
-    border:  3px solid;
-    border-radius: 8px;
-    border-color: #999966;
-  }
+main{
+  background-image: none;
+}
+
+.row{
+  justify-content: center;
+}
+
+.field{
+  padding: 10px;
+}
+
+label{
+  font-weight: 800;
+}
+
+input{
+  display: inline-block;
+  padding: 0.5em 0.5em;
+  line-height: 2;
+}
+
 </style>

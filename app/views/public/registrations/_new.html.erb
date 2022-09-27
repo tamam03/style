@@ -1,16 +1,16 @@
- <div class="field">
-  <%= f.label :name %>
-  <%= f.text_field :name, placeholder: "フルネーム" %>
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name, placeholder: "フルネーム"%>
 </div>
 <div class="field">
-  <%= f.label :name_kana %>
+  <%= f.label :name_kana %><br>
   <%= f.text_field :name_kana, placeholder: "全角カナ" %>
 </div>
 
 <!--ラジオボタン切り替え-->
   <div id="only-customer">
     <div class="field">
-      <%= f.label :nick_name %>
+      <%= f.label :nick_name %><br>
       <%= f.text_field :nick_name, placeholder: "３文字以上・８文字以内" %>
     </div>
   </div>
@@ -18,46 +18,43 @@
   <div id="only-clerk">
     <% brand_options = Brand.order(:id).map { |c| [c.brand_name, c.id, data: { children_path: public_brand_stores_path(c) }] } %>
     <div class="field">
-      <%= f.label :brand_name %>
+      <%= f.label :brand_name %><br>
       <%= f.select :brand_id, brand_options, { include_blank: true }, class: 'select-parent' %>
     </div>
     <div class="field">
-      <%= f.label :store_name %>
+      <%= f.label :store_name %><br>
       <%= f.select :store_id, [], {}, class: 'select-children' %>
     </div>
   </div>
 <!--ここまで-->
 
   <div class="field">
-    <%= f.label :email %>
+    <%= f.label :email %><br>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "\uf0e0 Email", class: 'fa' %>
   </div>
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password %><br>
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "６文字以上２０字以内" %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "６文字以上２０字以内" %>
   </div>
-  <div class="actions mt-3">
+  <div class="btn mt-3">
     <%= f.submit "Sign up", class: "btn btn-secondary" %>
   </div>
 
-
-
 <style>
- .btn-secondary{
-    padding: 10px 80px;
-    font-weight: 700;
-    background: #CCCC99;
-    border: 3px solid #FFFFFF;
-    color: #FFFFFF;
- }
+.btn-secondary{
+  padding: 10px 80px;
+  font-weight: 700;
+  background: #CCCC99;
+  border: 3px solid #FFFFFF;
+  color: #FFFFFF;
+}
 
-  input.fa{
-    height: 30px;
-    width: 250px;
-  }
-
+input.fa{
+  height: 30px;
+  width: 250px;
+}
 </style>
