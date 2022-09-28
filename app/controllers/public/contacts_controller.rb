@@ -1,4 +1,6 @@
 class Public::ContactsController < ApplicationController
+  # before_action :autheniticate_user
+
   def new
     @contact = Contact.new
   end

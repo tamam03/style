@@ -23,6 +23,7 @@ ja:
     models:
       user: "ユーザー"
       item: "投稿"
+      contact: "お問い合わせ"
     attributes:
       user:
         email: "メールアドレス"
@@ -41,6 +42,9 @@ ja:
         brand: "ブランド"
         status: "公開ステータス"
         text: "説明文"
+      contact:
+        name: "お名前"
+        content: "お問い合わせ内容"
   errors:
     format: "%{attribute}%{message}"
     messages:

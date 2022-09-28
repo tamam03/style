@@ -1,33 +1,38 @@
 <div class="container">
-  <div class="row d-flex justify-content-center">
-    <h1 class="title pt-4">CONTACT</h1>
+  <div class="row">
+    <h1 class="title">CONTACT</h1>
   </div>
-    <div class="row contact-form d-flex justify-content-center">
-      <%= form_with model: @contact, url: public_contacts_path, method: :post do |f| %>
-        <div class="form-wrap">
-          <div class="form-header">
-            <h6 class="bottom-text">サイトに関するご質問などは下記よりお問い合わせください</h6>
-            <h9 class="bottom-text d-flex justify-content-center">ご登録のアドレスにてご対応をさせていただきます</h9>
-          </div>
-          <div class="contact-name d-flex justify-content-center p-3">
-            <%= f.text_field :name, placeholder: "お名前" %>
-          </div>
-          <div class="contact-text d-flex justify-content-center pt-1">
-            <%= f.text_area :content, placeholder: "お問い合わせ内容を入力してください", class: "input-form"  %>
-          </div>
-          <div class="form-submit d-flex justify-content-center p-2">
-            <%= f.submit "送信", class: "btn-contact-form" %>
-          </div>
+  <div class="row contact-form">
+    <%= form_with model: @contact, url: public_contacts_path, method: :post do |f| %>
+    <%= render "public/shared/error_messages", object: f.object%>
+      <div class="form-wrap">
+        <div class="form-header">
+          <h6 class="bottom-text">サイトに関するご質問などは下記よりお問い合わせください</h6>
+          <h9 class="bottom-text d-flex justify-content-center">ご登録のアドレスにてご対応をさせていただきます</h9>
         </div>
-      <% end %>
-    </div>
+        <div class="contact-name d-flex justify-content-center p-3">
+          <%= f.text_field :name, placeholder: "お名前", class: "input-name" %>
+        </div>
+        <div class="contact-text d-flex justify-content-center pt-1">
+          <%= f.text_area :content, placeholder: "お問い合わせ内容を入力してください", class: "input-form"  %>
+        </div>
+        <div class="form-submit d-flex justify-content-center pt-3">
+          <%= f.submit "send", class: "btn btn btn-secondary send" %>
+        </div>
+      </div>
+    <% end %>
   </div>
+</div>
 
 <style>
 
   main{
     background-image: none;
     background-color: #f2ffe5;
+  }
+
+  .row{
+    justify-content: center;
   }
 
   .contact-form{
@@ -41,6 +46,9 @@
 
  h1.title{
   font-family: "Georgia";
+  padding: 20px;
+  font-weight: 800;
+  color: #5f6527;
  }
 
  .input-form{
@@ -49,17 +57,12 @@
   height: 300px;
  }
 
-.btn-contact-form{
-  width: 100px;
-  background: #666666;
-  color: #EEEEEE;
-  border-radius: 15px;
-  box-shadow: 10px 10px 30px #666666;
+.input-name{
+  height: 50px;
 }
 
-.btn-contact-form:hover{
-  background: #333333;
-  box-shadow: none;
- }
-
+.btn-secondary.send{
+  background: #777e41;
+  padding: 10px 40px;
+}
 </style>

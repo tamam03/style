@@ -166,6 +166,10 @@ a{
 	justify-content: center;
 }
 
+.item-btn-mark i{
+  margin: 3px 10px;
+}
+
 
 .item-card:hover{
   box-shadow: 10px 10px 10px

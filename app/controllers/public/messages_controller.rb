@@ -6,6 +6,7 @@ class Public::MessagesController < ApplicationController
       redirect_to public_room_path(message.room_id)
     else
       redirect_to public_room_path(message.room_id)
+      # render template: "public/room/show", status: :unprocessable_entity
     end
   end
 

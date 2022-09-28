@@ -31,11 +31,11 @@
     <% end %>
   </div>
   <div class="row">
-    <div class="message-form">
+    <div class="form">
       <%= form_with model: @message, url: public_messages_path, method: :post do |f| %>
-      <%= render "public/shared/error_messages", model: f.object %>
-       <%= f.text_field :sentence, placeholder: "メッセージを入力（100文字以内）", size: "100", class: "form" %>
-       <%= f.file_field :message_image, placeholder: "画像", accept: 'image/*', class: "form" %>
+      <%= render "public/shared/error_messages", object: f.object %>
+       <%= f.text_field :sentence, placeholder: "メッセージを入力（100文字以内）", size: "100"%>
+       <%= f.file_field :message_image, placeholder: "画像", accept: 'image/*'%>
        <%= f.hidden_field :room_id, value: @room.id %>
       <div class="col-12  d-flex justify-content-center">
         <%= f.submit "send", class: "btn btn btn-secondary send" %>
@@ -111,11 +111,11 @@ main{
   padding: 0;
 }
 
-.message-form{
-  text-align:center;
-  margin-bottom:200px;
-  display: flex;
-}
+/*.message-form{*/
+/*  text-align:center;*/
+/*  margin-bottom:200px;*/
+/*  display: flex;*/
+/*}*/
 
 .my-message {
   margin: 10px 0;
