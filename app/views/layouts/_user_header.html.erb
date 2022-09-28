@@ -4,12 +4,19 @@
       style
     <% end %>
     <ul>
-      <li><%= render 'public/items/sidebar' %></li>
+      <li>
+        <div class="menu">
+          <%= render 'public/items/menu' %>
+        </div>
+      </li>
+      <li>
+        <%= link_to search_public_items_path, class: "nav-item nav-link" do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      </li>
       <li>
         <%= link_to new_public_item_path, class: "nav-item nav-link" do %>
-          <div class="new-item-box">
-            <button type="button" class="btn btn-secondary">new</button>
-          </div>
+          <i class="far fa-plus-square"></i>
         <% end %>
       </li>
       <li>
@@ -23,16 +30,12 @@
       </li>
       <li>
         <%= link_to public_user_path(current_user), class: "nav-item nav-link" do %>
-          <div class="mypage-box">
-            <i class="fas fa-user"></i>
-          </div>
+          <i class="fas fa-user"></i>
         <% end %>
       </li>
       <li>
         <%= link_to destroy_user_session_path, method: :delete, class: "nav-item nav-link" do %>
-          <div class="signout-box">
-            <i class="fas fa-sign-out-alt"></i>
-          </div>
+          <i class="fas fa-sign-out-alt"></i>
         <% end %>
       </li>
     </ul>
@@ -49,4 +52,12 @@
   color: #efa04c;
 }
 
+.btn-secondary.new{
+  border: none;
+  box-shadow: none;
+}
+
+.menu{
+  padding: 0px 30px;
+}
 </style>
