@@ -1,4 +1,4 @@
-<div class="container">
+
   <div class="item-show-box">
     <div class="item-image">
       <%= image_tag @item.get_item_image(700, 700) %>
@@ -35,17 +35,16 @@
           <% end %>
         </div>
       </div>
-      <div class="my-item">
-      <% if @item.user_id == current_user.id %>
-        <div class="border"></div>
-        <div>ステータス：<%= @item.status_i18n %></div>
-        <div>いいね<%= @item.favorites.count %>件</div>
-        <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-outline-secondary" %>
-      <% end  %>
+      <div class="border"></div>
+      <div class="my-item-box">
+        <% if @item.user_id == current_user.id %>
+        <div class="my-item">ステータス：<%= @item.status_i18n %></div>
+        <div class="my-item">お気に入り：<%= @item.favorites.count %>件</div>
+        <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-secondary" %>
+        <% end  %>
       </div>
     </div>
   </div>
-</div>
 <div class="border2"></div>
 <div class="container">
   <% if current_user.is_user == false %>
@@ -77,29 +76,27 @@
     <% end %>
   </div>
 
-
-
-
-
-
 <style>
 main{
   background-image: none;
+  min-height: 1500px;
 }
 
 .item-show-box{
   display: flex;
   padding-top: 50px;
+  justify-content: center;
 }
 
 .item-box{
   display: flex;
-  padding: 20px;
+  padding: 30px;
 }
 
 .brand-item-box{
   display:flex;
   flex-flow: column;
+  padding: 30px;
 }
 
 .item-image{
@@ -120,8 +117,7 @@ main{
 }
 
 .box{
-  padding: 60px 100px;
-  margin: 20px;
+  padding: 60px 120px;
 }
 
 .tag{
@@ -129,11 +125,14 @@ main{
   border: 1px solid #898989;
   border-radius: 8px;
   padding: 5px 20px;
+  margin: 3px;
+  flex-wrap: wrap;
 }
 
 #name{
   display:flex;
   flex-flow: column;
+  padding: 30px;
 }
 
 .brand-title{
@@ -143,9 +142,16 @@ main{
 .brand{
   font-weight: 800;
   text-align: center;
+  padding: 20px;
 }
 
-.my-box{
+.my-item-box{
   display:flex;
+  flex-flow: column;
+  padding: 20px;
+}
+
+.my-item{
+  padding: 5px;
 }
 </style>
