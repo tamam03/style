@@ -38,10 +38,11 @@ class Public::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item_tag = ItemTag.new
     @item.user_id = current_user.id
     tag_list = params[:item][:tag_name].split(" ")
     if @item.save
-      @item.save_tag(tag_list)
+      @item_tag.save_tag(tag_list)
       redirect_to public_items_path
     else
       render :new, status: :unprocessable_entity
