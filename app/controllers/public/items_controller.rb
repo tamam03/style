@@ -42,7 +42,8 @@ class Public::ItemsController < ApplicationController
     @item.user_id = current_user.id
     tag_list = params[:item][:tag_name].split(" ")
     if @item.save
-      @item_tag.save_tag(tag_list)
+      @item.item_tags = @item_tag.save_tag(tag_list)
+      @item.save
       redirect_to public_items_path
     else
       render :new, status: :unprocessable_entity
