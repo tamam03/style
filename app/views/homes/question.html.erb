@@ -1,62 +1,78 @@
 <div class="question-box">
-  <div class="sidebar">
-    <p>サイドバー</p>
-    <p>サイドバー</p>
-    <p>サイドバー</p>
-  <p>サイドバー</p>
-  <p>サイドバー</p>
-  <p>サイドバー</p>
-  <p>サイドバー</p>
-  </div>
-  <div class="container">
-    <div class="row pt-5">
-      <h1 class"title">Guide</h1>
+  <div class="guide-sidebar">
+    <div class="sidebar-box">
+      <a href="#step1">
+        <p>step1</p>
+        <p>ユーザー登録</p>
+      </a>
     </div>
-    <div class="row d-flex">
-      <div class="step1">
-        <div class="col-6">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/UhJHrLfE4Hk"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+    <div class="sidebar-box">
+      <a href="#step2">
+        <p>step2</p>
+        <p>投稿</p>
+      </a>
+    </div>
+     <div class="sidebar-box">
+      <a href="#step3">
+        <p>step3</p>
+        <p>いいね・フォロー</p>
+      </a>
+    </div>
+     <div class="sidebar-box">
+      <a href="#step4">
+        <p>step4</p>
+        <p>トーク</p>
+      </a>
+    </div>
+     <div class="sidebar-box">
+      <a href="#step5">
+        <p>step5</p>
+        <p>コメントについて</p>
+      </a>
+    </div>
+     <div class="sidebar-box">
+      <a href="#step6">
+        <p>お困りの時</p>
+      </a>
+    </div>
+  </div>
+  <div class="guide-main">
+    <h1 class="guide-title">Guide</h1>
+    <div class="step1">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/UhJHrLfE4Hk"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="title-box">
+      <a name= "step1">step.1 ユーザー登録をしましょう</a>
+    </div>
+    <div class="text">
+      アカウントは「ユーザー」と「店舗スタッフ」に分かれます。<br>
+      （一般ユーザーの場合は必ず「ユーザー」を選びましょう）
+    </div>
+    <div class="question">
+      <div class="user-new1">
+        <%= image_tag 'user-new1.jpg', class: 'image' %>
       </div>
     </div>
-  </div>
-  <div class="row d-flex p-2">
     <div class="title-box">
-      <p>step.1 ユーザー登録をしましょう</p>
+      <a name= "step1">step.２ 投稿をしてみましょう</a>
     </div>
-  </div>
   <div class="text">
-    <p>アカウントは「ユーザー」と「店舗スタッフ」に分かれます。</p>
-    <p>（一般ユーザーの場合は必ず「ユーザー」を選びましょう）</p>
-  </div>
-  <div class="question">
-    <div class="user-new1">
-      <%= image_tag 'user-new1.jpg', class: 'image' %>
-    </div>
-  </div>
-  <div class="row d-flex p-2">
-    <div class="title-box">
-      <p>step.２ 投稿をしてみましょう</p>
-    </div>
-  </div>
-  <div class="text">
-    <p>写真は物撮りでももちろんOKです</p>
-    <p>文章は自分のためのメモ替わりにもできます。</p>
-    <p>すぐに公開しない投稿は「非公開」設定にしておきましょう</p>
+    写真は物撮りでももちろんOKです<br>
+    文章は自分のためのメモ替わりにもできます。<br>
+    すぐに公開しない投稿は「非公開」設定にしておきましょう
   </div>
   <div class="question">
     <div class="item-new1">
       <%= image_tag 'item-new1.jpg', class: 'image' %>
     </div>
   </div>
-  <div class="row p-2">
     <div class="title-box">
-      <p>step.3 いいね・フォローをしてみましょう</p>
+      <a name= "step3">step.3 いいね・フォローをしてみましょう</a>
     </div>
-  </div>
   <div class="text">
     <p>気になる投稿は「いいねボタン」を押してみましょう</p>
     <p>いいねが押されると相手に通知が届きます</p>
@@ -75,11 +91,9 @@
       <%= image_tag 'follow.jpg', class: 'image' %>
     </div>
   </div>
-  <div class="row p-2">
     <div class="title-box">
-      <p>step.4 トーク機能</p>
+      <a name= "step4">step.4 トーク機能</a>
     </div>
-  </div>
   <div class="text">
     <p></p>
   </div>
@@ -91,11 +105,9 @@
       <%= image_tag 'no_image.jpg', class: 'image' %>
     </div>
   </div>
-  <div class="row p-2">
     <div class="title-box">
-      <p>step.5 トークをしてみましょう</p>
+      <a name= "step5">step.5 コメントについて</a>
     </div>
-  </div>
   <div class="question">
     <div class="talk1">
       <%= image_tag 'no_image.jpg', class: 'image' %>
@@ -104,11 +116,9 @@
       <%= image_tag 'no_image.jpg', class: 'image' %>
     </div>
   </div>
-  <div class="row p-2">
     <div class="title-box">
-      <p>step.6 お困りのとき</p>
+      <a name= "step6">お困りのとき</a>
     </div>
-  </div>
   <div class="question">
     <div class="info1">
       <%= image_tag 'no_image.jpg', class: 'image' %>
@@ -117,11 +127,9 @@
       <%= image_tag 'no_image.jpg', class: 'image' %>
     </div>
   </div>
-  <div class="row d-flex p-2">
     <div class="last-message">
       <p>さまざまな楽しみかたでファッションを好きになってもらえると嬉しいです</p>
     </div>
-  </div>
 </div>
 </div>
 
@@ -132,27 +140,53 @@ main{
   min-height: 4000px;
 }
 
-.question-box{
+.guide-sidebar{
+  width: 300px;
+  height: 100%;
+  box-sizing: border-box;
+  position: sticky;
+	top: 50px;
+}
+
+.sidebar-box{
   display: flex;
+  flex-flow: column;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #bcbace;
+  text-align: center;
+  color: #736d71;
+  background-color: #fef9fb;
+  box-shadow: 5px 5px 10px #666666;
 }
 
-.row{
-  justify-content: center;
+.sidebar-box a{
+  color: #736d71;
+  display: block;
 }
 
-h1{
+.sidebar-box:hover{
+  border: 4px solid #8d93c8;
+}
+
+.guide-main{
+  padding: 20px;
+}
+
+h1.guide-title{
   font-family: 'Georgia',sans-serif;
-  border-bottom: double 6px #b79fcb;
+  color: #736d71;
+  border-bottom: double 6px #bcbace;
   font-weight: 800;
+  font-size: 50px;
+  text-align: center;
+  padding-top: 20px;
 }
 
-.title-box{
-  margin:2em 0;
-  position: relative;
-  padding: 0.5em 1.5em;
-  border-top: solid 2px black;
-  border-bottom: solid 2px black;
-  font-weight: 600;
+.step1{
+  display: flex;
+  justify-content: center;
+  padding: 50px 30px;
 }
 
 iframe {
@@ -164,17 +198,24 @@ iframe {
   cursor : pointer;
 }
 
-.sidebar{
-  width: 96px;
-  height: 100%;
-  background-color: moccasin;
-  box-sizing: border-box;
+.title-box{
+  color:  #736d71;
+  font-size: 20px;
+  margin: 5em 0;
+  position: relative;
+  padding: 0.5em 1.5em;
+  border-top: solid 2px #bcbace;
+  border-bottom: solid 2px #bcbace;
+  font-weight: 600;
 }
 
-.image{
-  width: 800px;
-  height: 500px;
-  box-shadow: 10px 10px 30px #666666;
+.text{
+  color:  #736d71;
+  text-align: center;
+  border: 1px solid #bcbace;
+  border-radius: 8px;
+  padding: 40px;
+  margin: 40px;
 }
 
 .question{
@@ -183,9 +224,16 @@ iframe {
   justify-content: center;
 }
 
-.text{
-  text-align: center;
+.question-box{
+  display: flex;
 }
+
+.image{
+  width: 800px;
+  height: 500px;
+  box-shadow: 10px 10px 30px #666666;
+}
+
 
 </style>
 
