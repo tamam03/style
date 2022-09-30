@@ -1,23 +1,22 @@
 class ItemTag < ApplicationRecord
   has_many :tag_maps, dependent: :destroy, foreign_key: 'item_tag_id'
-  # has_many :item_tags, through: :tag_maps
   has_many :items, through: :tag_maps
-  
 
-  # def save_tag(sent_tags)
 
-  #   current_tags = item_tags.pluck(:tag_name) unless item_tags.nil?
-  #   old_tags = current_tags - sent_tags
-  #   new_tags = sent_tags - current_tags
+  def save_tag(sent_tags)
+    # すでに存在するタグを取得
+    current_tags = items.pluck(:tag_name) unless items.nil?
+    # 存在しない新しく追加するタグを取得
+    new_tags = sent_tags - current_tags
+    # データベース保存プラス変数代入し配列で返す
+    tags = []
+    new_tags.each do |new|
+      new_item_tag = ItemTag.find_or_create_by(tag_name: new)
 
-  #   old_tags.each do |old|
-  #     item_tags.delete ItemTag.find_by(tag_name: old)
-  #   end
+      tags << new_item_tag
 
-  #   new_tags.each do |new|
-  #     new_item_tag = ItemTag.find_by(tag_name: new)
-  #     item_tags << new_item_tag
-  #   end
-  # end
+      return tags
+    end
+  end
 
 end
