@@ -4,19 +4,27 @@ class ItemTag < ApplicationRecord
 
 
   def save_tag(sent_tags)
-    # すでに存在するタグを取得
-    current_tags = items.pluck(:tag_name) unless items.nil?
-    # 存在しない新しく追加するタグを取得
+
+    current_tags = ItemTag.all.pluck(:tag_name)
+
+    # レコードに存在するが使わないタグ
+    old_tags = current_tags - sent_tags
+    # 新しく生成するタグ
     new_tags = sent_tags - current_tags
-    # データベース保存プラス変数代入し配列で返す
+    # 生成しないが使うタグ
+    again_tags = current_tags - old_tags - new_tags
+
     tags = []
+    again_tags.each do |again|
+      again_item_tag = ItemTag.find_by(tag_name: again)
+      tags << again_item_tag
+    end
+
     new_tags.each do |new|
       new_item_tag = ItemTag.find_or_create_by(tag_name: new)
-
       tags << new_item_tag
-
-      return tags
     end
+    return tags
   end
 
 end

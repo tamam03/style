@@ -43,7 +43,6 @@ class Public::ItemsController < ApplicationController
     tag_lists = params[:item][:tag_name].split(" ")
     if @item.save
       @item.item_tags = @item_tag.save_tag(tag_lists)
-      @item.save
       redirect_to public_items_path
     else
       render :new, status: :unprocessable_entity

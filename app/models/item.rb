@@ -76,21 +76,4 @@ class Item < ApplicationRecord
     item_image.variant(resize_to_limit: [width, height]).processed
   end
 
-# タグ機能
-  # def save_tag(sent_tags)
-  #   current_tags = self.item_tags.pluck(:tag_name) unless self.item_tags.nil?
-  #   binding.pry
-    # old_tags = current_tags - sent_tags
-    # new_tags = sent_tags - current_tags
-
-  #   old_tags.each do |old|
-  #     item_tags.delete ItemTag.find_by(tag_name: old)
-  #   end
-
-  #   new_tags.each do |new|
-  #     new_item_tag = ItemTag.find_or_create_by(tag_name: new)
-  #     item_tags << new_item_tag
-  #   end
-  # end
-
 end
