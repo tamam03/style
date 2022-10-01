@@ -87,4 +87,3 @@ User.create!(
   ]
 )
 
-

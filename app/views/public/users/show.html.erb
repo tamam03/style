@@ -71,11 +71,9 @@
       <% end %>
     <% else %>
       <% if current_user.rooms.present? %>
-        <div class="talk">
           <%= link_to "Talk room", public_rooms_path, class: "btn btn-light"%>
       <% else %>
-          Talk room is not
-        </div>
+          <p class="talk-text">Talk room is not</p>
       <% end %>
     <% end %>
     </div>
@@ -137,5 +135,9 @@
   display: flex;
 }
 
+.talk-text{
+  text-align: center;
+  font-size: 20px;
+}
 </style>
 
