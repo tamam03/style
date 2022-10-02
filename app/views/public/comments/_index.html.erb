@@ -1,7 +1,7 @@
-<div class="row d-flex justify-content-center">
+<div class="row">
   <h5>Comment</h5>  <%= item.comments.count %>件
 </div>
-<div class="row d-flex justify-content-center p-2">
+<div class="row p-2">
   <% if item.comments.count >= 3 %>
     <div class="col-5">
       <button type="comment morebutton" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -10,7 +10,7 @@
     </div>
   <% end %>
 </div>
-<div class="row d-flex justify-content-center">
+<div class="row">
   <% comments.first(2).each do |comment| %>
     <% unless comment.id.nil? %>
       <div class="col-6 p-1">
@@ -35,7 +35,7 @@
   <% end %>
 </div>
 <div class="collapse" id="collapseExample">
-  <div class="row d-flex justify-content-center">
+  <div class="row">
     <% comments.offset(2).each do |comment| %>
       <% unless comment.id.nil? %>
         <div class="col-6 p-1">
@@ -60,3 +60,9 @@
     <% end %>
   </div>
 </div>
+
+<style>
+  .row{
+    justify-content: center;
+  }
+</style>
