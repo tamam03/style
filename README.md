@@ -37,6 +37,6 @@ https://docs.google.com/spreadsheets/d/1SLgUG2Qjj9a4haRkZWDqu1Ysv6hKxETckaRkIZ2C
 https://docs.google.com/spreadsheets/d/1BOEAqO1aVAn_PEqCA7H-E-pxT6pxGxgU/edit?usp=sharing&ouid=101803635678743693839&rtpof=true&sd=true
 
 
-## 使用素材
+## Image used
 - https://www.photo-ac.com/
 - https://girlydrop.com/
