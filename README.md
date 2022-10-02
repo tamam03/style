@@ -16,7 +16,7 @@
 - 通知機能
 - １対１トーク機能
 
-## 開発環境
+## Environment
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
@@ -24,16 +24,16 @@
 - IDE：Cloud9
 
 
-## 設計書
+## Plan
 
-#### ER図
+#### ER
 ![ER](https://user-images.githubusercontent.com/100408560/188852634-ce162469-d3d3-44d5-8bbc-4182508c0df4.jpg)
 
 
-#### テーブル定義書
+#### Table
 https://docs.google.com/spreadsheets/d/1SLgUG2Qjj9a4haRkZWDqu1Ysv6hKxETckaRkIZ2Cgj0/edit?usp=sharing
 
-#### アプリケーション詳細設計書
+#### Detail
 https://docs.google.com/spreadsheets/d/1BOEAqO1aVAn_PEqCA7H-E-pxT6pxGxgU/edit?usp=sharing&ouid=101803635678743693839&rtpof=true&sd=true
 
 
