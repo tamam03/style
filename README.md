@@ -1,4 +1,4 @@
-# <img width="400" alt="1C560C6C-A228-49C9-906B-C62CCC594DBE 2" src="https://user-images.githubusercontent.com/100408560/193454786-3305b4b7-2a1c-41ea-9839-4db8aa90ab32.PNG">
+# <p align="center"><img width="400" alt="1C560C6C-A228-49C9-906B-C62CCC594DBE 2" src="https://user-images.githubusercontent.com/100408560/193454786-3305b4b7-2a1c-41ea-9839-4db8aa90ab32.PNG"></p>
 
 
 ## サイト概要
