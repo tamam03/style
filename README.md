@@ -1,4 +1,5 @@
-# <p align="center">Style</p>  ### <p align="center">https://stylecms.net/</p>
+# <p align="center">Style</p>
+### <p align="center">https://stylecms.net/</p>
 
 ## About
 ファッションアイテムの投稿を通し、ユーザーと店舗スタッフを繋ぐコミュニティサイト
