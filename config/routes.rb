@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # 共通ページ
   root 'homes#top'
   get 'homes/about' => 'homes#about'
-  get 'homes/question' => 'homes#question'
+  get 'homes/guide' => 'homes#guide'
 
   # ゲストログイン用
   post '/public/guests', to: 'public/guest_sessions#create'
