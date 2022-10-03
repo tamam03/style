@@ -1,0 +1,31 @@
+<div class="new-items">
+  <div class="new_item_title">
+    NEW ITEM
+  </div>
+  <div class="row item-cards">
+    <% new_items.each do |new_item| %>
+      <div class="item-card">
+        <%= image_tag new_item.get_item_image(400, 400) %>
+      </div>
+    <% end %>
+  </div>
+  <div class="new_item_link">
+    MORE
+  </div>
+</div>
+
+<style>
+
+  .new_item_title{
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .new_item_link{
+    font-size: 20px;
+    text-decoration: underline;
+    display: flex;
+    justify-content: flex-end;
+  }
+</style>
+
