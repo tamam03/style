@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   has_many :items, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :entries, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :rooms, through: :entries
@@ -31,7 +31,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
   validates :name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-  validates :name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/ }
+  validates :name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
 
   def require_validation?
     if is_user == false

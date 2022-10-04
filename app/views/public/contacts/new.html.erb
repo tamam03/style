@@ -4,7 +4,7 @@
   </div>
   <div class="row contact-form">
     <%= form_with model: @contact, url: public_contacts_path, method: :post do |f| %>
-    <%= render "public/shared/error_messages", object: f.object%>
+    <%= render "public/shared/error_messages", object: f.object %>
       <div class="form-wrap">
         <div class="form-header">
           <h6 class="bottom-text">サイトに関するご質問などは下記よりお問い合わせください</h6>
@@ -14,7 +14,7 @@
           <%= f.text_field :name, placeholder: "お名前", class: "input-name" %>
         </div>
         <div class="contact-text d-flex justify-content-center pt-1">
-          <%= f.text_area :content, placeholder: "お問い合わせ内容を入力してください", class: "input-form"  %>
+          <%= f.text_area :content, placeholder: "お問い合わせ内容を入力してください", class: "input-form" %>
         </div>
         <div class="form-submit d-flex justify-content-center pt-3">
           <%= f.submit "send", class: "btn btn btn-secondary send" %>

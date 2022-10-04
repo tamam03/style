@@ -64,7 +64,7 @@ class Item < ApplicationRecord
 
 #いいね機能
   def favorited_by?(user)
-    favorites.where(user_id: user.id).exists?
+    favorites.exists?(user_id: user.id)
   end
 
 #投稿画像

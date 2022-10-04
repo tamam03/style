@@ -4,7 +4,7 @@
       <% if @user.is_user == true %>
         <div class="form">
           <%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
-            <%= render "public/shared/error_messages", object: f.object%>
+            <%= render "public/shared/error_messages", object: f.object %>
             <div class="image">
               <%= f.label :profile_image %><br>
               <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %>
@@ -33,7 +33,7 @@
       <% else %>
         <div class="form">
           <%= form_with model: @user, url: public_user_path(@user), method: :patch do |f| %>
-          <%= render "public/shared/error_messages", object: f.object%>
+          <%= render "public/shared/error_messages", object: f.object %>
             <div class="image">
               <%= f.label :profile_image %><br>
               <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: 'image/*' %>
@@ -82,4 +82,5 @@ label{
 .field{
   padding-top: 20px;
 }
+
 </style>

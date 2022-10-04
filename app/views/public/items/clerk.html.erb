@@ -6,14 +6,14 @@
           <%= image_tag item.get_item_image(400, 400) %>
         <% end %>
         <% unless item.user == current_user %>
-          <div id = "favorite_btns_<%= item.id %>" class="item-btn-mark">
+          <div id="favorite_btns_<%= item.id %>" class="item-btn-mark">
             <%= render "public/favorites/btn", item: item %>
           </div>
         <% end %>
         <% if item.user == current_user %>
           <div class="item-btn-mark">
             <a class="item-btn-out">
-              <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"} do %>
+              <%= link_to public_item_path(item), method: :delete, data: { confirm: "削除しますか？" } do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>
             </a>
@@ -26,7 +26,6 @@
 </div>
 
 <style>
-
 main{
   min-height: 1500px;
 }
@@ -49,6 +48,4 @@ main{
   background-color: #CC99CC;
   border-color: #CC99CC;
 }
-
 </style>
-

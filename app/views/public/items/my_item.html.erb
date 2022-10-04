@@ -12,7 +12,7 @@
           </div>
           <div class="item-btn-mark">
             <a class="item-btn-out">
-              <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"}, class: "card-delete-btn" do %>
+              <%= link_to public_item_path(item), method: :delete, data: { confirm: "削除しますか？" }, class: "card-delete-btn" do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>
             </a>
@@ -21,7 +21,7 @@
       <% end %>
     </div>
   <% else %>
-    <p class ="d-flex justify-content-center p-5">投稿が存在しません</p>
+    <p class="d-flex justify-content-center p-5">投稿が存在しません</p>
   <% end %>
   <div class="row p-3 d-flex justify-content-center">
     <%= paginate @my_items %>
@@ -29,7 +29,6 @@
 </div>
 
 <style>
-
 main{
   min-height: 1500px;
 }
@@ -64,5 +63,4 @@ p{
   background-color: #CC99CC;
   border-color: #CC99CC;
 }
-
 </style>

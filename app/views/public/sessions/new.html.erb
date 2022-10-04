@@ -8,7 +8,7 @@
               <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "\uf0e0 Email", class: 'fa' %>
             </div>
             <div class="field">
-              <%= f.password_field :password, autocomplete: "current-password",  placeholder: "password" %>
+              <%= f.password_field :password, autocomplete: "current-password", placeholder: "password" %>
             </div>
             <% if devise_mapping.rememberable? %>
               <div class="field">
@@ -52,4 +52,5 @@
  .field{
   padding-top: 20px;
 }
+
 </style>

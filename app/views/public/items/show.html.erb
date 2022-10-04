@@ -1,80 +1,77 @@
-
-  <div class="item-show-box">
-    <div class="item-image">
-      <%= image_tag @item.get_item_image(700, 700) %>
-    </div>
-    <div class="box">
-      <div class="row items">
-        <div class="item-box">
-          <div id="image">
-            <%= image_tag @item.user.get_profile_image(80, 80), class: "rounded-circle" %>
-          </div>
-          <div id="name">
-            <% if @item.user.is_user == true %>
-              <%= link_to @item.user.nick_name, public_user_path(@item.user.id) %>
-            <% else %>
-              <%= @item.user.brand.brand_name %>
-              <%= @item.user.store.store_name %>
-              <strong><%= link_to @item.user.name, public_user_path(@item.user.id) %></strong>
-            <% end %>
-          </div>
+<div class="item-show-box">
+  <div class="item-image">
+    <%= image_tag @item.get_item_image(700, 700) %>
+  </div>
+  <div class="box">
+    <div class="row items">
+      <div class="item-box">
+        <div id="image">
+          <%= image_tag @item.user.get_profile_image(80, 80), class: "rounded-circle" %>
         </div>
-        <div class="border"></div>
-        <div class="item-box">
-          <%= @item.created_at.strftime("%Y-%m-%d") %><br>
-          <%= @item.text %>
-        </div>
-        <div class="border"></div>
-        <div class="brand-item-box">
-          <div class="brand-title">着用ブランド</div>
-          <div class="brand"><%= @item.brand.brand_name %></div>
-        </div>
-        <div class="item-box">
-          <% @item.item_tags.each do |tag| %>
-            <div class="tag"><%= tag.tag_name %></div>
+        <div id="name">
+          <% if @item.user.is_user == true %>
+            <%= link_to @item.user.nick_name, public_user_path(@item.user.id) %>
+          <% else %>
+            <%= @item.user.brand.brand_name %>
+            <%= @item.user.store.store_name %>
+            <strong><%= link_to @item.user.name, public_user_path(@item.user.id) %></strong>
           <% end %>
         </div>
       </div>
       <div class="border"></div>
-      <div class="my-item-box">
-        <% if @item.user_id == current_user.id %>
+      <div class="item-box">
+        <%= @item.created_at.strftime("%Y-%m-%d") %><br>
+        <%= @item.text %>
+      </div>
+      <div class="border"></div>
+      <div class="brand-item-box">
+        <div class="brand-title">着用ブランド</div>
+        <div class="brand"><%= @item.brand.brand_name %></div>
+      </div>
+      <div class="item-box">
+        <% @item.item_tags.each do |tag| %>
+          <div class="tag"><%= tag.tag_name %></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="border"></div>
+    <div class="my-item-box">
+      <% if @item.user_id == current_user.id %>
         <div class="my-item">ステータス：<%= @item.status_i18n %></div>
         <div class="my-item">お気に入り：<%= @item.favorites.count %>件</div>
         <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-secondary" %>
-        <% end  %>
-      </div>
+      <% end  %>
     </div>
   </div>
+</div>
 <div class="border2"></div>
 <div class="container">
   <% if current_user.is_user == false %>
-        <div id="comments_form">
-            <%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %>
+    <div id="comments_form">
+      <%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %>
+    </div>
+    <div id="comments_area">
+      <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
+    </div>
+  <% else current_user.is_user == true %>
+    <% if @item.user_id == current_user.id %>
+      <div class="container">
+        <h5 class="text p-3">コメント投稿は店舗スタッフのみ可能です</h5>
+        <div id="comments_area">
+          <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
         </div>
-        <div class="container">
-            <div id="comments_area">
-             <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
-            </div>
-        </div>
-    <% else current_user.is_user == true %>
-      <% if @item.user_id == current_user.id %>
-        <div class="container">
-          <h5 class="text p-3">コメント投稿は店舗スタッフのみ可能です</h5>
-            <div id="comments_area">
-             <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
-            </div>
-        </div>
-      <% else %>
-        <div class="row">
-          <div class="user_comment_return">
-            <div class="col-12 d-flex justify-content-center p-5">
-              コメント機能は店舗ユーザーのみ可能です
-            </div>
+      </div>
+    <% else %>
+      <div class="row">
+        <div class="user_comment_return">
+          <div class="col-12 d-flex justify-content-center p-5">
+            コメント機能は店舗ユーザーのみ可能です
           </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
-  </div>
+  <% end %>
+</div>
   
 <style>
 main{

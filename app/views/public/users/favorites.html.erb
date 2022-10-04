@@ -1,5 +1,5 @@
 <div class="container">
-  <%  if @favorite_lists.present? %>
+  <% if @favorite_lists.present? %>
     <div class="row item-cards">
       <% @favorite_lists.each do |item| %>
         <div class="item-card">
@@ -13,7 +13,7 @@
            <% if item.user == current_user %>
           <div class="item-btn-mark">
             <a class="item-btn-out">
-              <%= link_to public_item_path(item), method: :delete, data: {confirm: "削除しますか？"}, class: "card-delete-btn" do %>
+              <%= link_to public_item_path(item), method: :delete, data: { confirm: "削除しますか？" }, class: "card-delete-btn" do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>
             </a>
@@ -22,9 +22,9 @@
         </div>
       <% end %>
     </div>
-   <% else %>
-      <p class ="row d-flex justify-content-center p-5">お気に入りが存在しません</p>
-   <% end %>
+  <% else %>
+    <p class="row d-flex justify-content-center p-5">お気に入りが存在しません</p>
+  <% end %>
   <!-- <div class="row p-3 d-flex justify-content-center">-->
   <!--  <%#= paginate @favorite_lists %>-->
   <!--</div>-->
