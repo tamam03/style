@@ -19,7 +19,7 @@
         <p><%= @user.email %></p>
       <% end %>
       <%= link_to "編集", edit_admin_user_path(@user), class: "home-btn btn btn-outline-secondary center-block" %>
-      <%= link_to "削除", admin_user_path(@user), method: :delete, data: {confirm: "削除しますか？"}, class: "home-btn btn btn-outline-secondary center-block" %>
+      <%= link_to "削除", admin_user_path(@user), method: :delete, data: { confirm: "削除しますか？" }, class: "home-btn btn btn-outline-secondary center-block" %>
       <%= link_to "投稿を見る", user_index_admin_item_path, class: "home-btn btn btn-outline-secondary center-block" %>
     </div>
   </div>

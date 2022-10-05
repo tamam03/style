@@ -40,7 +40,7 @@
         <div class="my-item">ステータス：<%= @item.status_i18n %></div>
         <div class="my-item">お気に入り：<%= @item.favorites.count %>件</div>
         <%= link_to "編集", edit_public_item_path(@item), class: "btn btn-secondary" %>
-      <% end  %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -48,17 +48,17 @@
 <div class="container">
   <% if current_user.is_user == false %>
     <div id="comments_form">
-      <%= render partial: "public/comments/form", locals: {comment: @comment, item: @item} %>
+      <%= render partial: "public/comments/form", locals: { comment: @comment, item: @item } %>
     </div>
     <div id="comments_area">
-      <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
+      <%= render partial: "public/comments/index", locals: { comments: @comments, item: @item } %>
     </div>
   <% else current_user.is_user == true %>
     <% if @item.user_id == current_user.id %>
       <div class="container">
         <h5 class="text p-3">コメント投稿は店舗スタッフのみ可能です</h5>
         <div id="comments_area">
-          <%= render partial: "public/comments/index", locals: {comments: @comments, item: @item} %>
+          <%= render partial: "public/comments/index", locals: { comments: @comments, item: @item } %>
         </div>
       </div>
     <% else %>
@@ -72,7 +72,7 @@
     <% end %>
   <% end %>
 </div>
-  
+
 <style>
 main{
   background-image: none;

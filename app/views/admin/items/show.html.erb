@@ -40,8 +40,8 @@
             <tbody>
               <tr>
                 <td><%= comment.user.name %></td>
-                <td> <%= comment.text %></td>
-                <td> <%= link_to "削除", admin_item_comment_path(item_id: @item, comment_id: comment), method: :delete, data: {confirm: "削除しますか？"}, class: "home-btn btn btn-outline-secondary center-block" %></td>
+                <td><%= comment.text %></td>
+                <td><%= link_to "削除", admin_item_comment_path(item_id: @item, comment_id: comment), method: :delete, data: { confirm: "削除しますか？" }, class: "home-btn btn btn-outline-secondary center-block" %></td>
               </tr>
             </tbody>
           <% end %>

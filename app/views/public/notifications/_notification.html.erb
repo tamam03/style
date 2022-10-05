@@ -1,34 +1,30 @@
-
-<% visitor = notification.visitor %>
-<% visited = notification.visited %>
 <div class="row notification">
-<div class="col-12 mt-3">
-  <table class="table">
-    <%= link_to public_user_path(visitor) do %>
-      <strong>
-        <%= visitor.name %>
-      </strong>
-    <% end %>
-    <%= "さんが" %>
-
-    <% case notification.action %>
-      <% when 'follow' then %>
+  <div class="col-12 mt-3">
+    <table class="table">
+      <%= link_to public_user_path(notification.visitor) do %>
+        <strong>
+          <%= notification.visitor.name %>
+        </strong>
+      <% end %>
+      <%= "さんが" %>
+      <% case notification.action %>
+        <% when 'follow' then %>
         <%= "あなたをフォローしました" %>
-      <% when 'favorite' then %>
+        <% when 'favorite' then %>
         <%= link_to 'あなたの投稿', public_item_path(notification.item.id) %>
         <%= "にいいねしました" %>
-      <% when 'comment' then %>
-        <% if notification.item.user_id == notification.visited.id %>
-          <%= link_to 'あなたの投稿', public_item_path(notification.item.id) %>
-          <%= "にコメントしました" %>
-        <% end %>
-    <% end %>
-  </table>
-</div>
+        <% when 'comment' then %>
+          <% if notification.item.user_id == notification.visited.id %>
+            <%= link_to 'あなたの投稿', public_item_path(notification.item.id) %>
+            <%= "にコメントしました" %>
+          <% end %>
+      <% end %>
+    </table>
+  </div>
 </div>
 
 <style>
-  .notification{
-    background-color: #C0C0C0;
-  }
+.notification{
+  background-color: #C0C0C0;
+}
 </style>

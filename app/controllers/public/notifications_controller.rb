@@ -5,6 +5,7 @@ class Public::NotificationsController < ApplicationController
     @notifications.where(checked: false).each do |notification|
       notification.update(checked: true)
     end
+    @current_user_notice = @notifications.where.not(visitor_id: current_user.id)
   end
 
 end

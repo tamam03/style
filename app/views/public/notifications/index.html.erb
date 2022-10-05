@@ -2,9 +2,9 @@
   <div class="row d-flex justify-content-center p-5">
     <h1>通知一覧</h1>
   </div>
-  <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-    <% if notifications.exists? %>
-      <%= render notifications %>
+  <% @current_user_notice %>
+    <% if @current_user_notice.exists? %>
+      <%= render @current_user_notice %>
     <% else %>
       <p>通知はありません</p>
     <% end %>
