@@ -57,7 +57,10 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'pry-byebug', group: :development
+  gem 'capybara'
   gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -74,7 +77,10 @@ gem 'ransack'
 gem 'kaminari'
 
 gem 'dotenv-rails'
-
 group :production do
   gem 'mysql2'
 end
+
+gem 'net-smtp'
+gem "net-pop"
+gem "net-imap"
