@@ -6,8 +6,11 @@ class Admin::StoresController < ApplicationController
 
   def create
     @store = Store.new(store_params)
-    @store.save
-    redirect_to admin_brand_path(@store.brand.id)
+    if @store.save
+      redirect_to admin_brand_path(@store.brand.id)
+    else
+      redirect_to admin_stores_path, notice: 'ブランド名を入力してください'
+    end
   end
 
   def destroy
