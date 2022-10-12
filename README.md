@@ -29,7 +29,8 @@
 ## Plan
 
 #### ER
-![ER](https://user-images.githubusercontent.com/100408560/188852634-ce162469-d3d3-44d5-8bbc-4182508c0df4.jpg)
+![ER図_style.drawio.pdf](https://github.com/tamam03/style/files/9762560/ER._style.drawio.pdf)
+
 
 
 #### Table
