@@ -1,5 +1,5 @@
 class Public::RoomsController < ApplicationController
-  
+
   def create
     room = Room.create
     current_entry = Entry.create(user_id: current_user.id, room_id: room.id)
@@ -9,10 +9,10 @@ class Public::RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    @messages = @room.messages.all
+    @messages = @room.messages.all.order("created_at DESC").page(params[:page]).per(10)
     @message = Message.new
     @entries = @room.entries
     @another_entry = @entries.where.not(user_id: current_user.id).first
   end
-  
+
 end

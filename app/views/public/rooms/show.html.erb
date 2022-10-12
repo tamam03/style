@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="title pt-3">
-      <h2><%= "#{@another_entry.user.name}さんとのメッセージ" %></h2>
+      <h4 classic ="room title"><%= "#{@another_entry.user.name}" %></h4>
     </div>
   </div>
   <div id="message">
@@ -22,7 +22,7 @@
             <div class="another-message">
               <p><%= message.sentence %></p>
                  <% if message.message_image.attached? %>
-                    <p><%= image_tag message.get_message_image(100, 100) %></p>
+                    <p><%= image_tag message.get_message_image(300, 300) %></p>
                  <% end %>
             </div>
           </div>
@@ -30,6 +30,7 @@
       <% end %>
     <% end %>
   </div>
+  <%= paginate @messages %>
   <div class="row">
     <div class="form">
       <%= form_with model: @message, url: public_messages_path, method: :post do |f| %>
@@ -46,10 +47,10 @@
 </div>
 
 <style>
-
 main{
   background-image: none;
   background-color: #d4dcd3;
+  min-height: 2000px;
   }
 
 #message{
@@ -87,7 +88,7 @@ main{
   position: relative;
   margin: 0 0 0 50px;
   padding: 10px;
-  max-width: 250px;
+  max-width: 800px;
   border-radius: 12px;
   background: #edf1ee;
 }
@@ -108,12 +109,6 @@ main{
   margin: 0;
   padding: 0;
 }
-
-/*.message-form{*/
-/*  text-align:center;*/
-/*  margin-bottom:200px;*/
-/*  display: flex;*/
-/*}*/
 
 .my-message {
   margin: 10px 0;
@@ -150,4 +145,20 @@ main{
   background: #7a99cf;
 }
 
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background: #CC99CC;
+  border-radius: 15px;
+}
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
+.page-item.active .page-link {
+  background-color: #CC99CC;
+  border-color: #CC99CC;
+}
 </style>
