@@ -1,6 +1,6 @@
 # <p align="center">Style</p>
 ### <p align="center">https://stylecms.net/</p>
-###DEMO:
+### DEMO:
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/100408560/195263776-1c7f7a87-c744-4b4e-a38a-3ec0c6501018.gif)
 
 ## :bear:About
