@@ -1,5 +1,7 @@
 # <p align="center">Style</p>
 ### <p align="center">https://stylecms.net/</p>
+***DEMO:***
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/100408560/195257870-7b88e88f-b257-4847-aed3-d3ae5e43b3ec.gif)
 
 ## :bear:About
 ファッションアイテムの投稿を通し、ユーザーと店舗スタッフを繋ぐコミュニティサイト
