@@ -120,6 +120,8 @@ GEM
     faker (2.22.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
+    gimei (1.1.0)
+      romaji
     globalid (1.0.0)
       activesupport (>= 5.0)
     html_tokenizer (0.0.7)
@@ -229,6 +231,8 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    romaji (0.2.4)
+      rake (>= 0.8.0)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
     rspec-expectations (3.11.1)
@@ -340,6 +344,7 @@ DEPENDENCIES
   erb_lint
   factory_bot_rails
   faker
+  gimei
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   kaminari
