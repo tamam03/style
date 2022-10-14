@@ -4,5 +4,6 @@ FactoryBot.define do
     name { japanese_name.kanji }
     name_kana { name.katakana }
     brand
+    store
   end
 end

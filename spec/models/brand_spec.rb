@@ -14,7 +14,7 @@ RSpec.describe "Brandモデルのテスト", type: :model do
 
   describe 'アソシエーションのテスト' do
     context 'Storeモデルとの関係' do
-      it 'N:1になっている' do
+      it '1:Nになっている' do
         expect(Brand.reflect_on_association(:stores).macro).to eq :has_many
       end
     end
