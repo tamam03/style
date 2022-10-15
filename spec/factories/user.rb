@@ -7,3 +7,18 @@ FactoryBot.define do
     store
   end
 end
+
+# is_userがtrueの場合
+# name
+# name_kana
+# nick_name
+# mail
+# pass
+
+# false
+# name
+# name_kana
+# brand
+# store
+# mail
+# pass

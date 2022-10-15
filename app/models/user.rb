@@ -33,22 +33,25 @@ class User < ApplicationRecord
   validates :name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
   validates :name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
 
+
+#with_option使いtrue/falseでバリデーションわける
   def require_validation?
-    if is_user == false
+    if is_user == true
       true
     else
       false
     end
   end
 
-  with_options presence: true, unless: -> { require_validation? } do
+  with_options if: -> { require_validation? } do
     validates :nick_name, uniqueness: true, presence: true, length: { minimum: 2, maximum: 8 }
   end
 
-  with_options presence: true, if: -> { require_validation? } do
-    validates :brand_id
-    validates :store_id
+  with_options unless: -> { require_validation? } do
+    validates :brand_id, presence: true
+    validates :store_id, presence: true
   end
+
 
 #フォロー機能
   def follow(user_id)
