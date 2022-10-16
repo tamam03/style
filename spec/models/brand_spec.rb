@@ -4,7 +4,7 @@ RSpec.describe "Brandモデルのテスト", type: :model do
   describe 'バリデーションのテスト' do
     subject { brand.valid? }
 
-    let(:brand) { build(:brand) }
+    let(:brand) { create(:brand) }
 
     it '空欄でないこと' do
       brand.brand_name = ''

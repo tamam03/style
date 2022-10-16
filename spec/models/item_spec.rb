@@ -4,8 +4,12 @@ RSpec.describe "Itemモデルのテスト", type: :model do
   describe 'バリデーションのテスト' do
     subject { item.valid? }
 
-    let(:user) { create(:user) }
-    let!(:item) { build(:item, user_id: user.id) }
+    let(:true_user) { build(:user, nick_name: 'aaa', is_user: true) }
+    let!(:item) { build(:item, user_id: true_user.id) }
+    
+    # it 'test' do
+    #   binding.pry
+    # end
 
     context 'textカラム' do
       it '200字以下であること' do

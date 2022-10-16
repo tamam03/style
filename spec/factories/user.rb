@@ -1,19 +1,18 @@
 FactoryBot.define do
   factory :user do
-    name { Faker::Lorem.characters(number: 5) }
-    name_kana { Faker:: Lorem.characters(number: 5) }
+    japanese_name = Gimei.name
+    name { japanese_name.kanji }
+    name_kana { japanese_name.katakana }
     email { Faker::Internet.email }
     password { 'password' }
     password_confirmation { 'password' }
-    # japanese_name = Gimei.name
-    # name { japanese_name.kanji }
-    # name_kana { japanese_name.katakana }
-    trait :true do
+    
+    trait :true_user do
       is_user { true }
-      nick_name { Faker::Lorem.characters(number: 5) }
+      nick_name { 'aaa' }
     end
     
-    trait :false do
+    trait :false_user do
       is_user { false }
       brand
       store
