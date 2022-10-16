@@ -8,7 +8,6 @@ FactoryBot.define do
     # japanese_name = Gimei.name
     # name { japanese_name.kanji }
     # name_kana { japanese_name.katakana }
-    
     trait :true do
       is_user { true }
       nick_name { Faker::Lorem.characters(number: 5) }
