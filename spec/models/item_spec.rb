@@ -12,7 +12,7 @@ RSpec.describe "Itemモデルのテスト", type: :model do
     # end
 
     context 'textカラム' do
-      it '200字以下であること' do
+      it '200字以内であること' do
         item.text = Faker::Lorem.characters(number: 201)
         is_expected.to eq false
       end
