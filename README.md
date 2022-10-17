@@ -31,8 +31,6 @@
 #### ER
 ![ER図_style](https://user-images.githubusercontent.com/100408560/195279301-508f0df0-a688-4b52-9f96-5561eb0ab012.jpg)
 
-
-
 #### Table
 ![テーブル提議書_style - テーブル一覧_page-0001](https://user-images.githubusercontent.com/100408560/196145337-c863be9d-11b6-4d68-9f71-184146b00ba1.jpg)
 
@@ -45,8 +43,9 @@
 ![テーブル提議書_style - items_page-0002](https://user-images.githubusercontent.com/100408560/196166110-e9bfb454-ecbf-4c54-b10c-c7cd78e2ec83.jpg)
 
 #### Detail
-https://docs.google.com/spreadsheets/d/1BOEAqO1aVAn_PEqCA7H-E-pxT6pxGxgU/edit?usp=sharing&ouid=101803635678743693839&rtpof=true&sd=true
+![アプリケーション詳細設計_style xlsx - シート5_page-0001](https://user-images.githubusercontent.com/100408560/196207537-2bd419ea-062b-4fca-8941-891557cad9ae.jpg)
 
+![アプリケーション詳細設計_style xlsx - シート3_page-0001](https://user-images.githubusercontent.com/100408560/196207798-4d1384ab-21d8-4d8e-b383-3008fc1d46f6.jpg)
 
 ## :baby_chick:Image used
 - https://www.photo-ac.com/
