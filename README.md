@@ -32,7 +32,7 @@
 ![ER図_style](https://user-images.githubusercontent.com/100408560/195279301-508f0df0-a688-4b52-9f96-5561eb0ab012.jpg)
 
 #### Table
-![テーブル提議書_style - テーブル一覧_page-0001](https://user-images.githubusercontent.com/100408560/196145337-c863be9d-11b6-4d68-9f71-184146b00ba1.jpg)
+![テーブル提議書_style - テーブル一覧 (2)_page-0001](https://user-images.githubusercontent.com/100408560/196210263-69e49265-0617-429a-a973-2d45aad84f14.jpg)
 
 ![テーブル提議書_style - users_page-0001](https://user-images.githubusercontent.com/100408560/196165329-10e298eb-4cce-44c7-82d4-9ab38a79ea64.jpg)
 
