@@ -36,11 +36,13 @@
 
 ![テーブル提議書_style - users (4)_page-0001](https://user-images.githubusercontent.com/100408560/196217054-906ea77d-44ca-423f-bf3a-bcb46bc3468f.jpg)
 
-![テーブル提議書_style - admins_page-0001](https://user-images.githubusercontent.com/100408560/196165502-f66d9e77-eb9e-4d21-9273-64cd4192034e.jpg)
+![テーブル提議書_style - admins (1)_page-0001](https://user-images.githubusercontent.com/100408560/196219394-641566bc-8865-4338-a53e-3563abd45bfc.jpg)
 
-![テーブル提議書_style - items_page-0001](https://user-images.githubusercontent.com/100408560/196165984-2a6c5b95-a24e-40fa-9316-ed30a56c4990.jpg)
+![テーブル提議書_style - items (2)_page-0001](https://user-images.githubusercontent.com/100408560/196222132-7bc161fa-6464-4290-9529-fb9a242653c8.jpg)
 
-![テーブル提議書_style - items_page-0002](https://user-images.githubusercontent.com/100408560/196166110-e9bfb454-ecbf-4c54-b10c-c7cd78e2ec83.jpg)
+![テーブル提議書_style - favorites_page-0001](https://user-images.githubusercontent.com/100408560/196223486-021cde7d-58d8-4021-9ba2-0a8f8d4f8694.jpg)
+
+![テーブル提議書_style - comments_page-0001](https://user-images.githubusercontent.com/100408560/196225492-d5842a15-392b-40bc-98a1-3aeec88b444b.jpg)
 
 #### Detail
 ![アプリケーション詳細設計_style xlsx - シート5_page-0001](https://user-images.githubusercontent.com/100408560/196207537-2bd419ea-062b-4fca-8941-891557cad9ae.jpg)
