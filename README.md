@@ -18,7 +18,7 @@
 - 通知機能
 - １対１トーク機能
 
-## Environment
+## :dog:Environment
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
