@@ -15,5 +15,9 @@ FactoryBot.define do
     trait :only_clerk do
       status { only_clerk }
     end
+    
+    # after(:create) do |post|
+    #   create_list(:tag_map, 1, post: post, item_tag: create(:item_tag))
+    # end
   end
 end

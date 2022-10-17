@@ -6,10 +6,6 @@ RSpec.describe "Itemモデルのテスト", type: :model do
 
     let(:true_user) { build(:user, nick_name: 'aaa', is_user: true) }
     let!(:item) { build(:item, user_id: true_user.id) }
-    
-    # it 'test' do
-    #   binding.pry
-    # end
 
     context 'textカラム' do
       it '200字以内であること' do

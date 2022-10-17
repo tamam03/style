@@ -45,6 +45,10 @@ ja:
       contact:
         name: "お名前"
         content: "お問い合わせ内容"
+      item_tag:
+        tag_name: "タグ"
+      comment:
+        text: "コメント"
   errors:
     format: "%{attribute}%{message}"
     messages:
