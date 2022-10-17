@@ -1,58 +1,60 @@
 <div class="container">
-  <div class="row d-flex justify-content-center p-5">
-    <div class="item-edit-form">
+  <div class="row p-5">
+    <div class="form">
       <%= form_with model: @item, url: public_item_path(@item), method: :patch do |f| %>
-        <table>
-          <tbody>
-            <div class="col-12">
-              <tr>
-                <div class="images">
-                  <th><%= f.label :投稿画像 %></th>
-                  <td><%= f.file_field :item_image, placeholder: "画像", accept: 'image/*' %></td>
-                </div>
-              </tr>
-            </div>
-            <div class="col-12">
-              <tr>
-                <div class="field">
-                  <th><%= f.label :説明文 %></th>
-                  <td><%= f.text_field :text %></td>
-                </div>
-              </tr>
-            </div>
-            <div class="col-12">
-              <tr>
-                <div class="select">
-                  <th><%= f.label :ブランド %></th>
-                  <td><%= f.select :brand_id, options_from_collection_for_select(Brand.all, :id, :brand_name) %></td>
-                </div>
-              </tr>
-            </div>
-            <div class="col-12">
-              <tr>
-                <div class="select">
-                  <th><%= f.label :ステータス %></th>
-                  <td><%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] } %></td>
-                </div>
-              </tr>
-            </div>
-          <td><%= f.submit "変更する" %></td>
-        </tr>
-      </div>
-    <% end %>
-    </tbody>
-   </table>
-   </div>
+        <div class="image">
+          <%= f.label :item_image %><br>
+          <%= f.file_field :item_image, placeholder: "画像", accept: 'image/*' %>
+        </div>
+        <div class="field">
+          <%= f.label :text %><br>
+          <%= f.text_field :text, class: 'form-control' %>
+        </div>
+        <div class="select">
+          <%= f.label :brand %><br>
+          <%= f.select :brand_id, options_from_collection_for_select(Brand.all, :id, :brand_name) %>
+        </div>
+        <div class="select">
+          <%= f.label :status %><br>
+          <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] } %>
+        </div>
+        <div class="row p-3">
+          <%= f.submit "Edit", class: "btn btn-secondary edit" %>
+        </div>
+      <% end %>
+    </div>
   </div>
- </div>
+</div>
 
 <style>
-.item-edit-form{
-  background-color: #EEEEEE;
-  padding: 40px;
-  border:  3px solid;
-  border-radius: 8px;
-  border-color: #999966;
-  box-shadow: 16px 16px 42px #666666;
+main{
+  color: #941f57;
+  background: #debecc;
+}
+
+.row{
+  justify-content: center;
+}
+
+.btn-secondary.edit{
+  background: #b0778c;
+  padding: 10px 70px;
+}
+
+label{
+  font-weight: 700;
+}
+
+.field{
+  padding-top: 20px;
+}
+
+.select{
+  padding-top: 20px;
+}
+
+.form-control{
+  width: 500px;
+  height: 300px;
 }
 </style>
