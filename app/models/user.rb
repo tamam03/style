@@ -30,8 +30,8 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
-  validates :name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-  validates :name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
+  validates :name, presence: true, format: { with: /\A[一-龥ぁ-ん]/ }
+  validates :name_kana, presence: true
 
 
 #with_option使いtrue/falseでバリデーションわける

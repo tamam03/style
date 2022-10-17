@@ -6,14 +6,12 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { 'password' }
     password_confirmation { 'password' }
-    
-    trait :true_user do
-      is_user { true }
-      nick_name { 'aaa' }
-    end
+    is_user { true }
+    nick_name { 'aaa' }
     
     trait :false_user do
       is_user { false }
+      nick_name { nil }
       brand
       store
     end

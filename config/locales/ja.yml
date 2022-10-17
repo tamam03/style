@@ -20,6 +20,8 @@ ja:
           attributes:
             brand:
               required: "を選択してください"
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
     models:
       user: "ユーザー"
       item: "投稿"

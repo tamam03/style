@@ -16,8 +16,8 @@ FactoryBot.define do
       status { only_clerk }
     end
     
-    # after(:create) do |post|
-    #   create_list(:tag_map, 1, post: post, item_tag: create(:item_tag))
-    # end
+    after(:create) do |item|
+      create(:tag_map, item: item, item_tag: create(:item_tag))
+    end
   end
 end
