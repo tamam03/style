@@ -18,4 +18,18 @@ RSpec.describe "Itemモデルのテスト", type: :model do
       end
     end
   end
+  
+  describe 'アソシエーションのテスト' do
+    context 'Brandモデルとの関係' do
+      it 'N:1になっている' do
+        expect(Item.reflect_on_association(:brand).macro).to eq :belongs_to
+      end
+    end
+    
+    context 'Userモデルとの関係' do
+      it 'N:1になっている' do
+        expect(Item.reflect_on_association(:user).macro).to eq :belongs_to
+      end
+    end
+  end
 end
