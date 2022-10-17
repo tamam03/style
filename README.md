@@ -26,7 +26,7 @@
 - IDE：Cloud9
 
 
-## Plan
+## :panda_face:Plan
 
 #### ER
 ![ER図_style](https://user-images.githubusercontent.com/100408560/195279301-508f0df0-a688-4b52-9f96-5561eb0ab012.jpg)
@@ -48,6 +48,6 @@
 https://docs.google.com/spreadsheets/d/1BOEAqO1aVAn_PEqCA7H-E-pxT6pxGxgU/edit?usp=sharing&ouid=101803635678743693839&rtpof=true&sd=true
 
 
-## Image used
+## :baby_chick:Image used
 - https://www.photo-ac.com/
 - https://girlydrop.com/
