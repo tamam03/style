@@ -1,27 +1,54 @@
-<div class="container">
-  <div class="row p-5">
-    <h1 class="about-title">About</h1>
-  </div>
-  <div class="about1">
-    <div class="title-box">
-      サイトについて
+<div class="about">
+  <h1 class="about-title">About</h1>
+  <div class="about-box">
+    <div class="image-box">
+      <%= image_tag 'about1.jpg', class: 'image' %>
     </div>
     <div class="text-box">
-      当サイトは、ユーザー同士だけでなく店舗スタッフとのコミュニケーションをメインとする<br>
-      コミュニティサイトです。<br>
-      アイテムやコーディネートを通して新たなファッションのヒントが見つかります。<br>
+      <div class="text">
+        当サイトは、ユーザー同士だけでなく<br>
+        店舗スタッフとのコミュニケーションを目的とした<br>
+        コミュニティサイトです。<br>
+        アイテムやコーディネートを通して<br>
+        新たなファッションのヒントが見つかります。
+      </div>
     </div>
-   </div>
+  </div>
+  <div class="about-box">
+    <div class="image-box">
+      <%= image_tag 'about2.jpg', class: 'image' %>
+    </div>
+    <div class="text-box">
+      <div class="text">
+        店舗スタッフユーザーへは<br>
+        投稿による商品の宣伝や<br>
+        「コメント」や「トーク」を通じて<br>
+        ユーザーへのアプローチを実現します
+      </div>
+    </div>
+  </div>
+  <div class="about-box">
+    <div class="image-box">
+      <%= image_tag 'about3.jpg', class: 'image' %>
+    </div>
+    <div class="text-box">
+      <div class="text">
+        一般ユーザーへは<br>
+        投稿を通して、日々の記録や<br>
+        他のユーザーに対する<br>
+        「いいね」「フォロー」「トーク」<br>
+        を通じてコミュニケーションを行い<br>
+        新たなファッションの気付きを提供します
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
 main{
   background-image: none;
   background-color: #eeeaec;
-}
-
-.row{
-  justify-content: center;
+  min-height: 1500px;
 }
 
 h1.about-title{
@@ -31,14 +58,37 @@ h1.about-title{
   font-weight: 800;
   font-size: 50px;
   text-align: center;
-  padding-top: 20px;
+  padding: 20px;
+  margin: 10px 50px;
 }
 
-.title-box{
-  margin:2em 0;
+.about-box{
+  display: flex;
   position: relative;
+  padding: 30px 50px;
+}
+
+.image-box{
+  margin:2em 0;
   padding: 0.5em 1.5em;
-  border-top: solid 2px black;
-  border-bottom: solid 2px black;
+}
+
+.text-box{
+  display: flex;
+}
+
+.text{
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  color: #736d71;
+  font-size: 20px;
+}
+
+.image{
+  width: 800px;
+  height: 500px;
 }
 </style>
