@@ -56,13 +56,13 @@
     <% unless @user.id == current_user.id %>
       <% if current_user.following?(@user) && @user.following?(current_user) %>
         <% if @is_room == true %>
-          <%= link_to "#{@user.name}room", public_room_path(@room_id), class: "btn btn-light" %>
+          <%= link_to "#{@user.name}room", public_room_path(@room_id), class: "btn btn-secondary room" %>
         <% else %>
           <%= form_with model: @room, url: public_rooms_path, method: :post do |f| %>
             <%= fields_for @entry do |e| %>
               <%= e.hidden_field :user_id, value: @user.id %>
             <% end %>
-          <%= f.submit "message" %>
+          <%= f.submit "message", class: "btn btn-secondary room" %>
           <% end %>
         <% end %>
       <% else %>
@@ -71,7 +71,7 @@
       <% end %>
     <% else %>
       <% if current_user.rooms.present? %>
-          <%= link_to "Talk room", public_rooms_path, class: "btn btn-light" %>
+          <%= link_to "Talk room", public_rooms_path, class: "btn btn-secondary room" %>
       <% else %>
           <p class="talk-text">Talk room is not</p>
       <% end %>
@@ -137,6 +137,12 @@
 .talk-text{
   text-align: center;
   font-size: 20px;
+}
+
+.btn-secondary.room{
+  margin: 30px;
+  padding: 10px 20px;
+  background: #698aab;
 }
 
 </style>
