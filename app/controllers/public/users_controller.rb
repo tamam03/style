@@ -38,8 +38,7 @@ class Public::UsersController < ApplicationController
   end
 
   def favorites
-    favorites = Favorite.where(user_id: current_user.id).pluck(:item_id)
-    @favorite_lists = Item.find(favorites)
+    @favorite_lists = Favorite.where(user_id: current_user.id).order("created_at DESC").page(params[:page]).per(9)
   end
 
   private

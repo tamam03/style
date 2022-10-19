@@ -21,6 +21,8 @@ class Item < ApplicationRecord
   validates :item_image, presence: true
   validates :text, length: { maximum: 200 }
 
+  # default_scope :order => 'created_at DESC'
+
 #いいね通知
   def create_notification_favorite!(current_user)
     temp = Notification.where([

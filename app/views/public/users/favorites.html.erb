@@ -1,19 +1,19 @@
 <div class="container">
   <% if @favorite_lists.present? %>
     <div class="row item-cards">
-      <% @favorite_lists.each do |item| %>
+      <% @favorite_lists.each do |favorite| %>
         <div class="item-card">
           <div class="image-wrap">
-            <%= link_to public_item_path(item) do %>
-              <%= image_tag item.get_item_image(400, 400) %>
+            <%= link_to public_item_path(favorite.item) do %>
+              <%= image_tag favorite.item.get_item_image(400, 400) %>
             <% end %>
-            <p><span class="under">Create：<%= item.created_at.strftime("%Y-%m-%d") %></span></p>
-            <p><span class="under">Brand：<%= item.brand.brand_name %></span></p>
+            <p><span class="under">Create：<%= favorite.item.created_at.strftime("%Y-%m-%d") %></span></p>
+            <p><span class="under">Brand：<%= favorite.item.brand.brand_name %></span></p>
           </div>
-           <% if item.user == current_user %>
+           <% if favorite.user == current_user %>
           <div class="item-btn-mark">
             <a class="item-btn-out">
-              <%= link_to public_item_path(item), method: :delete, data: { confirm: "削除しますか？" }, class: "card-delete-btn" do %>
+              <%= link_to public_item_path(favorite.item), method: :delete, data: { confirm: "削除しますか？" }, class: "card-delete-btn" do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>
             </a>
@@ -25,7 +25,36 @@
   <% else %>
     <p class="row d-flex justify-content-center p-5">お気に入りが存在しません</p>
   <% end %>
-  <!-- <div class="row p-3 d-flex justify-content-center">-->
-  <!--  <%#= paginate @favorite_lists %>-->
-  <!--</div>-->
- </div>
+  <div class="row p-5 d-flex justify-content-center">
+    <%= paginate @favorite_lists %>
+  </div>
+</div>
+
+<style>
+main{
+  min-height: 100vh;
+}
+
+p{
+  font-size: 1.2em;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background: #CC99CC;
+  border-radius: 15px;
+}
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
+.page-item.active .page-link {
+  background-color: #CC99CC;
+  border-color: #CC99CC;
+}
+</style>
