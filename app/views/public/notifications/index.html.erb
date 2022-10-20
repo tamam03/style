@@ -1,7 +1,4 @@
 <div class="container">
-  <div class="row d-flex justify-content-center p-5">
-    <h1>通知一覧</h1>
-  </div>
   <% @current_user_notice %>
     <% if @current_user_notice.exists? %>
       <%= render @current_user_notice %>
@@ -17,5 +14,11 @@
  main{
   background-image: none;
   background-color: #888888;
+ }
+
+ p{
+  text-align: center;
+  font-size: 1.3em;
+  padding: 50px;
  }
 </style>

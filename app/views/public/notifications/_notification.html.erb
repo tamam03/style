@@ -1,6 +1,7 @@
 <div class="row notification">
   <div class="col-12 mt-3">
     <table class="table">
+      <%= notification.created_at.strftime("%Y-%m-%d") %>：
       <%= link_to public_user_path(notification.visitor) do %>
         <strong>
           <%= notification.visitor.name %>
