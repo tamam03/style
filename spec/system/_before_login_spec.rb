@@ -11,8 +11,16 @@ describe "ログイン前テスト" do
         expect(current_path).to eq '/'
       end
       
-      it 'トップ画面にログインボタンがあるか' do
-        expect(page).to have_link"", href: new_user_session_path
+      it 'トップ画面にLog inボタンがあるか' do
+        expect(page).to have_link "Log in", href: new_user_session_path
+      end
+      
+      it 'トップ画面にSign upボタンがあるか' do
+        expect(page).to have_link "Sign up", href: new_user_registration_path
+      end
+      
+      it 'トップ画面にguestボタンがあるか' do
+        expect(page).to have_link "Guest", href: public_guests_path
       end
     end
   end
