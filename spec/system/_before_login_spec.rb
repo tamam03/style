@@ -10,6 +10,10 @@ describe "ログイン前テスト" do
       it 'root_pathが"/"であるか' do
         expect(current_path).to eq '/'
       end
+      
+      it 'トップ画面にログインボタンがあるか' do
+        expect(page).to have_link"", href: new_user_session_path
+      end
     end
   end
 end
