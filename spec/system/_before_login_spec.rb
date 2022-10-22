@@ -24,5 +24,15 @@ describe "ログイン前テスト" do
       end
     end
   end
+  
+  describe 'about画面のテスト' do
+    before do
+      visit '/homes/about'
+    end
+    
+    it '表示内容の確認' do
+      expect(current_path).to eq '/homes/about'
+    end
+  end
 end
   
