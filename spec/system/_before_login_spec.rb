@@ -72,51 +72,63 @@ describe 'guide画面のテスト' do
   end
 end
 
-RSpec.describe '一般ユーザー新規登録のテスト', type: :system do
-  before do
-    @user = FactoryBot.build(:user, nick_name: 'aaa', is_user: true)
-  end
-  
-  context '新規登録ができる時' do
-    it '正しい入力で登録されマイページに遷移' do
-       visit  new_user_registration_path
+describe  '新規登録画面のテスト' do
+  context '新規登録画面の表示確認' do
+    before do
+      visit  new_user_registration_path
+      choose 'user_is_user_true'
+    end
     
-      fill_in 'user[is_user]', with: @user.is_user
-      fill_in 'user[name]', with: @user.name
-      fill_in 'user[name_kana]', with: @user.name_kana
-      fill_in 'user[nick_name]', with: @user.nick_name
-      fill_in 'user[email]', with: @user.email
-      fill_in 'user[password]', with: @user.password
-      fill_in 'user[password_confirmation]', @user.password_confirmation
-  
-      expect { click_button 'Sign up' }.to change(User.count).by(1)
-    end 
+    it 'URLの確認' do
+      expect(current_path).to eq '/users/sign_up'
+    end
+    it 'nameフォームが表示される' do
+      expect(page).to have_field 'user[name]'
+    end
+    it 'name_kanaフォームが表示される' do
+      expect(page).to have_field 'user[name_kana]'
+    end
+    it 'nick_nameフォームが表示される' do
+      expect(page).to have_field 'user[nick_name]'
+    end
+    it 'emailフォームが表示される' do
+      expect(page).to have_field 'user[email]'
+    end
+    it 'passwordフォームが表示される' do
+      expect(page).to have_field 'user[password]'
+    end
+    it 'password_confirmationフォームが表示される' do
+      expect(page).to have_field 'user[password_confirmation]'
+    end
   end
 end
+
+
+# RSpec.describe '一般ユーザー新規登録のテスト', type: :system do
   
-#   context '一般ユーザー新規登録画面の確認' do
-#     it 'URLの確認' do
-#       expect(current_path).to eq '/users/sign_up'
-#     end
-#     it 'nameフォームが表示される' do
-#       expect(page).to have_field 'user[name]'
-#     end
-#     it 'name_kanaフォームが表示される' do
-#       expect(page).to have_field 'user[name_kana]'
-#     end
-#     it 'nick_nameフォームが表示される' do
-#       expect(page).to have_field 'user[nick_name]'
-#     end
-#     it 'emailフォームが表示される' do
-#       expect(page).to have_field 'user[email]'
-#     end
-#     it 'passwordフォームが表示される' do
-#       expect(page).to have_field 'user[password]'
-#     end
-#     it 'password_confirmationフォームが表示される' do
-#       expect(page).to have_field 'user[password_confirmation]'
-#     end
+#   let!(:user) { FactoryBot.build(:user) }
+#   before do
+#     choose 'user_is_user_true'
+#     expect(page).to have_checked_field true
 #   end
+ 
+  
+#   context '新規登録ができる時' do
+#     it '正しい入力で登録されマイページに遷移' do
+#       visit  new_user_registration_path
+      
+      
+#       fill_in 'user[name]', with: user.name
+#       fill_in 'user[name_kana]', with: user.name_kana
+#       fill_in 'user[email]', with: user.email
+#       fill_in 'user[password]', with: user.password
+#       fill_in 'user[password_confirmation]', user.password
+  
+#       expect { click_button 'Sign up' }.to change(User.count).by(1)
+#     end 
+#   end
+# end
+  
 # end
 
 # describe '店舗スタッフユーザー新規登録テスト' do
