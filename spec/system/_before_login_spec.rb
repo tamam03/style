@@ -72,33 +72,17 @@ describe 'guide画面のテスト' do
   end
 end
 
-describe  '新規登録画面のテスト' do
-  context '新規登録画面の表示確認' do
-    before do
-      visit  new_user_registration_path
-      choose 'user_is_user_true'
-    end
-    
+describe  '新規登録のテスト' do
+  before do
+    visit  new_user_registration_path
+  end
+  
+  context '表示の確認' do
     it 'URLの確認' do
       expect(current_path).to eq '/users/sign_up'
     end
-    it 'nameフォームが表示される' do
-      expect(page).to have_field 'user[name]'
-    end
-    it 'name_kanaフォームが表示される' do
-      expect(page).to have_field 'user[name_kana]'
-    end
-    it 'nick_nameフォームが表示される' do
-      expect(page).to have_field 'user[nick_name]'
-    end
-    it 'emailフォームが表示される' do
-      expect(page).to have_field 'user[email]'
-    end
-    it 'passwordフォームが表示される' do
-      expect(page).to have_field 'user[password]'
-    end
-    it 'password_confirmationフォームが表示される' do
-      expect(page).to have_field 'user[password_confirmation]'
+    it 'Sign upボタン表示' do
+      expect(page).to have_button 'Sign up'
     end
   end
 end
@@ -156,3 +140,24 @@ end
 # end
 
 
+# 
+#    
+#     it 'nameフォームが表示される' do
+#       expect(page).to have_field 'user[name]'
+#     end
+#     it 'name_kanaフォームが表示される' do
+#       expect(page).to have_field 'user[name_kana]'
+#     end
+#     it 'nick_nameフォームが表示される' do
+#       expect(page).to have_field 'user[nick_name]'
+#     end
+#     it 'emailフォームが表示される' do
+#       expect(page).to have_field 'user[email]'
+#     end
+#     it 'passwordフォームが表示される' do
+#       expect(page).to have_field 'user[password]'
+#     end
+#     it 'password_confirmationフォームが表示される' do
+#       expect(page).to have_field 'user[password_confirmation]'
+#     end
+#   end
