@@ -23,7 +23,7 @@
 </div>
 
 <!--ラジオボタンでフォーム切り替え-->
- <script>
+<script>
   function switchForm(){
    const isUser = $('input:radio[name="user[is_user]"]:checked').val() === 'true';
     if (isUser) {
@@ -40,9 +40,9 @@
   $('.radio-button').click(function() {
    switchForm()
   })
- </script>
-
+</script>
 <!--ブランドと店舗のセレクトボックス連携-->
+<!--ブランドが変更された際get_storeメソッド呼び出し（jsonコントローラー）-->
 <script>
 $('#user_brand_id').change(function() {
  $.ajax('/users/get_store',
@@ -66,19 +66,15 @@ $('#user_brand_id').change(function() {
 main{
   background-image: none;
 }
-
 .row{
   justify-content: center;
 }
-
 .field{
   padding: 10px;
 }
-
 label{
   font-weight: 800;
 }
-
 input{
   display: inline-block;
   padding: 0.5em 0.5em;
