@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<!--ラジオボタンでフォーム切り替え-->
+<!--ラジオボタンでユーザー別フォーム表示切り替え-->
 <script>
   function switchForm(){
    const isUser = $('input:radio[name="user[is_user]"]:checked').val() === 'true';
@@ -42,7 +42,8 @@
   })
 </script>
 <!--ブランドと店舗のセレクトボックス連携-->
-<!--ブランドが変更された際get_storeメソッド呼び出し（jsonコントローラー）-->
+<!--user_brand_id…brandセレクトボックスのid-->
+<!--ブランドが変更された際get_storeメソッド呼び出しbrandに紐づくstore取得（public/registration_jsonsコントローラー）-->
 <script>
 $('#user_brand_id').change(function() {
  $.ajax('/users/get_store',

@@ -16,9 +16,10 @@
   </div>
 
   <div id="only-clerk">
-    <% brand_options = Brand.order(:id).map { |c| [c.brand_name, c.id, data: { children_path: public_brand_stores_path(c) }] } %>
     <div class="field">
       <%= f.label :brand_name %><br>
+       <!--data-children-pathへstore_id取得するためのpath-->
+      <% brand_options = Brand.order(:id).map { |c| [c.brand_name, c.id, data: { children_path: public_brand_stores_path(c) }] } %>
       <%= f.select :brand_id, brand_options, { include_blank: true }, class: 'select-parent' %>
     </div>
     <div class="field">
