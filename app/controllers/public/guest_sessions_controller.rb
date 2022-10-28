@@ -5,7 +5,7 @@ class Public::GuestSessionsController < ApplicationController
     user.password = SecureRandom.alphanumeric
     user.password_confirmation = user.password
     user.is_user = 'true'
-    user.name = 'ゲスト'
+    user.name = '戲須人'
     user.name_kana = 'ゲスト'
     user.nick_name = 'ゲスト'
     end
