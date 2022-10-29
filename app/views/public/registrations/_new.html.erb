@@ -19,11 +19,16 @@
     <div class="field">
       <%= f.label :brand_name %><br>
        <!--optionタグdata-children-pathでstore_id取得するためのpath-->
+       <!--options_for_selectを成形しbrand_options-->
       <% brand_options = Brand.order(:id).map { |c| [c.brand_name, c.id, data: { children_path: public_brand_stores_path(c) }] } %>
+      <%#= brand_options %>
       <%= f.select :brand_id, brand_options, { include_blank: true }, class: 'select-parent' %>
     </div>
+
     <div class="field">
       <%= f.label :store_name %><br>
+      <!--json経由で取得するため空の状態で用意-->
+      <!--データの投入はregistrations/newに記入-->
       <%= f.select :store_id, [], {}, class: 'select-children' %>
     </div>
   </div>
