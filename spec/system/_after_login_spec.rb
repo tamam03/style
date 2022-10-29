@@ -17,9 +17,13 @@ let(:user) { create(:user, nick_name: 'aaa', is_user: true) }
     context 'アイコン表示確認' do
       it '検索ページアイコン：虫眼鏡' do
         expect(page).to have_selector('.fas.fa-search')
+        find('.fas.fa-search').click
+        is_expected.to eq 'public/items/search'
       end
       it '新規投稿アイコン: +' do
         expect(page).to have_selector('.far.fa-plus-square')
+        find('.far.fa-plus-square').click
+        is_expected.to eq 'public/items/new'
       end
       it '通知ページアイコン：ベル' do
         expect(page).to have_selector('.fas.fa-bell')
