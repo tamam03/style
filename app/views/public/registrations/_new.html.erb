@@ -19,9 +19,8 @@
     <div class="field">
       <%= f.label :brand_name %><br>
        <!--optionタグdata-children-pathでstore_id取得するためのpath-->
-       <!--options_for_selectを成形しbrand_options-->
+       <!--options_for_selectを成形しbrand_options作成-->
       <% brand_options = Brand.order(:id).map { |c| [c.brand_name, c.id, data: { children_path: public_brand_stores_path(c) }] } %>
-      <%#= brand_options %>
       <%= f.select :brand_id, brand_options, { include_blank: true }, class: 'select-parent' %>
     </div>
 

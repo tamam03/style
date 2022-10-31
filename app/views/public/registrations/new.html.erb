@@ -22,8 +22,9 @@
   </div>
 </div>
 
-<!--ラジオボタンでユーザー別フォーム表示切り替え-->
 <script>
+// ラジオボタンでユーザー別フォーム表示切り替え
+  // switchform定義（ラジオボタンdivタグで指定）
   function switchForm(){
    const isUser = $('input:radio[name="user[is_user]"]:checked').val() === 'true';
     if (isUser) {
@@ -34,17 +35,19 @@
      $('#only-customer').hide();
     }
   }
+  // 何もクリックされていない＝ページ読み込みの時trueで
   $(function() {
-   switchForm()
+  switchForm()
   })
+  // ラジオボタンクリック時
   $('.radio-button').click(function() {
-   switchForm()
+  switchForm()
   })
-</script>
-<!--ブランドと店舗のセレクトボックス連携-->
-<!--user_brand_id…brandセレクトボックスのid-->
-<!--ブランドが変更された際get_storeメソッド呼び出しbrandに紐づくstore取得（public/registration_jsonsコントローラー）-->
-<script>
+
+// ブランドと店舗のセレクトボックス連携
+  // user_brand_id…brandセレクトボックスのid
+  // ブランドが変更された際get_storeメソッド呼び出しbrandに紐づくstore取得（public/registration_jsonsコントローラー）
+
 $('#user_brand_id').change(function() {
  $.ajax('/users/get_store',
    {
@@ -53,8 +56,10 @@ $('#user_brand_id').change(function() {
     dataType: 'json'
    }
   )
+
   .done(function(data) {
-   $('#user_store_id > option').remove();
+    // brand_id変わるごとにリセット
+  $('#user_store_id > option').remove();
    data.forEach(function(store) {
     var option = $('<option>').val(store.id).text(store.store_name);
     $('#user_store_id').append(option);
